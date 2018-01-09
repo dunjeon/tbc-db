@@ -20452,6 +20452,7 @@ INSERT INTO `creature_ai_scripts` (`id`,`creature_id`,`event_type`,`event_invers
 -- Lee Sparks 20389
 -- Foreman Sundown 20393
 -- Eye of Culuthas 20394
+('2039401','20394','0','0','100','1','0','5000','12500','15000','11','36414','1','0','0','0','0','0','0','0','0','0','Eye of Culuthas - Cast Focused Bursts'),
 -- Overseer Seylanna 20397
 -- Terror Imp 20399
 -- Legion Shocktrooper
@@ -22671,7 +22672,7 @@ INSERT INTO `creature_ai_scripts` (`id`,`creature_id`,`event_type`,`event_invers
 ('2076201','20762','4','0','100','0','0','0','0','0','12','9297','1','30000','12','9297','1','30000','1','-548','0','0','Gur\'zil - Summon Enraged Wyverns and Yell on Aggro'),
 -- Xeleth
 ('2189401','21894','11','0','100','0','0','0','0','0','55','11','0','0','1','-1571','0','0','0','0','0','0','Xeleth - attack spawner (player) on spawn and yell'),
-('2189402','21894','0','0','100','1','0','0','12500','12500','11','36414','1','0','0','0','0','0','0','0','0','0','Xeleth - cast Focused Bursts'),
+('2189402','21894','0','0','100','1','0','0','12500','12500','11','36414','1','0','0','0','0','0','0','0','0','0','Xeleth - Cast Focused Bursts'),
 -- Halu
 ('2248501','22485','4','0','100','0','0','0','0','0','12','9527','1','30000','12','9527','1','30000','1','-549','0','0','Halu - Summon Enraged Hippogryphs on Aggro');
 
