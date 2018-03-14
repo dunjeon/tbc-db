@@ -16547,7 +16547,8 @@ INSERT INTO `creature_ai_scripts` (`id`,`creature_id`,`event_type`,`event_invers
 -- Porthannius 6780
 -- Melarith 6781
 -- Sethir the Ancient 6909
--- Minion of Sethir 6911
+-- Minion of Sethir
+('691101','6911','4','0','50','0','0','0','0','0','1','-1587','0','0','0','0','0','0','0','0','0','0','Minion of Sethir - Say on Aggro'),
 -- Ferocitas the Dream Eater
 ('723401','7234','11','0','100','0','0','0','0','0','11','12787','0','0','0','0','0','0','0','0','0','0','Ferocitas the Dream Eater - Cast Thrash on Spawn'),
 -- Gnarlpine Mystic
@@ -28390,10 +28391,7 @@ INSERT INTO `creature_ai_scripts` (`id`,`creature_id`,`event_type`,`event_invers
 -- ==========================
 -- Tempest Keep: The Arcatraz - (Zone Script Revamp Complete)
 -- ==========================
--- Arcatraz Defender
-('2085701','20857','11','0','100','6','0','0','0','0','11','38805','0','1','0','0','0','0','0','0','0','0','Arcatraz Defender  - Cast Immolate on Spawn'),
-('2085702','20857','9','0','100','7','0','5','2000','3000','11','38804','1','0','0','0','0','0','0','0','0','0','Arcatraz Defender  - Cast Flaming Weapon'),
-('2085703','20857','0','0','100','7','2000','3000','1000','1000','11','40449','1','1','0','0','0','0','0','0','0','0','Arcatraz Defender  - Cast Protean Subdual'),
+-- Arcatraz Defender 20857 - moved to SD2
 -- Arcatraz Warder 20859 (Needs Ranged Combat Movement Action 57)
 ('2085901','20859','1','0','100','7','1000','3000','4000','5000','11','36327','0','0','40','2','0','0','0','0','0','0','Arcatraz Warder - Cast Shoot Arcane Explosion Arrow and Set Ranged Weapon Model OOC'),
 ('2085902','20859','1','0','100','7','16000','16000','2000','4000','11','36293','0','0','40','2','0','0','0','0','0','0','Arcatraz Warder - Cast Arcane Shot and Set Ranged Weapon Model OOC'),
@@ -28407,17 +28405,17 @@ INSERT INTO `creature_ai_scripts` (`id`,`creature_id`,`event_type`,`event_invers
 ('2085910','20859','9','0','100','1','0','8','1000','1000','21','1','0','0','40','1','0','0','0','0','0','0','Arcatraz Warder - Start Movement and Set Melee Weapon Model at 0-8 Yards'),
 ('2085911','20859','7','0','100','0','0','0','0','0','22','0','0','0','40','2','0','0','21','1','0','0','Arcatraz Warder - Set Phase 0 and Set Melee Weapon Model and Start Movement on Evade'),
 -- Protean Nightmare (4.3.4 Official Data - Normal)
-('2086401','20864','0','0','100','7','15200','21700','10900','22900','11','36622','4','33','0','0','0','0','0','0','0','0','Protean Nightmare  - Cast Incubation'),
-('2086402','20864','0','0','100','3','16900','17600','19300','26500','11','36617','1','0','0','0','0','0','0','0','0','0','Protean Nightmare (Normal)  - Cast Gaping Maw'),
-('2086403','20864','0','0','100','5','16900','17600','19300','26500','11','38810','1','0','0','0','0','0','0','0','0','0','Protean Nightmare (Heroic)  - Cast Gaping Maw'),
-('2086404','20864','0','0','100','3','22900','26300','10800','22900','11','36619','4','1','0','0','0','0','0','0','0','0','Protean Nightmare (Normal)  - Cast Infectious Poison'),
-('2086405','20864','0','0','100','5','22900','26300','10800','22900','11','38811','4','1','0','0','0','0','0','0','0','0','Protean Nightmare (Heroic)  - Cast Infectious Poison'),
+('2086401','20864','0','0','100','7','15200','21700','10900','22900','11','36622','4','33','0','0','0','0','0','0','0','0','Protean Nightmare - Cast Incubation'),
+('2086402','20864','0','0','100','3','16900','17600','19300','26500','11','36617','1','0','0','0','0','0','0','0','0','0','Protean Nightmare (Normal) - Cast Gaping Maw'),
+('2086403','20864','0','0','100','5','16900','17600','19300','26500','11','38810','1','0','0','0','0','0','0','0','0','0','Protean Nightmare (Heroic) - Cast Gaping Maw'),
+('2086404','20864','0','0','100','3','22900','26300','10800','22900','11','36619','4','1','0','0','0','0','0','0','0','0','Protean Nightmare (Normal) - Cast Infectious Poison'),
+('2086405','20864','0','0','100','5','22900','26300','10800','22900','11','38811','4','1','0','0','0','0','0','0','0','0','Protean Nightmare (Heroic) - Cast Infectious Poison'),
 -- Protean Horror
-('2086501','20865','9','0','100','7','0','5','3000','5000','11','36612','1','0','0','0','0','0','0','0','0','0','Protean Horror  - Cast Toothy Bite'),
+('2086501','20865','9','0','100','7','0','5','3000','5000','11','36612','1','0','0','0','0','0','0','0','0','0','Protean Horror - Cast Toothy Bite'),
 -- Soul Devourer
-('2086601','20866','0','0','100','3','7000','11000','17000','23000','11','36654','0','0','0','0','0','0','0','0','0','0','Soul Devourer (Normal)  - Cast Fel Breath'),
-('2086602','20866','0','0','100','5','7000','10000','15000','20000','11','38813','0','0','0','0','0','0','0','0','0','0','Soul Devourer (Heroic)  - Cast Fel Breath'),
-('2086603','20866','0','0','100','6','15000','17000','120000','180000','11','36644','0','1','0','0','0','0','0','0','0','0','Soul Devourer  - Cast Sightless Eye'),
+('2086601','20866','0','0','100','3','7000','11000','17000','23000','11','36654','0','0','0','0','0','0','0','0','0','0','Soul Devourer (Normal) - Cast Fel Breath'),
+('2086602','20866','0','0','100','5','7000','10000','15000','20000','11','38813','0','0','0','0','0','0','0','0','0','0','Soul Devourer (Heroic) - Cast Fel Breath'),
+('2086603','20866','0','0','100','6','15000','17000','120000','180000','11','36644','0','1','0','0','0','0','0','0','0','0','Soul Devourer - Cast Sightless Eye'),
 ('2086604','20866','2','0','100','6','30','0','14000','21000','11','33958','0','1','0','0','0','0','0','0','0','0','Soul Devourer - Cast Enrage at 30% HP'),
 -- Death Watcher
 ('2086701','20867','9','0','100','3','0','5','6000','8000','11','36664','4','0','0','0','0','0','0','0','0','0','Death Watcher (Normal) - Cast Tentacle Cleave'),
@@ -28617,6 +28615,8 @@ INSERT INTO `creature_ai_scripts` (`id`,`creature_id`,`event_type`,`event_invers
 ('2110102','21101','11','0','100','4','0','0','0','0','11','39003','0','0','0','0','0','0','0','0','0','0','Unbound Void Zone (Heroic) - Cast Consumption on Spawn'),
 -- Arcane Warder Target (KEEPING PREVENT COMBAT MOVEMENT ON PURPOSE UNTIL BETTER SOLUTION IS DETERMINED)
 ('2118601','21186','11','0','100','6','0','0','0','0','42','1','0','0','21','0','0','0','0','0','0','0','Arcane Warder Target - Set Invincible and Prevent Combat Movement on Spawn'),
+-- Arcane Explosion
+('2129001','21290','11','0','100','6','0','0','0','0','11','36514','0','0','41','0','0','0','0','0','0','0','Arcane Explosion - Cast Energy and Despawn on Spawn'),
 -- Defender Corpse
 ('2130301','21303','10','0','100','6','0','8','0','0','11','36593','0','7','37','0','0','0','0','0','0','0','Defender Corpse - Cast Corpse Burst and Die on 8 Yards LOS'),
 -- Warder Corpse
@@ -28783,6 +28783,7 @@ INSERT INTO `creature_ai_scripts` (`id`,`creature_id`,`event_type`,`event_invers
 ('1996401','19964','9','0','100','7','0','20','2400','4800','11','36339','1','0','0','0','0','0','0','0','0','0','Red Seedling - Cast Fire Blast'),
 -- Green Seedling (4.3.4 Official Data - Normal/Heroic)
 ('1996901','19969','11','0','100','6','0','0','0','0','11','34757','0','0','0','0','0','0','0','0','0','0','Green Seedling - Cast Toxic Pollen on Spawn'),
+('1996902','19969','6','0','100','6','0','0','0','0','28','0','34757','0','0','0','0','0','0','0','0','0','Green Seedling - Remove Toxic Pollen on Death'),
 -- Summoned Bloodwarder Reservist (4.3.4 Official Data - Normal/Heroic)
 ('2007801','20078','0','0','100','7','12400','16400','8100','16200','11','34820','1','0','0','0','0','0','0','0','0','0','Summoned Bloodwarder Reservist - Cast Arcane Strike'),
 -- Summoned Bloodwarder Mender (4.3.4 Official Data - Normal/Heroic)
@@ -34756,7 +34757,9 @@ INSERT INTO `creature_ai_texts` (`entry`,`content_default`,`sound`,`type`,`langu
 ('-1576','I\'ve a message for your master, scum!','0','0','0','22863','0'),
 ('-1577','Once I have hacked off your limbs, I may hang your body from our battlements.','0','0','0','18677','0'),
 ('-1578','I love to bathe in the blood of my enemies!','0','0','0','18677','0'),
-('-1579','I crave your death!','0','0','0','18677','0');
+('-1579','I crave your death!','0','0','0','18677','0'),
+-- Reuse -1580 to -1586
+('-1587','We live only to serve the ancient one. DIE INTERLOPER!','0','0','0','6911','0');
 
 
 
