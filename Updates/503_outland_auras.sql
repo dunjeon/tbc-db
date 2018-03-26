@@ -67,3 +67,12 @@ UPDATE `creature_template_addon` SET `auras` = '38457' WHERE `entry` = 22137;
 -- Cavern Crawler - Poison Proc
 UPDATE `creature_template_addon` SET `auras` = '3616' WHERE `entry` = 22044;
 
+-- Talonpriest Ishaal - Poison Proc, Skettis Corrupted Ghosts, Ghostly Facade, Shadowform
+UPDATE `creature_template_addon` SET `auras` = '11919 37411 37509 37816' WHERE `entry` = 23066;
+
+-- Talonpriest Skizzik - Skettis Corrupted Ghosts, Ghostly Facade, Shadowform
+UPDATE `creature_template_addon` SET `auras` = '37411 37509 37816' WHERE `entry` = 23067;
+
+-- Talonpriest Zellek - Skettis Corrupted Ghosts, Ghostly Facade, Shadowform
+UPDATE `creature_template_addon` SET `auras` = '37411 37509 37816' WHERE `entry` = 23068;
+
