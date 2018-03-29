@@ -3409,8 +3409,9 @@ INSERT INTO `creature_ai_scripts` (`id`,`creature_id`,`event_type`,`event_invers
 -- Outrunner Alarion (15301) - NSR
 -- Springpaw Cub (15366) - NSR
 -- Felendren the Banished (3.0.3 Official Data)
-('1536701','15367','4','0','100','0','0','0','0','0','1','-110','0','0','0','0','0','0','0','0','0','0','Felendren the Banished - Say on Aggro'),
+('1536701','15367','4','0','100','0','0','0','0','0','1','-110','-1593','0','0','0','0','0','0','0','0','0','Felendren the Banished - Say on Aggro'),
 ('1536702','15367','0','0','100','1','9100','10600','20500','28600','11','16568','1','0','0','0','0','0','0','0','0','0','Felendren the Banished - Cast Mind Flay'),
+('1536703','15367','5','0','100','0','0','0','0','0','1','-1594','0','0','0','0','0','0','0','0','0','0','Felendren the Banished - Say on Player Kill'),
 -- Sunstrider Guardian
 ('1537101','15371','22','0','30','1','78','6','67','0','1','-936','-937','0','0','0','0','0','0','0','0','0','Sunstrider Guardian -  Say on Receive Salute Emote'),
 ('1537102','15371','22','0','30','1','77','6','67','0','1','-938','0','0','0','0','0','0','0','0','0','0','Sunstrider Guardian - Say on Receive Rude Emote'),
@@ -18133,7 +18134,7 @@ INSERT INTO `creature_ai_scripts` (`id`,`creature_id`,`event_type`,`event_invers
 ('2009507','20095','22','0','100','1','101','8','11000','0','5','3','0','0','0','0','0','0','0','0','0','0','Grimnok Battleborn - Wave on Receive TEXTEMOTE_WAVE if Player has Completed Quest 11000'),
 ('2009508','20095','6','0','100','0','10040','0','0','0','54','0','6','10029','0','0','0','0','0','0','0','0','Grimnok Battleborn - Say on Death if Killer Player has Completed Quest 11000'),
 ('2009509','20095','4','0','15','0','0','0','0','0','1','-359','-360','-361','0','0','0','0','0','0','0','0','Grimnok Battleborn - Random Say on Aggro'),
-('2009510','20095','0','0','100','1','8000,','14000','20000','30000','11','37786','0','0','0','0','0','0','0','0','0','0','Grimnok Battleborn - Cast Bloodmaul Rage'),
+('2009510','20095','0','0','100','1','8000','14000','20000','30000','11','37786','0','0','0','0','0','0','0','0','0','0','Grimnok Battleborn - Cast Bloodmaul Rage'),
 ('2009511','20095','8','0','100','1','37786','-1','0','0','54','0','0','10042','0','0','0','0','0','0','0','0','Grimnok Battleborn - Random Say on Bloodmaul Rage Spellhit'),
 ('2009512','20095','0','0','100','1','0','5000','10000','11000','11','15496','1','0','0','0','0','0','0','0','0','0','Grimnok Battleborn - Cast Cleave'),
 -- Lashh'an Kaliri 20109 NSR
@@ -30769,13 +30770,13 @@ INSERT INTO `creature_ai_scripts` (`id`,`creature_id`,`event_type`,`event_invers
 ('2124602','21246','0','0','100','3','0','5','24000','36800','11','38924','0','1','0','0','0','0','0','0','0','0','Serpentshrine Sporebat - Cast Spore Burst'),
 -- Underbog Colossus
 ('2125101','21251','11','0','100','2','0','0','0','0','30','1','2','3','0','0','0','0','0','0','0','0','Underbog Colossus - Random Phase on Spawn'),
-('2125102','21251','0','509','100','3','5700','11400','14400','24900','11','39032','4','0','0','0','0','0','0','0','0','0','Underbog Colossus - Cast Initial Infection (Phase 1)'),
+('2125102','21251','0','509','100','3','5700','11400','14400','24900','11','39032','8','0','0','0','0','0','0','0','0','0','Underbog Colossus - Cast Initial Infection (Phase 1)'),
 ('2125103','21251','0','509','100','3','14600','19700','21400','33100','11','38976','0','1','0','0','0','0','0','0','0','0','Underbog Colossus - Cast Spore Quake (Phase 1)'),
-('2125104','21251','0','507','100','3','9400','14500','21200','32400','11','39044','4','0','0','0','0','0','0','0','0','0','Underbog Colossus - Cast Serpentshrine Parasite (Phase 2)'),
-('2125105','21251','0','507','100','3','16800','22400','27700','31200','11','38971','5','1','0','0','0','0','0','0','0','0','Underbog Colossus - Cast Acid Geyser (Phase 2)'),
+('2125104','21251','0','507','100','3','9400','14500','21200','32400','11','39044','8','0','0','0','0','0','0','0','0','0','Underbog Colossus - Cast Serpentshrine Parasite (Phase 2)'),
+('2125105','21251','0','507','100','3','16800','22400','27700','31200','11','38971','9','1','0','0','0','0','0','0','0','0','Underbog Colossus - Cast Acid Geyser (Phase 2)'),
 ('2125106','21251','9','503','100','3','0','5','2400','6800','11','39015','1','0','0','0','0','0','0','0','0','0','Underbog Colossus - Cast Antrophic Blow (Phase 3)'),
 ('2125107','21251','0','503','100','3','6700','10900','16100','21800','11','39031','0','1','0','0','0','0','0','0','0','0','Underbog Colossus - Cast Frenzy (Phase 3)'),
-('2125108','21251','6','0','100','2','0','0','0','0','31','4','8','0','0','0','0','0','0','0','0','0','Underbog Colossus - Random Phase on Death'),
+('2125108','21251','6','0','100','2','0','0','0','0','31','4','9','0','0','0','0','0','0','0','0','0','Underbog Colossus - Random Phase on Death'),
 ('2125109','21251','6','495','100','2','0','0','0','0','11','38718','0','7','0','0','0','0','0','0','0','0','Underbog Colossus - Cast Toxic Pool on Death (Phase 4)'),
 ('2125110','21251','6','479','100','2','0','0','0','0','11','38726','0','2','11','38726','0','2','11','38726','0','2','Underbog Colossus - Cast Summon Serpentshrine Mushroom on Death (Phase 5)'),
 ('2125111','21251','6','479','100','2','0','0','0','0','11','38726','0','2','11','38726','0','2','0','0','0','0','Underbog Colossus - Cast Summon Serpentshrine Mushroom on Death (Phase 5)'),
@@ -33828,7 +33829,7 @@ INSERT INTO `creature_ai_texts` (`entry`,`content_default`,`sound`,`type`,`langu
 ('-107','Protect the innocent!','0','0','0','15638','0'),
 ('-108','Serve the Public Trust!','0','0','0','15638','0'),
 ('-109','Uphold the Law!','0','0','0','15638','0'),
-('-110','Take heart! Your friends will not long mourn your passing!','8506','0','0','15638','0'),
+('-110','Take heart! Your friends will not long mourn your passing!','8506','0','0','15367','0'),
 ('-111','%s bursts, showering the area with arcane residue!','0','2','0','15648','0'),
 ('-112','Your world is ours now.','11056','1','0','17767','0'),
 ('-113','More, more, more!  I must feed soon.','0','0','10','Common Wretched Text','0'),
@@ -35115,7 +35116,9 @@ INSERT INTO `creature_ai_texts` (`entry`,`content_default`,`sound`,`type`,`langu
 ('-1589','BURN IT DOWN!','0','1','0','23440/23441','0'),
 ('-1590','Me smell stench of the living!','5823','1','0','8567','0'),
 ('-1591','Me feast on you all!','5824','1','0','8567','0'),
-('-1592','I\'ll feast on your bones!','5860','1','0','8580','0');
+('-1592','I\'ll feast on your bones!','5860','1','0','8580','0'),
+('-1593','I must feed! Prepare to die!','8508','0','0','15367','0'),
+('-1594','Foolish Whelp! I will consume your energies and then your soul!','8507','0','0','15367','0');
 
 
 
