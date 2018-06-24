@@ -9303,6 +9303,10 @@ INSERT INTO `creature_ai_scripts` (`id`,`creature_id`,`event_type`,`event_invers
 ('618001','6180','1','0','100','0','1000','1000','0','0','11','7165','0','32','0','0','0','0','0','0','0','0','Defias Raider - Cast Battle Stance OOC'),
 ('618002','6180','0','0','100','1','5000','7500','12500','15000','11','25710','1','0','0','0','0','0','0','0','0','0','Defias Raider - Cast Heroic Strike'),
 -- Daphne Stilwell 6182 - npc_daphne_stilwell
+-- Klaven Mortwake 7053
+('705301','7053','4','0','100','0','0','0','0','0','1','-11','0','0','0','0','0','0','0','0','0','0','Klaven Mortwake - Say on Aggro'), -- Class Rogue & Detect Stealth Condition?
+
+
 
 
 
@@ -13543,7 +13547,11 @@ INSERT INTO `creature_ai_scripts` (`id`,`creature_id`,`event_type`,`event_invers
 ('2359502','23595','0','0','100','1','3000','3000','60000','70000','11','15786','0','0','0','0','0','0','0','0','0','0','Grimtotem Earthbinder - Cast Earthbind Totem'),
 -- Apprentice Morlann (23600) - NSR
 -- Apprentice Garion (23601) - NSR
--- Deserter Agitator (23602) - npc_deserter_agitator
+-- Deserter Agitator
+('2360201','23602','11','0','100','0','0','0','0','0','17','168','1','0','0','0','0','0','0','0','0','0','Deserter Agitator - SET NpcFlag on Spawn(q.11126)'),
+('2360202','23602','21','0','100','0','0','0','0','0','17','168','1','0','0','0','0','0','0','0','0','0','Deserter Agitator - Restore NpcFlag on Reached Home(q.11126)'),
+('2360203','23602','2','0','100','2','10','0','0','0','25','0','0','0','1','-47','0','0','0','0','0','0','Deserter Agitator - Flee at 10% HP'),
+('2360204','23602','30','0','100','1','5','23602','0','0','48','1','15','0','41','4000','0','0','0','0','0','0','Deserter Agitator - Set Waypoints and Despawn on Receive AI Event Custom A.(q.11126)'),
 -- Dyslix Silvergrub 23612
 ('2361201','23612','4','0','100','0','0','0','0','0','12','9297','1','30000','12','9526','1','30000','0','0','0','0','Dyslix Silvergrub - Spawn Enraged Wyvern and Gryphon on Aggro'),
 -- Privateer
@@ -20001,9 +20009,11 @@ INSERT INTO `creature_ai_scripts` (`id`,`creature_id`,`event_type`,`event_invers
 ('2246101','22461','11','0','100','0','0','0','0','0','21','0','0','0','20','0','0','0','0','0','0','0','Fel Cannon MKI - Prevent Movement and Prevent Melee on Spawn'),
 ('2246102','22461','0','0','100','1','0','1000','2500','2500','11','36238','1','0','0','0','0','0','0','0','0','0','Fel Cannon MKI - Combat - Cast Fel Cannon Blast'),
 -- Bubbling Slimer Bunny
-('2250501','22505','1','0','100','1','1000','5000','22000','27000','12','22506','0','25000','0','0','0','0','0','0','0','0','The Exorcism Bubbling Slimer Bunny (DND) - Spawn Foul Purge'),
+('2250501','22505','11','0','100','1','0','0','0','0','11','39300','0','0','0','0','0','0','0','0','0','0','The Exorcism Bubbling Slimer Bunny (DND) - Cast 39300 on Spawn'),
+('2250502','22505','1','0','100','1','1000','5000','22000','27000','12','22506','0','25000','0','0','0','0','0','0','0','0','The Exorcism Bubbling Slimer Bunny (DND) - Spawn Foul Purge'),
 -- The Exorcism Lightning Cloud Bunny
-('2250801','22508','1','0','100','1','5000','6000','35000','45000','11','39381','0','1','0','0','0','0','0','0','0','0','The Exorcism Lightning Cloud Bunny - Cast The Exorcism Lightning Bunny Visual'),
+('2250801','22508','1','0','100','1','1000','1000','35000','35000','11','39380','0','1','0','0','0','0','0','0','0','0','The Exorcism Lightning Cloud Bunny - Cast The Exorcism Lightning Cloud Bunny Visual'),
+('2250802','22508','1','0','100','1','7000','7000','35000','35000','11','39381','0','1','0','0','0','0','0','0','0','0','The Exorcism Lightning Cloud Bunny - Cast The Exorcism Lightning Bunny Visual'),
 -- Felblood Initiate - spell_dummy_npc
 ('2491801','24918','9','0','100','1','0','5','5000','9000','11','14873','1','0','0','0','0','0','0','0','0','0','Felblood Initiate - Cast Sinister Strike'),
 ('2491802','24918','9','0','100','1','0','5','12000','16000','11','35871','1','0','0','0','0','0','0','0','0','0','Felblood Initiate - Cast Spellbreaker'),
@@ -20211,7 +20221,7 @@ INSERT INTO `creature_ai_scripts` (`id`,`creature_id`,`event_type`,`event_invers
 -- Ravenous Windroc
 ('1822001','18220','0','0','100','1','1000','5000','10000','20000','11','30285','1','32','0','0','0','0','0','0','0','0','Ravenous Windroc - Cast Eagle Claw'),
 -- Fire Bomb Target 18225
-('1822501','18225','11','0','100','0','0','0','0','0','11','31961','0','0','0','0','0','0','0','0','0','0','Fire Bomb Target - Cast Fire Bomb on Spawn'),
+('1822501','18225','11','0','100','0','0','0','0','0','11','31961','11','130','0','0','0','0','0','0','0','0','Fire Bomb Target - Cast Fire Bomb on Spawn'),
 ('1822502','18225','29','0','100','1','1000','1000','1000','1000','11','31962','0','0','0','0','0','0','0','0','0','0','Fire Bomb Target - Cast Flames on Generic Timer'),
 -- Saurfang the Younger 18229
 ('1822901','18229','0','0','100','1','6000','8000','14000','16000','11','41097','0','0','0','0','0','0','0','0','0','0','Saurfang the Younger - Cast Whirlwind'),
@@ -34212,7 +34222,7 @@ INSERT INTO `creature_ai_texts` (`entry`,`content_default`,`sound`,`type`,`langu
 ('-8','Yiieeeee! Me run!','0','0','0','Common Kobold Text','0'),
 ('-9','Hear the voices below the earth!  They call for your blood!','0','0','0','Darkscreecher Akkarai on Spawn','0'),
 ('-10','You capture Karrog!  Karrog smash you!','0','0','0','Karrog on Spawn','0'),
--- PLEASE RE-USE 11 classic>tbc>wotlk
+('-11','You cannot hide from me, rogue. I can smell your fear.','0','0','0','Klaven Mortwake 7053','0'),
 ('-12','Consume $N, my children!','0','0','0','Darkscreecher Akkarai on Flock Call 40427','0'),
 -- PLEASE RE-USE 13 - 16 classic>tbc>wotlk
 ('-14','Now how am I supposed to get those mechanical wretches out of my fields?','0','0','7','Farmer Saldean 233','0'),
