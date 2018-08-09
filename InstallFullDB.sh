@@ -7,8 +7,8 @@
 ####################################################################################################
 
 # need to be changed on each official DB/CORE release
-FULLDB_FILE="TBCDB_1.6.0_RiseOfThePhoenix.sql"
-DB_TITLE="v1.6 'Rise from the Ashes'"
+FULLDB_FILE="TBCDB_1.7.0_ANewHope.sql"
+DB_TITLE="v1.7 'A New Hope'"
 NEXT_MILESTONES="0.12.4 0.13"
 
 #internal use
@@ -154,7 +154,33 @@ if [ "$COUNT" != 0 ]
 then
   echo "  $COUNT DB updates applied successfully"
 else
-  echo "  Did not found any new DB update to apply"
+  echo "  Did not find any new DB update to apply"
+fi
+echo
+echo
+
+## Instances
+echo "> Processing instance files ..."
+COUNT=0
+for INSTANCE in "${ADDITIONAL_PATH}Updates/Instances/"[0-9]*.sql
+do
+  if [ -e "$INSTANCE" ]
+  then
+    echo "    Appending $INSTANCE"
+    $MYSQL_COMMAND < "$INSTANCE"
+    if [[ $? != 0 ]]
+    then
+      echo "ERROR: cannot apply $INSTANCE"
+      exit 1
+    fi
+    ((COUNT++))
+  fi
+done
+if [ "$COUNT" != 0 ]
+then
+  echo "  $COUNT Instance files applied successfully"
+else
+  echo "  Did not find any instance file to apply"
 fi
 echo
 echo
