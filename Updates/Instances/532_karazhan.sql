@@ -1245,8 +1245,8 @@ REPLACE INTO `creature_template_addon` (`entry`, `mount`, `bytes1`, `b2_0_sheath
 (16530, 0, 0, 1, 0, 0, 0, NULL), -- Mana Warp
 (16539, 0, 0, 1, 0, 0, 0, NULL), -- Homunculus
 (16540, 0, 0, 1, 0, 69, 0, NULL), -- Shadow Pillager
-(16544, 0, 0, 1, 0, 0, 0, '29982'), -- Ethereal Thief
-(16545, 0, 0, 1, 0, 0, 0, '30007'), -- Ethereal Spellfilcher
+(16544, 0, 0, 1, 0, 0, 0, NULL), -- Ethereal Thief
+(16545, 0, 0, 1, 0, 0, 0, NULL), -- Ethereal Spellfilcher
 (16595, 0, 0, 1, 0, 0, 0, '3417'), -- Fleshbeast
 (16596, 0, 0, 1, 0, 0, 0, '8876 18950'), -- Greater Fleshbeast
 (16806, 0, 0, 1, 16, 0, 0, '28002'), -- Ebonlocke
@@ -3115,8 +3115,8 @@ INSERT INTO `gameobject` (`guid`, `id`, `map`, `spawnMask`, `position_x`, `posit
 (@OGUID+288, 185134, 532, 1, -11018.5, -1967.92, 276.652, 2.24151, 0, 0, 0, 0, 43200, 43200, 100, 0), -- Netherspace Door
 (@OGUID+289, 185324, 532, 1, -11080.6, -1876.43, 219.869, -1.79769, 0, 0, 0, 0, 43200, 43200, 100, 1), -- Chessboard
 (@OGUID+290, 185521, 532, 1, -11186.2, -1665.14, 281.398, 0.671952, 0, 0, 0, 0, 43200, 43200, 100, 0), -- Massive Door
-(@OGUID+291, 300073, 532, 1, -11126.9, -1874.45, 91.4726, 0, 0, 0, 0, 1, 180, 180, 0, 1), -- TEMP the southern end of the Master's Terrace
-(@OGUID+292, 300073, 532, 1, -11164.4, -1906.24, 91.47, 0, 0, 0, 0, 0, 180, 180, 0, 1); -- TEMP the southern end of the Master's Terrace
+(@OGUID+291, 181958, 532, 1, -11126.9, -1874.45, 91.4726, 0, 0, 0, 0, 1, 180, 180, 0, 1), -- Master's Terrace Focus
+(@OGUID+292, 181958, 532, 1, -11164.4, -1906.24, 91.47, 0, 0, 0, 0, 0, 180, 180, 0, 1); -- Master's Terrace Focus
 
 -- ======
 -- EVENTS

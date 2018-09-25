@@ -1183,7 +1183,7 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `position_x`, `position_y`, `positi
 
 INSERT INTO `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`) VALUES
 (@OGUID+1, 153464, 329, 3555.39, -3424.3, 136.745, 2.3911, 0, 0, 0.930418, 0.366501, 7200, 7200, 100, 1), -- Large Solid Chest
-(@OGUID+2, 153469, 329, 4080.21, -3533.44, 124.622, -3.00197, 0, 0, 0.997564, -0.069756, 180, 180, 100, 1), -- Large Mithril Bound Chest
+(@OGUID+2, 153469, 329, 4080.21, -3533.44, 124.622, -3.00197, 0, 0, 0.997564, -0.069756, 86400, 86400, 100, 1), -- Large Mithril Bound Chest
 (@OGUID+3, 175350, 329, 3621.54, -3335.55, 123.501, 3.14159, 0, 0, 1, 0, 180, 180, 100, 0), -- Doodad_SmallPortcullis04
 (@OGUID+4, 175351, 329, 3603.04, -3335.24, 125.354, 3.14159, 0, 0, 1, 0, 180, 180, 100, 0), -- Doodad_SmallPortcullis03
 (@OGUID+5, 175352, 329, 3571.57, -3451.68, 136.357, 2.31256, 0, 0, 0.915311, 0.402747, 180, 180, 100, 1), -- King's Square Gate
@@ -1845,8 +1845,8 @@ INSERT INTO `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `posi
 (@OGUID+661, 181288, 329, 3685.87, -3163.12, 126.721, 3.79137, 0, 0, 0, 0, 180, 180, 100, 1), -- Midsummer Bonfire
 (@OGUID+662, 181348, 329, 3685.87, -3163.12, 126.721, 3.79137, 0, 0, 0, 0, 180, 180, 100, 1), -- Flame of Stratholme
 (@OGUID+663, 181376, 329, 3685.87, -3163.12, 126.721, 3.79137, 0, 0, 0, 0, 180, 180, 100, 1), -- Midsummer Bonfire Campfire Damage Trap
-(@OGUID+664, 300061, 329, 3423.47, -3055.73, 136.581, 0, 0, 0, 0, 0, 180, 180, 0, 1), -- TEMP The Crimson Throne
-(@OGUID+665, 300064, 329, 3423.47, -3055.73, 136.581, 0, 0, 0, 0, 0, 180, 180, 0, 1), -- TEMP Haunted Locus
+(@OGUID+664, 181048, 329, 3423.47, -3055.73, 136.581, 0, 0, 0, 0, 0, 180, 180, 0, 1), -- Jarien and Sothos Brazier Spell Focus
+(@OGUID+665, 181096, 329, 3423.47, -3055.73, 136.581, 0, 0, 0, 0, 0, 180, 180, 0, 1), -- Brazier of Invocation Spell Focus 20 yd
 
 -- TBC+ only (Paladin quest)
 (@OGUID+800, 182068, 329, 3688.13, -3643.51, 141.964, -2.80998, 0, 0, 0, 0, 180, 180, 100, 1),
