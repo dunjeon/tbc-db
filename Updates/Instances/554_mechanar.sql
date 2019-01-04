@@ -205,7 +205,7 @@ INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES
 (@CGUID+28, @CGUID+16, 1167); -- Bloodwarder Centurion -> Sunseeker Astromage
 
 REPLACE INTO `creature_linking_template` (`entry`, `map`, `master_entry`, `flag`, `search_range`) VALUES
-(20481, 554, 19221, 4112, 0); -- Raging Flames -> Nethermancer Sepethrea
+(20481, 554, 19221, 4113, 0); -- Raging Flames -> Nethermancer Sepethrea
 
 INSERT INTO `creature` (`guid`, `id`, `map`, `spawnMask`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `spawndist`, `currentwaypoint`, `DeathState`, `MovementType`) VALUES
 (@CGUID+1, 19166, 554, 3, 139.302, 79.2735, 9.5361, 3.14005, 7200, 7200, 0, 0, 0, 2), -- Tempest-Forge Patroller
@@ -311,11 +311,7 @@ INSERT INTO `gameobject` (`guid`, `id`, `map`, `spawnMask`, `position_x`, `posit
 (@OGUID+14, 185015, 554, 3, 144.904, -44.3406, 1.01041, 0.543127, 0, 0, 0, 0, 120, 120, 100, 1), -- Overcharged Manacell
 (@OGUID+15, 185015, 554, 3, 146.76, -36.2917, 1.01041, 5.99065, 0, 0, 0, 0, 120, 120, 100, 1), -- Overcharged Manacell
 (@OGUID+16, 185015, 554, 3, 158.931, -26.9887, 1.00972, 4.98325, 0, 0, 0, 0, 120, 120, 100, 1), -- Overcharged Manacell
-(@OGUID+17, 185015, 554, 3, 151.858, -29.8824, 1.01041, 5.41365, 0, 0, 0, 0, 120, 120, 100, 1), -- Overcharged Manacell
-(@OGUID+18, 185018, 554, 1, 144.904, -44.3406, 1.01041, 0.543127, 0, 0, 0, 0, 120, 120, 100, 1), -- Charged Manacell
-(@OGUID+19, 185018, 554, 1, 146.76, -36.2917, 1.01041, 5.99065, 0, 0, 0, 0, 120, 120, 100, 1), -- Charged Manacell
-(@OGUID+20, 185018, 554, 1, 158.931, -26.9887, 1.00972, 4.98325, 0, 0, 0, 0, 120, 120, 100, 1), -- Charged Manacell
-(@OGUID+21, 185018, 554, 1, 151.858, -29.8824, 1.01041, 5.41365, 0, 0, 0, 0, 120, 120, 100, 1); -- Charged Manacell
+(@OGUID+17, 185015, 554, 3, 151.858, -29.8824, 1.01041, 5.41365, 0, 0, 0, 0, 120, 120, 100, 1); -- Overcharged Manacell
 
 -- ======
 -- EVENTS

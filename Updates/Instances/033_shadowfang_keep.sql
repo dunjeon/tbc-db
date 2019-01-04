@@ -476,7 +476,12 @@ REPLACE INTO `creature_template_addon` (`entry`, `mount`, `bytes1`, `b2_0_sheath
 (5058, 0, 0, 1, 16, 0, 0, NULL), -- Wolfguard Worg
 (10000, 0, 0, 1, 16, 0, 0, NULL); -- Arugal
 
--- INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES
+INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES
+(@CGUID+86, @CGUID+74, 3), -- Lupine Horror -> Bleak Worg
+(@CGUID+77, @CGUID+74, 3), -- Slavering Worg -> Bleak Worg
+(@CGUID+143, @CGUID+74, 3), -- Wolfguard Worg -> Bleak Worg
+(@CGUID+97, @CGUID+141, 3), -- Blood Seeker -> Odo the Blindwatcher
+(@CGUID+96, @CGUID+141, 3); -- Vile Bat -> Odo the Blindwatcher
 
 -- INSERT INTO `creature_linking_template` (`entry`, `map`, `master_entry`, `flag`, `search_range`) VALUES
 
@@ -557,7 +562,7 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `position_x`, `position_y`, `positi
 (@CGUID+74, 3861, 33, -127.63, 2153.28, 155.762, 2.16421, 7200, 7200, 0, 0, 0, 0), -- Bleak Worg
 (@CGUID+75, 3861, 33, -204.481, 2139.15, 86.5832, 1.42291, 7200, 7200, 0, 0, 0, 0), -- Bleak Worg
 (@CGUID+76, 3861, 33, -197.316, 2111.16, 81.1401, 5.9909, 7200, 7200, 0, 0, 0, 0), -- Bleak Worg
-(@CGUID+77, 3862, 33, -139.407, 2182.91, 155.762, 5.09636, 7200, 7200, 2, 0, 0, 1), -- Slavering Worg
+(@CGUID+77, 3862, 33, -139.407, 2182.91, 155.762, 5.09636, 7200, 7200, 0, 0, 0, 0), -- Slavering Worg
 (@CGUID+78, 3862, 33, -205.823, 2213.78, 79.7605, 4.8275, 7200, 7200, 5, 0, 0, 2), -- Slavering Worg
 (@CGUID+79, 3862, 33, -220.82, 2153.53, 81.2106, 4.72984, 7200, 7200, 0, 0, 0, 0), -- Slavering Worg
 (@CGUID+80, 3862, 33, -214.404, 2146.14, 80.9466, 2.11928, 7200, 7200, 0, 0, 0, 2), -- Slavering Worg
@@ -566,7 +571,7 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `position_x`, `position_y`, `positi
 (@CGUID+83, 3862, 33, -198.594, 2153.93, 79.8471, 4.46288, 7200, 7200, 5, 0, 0, 1), -- Slavering Worg
 (@CGUID+84, 3862, 33, -231.866, 2165.91, 79.8476, 2.68061, 7200, 7200, 0, 0, 0, 0), -- Slavering Worg
 (@CGUID+85, 3862, 33, -204.012, 2184.13, 79.8488, 4.31299, 7200, 7200, 0, 0, 0, 0), -- Slavering Worg
-(@CGUID+86, 3863, 33, -118.703, 2173.42, 155.762, 3.35103, 7200, 7200, 1, 0, 0, 1), -- Lupine Horror
+(@CGUID+86, 3863, 33, -118.703, 2173.42, 155.762, 3.35103, 7200, 7200, 0, 0, 0, 0), -- Lupine Horror
 (@CGUID+87, 3863, 33, -111.421, 2166.52, 101.603, 0.244346, 7200, 7200, 3, 0, 0, 1), -- Lupine Horror
 (@CGUID+88, 3863, 33, -120.756, 2183.02, 113.215, 4.13643, 7200, 7200, 2, 0, 0, 1), -- Lupine Horror
 (@CGUID+89, 3863, 33, -129.732, 2176.27, 94.1285, 2.54818, 7200, 7200, 2, 0, 0, 1), -- Lupine Horror
@@ -614,7 +619,7 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `position_x`, `position_y`, `positi
 (@CGUID+131, 3877, 33, -251.156, 2175.53, 94.02, 1.61463, 7200, 7200, 2, 0, 0, 1), -- Wailing Guardsman
 (@CGUID+132, 3877, 33, -252.301, 2168.82, 93.9366, 1.09352, 7200, 7200, 2, 0, 0, 2), -- Wailing Guardsman
 (@CGUID+133, 3877, 33, -232.178, 2212.89, 97.3452, 4.49351, 7200, 7200, 2, 0, 0, 2), -- Wailing Guardsman
-(@CGUID+134, 3886, 33, -202.596, 2257.96, 76.2846, 3.97935, 43200, 43200, 0, 0, 0, 0), -- Razorclaw the Butcher
+(@CGUID+134, 3886, 33, -202.596, 2257.96, 76.2846, 3.97935, 43200, 43200, 5, 0, 0, 1), -- Razorclaw the Butcher
 (@CGUID+135, 3887, 33, -275.342, 2297.35, 76.2365, 5.89921, 43200, 43200, 0, 0, 0, 0), -- Baron Silverlaine
 (@CGUID+136, 3914, 33, -252.091, 2123.11, 81.1795, 0.919918, 43200, 43200, 0, 0, 0, 0), -- Rethilgore
 (@CGUID+137, 3927, 33, -120.725, 2162.03, 155.762, 2.67035, 43200, 43200, 0, 0, 0, 0), -- Wolf Master Nandos
@@ -635,17 +640,7 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `position_x`, `position_y`, `positi
 -- ===========
 
 INSERT INTO `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`) VALUES
-(@OGUID+1, 2061, 33, -219.694, 2259.45, 77.338, -2.73144, 0, 0, 0.979045, -0.203642, 5400, 5400, 100, 1), -- Campfire
-(@OGUID+2, 2061, 33, -218.509, 2260.46, 77.338, 0.802852, 0, 0, 0.390731, 0.920505, 5400, 5400, 100, 1), -- Campfire
-(@OGUID+3, 2061, 33, -214.755, 2272.27, 77.338, -2.47837, 0, 0, 0.945518, -0.325569, 5400, 5400, 100, 1), -- Campfire
-(@OGUID+4, 2061, 33, -220.578, 2258.18, 77.338, -0.375245, 0, 0, -0.186524, 0.98245, 5400, 5400, 100, 1), -- Campfire
-(@OGUID+5, 2061, 33, -213.2, 2273.37, 77.338, -3.12414, 0, 0, 0.999962, -0.008727, 5400, 5400, 100, 1), -- Campfire
-(@OGUID+6, 2061, 33, -215.003, 2270.45, 77.338, -1.94604, 0, 0, -0.82659, 0.562805, 5400, 5400, 100, 1), -- Campfire
-(@OGUID+7, 2061, 33, -325.356, 2089.16, 30.2577, 0.270526, 0, 0, 0.134851, 0.990866, 5400, 5400, 100, 1), -- Campfire
-(@OGUID+8, 2061, 33, -326.355, 2089.7, 25.3409, -1.91986, 0, 0, -0.819152, 0.573577, 5400, 5400, 100, 1), -- Campfire
-(@OGUID+9, 2061, 33, -326.002, 2090.32, 25.3409, 1.56207, 0, 0, 0.704015, 0.710186, 5400, 5400, 100, 1), -- Campfire
-(@OGUID+10, 2061, 33, -326.139, 2089.7, 30.2577, -1.91986, 0, 0, -0.819152, 0.573577, 5400, 5400, 100, 1), -- Campfire
-(@OGUID+11, 2061, 33, -325.573, 2089.16, 25.3409, 0.270526, 0, 0, 0.134851, 0.990866, 5400, 5400, 100, 1), -- Campfire
+-- 1-11
 (@OGUID+12, 3659, 33, -197.138, 2268.28, 76.2013, -2.21657, 0, 0, 0.894934, -0.446198, 180, 180, 100, 1), -- Barrel of Melon Juice
 (@OGUID+13, 3659, 33, -232.514, 2290.86, 74.9993, -2.02458, 0, 0, 0.848048, -0.529919, 180, 180, 100, 1), -- Barrel of Melon Juice
 (@OGUID+14, 3695, 33, -206.199, 2249.48, 76.2013, 1.16937, 0, 0, 0.551937, 0.833886, 180, 180, 100, 1), -- Food Crate
@@ -681,7 +676,7 @@ INSERT INTO `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `posi
 (@OGUID+44, 74448, 33, -133.986, 2183.01, 113.132, -1.91986, 0, 0, -0.819151, 0.573577, 5200, 5200, 255, 1), -- Large Solid Chest
 (@OGUID+45, 75293, 33, -190.976, 2225.68, 79.7585, -1.23918, 0, 0, -0.580701, 0.814117, 5200, 5200, 100, 1), -- Large Battered Chest
 (@OGUID+46, 75295, 33, -189.568, 2122.88, 97.3899, 1.39626, 0, 0, 0.642788, 0.766044, 5400, 5400, 100, 1), -- Large Iron Bound Chest
-(@OGUID+47, 75298, 33, -106.541, 2164.01, 101.52, 3.03687, 0, 0, 0.99863, 0.052336, 5400, 5400, 100, 1), -- Large Solid Chest
+(@OGUID+47, 75298, 33, -106.541, 2164.01, 101.52, 3.03687, 0, 0, 0.99863, 0.052336, 86400, 86400, 100, 1), -- Large Solid Chest
 (@OGUID+48, 91138, 33, -218.464, 2237.2, 80.7977, -2.18166, 0, 0, 0.887011, -0.461749, 300, 300, 100, 1), -- Jordan's Hammer
 (@OGUID+49, 101811, 33, -245.598, 2132.32, 82.8052, 4.71239, -0.131892, -0.694697, -0.131892, 0.694697, 5400, 5400, 100, 1), -- Lever
 (@OGUID+50, 101812, 33, -236.251, 2164.04, 91.1562, 1.5708, 0.584487, 0.397963, 0.584487, -0.397963, 5400, 5400, 100, 1), -- Lever
@@ -703,7 +698,7 @@ INSERT INTO `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `posi
 -- POOLING
 -- =======
 
--- INSERT INTO `pool_pool` (`entry`, `max_limit`, `description`) VALUES
+-- INSERT INTO `pool_pool` (`pool_id`, `mother_pool`, `chance`, `description`) VALUES
 
 INSERT INTO `pool_template` (`entry`, `max_limit`, `description`) VALUES
 (@PGUID+1, 3, 'Shadowfang Keep - Master Chest Pool'),

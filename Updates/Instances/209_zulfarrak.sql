@@ -517,7 +517,19 @@ INSERT INTO `creature_movement` (`id`, `point`, `position_x`, `position_y`, `pos
 (@CGUID+272, 42, 1682.1, 897.174, 9.00179, 100, 0, 0),
 (@CGUID+272, 43, 1686.92, 894.976, 9.00179, 100, 0, 0),
 (@CGUID+272, 44, 1691.19, 891.914, 9.00179, 100, 0, 0),
-(@CGUID+272, 45, 1698.88, 886.521, 9.00179, 100, 0, 0);
+(@CGUID+272, 45, 1698.88, 886.521, 9.00179, 100, 0, 0),
+(@CGUID+270, 1, 1534.288, 966.3132, 9.251768, 100, 0, 0),
+(@CGUID+270, 2, 1551.104, 978.8848, 9.751776, 100, 0, 0),
+(@CGUID+270, 3, 1558.765, 992.5928, 9.376776, 100, 0, 0),
+(@CGUID+270, 4, 1548.029, 999.1307, 9.001776, 100, 0, 0),
+(@CGUID+270, 5, 1551.857, 994.3583, 9.001776, 100, 0, 0),
+(@CGUID+270, 6, 1559.434, 997.0353, 9.001776, 100, 0, 0),
+(@CGUID+270, 7, 1561.864, 1008.586, 9.001776, 100, 0, 0),
+(@CGUID+270, 8, 1554.342, 1013.426, 9.001776, 100, 0, 0),
+(@CGUID+270, 9, 1546.021, 1007.769, 9.001776, 100, 0, 0),
+(@CGUID+270, 10, 1549.344, 1021.266, 9.001776, 100, 0, 0),
+(@CGUID+270, 11, 1538.99, 1027.237, 9.626776, 100, 0, 0),
+(@CGUID+270, 12, 1519.63, 1010.74, 10.48, 100, 0, 0); -- last point guessed to complete circle
 
 DELETE FROM creature_movement_template WHERE entry IN (7273,7604,7605,7606,7607,7608,7795,10082);
 INSERT INTO `creature_movement_template` (`entry`, `pathId`, `point`, `position_x`, `position_y`, `position_z`, `orientation`, `waittime`, `script_id`) VALUES
@@ -954,19 +966,18 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `position_x`, `position_y`, `positi
 (@CGUID+267, 8130, 209, 1817.61, 678.311, 14.2237, 3.9619, 18000, 18000, 0, 0, 0, 0), -- Sul'lithuz Hatchling
 (@CGUID+268, 8130, 209, 1819.85, 674.938, 14.5555, 3.83972, 18000, 18000, 0, 0, 0, 0), -- Sul'lithuz Hatchling
 (@CGUID+269, 8130, 209, 1812.14, 667.302, 15.8964, 1.62316, 18000, 18000, 0, 0, 0, 0), -- Sul'lithuz Hatchling
-(@CGUID+270, 10080, 209, 1546.25, 1017.14, 8.87683, 0.0109968, 43200, 86400, 0, 0, 0, 0), -- Sandarr Dunereaver
+(@CGUID+270, 10080, 209, 1518.592, 984.9248, 9.126776, 5.252151, 43200, 86400, 0, 0, 0, 2), -- Sandarr Dunereaver
 (@CGUID+271, 10081, 209, 1627.47, 1186.85, 8.87693, 0.647954, 43200, 86400, 15, 0, 0, 1), -- Dustwraith
 (@CGUID+272, 10082, 209, 1707.91, 881.421, 11.9567, 1.64026, 43200, 86400, 0, 0, 0, 2), -- Zerillis
-(@CGUID+273, 15578, 209, 1689.15, 1147.89, 8.87702, 2.41196, 25, 25, 0, 0, 0, 0); -- Elder Wildmane
+(@CGUID+273, 15578, 209, 1689.15, 1147.89, 8.87702, 2.41196, 25, 25, 0, 0, 0, 0), -- Elder Wildmane
+(@CGUID+274, 10080, 209, 1661.51, 900.463, 8.91101, 3.54889, 43200, 86400, 0, 0, 0, 0); -- Sandarr Dunereaver
 
 -- ===========
 -- GAMEOBJECTS
 -- ===========
 
 INSERT INTO `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`) VALUES
-(@OGUID+1, 2061, 209, 1810.09, 673.184, 14.2178, 1.49916, -0.00027, 0.037908, 0.680317, 0.731937, 7200, 7200, 100, 1), -- Campfire
-(@OGUID+2, 2061, 209, 1909.48, 1016.13, 11.5157, 2.79253, 0, 0, 0.984808, 0.173648, 7200, 7200, 100, 1), -- Campfire
-(@OGUID+3, 2066, 209, 1646.76, 801.711, 8.88617, 3.14159, 0, 0, 1, 0, 7200, 7200, 100, 1), -- Bonfire Damage
+-- 1-3
 (@OGUID+4, 92426, 209, 1810.09, 673.184, 14.2178, 1.49916, -0.00027, 0.037908, 0.680317, 0.731937, 7200, 7200, 100, 1), -- Pickled Sludge
 (@OGUID+5, 128308, 209, 1876.14, 976.482, 9.05195, 1.01229, 0, 0, 0.48481, 0.87462, 7200, 7200, 100, 1), -- Shallow Grave
 (@OGUID+6, 128308, 209, 1897.08, 980.836, 8.95884, -2.98451, 0, 0, 0.996917, -0.078459, 7200, 7200, 100, 1), -- Shallow Grave
@@ -1035,20 +1046,26 @@ INSERT INTO `game_event_creature` (`guid`, `event`) VALUES
 -- POOLING
 -- =======
 
--- INSERT INTO `pool_pool` (`entry`, `max_limit`, `description`) VALUES
+INSERT INTO `pool_pool` (`pool_id`, `mother_pool`, `chance`, `description`) VALUES
+(@PGUID+4, @PGUID+1, 0, 'Zul''Farrak - Sandarr Dunereaver / Placeholder #1'),
+(@PGUID+5, @PGUID+1, 0, 'Zul''Farrak - Sandarr Dunereaver / Placeholder #2');
 
 INSERT INTO `pool_template` (`entry`, `max_limit`, `description`) VALUES
 (@PGUID+1, 1, 'Zul''Farrak - Sandarr Dunereaver (10080)'),
 (@PGUID+2, 1, 'Zul''Farrak - Dustwraith (10081)'),
-(@PGUID+3, 1, 'Zul''Farrak - Zerillis (10082)');
+(@PGUID+3, 1, 'Zul''Farrak - Zerillis (10082)'),
+(@PGUID+4, 1, 'Zul''Farrak - Sandarr Dunereaver / Placeholder #1'),
+(@PGUID+5, 1, 'Zul''Farrak - Sandarr Dunereaver / Placeholder #2');
 
 INSERT INTO `pool_creature` (`guid`, `pool_entry`, `chance`, `description`) VALUES
-(@CGUID+233, @PGUID+1, 0, 'Zul''Farrak - Sandarr Dunereaver placeholder'),
-(@CGUID+270, @PGUID+1, 10, 'Zul''Farrak - Sandarr Dunereaver (10080)'),
 (@CGUID+234, @PGUID+2, 0, 'Zul''Farrak - Dustwraith placeholder'),
 (@CGUID+271, @PGUID+2, 10, 'Zul''Farrak - Dustwraith (10081)'),
 (@CGUID+124, @PGUID+3, 0, 'Zul''Farrak - Zerillis placeholder'),
-(@CGUID+272, @PGUID+3, 30, 'Zul''Farrak - Zerillis (10082)');
+(@CGUID+272, @PGUID+3, 30, 'Zul''Farrak - Zerillis (10082)'),
+(@CGUID+233, @PGUID+4, 0, 'Zul''Farrak - Sandarr Dunereaver Placeholder #1'),
+(@CGUID+270, @PGUID+4, 10, 'Zul''Farrak - Sandarr Dunereaver (10080) #1'),
+(@CGUID+21, @PGUID+5, 0, 'Zul''Farrak - Sandarr Dunereaver Placeholder #2'),
+(@CGUID+274, @PGUID+5, 10, 'Zul''Farrak - Sandarr Dunereaver (10080) #2');
 
 -- INSERT INTO `pool_creature_template` (`id`, `pool_entry`, `chance`, `description`) VALUES
 
@@ -1082,6 +1099,7 @@ INSERT INTO `dbscripts_on_creature_movement` (`id`, `delay`, `command`, `datalon
 (760711, 0, 29, 1, 0, 0, 7607, 150, 4, 0, 0, 0, 0, 0, 0, 0, 0, 'Weegli Blastfuse - Disable Gossip'),
 (760713, 0, 15, 10772, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Weegli Blastfuse - Cast Create Weegli''s Barrel'),
 (760713, 2, 13, 0, 0, 0, 141612, 20, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Weegli Blastfuse - Use Weegli''s Barrel'),
+(760713, 3, 40, 0, 0, 0, 141612, 20, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Weegli Blastfuse - Despawn Weegli''s Barrel'),
 (760713, 5, 0, 0, 0, 0, 7267, @CGUID+160, 16, 2000005566, 0, 0, 0, 0, 0, 0, 0, 'Ukorz Sandscalp - Yell Intro'),
 (760801, 0, 32, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Murta Grimgut - Stop Movement'),
 (760802, 0, 1, 71, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Murta Grimgut - Emote Cheer'),
@@ -1091,9 +1109,7 @@ INSERT INTO `dbscripts_on_creature_movement` (`id`, `delay`, `command`, `datalon
 
 -- INSERT INTO `dbscripts_on_creature_death` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
 -- INSERT INTO `dbscripts_on_go_use` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
-
-INSERT INTO `dbscripts_on_go_template_use` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
-(128403, 2, 15, 10247, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'cast Summon Zul''Farrak Zombies');
+-- INSERT INTO `dbscripts_on_go_template_use` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
 
 DELETE FROM dbscripts_on_relay WHERE id=2;
 INSERT INTO `dbscripts_on_relay` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES

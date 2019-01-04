@@ -2825,7 +2825,7 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `spawnMask`, `position_x`, `positio
 -- ===========
 
 INSERT INTO `gameobject` (`guid`, `id`, `map`, `spawnMask`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`) VALUES
-(@OGUID+1, 31442, 532, 1, -11080.4, -1926.4, 74.5346, -2.97918, 0, 0, 0, 0, 43200, 43200, 100, 1), -- Basic Campfire
+-- 1
 (@OGUID+2, 175735, 532, 1, -11273, -1854.3, 137.112, -0.366518, 0, 0, 0, 0, 180, 180, 255, 1), -- The Guardians of Tirisfal
 (@OGUID+3, 175740, 532, 1, -11203.6, -1827.34, 137.35, 1.79769, 0, 0, 0, 0, 180, 180, 255, 1), -- The Last Guardian
 (@OGUID+4, 180991, 532, 1, -11111.3, -1911.47, 74.3922, 2.24275, 0, 0, 0, 0, 43200, 43200, 100, 1), -- Chair
@@ -3111,7 +3111,7 @@ INSERT INTO `gameobject` (`guid`, `id`, `map`, `spawnMask`, `position_x`, `posit
 (@OGUID+284, 184281, 532, 1, -11035.1, -1969.51, 99.6313, 3.04049, 0, 0, 0, 0, 43200, 43200, 100, 1), -- Servant's Access Door
 (@OGUID+285, 184453, 532, 1, -11151, -1753.57, 202.463, 2.24275, 0, 0, 0, 0, 43200, 43200, 100, 1), -- Strange Bookcase
 (@OGUID+286, 184517, 532, 1, -11189.5, -1880.94, 233.306, 2.24275, 0, 0, 0, 0, 43200, 43200, 100, 1), -- Private Library Door
-(@OGUID+287, 185119, 532, 1, -11059.3, -1903.08, 221.07, 5.37878, 0, 0, 0, 0, -86400, -86400, 255, 1), -- Dust Covered Chest
+(@OGUID+287, 185119, 532, 1, -11102.74, -1848.975, 221.0697, 5.393069, 0, 0, -0.4305105, 0.9025856, -86400, -86400, 255, 1), -- Dust Covered Chest
 (@OGUID+288, 185134, 532, 1, -11018.5, -1967.92, 276.652, 2.24151, 0, 0, 0, 0, 43200, 43200, 100, 0), -- Netherspace Door
 (@OGUID+289, 185324, 532, 1, -11080.6, -1876.43, 219.869, -1.79769, 0, 0, 0, 0, 43200, 43200, 100, 1), -- Chessboard
 (@OGUID+290, 185521, 532, 1, -11186.2, -1665.14, 281.398, 0.671952, 0, 0, 0, 0, 43200, 43200, 100, 0), -- Massive Door
