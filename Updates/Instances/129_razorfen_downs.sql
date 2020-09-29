@@ -3,7 +3,6 @@ DBName: Razorfen Downs
 DBScriptName: instance_razorfen_downs
 DB%Complete: 75
 DBComment:
-* Glutton 8567 has 8876 / 12787 in some sniffs, maybe script related to his "Enrage"
 EndDBScriptData */
 
 SET @CGUID := 1290000; -- creatures
@@ -141,8 +140,8 @@ INSERT INTO `creature_addon` (`guid`, `mount`, `bytes1`, `b2_0_sheath`, `b2_1_fl
 REPLACE INTO `creature_template_addon` (`entry`, `mount`, `bytes1`, `b2_0_sheath`, `b2_1_flags`, `emote`, `moveflags`, `auras`) VALUES
 (7327, 0, 0, 1, 16, 0, 0, NULL), -- Withered Warrior
 (7328, 0, 0, 1, 16, 0, 0, NULL), -- Withered Reaver
-(7329, 0, 0, 1, 16, 0, 0, NULL), -- Withered Quilguard
-(7332, 0, 0, 1, 16, 0, 0, NULL), -- Withered Spearhide
+(7329, 0, 0, 1, 16, 0, 0, '11441'), -- Withered Quilguard
+(7332, 0, 0, 1, 16, 0, 0, '12246'), -- Withered Spearhide
 (7333, 0, 0, 1, 16, 0, 0, NULL), -- Withered Battle Boar
 (7334, 0, 0, 1, 16, 0, 0, NULL), -- Battle Boar Horror
 (7335, 0, 0, 1, 16, 0, 0, NULL), -- Death's Head Geomancer
@@ -153,16 +152,19 @@ REPLACE INTO `creature_template_addon` (`entry`, `mount`, `bytes1`, `b2_0_sheath
 (7344, 0, 0, 1, 16, 0, 0, NULL), -- Splinterbone Warrior
 (7345, 0, 0, 1, 16, 0, 0, NULL), -- Splinterbone Captain
 (7346, 0, 0, 1, 16, 0, 0, NULL), -- Splinterbone Centurion
-(7347, 0, 0, 1, 16, 0, 0, NULL), -- Boneflayer Ghoul
-(7348, 0, 0, 1, 16, 0, 0, NULL), -- Thorn Eater Ghoul
-(7352, 0, 0, 1, 16, 0, 0, NULL), -- Frozen Soul
-(7353, 0, 0, 1, 16, 0, 0, NULL), -- Freezing Spirit
+(7347, 0, 0, 1, 16, 0, 0, '12539'), -- Boneflayer Ghoul
+(7348, 0, 0, 1, 16, 0, 0, '12539'), -- Thorn Eater Ghoul
+(7349, 0, 0, 1, 16, 0, 0, '3616'), -- Tomb Fiend
+(7351, 0, 0, 1, 16, 0, 0, '12254'), -- Tomb Reaver
+(7352, 0, 0, 1, 16, 0, 0, '12529'), -- Frozen Soul
+(7353, 0, 0, 1, 16, 0, 0, '12529'), -- Freezing Spirit
 (7354, 0, 0, 1, 16, 0, 0, NULL), -- Ragglesnout
 (7355, 0, 0, 1, 16, 0, 0, '8876 12254'), -- Tuten'kash
+(7356, 0, 0, 1, 16, 0, 0, '12947'), -- Plaguemaw the Rotting
 (7357, 0, 0, 1, 16, 10, 0, NULL), -- Mordresh Fire Eye
-(7358, 0, 0, 1, 16, 0, 0, NULL), -- Amnennar the Coldbringer
-(8516, 0, 0, 1, 16, 0, 0, NULL), -- Belnistrasz
-(8567, 0, 0, 1, 16, 0, 0, '12627'), -- Glutton
+(7358, 0, 0, 1, 16, 0, 0, '12556'), -- Amnennar the Coldbringer
+(8516, 0, 0, 1, 16, 0, 0, '13326'), -- Belnistrasz
+(8567, 0, 0, 1, 16, 0, 0, '8876 12627'), -- Glutton
 (8662, 0, 0, 1, 16, 0, 0, NULL), -- Idol Oven Fire Target
 (8696, 0, 0, 1, 16, 0, 0, NULL), -- Henry Stern
 (8767, 0, 0, 1, 16, 0, 0, NULL); -- Sah'rhee
@@ -451,8 +453,8 @@ INSERT INTO `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `posi
 (@OGUID+34, 40199, 129, 2394.63, 886.028, 55.4499, 3.14159, 0, 0, 1, 0, 5400, 5400, 100, 1), -- Fire
 (@OGUID+35, 40200, 129, 2399.8, 893.103, 39.144, 3.14159, 0, 0, 1, 0, 5400, 5400, 100, 1), -- Fire
 (@OGUID+36, 40201, 129, 2361.76, 965.172, 39.826, 3.14159, 0, 0, 1, 0, 5400, 5400, 100, 1), -- Fire
-(@OGUID+37, 75300, 129, 2502.75, 944.867, 49.1772, -2.05949, 0, 0, 0.857167, -0.515038, 5400, 5400, 100, 1), -- Large Solid Chest
-(@OGUID+38, 75300, 129, 2358.62, 966.718, 40.2895, 1.309, 0, 0, 0.608761, 0.793353, 5400, 5400, 100, 1), -- Large Solid Chest
+(@OGUID+37, 75300, 129, 2502.75, 944.867, 49.1772, -2.05949, 0, 0, 0.857167, -0.515038, 86400, 86400, 100, 1), -- Large Solid Chest
+(@OGUID+38, 75300, 129, 2358.62, 966.718, 40.2895, 1.309, 0, 0, 0.608761, 0.793353, 86400, 86400, 100, 1), -- Large Solid Chest
 (@OGUID+39, 142141, 129, 2479.97, 1006.34, 24.0507, -2.32129, 0, 0, -0.91706, 0.398748, 7200, 7200, 100, 1), -- Arthas' Tears
 (@OGUID+40, 142141, 129, 2536.55, 736.053, 53.7239, 3.05433, 0, 0, 0.999048, 0.0436174, 7200, 7200, 100, 1), -- Arthas' Tears
 (@OGUID+41, 142141, 129, 2423.88, 1027.32, 38.2242, -2.3911, 0, 0, -0.930417, 0.366502, 7200, 7200, 100, 1), -- Arthas' Tears
@@ -483,12 +485,13 @@ INSERT INTO `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `posi
 (@OGUID+66, 151952, 129, 2590.95, 944.905, 63.5354, 2.49582, 0, 0, 0.948324, 0.317305, 5400, 5400, 100, 1), -- Idol Cup Fire
 (@OGUID+67, 151952, 129, 2579.3, 933.342, 63.8774, 2.49582, 0, 0, 0.948324, 0.317305, 5400, 5400, 100, 1), -- Idol Cup Fire
 (@OGUID+68, 151973, 129, 2582.49, 941.554, 64.2574, 1.51844, 0, 0, 0.688355, 0.725374, 5400, 5400, 100, 1), -- Idol Mouth Fire
-(@OGUID+69, 152097, 129, 2577, 947.659, 53.105, 5.501, 0, 0, 0, 0, -100, -100, 100, 1), -- Belnistrasz's Brazier
+(@OGUID+69, 152097, 129, 2577.196, 947.0781, 53.16757, 2.356195, 0, 0, 0, 0, -100, -100, 100, 1), -- Belnistrasz's Brazier
 (@OGUID+70, 157816, 129, 2586.09, 765.225, 55.132, 3.14159, 0, 0, 1, 0, 5400, 5400, 100, 1), -- Holding Pen
 (@OGUID+71, 157817, 129, 2605.48, 726.652, 55.132, 3.14159, 0, 0, 1, 0, 5400, 5400, 100, 1), -- Holding Pen
 (@OGUID+72, 157818, 129, 2600.1, 709.109, 55.132, 3.14159, 0, 0, 1, 0, 5400, 5400, 100, 1), -- Holding Pen
 (@OGUID+73, 157819, 129, 2581.85, 698.974, 55.132, 3.14159, 0, 0, 1, 0, 5400, 5400, 100, 1), -- Holding Pen
-(@OGUID+74, 157820, 129, 2561.65, 692.778, 55.132, 3.14159, 0, 0, 1, 0, 5400, 5400, 100, 1); -- Holding Pen
+(@OGUID+74, 157820, 129, 2561.65, 692.778, 55.132, 3.14159, 0, 0, 1, 0, 5400, 5400, 100, 1), -- Holding Pen
+(@OGUID+75, 75300, 129, 2435.01, 995.961, 49.3044, 1.37881, 0, 0, 0.636078, 0.771625, 86400, 86400, 100, 1); -- Large Solid Chest
 
 -- ======
 -- EVENTS
@@ -518,7 +521,8 @@ INSERT INTO `pool_creature` (`guid`, `pool_entry`, `chance`, `description`) VALU
 
 INSERT INTO `pool_gameobject` (`guid`, `pool_entry`, `chance`, `description`) VALUES
 (@OGUID+37, @PGUID+23, 0, 'Razorfen Downs - Large Solid Chest (75300)'),
-(@OGUID+38, @PGUID+23, 0, 'Razorfen Downs - Large Solid Chest (75300)');
+(@OGUID+38, @PGUID+23, 0, 'Razorfen Downs - Large Solid Chest (75300)'),
+(@OGUID+75, @PGUID+23, 0, 'Razorfen Downs - Large Solid Chest (75300)');
 
 -- INSERT INTO `pool_gameobject_template` (`id`, `pool_entry`, `chance`, `description`) VALUES
 

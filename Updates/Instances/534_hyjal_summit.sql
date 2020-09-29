@@ -72,15 +72,10 @@ INSERT INTO `creature_movement_template` (`entry`,`point`,`position_x`,`position
 (23381,13,4208.703,-4155.426,872.7481,0,0,100),
 (23381,14,4207.249,-4170.948,870.301,140000,2338101,100);
 
-DELETE FROM `dbscript_string` WHERE `entry` BETWEEN 2000001519 AND 2000001520;
-INSERT INTO `dbscript_string` (`entry`, `content_default`, `sound`, `type`, `language`, `emote`, `comment`) VALUES 
-(2000001519, 'Do you think the rumors about the Infinite Dragonflight are true?  I''ve sensed it... the familiarity.', 0, 0, 0, 1, 'Indormi (Entry: 23437)'),
-(2000001520, 'That is a dangerous train of thought.  If something was truly amiss, Soridormi would be the first to know.', 0, 0, 0, 274, 'Tydormu (Entry: 23381)');
-
 DELETE FROM `dbscripts_on_creature_movement` WHERE `id` IN(2338101);
 INSERT INTO `dbscripts_on_creature_movement` (`id`,`delay`,`command`,`datalong`,`datalong2`,`datalong3`,`dataint`,`dataint2`,`dataint3`,`dataint4`,`buddy_entry`,`search_radius`,`data_flags`,`comments`,`x`,`y`,`z`,`o`) VALUES
-(2338101,110,0,0,0,0,2000001519,0,0,0,23437,5,3,'Indormi - Do you think the rumors about the Infinite Dragonflight are true?  I''ve sensed it... the familiarity.',0,0,0,0),
-(2338101,119,0,0,0,0,2000001520,0,0,0,0,0,0,'Tydormu - That is a dangerous train of thought.  If something was truly amiss, Soridormi would be the first to know.',0,0,0,0);
+(2338101,110000,0,0,0,0,2000020022,0,0,0,23437,5,3,'Indormi - Do you think the rumors about the Infinite Dragonflight are true?  I''ve sensed it... the familiarity.',0,0,0,0),
+(2338101,119000,0,0,0,0,2000020023,0,0,0,0,0,0,'Tydormu - That is a dangerous train of thought.  If something was truly amiss, Soridormi would be the first to know.',0,0,0,0);
 
 -- ******************************************************************************************************************************************************************** --
 -- Scourge Base .go 5097.541504 -1409.079102 1345.843018 534
@@ -379,8 +374,8 @@ DELETE FROM `dbscripts_on_creature_movement` WHERE `id` BETWEEN 1793101 AND 1793
 INSERT INTO `dbscripts_on_creature_movement` (`id`,`delay`,`command`,`datalong`,`datalong2`,`datalong3`,`dataint`,`dataint2`,`dataint3`,`dataint4`,`buddy_entry`,`search_radius`,`data_flags`,`comments`,`x`,`y`,`z`,`o`) VALUES
 (1793101,0,25,1,0,0,0,0,0,0,0,0,0,'Alliance Peasant - Run On',0,0,0,0),
 (1793101,0,1,234,0,0,0,0,0,0,0,0,0,'Alliance Peasant - STATE_WORK_CHOPWOOD',0,0,0,0),
-(1793101,20,1,0,0,0,0,0,0,0,0,0,0,'Alliance Peasant - ONESHOT_NONE',0,0,0,0),
-(1793101,20,15,34450,0,0,0,0,0,0,0,0,0,'Alliance Peasant - Cast Transform: Peasant w/ wood 1.5 scale',0,0,0,0),
+(1793101,20000,1,0,0,0,0,0,0,0,0,0,0,'Alliance Peasant - ONESHOT_NONE',0,0,0,0),
+(1793101,20000,15,34450,0,0,0,0,0,0,0,0,0,'Alliance Peasant - Cast Transform: Peasant w/ wood 1.5 scale',0,0,0,0),
 
 (1793102,0,14,34450,0,0,0,0,0,0,0,0,0,'Alliance Peasant - Remove Aura 34450',0,0,0,0);
 
@@ -397,13 +392,15 @@ DELETE FROM `dbscripts_on_creature_movement` WHERE `id`=1777201;
 INSERT INTO `dbscripts_on_creature_movement` (`id`,`delay`,`command`,`datalong`,`datalong2`,`datalong3`,`dataint`,`dataint2`,`dataint3`,`dataint4`,`buddy_entry`,`search_radius`,`data_flags`,`comments`,`x`,`y`,`z`,`o`) VALUES
 (1777201,0,32,1,0,0,0,0,0,0,0,0,0,'Lady Jaina Proudmoore - Pause Waypoints',0,0,0,0),
 (1777201,0,35,5,65,0,0,0,0,0,0,0,0,'Lady Jaina Proudmoore - Throw AI Event 5',0,0,0,0),
-(1777201,1,15,16807,0,0,0,0,0,0,0,0,0,'Lady Jaina Proudmoore - Cast Mass Teleport',0,0,0,0),
-(1777201,1,0,0,0,0,2000001521,0,0,0,0,0,0,'Lady Jaina Proudmoore - %s begins channelling a massive teleport spell.',0,0,0,0),
-(1777201,22,35,6,0,0,0,0,0,0,0,0,0,'Lady Jaina Proudmoore - Throw AI Event 6 on Self',0,0,0,0);
+(1777201,1000,15,16807,0,0,0,0,0,0,0,0,0,'Lady Jaina Proudmoore - Cast Mass Teleport',0,0,0,0),
+(1777201,1000,0,0,0,0,2000020024,0,0,0,0,0,0,'Lady Jaina Proudmoore - %s begins channelling a massive teleport spell.',0,0,0,0),
+(1777201,22000,35,6,0,0,0,0,0,0,0,0,0,'Lady Jaina Proudmoore - Throw AI Event 6 on Self',0,0,0,0);
 
-DELETE FROM `dbscript_string` WHERE `entry`=2000001521;
-INSERT INTO `dbscript_string` (`entry`, `content_default`, `sound`, `type`, `language`, `emote`, `comment`) VALUES 
-(2000001521, '%s begins channelling a massive teleport spell.', 0, 7, 0, 0, 'Lady Jaina Proudmoore (Entry: 17772)');
+DELETE FROM `dbscript_string` WHERE `entry` IN (2000020022, 2000020023, 2000020024);
+INSERT INTO `dbscript_string` (`entry`, `content_default`, `sound`, `type`, `language`, `emote`, `broadcast_text_id`, `comment`) VALUES 
+(2000020022, 'Do you think the rumors about the Infinite Dragonflight are true?  I''ve sensed it... the familiarity.', 0, 0, 0, 1, 21646, 'Indormi (Entry: 23437)'),
+(2000020023, 'That is a dangerous train of thought.  If something was truly amiss, Soridormi would be the first to know.', 0, 0, 0, 274, 21645, 'Tydormu (Entry: 23381)'),
+(2000020024, '%s begins channelling a massive teleport spell.', 0, 7, 0, 0, 15310, 'Lady Jaina Proudmoore (Entry: 17772)');
 
 -- ----------------------------------
 -- creature_linking
@@ -717,10 +714,10 @@ INSERT INTO `dbscripts_on_creature_movement` (`id`,`delay`,`command`,`datalong`,
 (1777202,0,32,1,0,0,0,0,0,0,0,0,0,'Lady Jaina Proudmoore - Pause Waypoints',0,0,0,0),
 (1777202,0,15,12980,0,0,0,0,0,0,0,0,0,'Lady Jaina Proudmoore - Cast Simple Teleport',0,0,0,0),
 (1777202,0,1,16,0,0,0,0,0,0,0,0,0,'Lady Jaina Proudmoore - OneShotKneel',0,0,0,0),
-(1777202,2,35,8,150,0,0,0,0,0,0,0,0,'Lady Jaina Proudmoore - Throw AI Event 8',0,0,0,0),
-(1777202,3,15,16807,0,0,0,0,0,0,0,0,0,'Lady Jaina Proudmoore - Cast Mass Teleport',0,0,0,0),
-(1777202,3,0,0,0,0,2000001521,0,0,0,0,0,0,'Lady Jaina Proudmoore - %s begins channelling a massive teleport spell.',0,0,0,0),
-(1777202,24,35,6,0,0,0,0,0,0,0,0,0,'Lady Jaina Proudmoore - Throw AI Event 6 on Self',0,0,0,0);
+(1777202,2000,35,8,150,0,0,0,0,0,0,0,0,'Lady Jaina Proudmoore - Throw AI Event 8',0,0,0,0),
+(1777202,3000,15,16807,0,0,0,0,0,0,0,0,0,'Lady Jaina Proudmoore - Cast Mass Teleport',0,0,0,0),
+(1777202,3000,0,0,0,0,2000020024,0,0,0,0,0,0,'Lady Jaina Proudmoore - %s begins channelling a massive teleport spell.',0,0,0,0),
+(1777202,24000,35,6,0,0,0,0,0,0,0,0,0,'Lady Jaina Proudmoore - Throw AI Event 6 on Self',0,0,0,0);
 
 -- ----------------------------------
 -- creature_linking
@@ -2421,7 +2418,7 @@ INSERT INTO `dbscripts_on_relay` (`id`,`delay`,`command`,`datalong`,`datalong2`,
 (10078,0,20,2,6,0,0,0,0,0,0,0,0,'Hyjal Summit Alliance Wave - Load Path ID 6',0,0,0,0),
 
 (10079,0,25,1,0,0,0,0,0,0,0,0,6,'Hyjal Summit Overrun - Run On',0,0,0,0),
-(10079,1,37,0,0,10,0,0,0,0,0,0,2,'Hyjal Summit Overrun - Move towards Jaina',0,0,0,0);
+(10079,1000,37,0,0,10,0,0,0,0,0,0,2,'Hyjal Summit Overrun - Move towards Jaina',0,0,0,0);
 
 DELETE FROM `dbscript_random_templates` WHERE `id` IN (10056);
 INSERT INTO dbscript_random_templates (id,type,target_id,chance,comments) VALUES
@@ -3519,6 +3516,10 @@ INSERT INTO `creature_movement_template` (`entry`,`pathID`,`point`,`position_x`,
 (17905,12,40,5529.216,-2648.117,1480.218,0,0,100),
 (17905,12,41,5536.944,-2639.985,1480.674,0,0,100),
 (17905,12,42,5546.523,-2637.094,1482.928,0,0,100);
+
+-- Giant Infernal
+INSERT INTO `creature_movement_template` (`entry`,`pathID`,`point`,`position_x`,`position_y`,`position_z`,`waittime`,`script_id`,`orientation`) VALUES
+(17908, 0, 1, 5450.54, -2723.97, 1485.59, 0, 0, 100);
 
 -- Fel Stalker
 INSERT INTO `creature_movement_template` (`entry`,`pathID`,`point`,`position_x`,`position_y`,`position_z`,`waittime`,`script_id`,`orientation`) VALUES

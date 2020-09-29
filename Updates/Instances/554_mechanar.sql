@@ -3,7 +3,6 @@ DBName: Tempest Keep - The Mechanar (Mecha)
 DBScriptName: instance_mechanar
 DB%Complete: 80
 DBComment:
-* ACID Recheck
 EndDBScriptData */
 
 SET @CGUID := 5540000; -- creatures
@@ -92,7 +91,7 @@ INSERT INTO `creature_movement` (`id`, `point`, `position_x`, `position_y`, `pos
 (@CGUID+47, 5, 175.857, 36.2103, 1.01048, 4.15964, 0, 0),
 (@CGUID+47, 6, 180.796, 39.2187, -0.006297, 0.397588, 0, 0),
 (@CGUID+47, 7, 191.442, 40.9485, -0.006297, 0.124269, 0, 0),
-(@CGUID+55, 1, 226.707, -109.536, -0.00693, 5.82783, 0, 8320801),
+(@CGUID+55, 1, 226.707, -109.536, -0.00693, 5.82783, 0, 1971601),
 (@CGUID+55, 2, 207.09, -95.4179, -0.000968, 2.55508, 0, 0),
 (@CGUID+55, 3, 204.143, -88.2587, 0.000499, 1.96132, 0, 0),
 (@CGUID+55, 4, 206.056, -76.7196, 0.00145, 1.33614, 0, 0),
@@ -102,8 +101,8 @@ INSERT INTO `creature_movement` (`id`, `point`, `position_x`, `position_y`, `pos
 (@CGUID+55, 8, 205.587, -76.0482, 0.001631, 3.90675, 0, 0),
 (@CGUID+55, 9, 202.412, -87.2174, 0.001631, 4.39605, 0, 0),
 (@CGUID+55, 10, 203.796, -92.6097, 0.001631, 4.9364, 0, 0),
-(@CGUID+59, 1, 200.165, 52.1172, -0.00492364, 3.01772, 0, 0),
-(@CGUID+59, 2, 229.678, 52.6314, 0.00518766, 0.0214238, 0, 0),
+(@CGUID+59, 1, 203.6965, 53.04169, -0.004259702, 100, 0, 0),
+(@CGUID+59, 2, 233.3129, 52.31844, 0.02142454, 100, 0, 0),
 (@CGUID+68, 1, 98.722, 51.8395, 14.9258, 4.39527, 0, 0),
 (@CGUID+68, 2, 104.442, 42.0315, 14.9258, 5.24036, 0, 0),
 (@CGUID+68, 3, 114.306, 38.4851, 14.9258, 5.90323, 0, 0),
@@ -157,52 +156,52 @@ INSERT INTO `creature_addon` (`guid`, `mount`, `bytes1`, `b2_0_sheath`, `b2_1_fl
 -- REPLACE INTO `creature_template_addon` (`entry`, `mount`, `bytes1`, `b2_0_sheath`, `b2_1_flags`, `emote`, `moveflags`, `auras`) VALUES
 
 INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES
-(@CGUID+25, @CGUID+63, 1167), -- Bloodwarder Centurion -> Sunseeker Netherbinder
-(@CGUID+76, @CGUID+63, 1167), -- Bloodwarder Physician -> Sunseeker Netherbinder
-(@CGUID+10, @CGUID+64, 1167), -- Bloodwarder Slayer -> Sunseeker Netherbinder
-(@CGUID+77, @CGUID+64, 1167), -- Bloodwarder Physician -> Sunseeker Netherbinder
-(@CGUID+75, @CGUID+9, 1167), -- Bloodwarder Physician -> Bloodwarder Slayer
-(@CGUID+81, @CGUID+13, 1167), -- Bloodwarder Physician -> Bloodwarder Slayer
-(@CGUID+74, @CGUID+8, 1167), -- Bloodwarder Physician -> Bloodwarder Slayer
-(@CGUID+80, @CGUID+12, 1167), -- Bloodwarder Physician -> Bloodwarder Slayer
-(@CGUID+39, @CGUID+68, 1167), -- Mechanar Wrecker -> Sunseeker Engineer
-(@CGUID+40, @CGUID+68, 1167), -- Mechanar Wrecker -> Sunseeker Engineer
-(@CGUID+58, @CGUID+68, 1167), -- Mechanar Tinkerer -> Sunseeker Engineer
-(@CGUID+56, @CGUID+23, 1167), -- Mechanar Tinkerer -> Mechanar Crusher
-(@CGUID+57, @CGUID+23, 1167), -- Mechanar Tinkerer -> Mechanar Crusher
-(@CGUID+37, @CGUID+71, 1167), -- Mechanar Driller -> Sunseeker Engineer
-(@CGUID+38, @CGUID+71, 1167), -- Mechanar Driller -> Sunseeker Engineer
-(@CGUID+7, @CGUID+73, 1167), -- Bloodwarder Slayer -> Bloodwarder Physician
-(@CGUID+79, @CGUID+11, 1167), -- Bloodwarder Physician -> Bloodwarder Slayer
-(@CGUID+62, @CGUID+24, 1167), -- Sunseeker Netherbinder -> Bloodwarder Centurion
-(@CGUID+72, @CGUID+24, 1167), -- Bloodwarder Physician -> Bloodwarder Centurion
-(@CGUID+65, @CGUID+26, 1167), -- Sunseeker Netherbinder -> Bloodwarder Centurion
-(@CGUID+78, @CGUID+26, 1167), -- Bloodwarder Physician -> Bloodwarder Centurion
-(@CGUID+48, @CGUID+47, 1167), -- Mechanar Tinkerer -> Mechanar Tinkerer
-(@CGUID+49, @CGUID+47, 1167), -- Mechanar Tinkerer -> Mechanar Tinkerer
-(@CGUID+51, @CGUID+47, 1167), -- Mechanar Tinkerer -> Mechanar Tinkerer
-(@CGUID+33, @CGUID+55, 1167), -- Mechanar Driller -> Mechanar Tinkerer
-(@CGUID+34, @CGUID+55, 1167), -- Mechanar Driller -> Mechanar Tinkerer
-(@CGUID+54, @CGUID+55, 1167), -- Mechanar Tinkerer -> Mechanar Tinkerer
-(@CGUID+45, @CGUID+32, 1167), -- Mechanar Tinkerer -> Mechanar Driller
-(@CGUID+46, @CGUID+32, 1167), -- Mechanar Tinkerer -> Mechanar Driller
-(@CGUID+50, @CGUID+32, 1167), -- Mechanar Tinkerer -> Mechanar Driller
-(@CGUID+67, @CGUID+32, 1167), -- Sunseeker Engineer -> Mechanar Driller
-(@CGUID+35, @CGUID+70, 1167), -- Mechanar Driller -> Sunseeker Engineer
-(@CGUID+36, @CGUID+70, 1167), -- Mechanar Driller -> Sunseeker Engineer
-(@CGUID+41, @CGUID+53, 1167), -- Mechanar Wrecker -> Mechanar Tinkerer
-(@CGUID+42, @CGUID+53, 1167), -- Mechanar Wrecker -> Mechanar Tinkerer
-(@CGUID+52, @CGUID+53, 1167), -- Mechanar Tinkerer -> Mechanar Tinkerer
-(@CGUID+43, @CGUID+69, 1167), -- Mechanar Tinkerer -> Sunseeker Engineer
-(@CGUID+44, @CGUID+69, 1167), -- Mechanar Tinkerer -> Sunseeker Engineer
-(@CGUID+66, @CGUID+69, 1167), -- Sunseeker Engineer -> Sunseeker Engineer
-(@CGUID+15, @CGUID+14, 1167), -- Sunseeker Astromage -> Sunseeker Astromage
-(@CGUID+19, @CGUID+18, 1167), -- Sunseeker Astromage -> Sunseeker Astromage
-(@CGUID+29, @CGUID+18, 1167), -- Bloodwarder Centurion -> Sunseeker Astromage
-(@CGUID+30, @CGUID+18, 1167), -- Bloodwarder Centurion -> Sunseeker Astromage
-(@CGUID+17, @CGUID+16, 1167), -- Sunseeker Astromage -> Sunseeker Astromage
-(@CGUID+27, @CGUID+16, 1167), -- Bloodwarder Centurion -> Sunseeker Astromage
-(@CGUID+28, @CGUID+16, 1167); -- Bloodwarder Centurion -> Sunseeker Astromage
+(@CGUID+25, @CGUID+63, 1155), -- Bloodwarder Centurion -> Sunseeker Netherbinder
+(@CGUID+76, @CGUID+63, 1155), -- Bloodwarder Physician -> Sunseeker Netherbinder
+(@CGUID+10, @CGUID+64, 1155), -- Bloodwarder Slayer -> Sunseeker Netherbinder
+(@CGUID+77, @CGUID+64, 1155), -- Bloodwarder Physician -> Sunseeker Netherbinder
+(@CGUID+75, @CGUID+9, 1155), -- Bloodwarder Physician -> Bloodwarder Slayer
+(@CGUID+81, @CGUID+13, 1155), -- Bloodwarder Physician -> Bloodwarder Slayer
+(@CGUID+74, @CGUID+8, 1155), -- Bloodwarder Physician -> Bloodwarder Slayer
+(@CGUID+80, @CGUID+12, 1155), -- Bloodwarder Physician -> Bloodwarder Slayer
+(@CGUID+39, @CGUID+68, 1155), -- Mechanar Wrecker -> Sunseeker Engineer
+(@CGUID+40, @CGUID+68, 1155), -- Mechanar Wrecker -> Sunseeker Engineer
+(@CGUID+58, @CGUID+68, 1155), -- Mechanar Tinkerer -> Sunseeker Engineer
+(@CGUID+56, @CGUID+23, 1155), -- Mechanar Tinkerer -> Mechanar Crusher
+(@CGUID+57, @CGUID+23, 1155), -- Mechanar Tinkerer -> Mechanar Crusher
+(@CGUID+37, @CGUID+71, 1155), -- Mechanar Driller -> Sunseeker Engineer
+(@CGUID+38, @CGUID+71, 1155), -- Mechanar Driller -> Sunseeker Engineer
+(@CGUID+7, @CGUID+73, 1155), -- Bloodwarder Slayer -> Bloodwarder Physician
+(@CGUID+79, @CGUID+11, 1155), -- Bloodwarder Physician -> Bloodwarder Slayer
+(@CGUID+62, @CGUID+24, 1155), -- Sunseeker Netherbinder -> Bloodwarder Centurion
+(@CGUID+72, @CGUID+24, 1155), -- Bloodwarder Physician -> Bloodwarder Centurion
+(@CGUID+65, @CGUID+26, 1155), -- Sunseeker Netherbinder -> Bloodwarder Centurion
+(@CGUID+78, @CGUID+26, 1155), -- Bloodwarder Physician -> Bloodwarder Centurion
+(@CGUID+48, @CGUID+47, 1155), -- Mechanar Tinkerer -> Mechanar Tinkerer
+(@CGUID+49, @CGUID+47, 1155), -- Mechanar Tinkerer -> Mechanar Tinkerer
+(@CGUID+51, @CGUID+47, 1155), -- Mechanar Tinkerer -> Mechanar Tinkerer
+(@CGUID+33, @CGUID+55, 1155), -- Mechanar Driller -> Mechanar Tinkerer
+(@CGUID+34, @CGUID+55, 1155), -- Mechanar Driller -> Mechanar Tinkerer
+(@CGUID+54, @CGUID+55, 1155), -- Mechanar Tinkerer -> Mechanar Tinkerer
+(@CGUID+45, @CGUID+32, 1155), -- Mechanar Tinkerer -> Mechanar Driller
+(@CGUID+46, @CGUID+32, 1155), -- Mechanar Tinkerer -> Mechanar Driller
+(@CGUID+50, @CGUID+32, 1155), -- Mechanar Tinkerer -> Mechanar Driller
+(@CGUID+67, @CGUID+32, 1155), -- Sunseeker Engineer -> Mechanar Driller
+(@CGUID+35, @CGUID+70, 1155), -- Mechanar Driller -> Sunseeker Engineer
+(@CGUID+36, @CGUID+70, 1155), -- Mechanar Driller -> Sunseeker Engineer
+(@CGUID+41, @CGUID+53, 1155), -- Mechanar Wrecker -> Mechanar Tinkerer
+(@CGUID+42, @CGUID+53, 1155), -- Mechanar Wrecker -> Mechanar Tinkerer
+(@CGUID+52, @CGUID+53, 1155), -- Mechanar Tinkerer -> Mechanar Tinkerer
+(@CGUID+43, @CGUID+69, 1155), -- Mechanar Tinkerer -> Sunseeker Engineer
+(@CGUID+44, @CGUID+69, 1155), -- Mechanar Tinkerer -> Sunseeker Engineer
+(@CGUID+66, @CGUID+69, 1155), -- Sunseeker Engineer -> Sunseeker Engineer
+(@CGUID+15, @CGUID+14, 1155), -- Sunseeker Astromage -> Sunseeker Astromage
+(@CGUID+19, @CGUID+18, 1155), -- Sunseeker Astromage -> Sunseeker Astromage
+(@CGUID+29, @CGUID+18, 1155), -- Bloodwarder Centurion -> Sunseeker Astromage
+(@CGUID+30, @CGUID+18, 1155), -- Bloodwarder Centurion -> Sunseeker Astromage
+(@CGUID+17, @CGUID+16, 1155), -- Sunseeker Astromage -> Sunseeker Astromage
+(@CGUID+27, @CGUID+16, 1155), -- Bloodwarder Centurion -> Sunseeker Astromage
+(@CGUID+28, @CGUID+16, 1155); -- Bloodwarder Centurion -> Sunseeker Astromage
 
 REPLACE INTO `creature_linking_template` (`entry`, `map`, `master_entry`, `flag`, `search_range`) VALUES
 (20481, 554, 19221, 4113, 0); -- Raging Flames -> Nethermancer Sepethrea
@@ -267,8 +266,8 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `spawnMask`, `position_x`, `positio
 (@CGUID+57, 19716, 554, 3, 92.8965, -79.4786, 14.9259, 5.52074, 7200, 7200, 0, 0, 0, 0), -- Mechanar Tinkerer
 (@CGUID+58, 19716, 554, 3, 106.545, 52.6026, 14.9234, 0.0881336, 7200, 7200, 3, 0, 0, 1), -- Mechanar Tinkerer
 (@CGUID+59, 19735, 554, 3, 205.481, 51.6294, -0.00493833, 3.11426, 7200, 7200, 0, 0, 0, 2), -- Tempest-Forge Destroyer
-(@CGUID+60, 19735, 554, 3, 291.911, 30.5269, 25.3862, 1.54016, 7200, 7200, 0, 0, 0, 0), -- Tempest-Forge Destroyer
-(@CGUID+61, 19735, 554, 3, 295.365, -23.7523, 25.3862, 1.81211, 7200, 7200, 3, 0, 0, 1), -- Tempest-Forge Destroyer
+(@CGUID+60, 19735, 554, 3, 290.6187, 29.12057, 25.4695, 1.692969, 7200, 7200, 0, 0, 0, 0), -- Tempest-Forge Destroyer
+(@CGUID+61, 19735, 554, 3, 297.3579, -14.26091, 25.38358, 1.81211, 7200, 7200, 4, 0, 0, 1), -- Tempest-Forge Destroyer
 (@CGUID+62, 20059, 554, 3, 169.156, 92.0407, 0.642169, 3.19502, 7200, 7200, 0, 0, 0, 0), -- Sunseeker Netherbinder
 (@CGUID+63, 20059, 554, 3, 23.3113, 21.6298, 0.00000711717, 3.11017, 7200, 7200, 0, 0, 0, 0), -- Sunseeker Netherbinder
 (@CGUID+64, 20059, 554, 3, 23.1913, -20.9207, 0.00000567781, 3.04813, 7200, 7200, 0, 0, 0, 0), -- Sunseeker Netherbinder
@@ -305,13 +304,23 @@ INSERT INTO `gameobject` (`guid`, `id`, `map`, `spawnMask`, `position_x`, `posit
 (@OGUID+8, 184465, 554, 1, 225.442, 83.4075, 0.002621, 4.74591, 0, 0, 0, 0, 10800, 10800, 100, 1), -- Cache of the Legion
 (@OGUID+9, 184632, 554, 3, 236.46, 52.3636, 1.65354, 3.14159, 0, 0, -1, 0, 43200, 43200, 0, 1), -- Mo'arg 1 Door
 (@OGUID+10, 184849, 554, 2, 225.442, 83.4075, 0.002621, 4.74591, 0, 0, 0, 0, 86400, 86400, 100, 1), -- Cache of the Legion
-(@OGUID+11, 184936, 554, 3, 299.06, -46.0161, 25.3949, 6.1043, 0, 0, 0, 0, 86400, 86400, 100, 1), -- Bound Adamantite Chest
-(@OGUID+12, 184937, 554, 3, 143.472, 179.921, 25.5636, 1.36442, 0, 0, 0, 0, 86400, 86400, 100, 1), -- Solid Adamantite Chest
-(@OGUID+13, 184941, 554, 3, 243.344, 14.1168, -0.0019269, 0.50436, 0, 0, 0, 0, 86400, 86400, 100, 1), -- Solid Adamantite Chest
+-- RE-USE 11 - 13
 (@OGUID+14, 185015, 554, 3, 144.904, -44.3406, 1.01041, 0.543127, 0, 0, 0, 0, 120, 120, 100, 1), -- Overcharged Manacell
 (@OGUID+15, 185015, 554, 3, 146.76, -36.2917, 1.01041, 5.99065, 0, 0, 0, 0, 120, 120, 100, 1), -- Overcharged Manacell
 (@OGUID+16, 185015, 554, 3, 158.931, -26.9887, 1.00972, 4.98325, 0, 0, 0, 0, 120, 120, 100, 1), -- Overcharged Manacell
-(@OGUID+17, 185015, 554, 3, 151.858, -29.8824, 1.01041, 5.41365, 0, 0, 0, 0, 120, 120, 100, 1); -- Overcharged Manacell
+(@OGUID+17, 185015, 554, 3, 151.858, -29.8824, 1.01041, 5.41365, 0, 0, 0, 0, 120, 120, 100, 1), -- Overcharged Manacell
+(@OGUID+18, 184936, 554, 3, 221.32, -90.15, 0.00, 3.73, 0, 0, 0, 0, 86400, 86400, 100, 1), -- Bound Adamantite Chest
+(@OGUID+19, 184937, 554, 3, 221.32, -90.15, 0.00, 3.73, 0, 0, 0, 0, 86400, 86400, 100, 1), -- Solid Adamantite Chest
+(@OGUID+20, 184936, 554, 3, 131.80, -44.97, -0.00, 0.81, 0, 0, 0, 0, 86400, 86400, 100, 1), -- Bound Adamantite Chest
+(@OGUID+21, 184937, 554, 3, 131.80, -44.97, -0.00, 0.81, 0, 0, 0, 0, 86400, 86400, 100, 1), -- Solid Adamantite Chest
+(@OGUID+22, 184936, 554, 3, 129.97, 45.00, 0.00, 5.51, 0, 0, 0, 0, 86400, 86400, 100, 1), -- Bound Adamantite Chest
+(@OGUID+23, 184937, 554, 3, 129.97, 45.00, 0.00, 5.51, 0, 0, 0, 0, 86400, 86400, 100, 1), -- Solid Adamantite Chest
+(@OGUID+24, 184940, 554, 3, 243.344, 14.1168, -0.0019269, 0.50436, 0, 0, 0, 0, 86400, 86400, 100, 1), -- Bound Adamantite Chest
+(@OGUID+25, 184941, 554, 3, 243.344, 14.1168, -0.0019269, 0.50436, 0, 0, 0, 0, 86400, 86400, 100, 1), -- Solid Adamantite Chest
+(@OGUID+26, 184936, 554, 3, 299.06, -46.0161, 25.3949, 6.1043, 0, 0, 0, 0, 86400, 86400, 100, 1), -- Bound Adamantite Chest
+(@OGUID+27, 184937, 554, 3, 299.06, -46.0161, 25.3949, 6.1043, 0, 0, 0, 0, 86400, 86400, 100, 1), -- Solid Adamantite Chest
+(@OGUID+28, 184936, 554, 3, 143.472, 179.921, 25.5636, 1.36442, 0, 0, 0, 0, 86400, 86400, 100, 1), -- Solid Adamantite Chest
+(@OGUID+29, 184937, 554, 3, 143.472, 179.921, 25.5636, 1.36442, 0, 0, 0, 0, 86400, 86400, 100, 1); -- Solid Adamantite Chest
 
 -- ======
 -- EVENTS
@@ -328,18 +337,39 @@ INSERT INTO `game_event_creature_data` (`guid`, `entry_id`, `modelid`, `equipmen
 -- POOLING
 -- =======
 
--- INSERT INTO `pool_pool` (`pool_id`, `mother_pool`, `chance`, `description`) VALUES
+INSERT INTO `pool_pool` (`pool_id`, `mother_pool`, `chance`, `description`) VALUES
+(@PGUID+41, @PGUID+40, 0, 'The Mechanar - Bound / Solid Adamantite Chest #1'),
+(@PGUID+42, @PGUID+40, 0, 'The Mechanar - Bound / Solid Adamantite Chest #2'),
+(@PGUID+43, @PGUID+40, 0, 'The Mechanar - Bound / Solid Adamantite Chest #3'),
+(@PGUID+44, @PGUID+40, 0, 'The Mechanar - Bound / Solid Adamantite Chest #4'),
+(@PGUID+45, @PGUID+40, 0, 'The Mechanar - Bound / Solid Adamantite Chest #5'),
+(@PGUID+46, @PGUID+40, 0, 'The Mechanar - Bound / Solid Adamantite Chest #6');
 
 INSERT INTO `pool_template` (`entry`, `max_limit`, `description`) VALUES
-(@PGUID+21, 1, 'The Mechanar - Master Chest Pool'); -- gameobject
+(@PGUID+40, 1, 'The Mechanar - Master Chest Pool'), -- gameobject
+(@PGUID+41, 1, 'The Mechanar - Bound / Solid Adamantite Chest #1'),
+(@PGUID+42, 1, 'The Mechanar - Bound / Solid Adamantite Chest #2'),
+(@PGUID+43, 1, 'The Mechanar - Bound / Solid Adamantite Chest #3'),
+(@PGUID+44, 1, 'The Mechanar - Bound / Solid Adamantite Chest #4'),
+(@PGUID+45, 1, 'The Mechanar - Bound / Solid Adamantite Chest #5'),
+(@PGUID+46, 1, 'The Mechanar - Bound / Solid Adamantite Chest #6');
 
 -- INSERT INTO `pool_creature` (`guid`, `pool_entry`, `chance`, `description`) VALUES
 -- INSERT INTO `pool_creature_template` (`id`, `pool_entry`, `chance`, `description`) VALUES
 
 INSERT INTO `pool_gameobject` (`guid`, `pool_entry`, `chance`, `description`) VALUES
-(@OGUID+11, @PGUID+21, 0, 'The Mechanar - Bound Adamantite Chest (184936)'),
-(@OGUID+12, @PGUID+21, 0, 'The Mechanar - Solid Adamantite Chest (184937)'),
-(@OGUID+13, @PGUID+21, 0, 'The Mechanar - Solid Adamantite Chest (184941)');
+(@OGUID+18, @PGUID+41, 0, 'The Mechanar - Bound Adamantite Chest (184936) - #1'),
+(@OGUID+19, @PGUID+41, 0, 'The Mechanar - Solid Adamantite Chest (184937) - #1'),
+(@OGUID+20, @PGUID+42, 0, 'The Mechanar - Bound Adamantite Chest (184936) - #2'),
+(@OGUID+21, @PGUID+42, 0, 'The Mechanar - Solid Adamantite Chest (184937) - #2'),
+(@OGUID+22, @PGUID+43, 0, 'The Mechanar - Bound Adamantite Chest (184936) - #3'),
+(@OGUID+23, @PGUID+43, 0, 'The Mechanar - Solid Adamantite Chest (184937) - #3'),
+(@OGUID+24, @PGUID+44, 0, 'The Mechanar - Solid Adamantite Chest (184940) - #4'),
+(@OGUID+25, @PGUID+44, 0, 'The Mechanar - Solid Adamantite Chest (184941) - #4'),
+(@OGUID+26, @PGUID+45, 0, 'The Mechanar - Bound Adamantite Chest (184936) - #5'),
+(@OGUID+27, @PGUID+45, 0, 'The Mechanar - Solid Adamantite Chest (184937) - #5'),
+(@OGUID+28, @PGUID+46, 0, 'The Mechanar - Bound Adamantite Chest (184936) - #6'),
+(@OGUID+29, @PGUID+46, 0, 'The Mechanar - Solid Adamantite Chest (184937) - #6');
 
 -- INSERT INTO `pool_gameobject_template` (`id`, `pool_entry`, `chance`, `description`) VALUES
 
@@ -347,9 +377,9 @@ INSERT INTO `pool_gameobject` (`guid`, `pool_entry`, `chance`, `description`) VA
 -- DBSCRIPTS
 -- =========
 
-DELETE FROM dbscripts_on_creature_movement WHERE id=8320801;
+DELETE FROM dbscripts_on_creature_movement WHERE id=1971601;
 INSERT INTO `dbscripts_on_creature_movement` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
-(8320801, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Mechanar Tinkerer (Mechanar) RUN ON');
+(1971601, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Mechanar Tinkerer (Mechanar) RUN ON');
 
 -- INSERT INTO `dbscripts_on_creature_death` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
 -- INSERT INTO `dbscripts_on_go_use` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES

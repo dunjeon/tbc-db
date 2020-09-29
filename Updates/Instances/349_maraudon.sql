@@ -73,10 +73,11 @@ INSERT INTO `creature_movement` (`id`, `point`, `position_x`, `position_y`, `pos
 (@CGUID+39, 10, 8.187, -127.348, -123.845, 5.134, 0, 0),
 (@CGUID+39, 11, 62.416, -207.188, -109.659, 1.94569, 0, 0),
 (@CGUID+39, 12, 79.0383, -255.555, -108.677, 5.96536, 0, 0),
-(@CGUID+162, 1, 742.923, -127.961, -56.2506, 3.29867, 1, 1179101),
-(@CGUID+163, 1, 739.91, -122.194, -56.5653, 3.97935, 1, 1179101),
-(@CGUID+164, 1, 758.122, -42.8355, -55.9574, 2.1293, 1, 1179101),
-(@CGUID+165, 1, 750.123, -42.8777, -56.1531, 0.959931, 1, 1179101),
+(@CGUID+139, 1, 870.034, -329.385, -48.798, 0.279253, 1000, 1179001),
+(@CGUID+162, 1, 742.923, -127.961, -56.2506, 3.29867, 1000, 1179101),
+(@CGUID+163, 1, 739.91, -122.194, -56.5653, 3.97935, 1000, 1179101),
+(@CGUID+164, 1, 758.122, -42.8355, -55.9574, 2.1293, 1000, 1179101),
+(@CGUID+165, 1, 750.123, -42.8777, -56.1531, 0.959931, 1000, 1179101),
 (@CGUID+181, 1, 784.514, -329.119, -50.0284, 100, 0, 0),
 (@CGUID+181, 2, 764.984, -324.438, -51.5668, 100, 0, 0),
 (@CGUID+181, 3, 749.575, -337.565, -50.711, 100, 0, 0),
@@ -534,10 +535,10 @@ INSERT INTO `creature_addon` (`guid`, `mount`, `bytes1`, `b2_0_sheath`, `b2_1_fl
 REPLACE INTO `creature_template_addon` (`entry`, `mount`, `bytes1`, `b2_0_sheath`, `b2_1_flags`, `emote`, `moveflags`, `auras`) VALUES
 (11784, 0, 0, 1, 16, 0, 0, NULL), -- Theradrim Guardian
 (11789, 0, 0, 1, 16, 0, 0, '8876'), -- Deep Borer
-(11790, 0, 0, 1, 16, 0, 0, NULL), -- Putridus Satyr
-(11791, 0, 0, 1, 16, 0, 0, '3417'), -- Putridus Trickster
+(11790, 0, 0, 1, 16, 0, 0, '21061'), -- Putridus Satyr
+(11791, 0, 0, 1, 16, 0, 0, '3417 13299 21061'), -- Putridus Trickster
 (11792, 0, 33554432, 1, 16, 0, 0, '1785'), -- Putridus Shadowstalker
-(11793, 0, 0, 1, 16, 0, 0, NULL), -- Celebrian Dryad
+(11793, 0, 0, 1, 16, 0, 0, '8601'), -- Celebrian Dryad
 (11794, 0, 0, 1, 16, 0, 0, NULL), -- Sister of Celebrian
 (12201, 0, 0, 1, 16, 0, 0, '8876'), -- Princess Theradras
 (12203, 0, 0, 1, 16, 0, 0, NULL), -- Landslide
@@ -570,6 +571,11 @@ REPLACE INTO `creature_template_addon` (`entry`, `mount`, `bytes1`, `b2_0_sheath
 (15556, 0, 0, 1, 16, 0, 0, '25824'); -- Elder Splitrock
 
 INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES
+(@CGUID+205, @CGUID+204, 3), -- Primordial Behemoth -> Primordial Behemoth
+(@CGUID+211, @CGUID+209, 3), -- Primordial Behemoth -> Primordial Behemoth
+(@CGUID+214, @CGUID+212, 3), -- Primordial Behemoth -> Primordial Behemoth
+(@CGUID+215, @CGUID+213, 3), -- Primordial Behemoth -> Primordial Behemoth
+(@CGUID+218, @CGUID+217, 3), -- Primordial Behemoth -> Primordial Behemoth
 (@CGUID+179, @CGUID+484, 3), -- Putridus Shadowstalker -> Lord Vyletongue
 (@CGUID+180, @CGUID+484, 3), -- Putridus Shadowstalker -> Lord Vyletongue
 (@CGUID+573, @CGUID+576, 512), -- Stolid Snapjaw -> Stolid Snapjaw
@@ -719,7 +725,7 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `position_x`, `position_y`, `positi
 (@CGUID+136, 11789, 349, -145.74, -339.411, -170.336, 1.97222, 7200, 7200, 2, 0, 0, 1), -- Deep Borer
 (@CGUID+137, 11789, 349, -147.693, -330.588, -170.336, 0.558505, 7200, 7200, 2, 0, 0, 1), -- Deep Borer
 (@CGUID+138, 11789, 349, -111.448, -320.95, -170.418, 1.83066, 7200, 7200, 2, 0, 0, 1), -- Deep Borer
-(@CGUID+139, 11790, 349, 870.034, -329.385, -48.798, 0.279253, 7200, 7200, 0, 0, 0, 0), -- Putridus Satyr
+(@CGUID+139, 11790, 349, 870.034, -329.385, -48.798, 0.279253, 7200, 7200, 0, 0, 0, 2), -- Putridus Satyr
 (@CGUID+140, 11790, 349, 805.145, -337.727, -51.5528, 3.83972, 7200, 7200, 0, 0, 0, 0), -- Putridus Satyr
 (@CGUID+141, 11790, 349, 834.136, -356.258, -51.9663, 0.890118, 7200, 7200, 0, 0, 0, 0), -- Putridus Satyr
 (@CGUID+142, 11790, 349, 899.811, -417.652, -52.9225, 2.60054, 7200, 7200, 0, 0, 0, 0), -- Putridus Satyr
@@ -1316,27 +1322,28 @@ INSERT INTO `pool_gameobject` (`guid`, `pool_entry`, `chance`, `description`) VA
 -- DBSCRIPTS
 -- =========
 
-DELETE FROM dbscripts_on_creature_movement WHERE id IN (1179101,1371601,1371602,1371603,1353301);
+DELETE FROM dbscripts_on_creature_movement WHERE id IN (1179001,1179101,1371601,1371602,1371603,1353301);
 INSERT INTO `dbscripts_on_creature_movement` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
+(1179001, 0, 15, 21157, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Putridus Satyr - Cast Dark Channeling'),
 (1179101, 0, 15, 21157, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Putridus Trickster - Cast Dark Channeling'),
 
-(1371601, 3, 0, 0, 0, 0, 0, 0, 0, 2000005649, 0, 0, 0, 0, 0, 0, 0, ''),
-(1371601, 4, 9, @OGUID+62, 3600, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'summon book'),
-(1371601, 5, 15, 21916, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'cast Celebras Waiting'),
-(1371601, 6, 0, 0, 0, 0, 0, 0, 0, 2000005650, 0, 0, 0, 0, 0, 0, 0, ''),
-(1371601, 7, 0, 0, 0, 0, 0, 0, 0, 2000005651, 0, 0, 0, 0, 0, 0, 0, ''),
+(1371601, 3000, 0, 0, 0, 0, 0, 0, 0, 2000005649, 0, 0, 0, 0, 0, 0, 0, ''),
+(1371601, 4000, 9, @OGUID+62, 3600, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'summon book'),
+(1371601, 5000, 15, 21916, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'cast Celebras Waiting'),
+(1371601, 6000, 0, 0, 0, 0, 0, 0, 0, 2000005650, 0, 0, 0, 0, 0, 0, 0, ''),
+(1371601, 7000, 0, 0, 0, 0, 0, 0, 0, 2000005651, 0, 0, 0, 0, 0, 0, 0, ''),
 
-(1371602, 1, 15, 21950, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'cast Recite Words of Celebras'),
-(1371602, 7, 0, 0, 0, 0, 0, 0, 0, 2000005653, 0, 0, 0, 0, 0, 0, 0, ''),
+(1371602, 1000, 15, 21950, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'cast Recite Words of Celebras'),
+(1371602, 7000, 0, 0, 0, 0, 0, 0, 0, 2000005653, 0, 0, 0, 0, 0, 0, 0, ''),
 
-(1371603, 1, 29, 3, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Add flags'),
-(1371603, 1, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Stop WP movement'),
-(1371603, 1, 3, 0, 700, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5.06689, 'correct orient'),
+(1371603, 1000, 29, 3, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Add flags'),
+(1371603, 1000, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Stop WP movement'),
+(1371603, 1000, 3, 0, 700, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5.06689, 'correct orient'),
 
 (1353301, 0, 32, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Spewed Larva - pause WP movement'),
-(1353301, 1, 20, 1, 8, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 'Spewed Larva - movement changed to random'),
-(1353301, 30, 20, 2, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 'Spewed Larva - movement changed to WP'),
-(1353301, 30, 18, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Spewed Larva - despawn self');
+(1353301, 1000, 20, 1, 8, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 'Spewed Larva - movement changed to random'),
+(1353301, 30000, 20, 2, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 'Spewed Larva - movement changed to WP'),
+(1353301, 30000, 18, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Spewed Larva - despawn self');
 
 -- INSERT INTO `dbscripts_on_creature_death` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
 -- INSERT INTO `dbscripts_on_go_use` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
@@ -1348,9 +1355,9 @@ INSERT INTO `dbscripts_on_go_template_use` (`id`, `delay`, `command`, `datalong`
 
 (178965, 0, 14, 21916, 0, 0, 13716, 50, 7, 0, 0, 0, 0, 0, 0, 0, 0, ''),
 (178965, 0, 9, @OGUID+61, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'summon Celebras Blue Aura'),
-(178965, 1, 0, 0, 0, 0, 0, 0, 0, 2000005652, 0, 0, 0, 0, 0, 0, 0, 'force Player to say'),
-(178965, 3, 0, 0, 0, 0, 13716, 50, 7, 2000005652, 0, 0, 0, 0, 0, 0, 0, ''),
-(178965, 25, 7, 7046, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Give quest completion');
+(178965, 1000, 0, 0, 0, 0, 0, 0, 0, 2000005652, 0, 0, 0, 0, 0, 0, 0, 'force Player to say'),
+(178965, 3000, 0, 0, 0, 0, 13716, 50, 7, 2000005652, 0, 0, 0, 0, 0, 0, 0, ''),
+(178965, 25000, 7, 7046, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Give quest completion');
 
 -- INSERT INTO `dbscripts_on_relay` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
 -- INSERT INTO `dbscripts_on_event` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
@@ -1360,25 +1367,25 @@ INSERT INTO `dbscripts_on_go_template_use` (`id`, `delay`, `command`, `datalong`
 DELETE FROM dbscripts_on_quest_start WHERE id=7046;
 INSERT INTO `dbscripts_on_quest_start` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
 (7046, 0, 0, 0, 0, 0, 0, 0, 0, 2000005646, 0, 0, 0, 0, 0, 0, 0, ''),
-(7046, 1, 29, 3, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Remove flags'),
-(7046, 3, 3, 0, 700, 0, 0, 0, 0, 0, 0, 0, 0, 654.905, 87.382, -86.8597, 5.06689, 'move'),
-(7046, 14, 3, 0, 700, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5.06689, 'correct orient'),
-(7046, 15, 0, 0, 0, 0, 0, 0, 0, 2000005647, 0, 0, 0, 0, 0, 0, 0, ''),
-(7046, 17, 20, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'movement changed to 2:waypoint'),
-(7046, 23, 0, 0, 0, 0, 0, 0, 0, 2000005648, 0, 0, 0, 0, 0, 0, 0, '');
+(7046, 1000, 29, 3, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Remove flags'),
+(7046, 3000, 3, 0, 700, 0, 0, 0, 0, 0, 0, 0, 0, 654.905, 87.382, -86.8597, 5.06689, 'move'),
+(7046, 14000, 3, 0, 700, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5.06689, 'correct orient'),
+(7046, 15000, 0, 0, 0, 0, 0, 0, 0, 2000005647, 0, 0, 0, 0, 0, 0, 0, ''),
+(7046, 17000, 20, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'movement changed to 2:waypoint'),
+(7046, 23000, 0, 0, 0, 0, 0, 0, 0, 2000005648, 0, 0, 0, 0, 0, 0, 0, '');
 
 -- INSERT INTO `dbscripts_on_quest_end` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
 
 DELETE FROM dbscript_string WHERE entry IN (2000005646,2000005647,2000005648,2000005649,2000005650,2000005651,2000005652,2000005653);
-INSERT INTO `dbscript_string` (`entry`, `content_default`, `sound`, `type`, `language`, `emote`, `comment`) VALUES
-(2000005646, 'You wish to learn of the stone? Follow me.', 0, 0, 0, 0, ''),
-(2000005647, 'For so long I have drifted in my cursed form. You have freed me... Your hard work shall be repaid.', 0, 0, 0, 0, ''),
-(2000005648, 'Please do as I instruct you, $N.', 0, 0, 0, 0, ''), 
-(2000005649, 'Read this tome I have placed before you, and speak the words aloud.', 0, 0, 0, 0, ''),
-(2000005650, '%s begins to channel his energy, focusing on the stone.', 0, 2, 0, 0, ''),
-(2000005651, 'Together, the two parts shall become one, once again.', 0, 0, 0, 0, ''),
-(2000005652, 'Shal myrinan ishnu daldorah...', 0, 0, 0, 0, ''),
-(2000005653, 'My scepter will once again become whole!', 0, 0, 0, 0, '');
+INSERT INTO `dbscript_string` (`entry`, `content_default`, `sound`, `type`, `language`, `emote`, `broadcast_text_id`, `comment`) VALUES
+(2000005646, 'You wish to learn of the stone? Follow me.', 0, 0, 0, 0, 8952, ''),
+(2000005647, 'For so long I have drifted in my cursed form. You have freed me... Your hard work shall be repaid.', 0, 0, 0, 0, 8953, ''),
+(2000005648, 'Please do as I instruct you, $N.', 0, 0, 0, 0, 8954, ''), 
+(2000005649, 'Read this tome I have placed before you, and speak the words aloud.', 0, 0, 0, 0, 8950, ''),
+(2000005650, '%s begins to channel his energy, focusing on the stone.', 0, 2, 0, 0, 8951, ''),
+(2000005651, 'Together, the two parts shall become one, once again.', 0, 0, 0, 0, 8948, ''),
+(2000005652, 'Shal myrinan ishnu daldorah...', 0, 0, 0, 0, 8949, ''),
+(2000005653, 'My scepter will once again become whole!', 0, 0, 0, 0, 8955, '');
 
 -- INSERT INTO `dbscript_random_templates` (`id`, `type`, `target_id`, `chance`, `comments`) VALUES
 

@@ -3,6 +3,7 @@ DBName: Gnomeregan
 DBScriptName: instance_gnomeregan
 DB%Complete: 75
 DBComment:
+Add additional RP Scripts in The Clean Zone
 EndDBScriptData */
 
 SET @CGUID := 9000000; -- creatures
@@ -309,6 +310,10 @@ INSERT INTO `creature_movement` (`id`, `point`, `position_x`, `position_y`, `pos
 (@CGUID+217, 10, -619.588, 369.404, -247.244, 100, 0, 0),
 (@CGUID+217, 11, -642.33, 357.334, -255.6, 100, 0, 0),
 (@CGUID+217, 12, -664.485, 385.76, -273.062, 100, 0, 0),
+(@CGUID+253, 1, -532.052, 164.641, -155.236, 0, 0, 0),
+(@CGUID+253, 2, -512.561, 174.285, -155.236, 0, 0, 0),
+(@CGUID+253, 3, -492.059, 162.03, -154.697, 0, 0, 0),
+(@CGUID+253, 4, -512.561, 174.285, -155.236, 0, 0, 0),
 (@CGUID+395, 1, -445.727, 240.449, -207.96, 100, 0, 0),
 (@CGUID+395, 2, -452.575, 254.154, -207.934, 100, 0, 0),
 (@CGUID+395, 3, -470.16, 262.695, -207.917, 100, 0, 0),
@@ -488,8 +493,6 @@ INSERT INTO `creature_addon` (`guid`, `mount`, `bytes1`, `b2_0_sheath`, `b2_1_fl
 (@CGUID+99, 0, 0, 1, 16, 173, 0, NULL), -- Leprous Technician
 (@CGUID+100, 0, 0, 1, 16, 173, 0, NULL), -- Leprous Technician
 (@CGUID+114, 0, 0, 1, 16, 173, 0, NULL), -- Leprous Technician
-(@CGUID+173, 0, 0, 1, 16, 0, 0, '10348'), -- Mechano-Frostwalker
-(@CGUID+178, 0, 0, 1, 16, 0, 0, '10348'), -- Mechano-Frostwalker
 (@CGUID+291, 0, 7, 1, 16, 0, 0, NULL), -- Holdout Warrior
 (@CGUID+292, 0, 7, 1, 16, 0, 0, NULL), -- Holdout Warrior
 (@CGUID+297, 0, 8, 1, 16, 0, 0, '13864'); -- Holdout Medic
@@ -787,7 +790,7 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `position_x`, `position_y`, `positi
 (@CGUID+250, 6329, 90, -468.348, 177.182, -154.653, 6.0912, 7200, 7200, 5, 0, 0, 1), -- Irradiated Pillager
 (@CGUID+251, 6329, 90, -554.399, 169.332, -155.153, 1.01229, 7200, 7200, 0, 0, 0, 0), -- Irradiated Pillager
 (@CGUID+252, 6329, 90, -436.441, 122.539, -156.443, 6.23082, 7200, 7200, 0, 0, 0, 0), -- Irradiated Pillager
-(@CGUID+253, 6329, 90, -532.052, 164.641, -155.236, 2.6529, 7200, 7200, 1, 0, 0, 1), -- Irradiated Pillager
+(@CGUID+253, 6329, 90, -532.052, 164.641, -155.236, 2.6529, 7200, 7200, 0, 0, 0, 2), -- Irradiated Pillager
 (@CGUID+254, 6329, 90, -367.322, 126.659, -154.66, 3.40339, 7200, 7200, 3, 0, 0, 1), -- Irradiated Pillager
 (@CGUID+255, 6329, 90, -524.084, 17.8809, -156.404, 2.87979, 7200, 7200, 3, 0, 0, 1), -- Irradiated Pillager
 (@CGUID+256, 6329, 90, -601.919, 197.694, -171.666, 4.60767, 7200, 7200, 2, 0, 0, 1), -- Irradiated Pillager
@@ -951,11 +954,7 @@ INSERT INTO `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `posi
 (@OGUID+4, 19020, 90, -541.045, 15.7146, -179.734, 2.30383, 0, 0, 0.913545, 0.406737, 3600, 3600, 100, 1), -- Box of Assorted Parts
 (@OGUID+5, 19020, 90, -466.196, 104.798, -150.114, 0.226893, 0, 0, 0.113203, 0.993572, 3600, 3600, 100, 1), -- Box of Assorted Parts
 (@OGUID+6, 19020, 90, -527.599, -134.657, -152.499, 0.174533, 0, 0, 0.087156, 0.996195, 3600, 3600, 100, 1), -- Box of Assorted Parts
-(@OGUID+7, 74447, 90, -830.873, 278.731, -272.596, 1.36136, 0, 0, 0.629322, 0.777145, 86400, 86400, 255, 1), -- Large Iron Bound Chest
-(@OGUID+8, 74448, 90, -754.344, 364, -272.596, 2.80998, 0, 0, 0.986286, 0.165048, 3600, 3600, 100, 1), -- Large Solid Chest
-(@OGUID+9, 74448, 90, -440.175, 81.8185, -151.476, 1.25664, 0, 0, 0.587786, 0.809016, 3600, 3600, 100, 1), -- Large Solid Chest
-(@OGUID+10, 74448, 90, -630.556, 66.5022, -183.275, 2.75762, 0, 0, 0.981627, 0.190809, 3600, 3600, 100, 1), -- Large Solid Chest
-(@OGUID+11, 74448, 90, -622.664, 51.5146, -199.646, 3.05433, 0, 0, 0.999048, 0.0436174, 86400, 86400, 255, 1), -- Large Solid Chest
+-- 7 - 11
 (@OGUID+12, 85556, 90, -806.887, 323.963, -271.656, 2.21308, 0, 0, 0.894154, 0.447759, 3600, 3600, 100, 1), -- Vator2
 (@OGUID+13, 90858, 90, -758.538, 260.386, -273.049, 2.22529, 0, 0, 0.896873, 0.442289, 3600, 3600, 100, 1), -- Workshop Door
 (@OGUID+14, 103820, 90, -511.33, -139.962, -152.476, 0.750491, 0, 0, 0.366501, 0.930418, -86400, -86400, 0, 1), -- Red Rocket
@@ -1041,7 +1040,19 @@ INSERT INTO `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `posi
 (@OGUID+94, 146085, 90, -505.096, -93.973, -147.814, -2.77507, 0, 0, 0.983255, -0.182235, 3600, 3600, 100, 1), -- Cave In
 (@OGUID+95, 146086, 90, -541.607, -105.434, -151.829, 0.767944, 0, 0, 0.374606, 0.927184, 3600, 3600, 100, 1), -- Cave In
 (@OGUID+96, 175084, 90, -550.033, 206.148, -193.723, -2.05949, 0, 0, 0.857167, -0.515038, 3600, 3600, 100, 1), -- The Sparklematic 5200
-(@OGUID+97, 175085, 90, -496.932, 185.134, -193.71, 0.977384, 0, 0, 0.469472, 0.882948, 3600, 3600, 100, 1); -- The Sparklematic 5200
+(@OGUID+97, 175085, 90, -496.932, 185.134, -193.71, 0.977384, 0, 0, 0.469472, 0.882948, 3600, 3600, 100, 1), -- The Sparklematic 5200
+(@OGUID+98, 74447, 90, -440.175, 81.8185, -151.476, 1.25664, 0, 0, 0.587786, 0.809016, 86400, 86400, 100, 1), -- Large Iron Bound Chest
+(@OGUID+99, 74448, 90, -440.175, 81.8185, -151.476, 1.25664, 0, 0, 0.587786, 0.809016, 86400, 86400, 100, 1), -- Large Solid Chest
+(@OGUID+100, 74447, 90,  -622.43, 122.98, -199.64, 3.91, 0, 0, 0, 0, 86400, 86400, 100, 1), -- Large Iron Bound Chest		// xyz guessed
+(@OGUID+101, 74448, 90,  -622.43, 122.98, -199.64, 3.91, 0, 0, 0, 0, 86400, 86400, 100, 1), -- Large Solid Chest		// xyz guessed
+(@OGUID+102, 74447, 90, -630.556, 66.5022, -183.275, 2.75762, 0, 0, 0.981627, 0.190809, 86400, 86400, 100, 1), -- Large Iron Bound Chest
+(@OGUID+103, 74448, 90, -630.556, 66.5022, -183.275, 2.75762, 0, 0, 0.981627, 0.190809, 86400, 86400, 100, 1), -- Large Solid Chest
+(@OGUID+104, 74447, 90, -622.664, 51.5146, -199.646, 3.05433, 0, 0, 0.999048, 0.0436174, 86400, 86400, 255, 1), -- Large Iron Bound Chest
+(@OGUID+105, 74448, 90, -622.664, 51.5146, -199.646, 3.05433, 0, 0, 0.999048, 0.0436174, 86400, 86400, 255, 1), -- Large Solid Chest
+(@OGUID+106, 74447, 90, -830.873, 278.731, -272.596, 1.36136, 0, 0, 0.629322, 0.777145, 86400, 86400, 255, 1), -- Large Iron Bound Chest
+(@OGUID+107, 74448, 90, -830.873, 278.731, -272.596, 1.36136, 0, 0, 0.629322, 0.777145, 86400, 86400, 255, 1), -- Large Solid Chest
+(@OGUID+108, 74447, 90, -754.344, 364, -272.596, 2.80998, 0, 0, 0.986286, 0.165048, 86400, 86400, 100, 1), -- Large Iron Bound Chest
+(@OGUID+109, 74448, 90, -754.344, 364, -272.596, 2.80998, 0, 0, 0.986286, 0.165048, 86400, 86400, 100, 1); -- Large Solid Chest
 
 -- ======
 -- EVENTS
@@ -1058,11 +1069,23 @@ INSERT INTO `game_event_gameobject` (`guid`, `event`) VALUES
 -- POOLING
 -- =======
 
--- INSERT INTO `pool_pool` (`pool_id`, `mother_pool`, `chance`, `description`) VALUES
+INSERT INTO `pool_pool` (`pool_id`, `mother_pool`, `chance`, `description`) VALUES
+(@PGUID+92, @PGUID+89, 0, 'Gnomeregan (The Dormitory) - Large Iron Bound/Solid Chest #2'),
+(@PGUID+93, @PGUID+89, 0, 'Gnomeregan (The Dormitory) - Large Iron Bound/Solid Chest #3'),
+(@PGUID+94, @PGUID+89, 0, 'Gnomeregan (The Dormitory) - Large Iron Bound/Solid Chest #4'),
+(@PGUID+95, @PGUID+90, 0, 'Gnomeregan (Engineering Labs) - Large Iron Bound/Solid Chest #5'),
+(@PGUID+96, @PGUID+90, 0, 'Gnomeregan (Engineering Labs) - Large Iron Bound/Solid Chest #6');
 
 INSERT INTO `pool_template` (`entry`, `max_limit`, `description`) VALUES
 (@PGUID+1, 1, 'Gnomeregan - Dark Iron Ambassador (6228)'),
-(@PGUID+2, 2, 'Gnomeregan - Master Chest Pool');
+(@PGUID+89, 1, 'Gnomeregan (The Dormitory) - Chest Pool'),
+(@PGUID+90, 1, 'Gnomeregan (Engineering Labs) - Chest Pool'),
+(@PGUID+91, 1, 'Gnomeregan (The Hall of Gears) - Large Iron Bound/Solid Chest #1'),
+(@PGUID+92, 1, 'Gnomeregan - Large Iron Bound/Solid Chest #2'),
+(@PGUID+93, 1, 'Gnomeregan - Large Iron Bound/Solid Chest #3'),
+(@PGUID+94, 1, 'Gnomeregan - Large Iron Bound/Solid Chest #4'),
+(@PGUID+95, 1, 'Gnomeregan - Large Iron Bound/Solid Chest #5'),
+(@PGUID+96, 1, 'Gnomeregan - Large Iron Bound/Solid Chest #6');
 
 INSERT INTO `pool_creature` (`guid`, `pool_entry`, `chance`, `description`) VALUES
 (@CGUID+50, @PGUID+1, 70, 'Gnomeregan - Alternate creature to Dark Iron Ambassador (6228)'),
@@ -1071,11 +1094,18 @@ INSERT INTO `pool_creature` (`guid`, `pool_entry`, `chance`, `description`) VALU
 -- INSERT INTO `pool_creature_template` (`id`, `pool_entry`, `chance`, `description`) VALUES
 
 INSERT INTO `pool_gameobject` (`guid`, `pool_entry`, `chance`, `description`) VALUES
-(@OGUID+7, @PGUID+2, 0, 'Gnomeregan - Large Iron Bound Chest (74447)'),
-(@OGUID+8, @PGUID+2, 0, 'Gnomeregan - Large Solid Chest (74448)'),
-(@OGUID+9, @PGUID+2, 0, 'Gnomeregan - Large Solid Chest (74448)'),
-(@OGUID+10, @PGUID+2, 0, 'Gnomeregan - Large Solid Chest (74448)'),
-(@OGUID+11, @PGUID+2, 0, 'Gnomeregan - Large Solid Chest (74448)');
+(@OGUID+98, @PGUID+91, 0, 'Gnomeregan - Large Iron Bound Chest (74447)'),
+(@OGUID+99, @PGUID+91, 0, 'Gnomeregan - Large Solid Chest (74448)'),
+(@OGUID+100, @PGUID+92, 0, 'Gnomeregan - Large Iron Bound Chest (74447)'),
+(@OGUID+101, @PGUID+92, 0, 'Gnomeregan - Large Solid Chest (74448)'),
+(@OGUID+102, @PGUID+93, 0, 'Gnomeregan - Large Iron Bound Chest (74447)'),
+(@OGUID+103, @PGUID+93, 0, 'Gnomeregan - Large Solid Chest (74448)'),
+(@OGUID+104, @PGUID+94, 0, 'Gnomeregan - Large Iron Bound Chest (74447)'),
+(@OGUID+105, @PGUID+94, 0, 'Gnomeregan - Large Solid Chest (74448)'),
+(@OGUID+106, @PGUID+95, 0, 'Gnomeregan - Large Iron Bound Chest (74447)'),
+(@OGUID+107, @PGUID+95, 0, 'Gnomeregan - Large Solid Chest (74448)'),
+(@OGUID+108, @PGUID+96, 0, 'Gnomeregan - Large Iron Bound Chest (74447)'),
+(@OGUID+109, @PGUID+96, 0, 'Gnomeregan - Large Solid Chest (74448)');
 
 -- INSERT INTO `pool_gameobject_template` (`id`, `pool_entry`, `chance`, `description`) VALUES
 
@@ -1087,16 +1117,16 @@ INSERT INTO `pool_gameobject` (`guid`, `pool_entry`, `chance`, `description`) VA
 -- INSERT INTO `dbscripts_on_creature_death` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
 
 INSERT INTO `dbscripts_on_go_use` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
-(@OGUID+77, 1, 15, 11525, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, ''),
-(@OGUID+78, 1, 15, 11525, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, ''),
-(@OGUID+79, 1, 15, 11525, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, ''),
-(@OGUID+80, 1, 15, 11528, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, ''),
-(@OGUID+81, 1, 15, 11528, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, ''),
-(@OGUID+82, 1, 15, 11528, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, ''),
-(@OGUID+83, 1, 15, 11528, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, ''),
-(@OGUID+86, 1, 15, 11545, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, ''),
-(@OGUID+87, 1, 15, 11545, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, ''),
-(@OGUID+88, 1, 15, 11545, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, '');
+(@OGUID+77, 1000, 15, 11525, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, ''),
+(@OGUID+78, 1000, 15, 11525, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, ''),
+(@OGUID+79, 1000, 15, 11525, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, ''),
+(@OGUID+80, 1000, 15, 11528, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, ''),
+(@OGUID+81, 1000, 15, 11528, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, ''),
+(@OGUID+82, 1000, 15, 11528, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, ''),
+(@OGUID+83, 1000, 15, 11528, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, ''),
+(@OGUID+86, 1000, 15, 11545, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, ''),
+(@OGUID+87, 1000, 15, 11545, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, ''),
+(@OGUID+88, 1000, 15, 11545, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, '');
 
 -- INSERT INTO `dbscripts_on_go_template_use` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
 -- INSERT INTO `dbscripts_on_relay` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES

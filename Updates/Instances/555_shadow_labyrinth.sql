@@ -4,9 +4,7 @@ DBScriptName: instance_shadow_labyrinth
 DB%Complete: 81
 DBComment:
 * Murmur Suppression Blast 33332 - Only RP Event, not used on targets which fight players - UPDATE `spell_template` SET `AttributesEx` = `AttributesEx`|256 WHERE `Id` = 33332; doesnt work
-* npcs in murmur pre bossfight event need movement for proper positioning
-* Murmur Hallway Door should open on proximity of players towards it, dbscripts_on_go_template_use doesnt activate when door is opened with DoUseDoorOrButton();
-* 184940 and 184941 are probably pooled
+* 184940 and 184941 are probably pooled in sections of the dungeon
 EndDBScriptData */
 
 SET @CGUID := 5550000; -- creatures
@@ -30,22 +28,26 @@ INSERT INTO `creature_movement` (`id`, `point`, `position_x`, `position_y`, `pos
 (@CGUID+37, 1, -287.804, -96.3896, 8.15635, 5.48033, 8000, 1863101),
 (@CGUID+38, 1, -276.704, 22.5176, 8.15633, 0.017453, 8000, 1863101),
 (@CGUID+39, 1, -286.707, -99.5, 8.15633, 1.32645, 6000, 1863101),
-(@CGUID+45, 1, -172.173, -325.754, 17.1697, 5.53269, 2000, 1863201),
-(@CGUID+45, 2, -160.339, -328.603, 17.0869, 4.72687, 5000, 1863202),
-(@CGUID+46, 1, -168.532, -352.302, 17.1662, 4.83456, 2000, 1863201),
-(@CGUID+46, 2, -162.415, -350.568, 17.0835, 4.74318, 5000, 1863202),
-(@CGUID+47, 1, -135.771, -329.128, 17.1687, 3.50811, 2000, 1863201),
-(@CGUID+47, 2, -152.625, -325.811, 17.0865, 4.68167, 5000, 1863202),
-(@CGUID+48, 1, -174.082, -354.553, 17.1667, 5.35816, 2000, 1863201),
-(@CGUID+48, 2, -149.628, -355.988, 17.0834, 4.65396, 5000, 1863202),
-(@CGUID+49, 1, -171.642, -370.791, 17.0818, 0.523599, 2000, 1863201),
-(@CGUID+49, 2, -150.133, -378.117, 17.0814, 4.64736, 5000, 1863202),
-(@CGUID+50, 1, -173.133, -366.97, 17.0828, 5.91667, 2000, 1863201),
-(@CGUID+50, 2, -163.108, -374.718, 17.0811, 4.75488, 5000, 1863202),
-(@CGUID+51, 1, -142.203, -390.029, 17.0806, 4.4855, 2000, 1863201),
-(@CGUID+51, 2, -148.384, -417.065, 17.0784, 4.59443, 5000, 1863202),
-(@CGUID+52, 1, -140.54, -410.52, 17.079, 1.44862, 2000, 1863201),
-(@CGUID+52, 2, -162.943, -421.588, 17.0776, 4.77894, 5000, 1863202),
+
+-- Cabal Executioner Murmur Hallway Movements
+(@CGUID+45, 1, -172.173, -325.754, 17.1697, 5.53269, 2000, 5),
+(@CGUID+45, 2, -160.339, -328.603, 17.0869, 4.72687, 5000, 1863201),
+(@CGUID+46, 1, -168.532, -352.302, 17.1662, 4.83456, 2000, 5),
+(@CGUID+46, 2, -162.415, -350.568, 17.0835, 4.74318, 5000, 1863201),
+(@CGUID+47, 1, -135.771, -329.128, 17.1687, 3.50811, 2000, 5),
+(@CGUID+47, 2, -152.625, -325.811, 17.0865, 4.68167, 5000, 1863201),
+(@CGUID+48, 1, -174.082, -354.553, 17.1667, 5.35816, 2000, 5),
+(@CGUID+48, 2, -149.628, -355.988, 17.0834, 4.65396, 5000, 1863201),
+(@CGUID+49, 1, -171.642, -370.791, 17.0818, 0.523599, 2000, 5),
+(@CGUID+49, 2, -150.133, -378.117, 17.0814, 4.64736, 5000, 1863201),
+(@CGUID+50, 1, -173.133, -366.97, 17.0828, 5.91667, 2000, 5),
+(@CGUID+50, 2, -163.108, -374.718, 17.0811, 4.75488, 5000, 1863201),
+(@CGUID+51, 1, -142.203, -390.029, 17.0806, 4.4855, 2000, 5),
+(@CGUID+51, 2, -148.384, -417.065, 17.0784, 4.59443, 5000, 1863201),
+(@CGUID+52, 1, -140.54, -410.52, 17.079, 1.44862, 2000, 5),
+(@CGUID+52, 2, -162.943, -421.588, 17.0776, 4.77894, 5000, 1863201),
+-- ----------------------------------------------
+
 (@CGUID+53, 1, -73.9905, -56.6604, -1.12827, 1.30588, 0, 0),
 (@CGUID+53, 2, -73.2549, -45.9498, -1.12827, 1.65538, 0, 0),
 (@CGUID+53, 3, -75.0944, -30.1813, -1.12822, 1.58469, 0, 0),
@@ -89,7 +91,7 @@ INSERT INTO `creature_movement` (`id`, `point`, `position_x`, `position_y`, `pos
 (@CGUID+67, 14, -41.2586, -83.6097, -1.13761, 3.66232, 0, 0),
 (@CGUID+67, 15, -47.1808, -85.1115, -1.13502, 3.25599, 0, 0),
 (@CGUID+67, 16, -53.786, -86.0242, -1.12974, 5.27917, 0, 0),
-(@CGUID+67, 17, -48.3232, -89.7437, -1.12831, 2.56119, 0, 0),
+(@CGUID+67, 17, -48.3232, -89.7437, -1.12831, 5.62, 30000, 1863304),
 (@CGUID+68, 1, -90.6977, -92.3565, -1.04497, 0.715585, 12000, 1863305),
 (@CGUID+69, 1, -247.273, -49.6712, 8.15618, 3.03687, 26000, 1863306),
 (@CGUID+70, 1, -255.77, -27.5678, 8.18844, 3.24631, 26000, 1863306),
@@ -98,30 +100,42 @@ INSERT INTO `creature_movement` (`id`, `point`, `position_x`, `position_y`, `pos
 (@CGUID+73, 1, -265.829, 0.056211, 8.15626, 3.68265, 26000, 1863306),
 (@CGUID+74, 1, -272.845, -76.4279, 8.15625, 2.6529, 26000, 1863306),
 (@CGUID+75, 1, -454.315, -183.092, 12.7725, 5.06145, 11000, 1863305),
-(@CGUID+76, 1, -175.894, -349.783, 17.166, 5.61996, 4000, 1863401),
-(@CGUID+76, 2, -156.496, -325.849, 17.0865, 4.73628, 5000, 1863403),
-(@CGUID+77, 1, -156.498, -328.007, 17.1696, 3.14159, 1000, 0),
-(@CGUID+77, 2, -156.498, -328.007, 17.1696, 3.14159, 2000, 1863403),
-(@CGUID+78, 1, -135.201, -360.271, 17.0819, 3.49066, 2000, 1863401),
-(@CGUID+78, 2, -157.038, -354.905, 17.0836, 4.70637, 5000, 1863402),
-(@CGUID+79, 1, -136.037, -343.41, 17.1648, 3.1765, 2000, 1863401),
-(@CGUID+79, 2, -162.127, -345.104, 17.084, 4.74018, 15000, 0),
-(@CGUID+79, 3, -149.744, -341.401, 17.0847, 4.66016, 15000, 0),
-(@CGUID+79, 4, -154.979, -338.741, 17.0853, 4.66635, 15000, 0),
-(@CGUID+79, 5, -162.127, -345.104, 17.084, 4.74018, 15000, 0),
-(@CGUID+79, 6, -149.744, -341.401, 17.0847, 4.66016, 15000, 0),
-(@CGUID+79, 7, -154.979, -338.741, 17.0853, 4.66635, 15000, 0),
-(@CGUID+79, 8, -162.127, -345.104, 17.084, 4.74018, 15000, 1863402),
-(@CGUID+80, 1, -141.612, -363.212, 17.0827, 4.2586, 2000, 1863401),
-(@CGUID+80, 2, -157.923, -374.597, 17.0818, 4.71262, 5000, 1863402),
-(@CGUID+81, 1, -171.826, -401.41, 17.0799, 0.890118, 2000, 1863401),
-(@CGUID+81, 2, -158.9, -420.073, 17.0777, 4.7254, 5000, 1863402),
-(@CGUID+82, 1, -134.274, -388.795, 17.1657, 3.14159, 2000, 1863401),
-(@CGUID+82, 2, -145.634, -396.327, 17.0802, 3.72706, 15000, 0),
-(@CGUID+82, 3, -164.682, -401.259, 17.0797, 5.26035, 15000, 0),
-(@CGUID+82, 4, -155.47, -402.097, 17.0795, 5.04987, 15000, 1863403),
-(@CGUID+84, 1, -143.49, -443.834, 17.078, 3.15222, 20000, 1863401),
-(@CGUID+84, 2, -154.002, -443.803, 17.0779, 4.60457, 5000, 1863403),
+
+-- Cabal Summoner Murmur Hallway Movements
+-- flavor when door opens
+(@CGUID+76, 1, -175.894, -349.783, 17.166, 5.61996, 4000, 5),
+(@CGUID+76, 2, -156.498, -328.007, 17.1696, 1.6034, 0, 0),
+(@CGUID+76, 3, -156.496, -325.849, 17.0865, 4.73628, 5000, 1863402), -- die permanently
+-- flavor when door opens
+(@CGUID+77, 1, -156.498, -328.007, 17.1696, 3.14159, 2000, 5),
+(@CGUID+77, 2, -156.466, -314.34, 17.0849, 1.6034, 5000, 1863402), -- die permanently
+
+-- stationary pack 1
+(@CGUID+78, 1, -135.201, -360.271, 17.0819, 3.49066, 2000, 5),
+(@CGUID+78, 2, -157.038, -354.905, 17.0836, 4.70637, 5000, 1863401), -- idle
+
+-- runner #1 (fast respawn)
+(@CGUID+79, 1, -136.037, -343.41, 17.1648, 3.1765, 1000, 5),
+(@CGUID+79, 2, -162.127, -345.104, 17.084, 4.74018, 10000, 0),
+(@CGUID+79, 3, -149.744, -341.401, 17.0847, 4.66016, 10000, 0),
+(@CGUID+79, 4, -154.979, -338.741, 17.0853, 4.66635, 10000, 0),
+(@CGUID+79, 5, -162.127, -345.104, 17.084, 4.74018, 10000, 0),
+
+-- stationary pack 2
+(@CGUID+80, 1, -141.612, -363.212, 17.0827, 4.2586, 2000, 5),
+(@CGUID+80, 2, -157.923, -374.597, 17.0818, 4.71262, 5000, 1863401), -- idle
+
+-- stationary pack 3
+(@CGUID+81, 1, -171.826, -401.41, 17.0799, 0.890118, 2000, 5),
+(@CGUID+81, 2, -158.9, -420.073, 17.0777, 4.7254, 5000, 1863401), -- idle
+
+-- runner #2 (fast respawn)
+(@CGUID+82, 1, -134.274, -388.795, 17.1657, 3.14159, 1000, 5),
+(@CGUID+82, 2, -145.634, -396.327, 17.0802, 4.61994, 10000, 0),
+(@CGUID+82, 3, -164.682, -401.259, 17.0797, 4.61994, 10000, 0),
+(@CGUID+82, 4, -155.47, -402.097, 17.0795, 4.61994, 10000, 0),
+-- ----------------------------------------------
+
 (@CGUID+85, 1, -62.1643, -18.331, -1.12955, 0.231035, 0, 0),
 (@CGUID+85, 2, -58.8384, -12.529, -1.12955, 1.52616, 0, 0),
 (@CGUID+85, 3, -58.4549, 6.17609, -1.12955, 1.26383, 0, 0),
@@ -260,25 +274,36 @@ INSERT INTO `creature_movement` (`id`, `point`, `position_x`, `position_y`, `pos
 (@CGUID+108, 2, -313.295, -263.085, 12.6835, 0.0211422, 0, 0),
 (@CGUID+108, 3, -323.666718, -263.655304, 12.685335, 100, 0, 0),
 (@CGUID+108, 4, -322.766266, -263.664520, 12.685326, 100, 18000, 1863801),
-(@CGUID+112, 1, -139.912, -353.917, 17.1665, 5.75959, 4000, 1863901),
-(@CGUID+112, 2, -153.403, -352.024, 17.0838, 4.70338, 7000, 1863902),
-(@CGUID+113, 1, -140.42, -369.956, 17.0815, 3.03687, 2000, 1863901),
-(@CGUID+113, 2, -153.032, -375.78, 17.0816, 4.6724, 7000, 1863902),
-(@CGUID+115, 1, -143.33, -397.343, 17.0801, 2.37365, 2000, 1863901),
-(@CGUID+115, 2, -153.364, -417.684, 17.078, 4.65555, 7000, 1863902),
-(@CGUID+116, 1, -179.281, -350.271, 17.1665, 5.98648, 2000, 1863901),
-(@CGUID+116, 2, -164.621, -364.47, 17.0824, 4.77388, 20000, 0),
-(@CGUID+116, 3, -149.681, -366.439, 17.0824, 4.61994, 5000, 1863903),
-(@CGUID+118, 1, -134.274, -388.795, 17.1657, 3.72706, 17000, 1863901),
-(@CGUID+118, 2, -134.274, -388.795, 17.1657, 3.72706, 1000, 1863904),
-(@CGUID+118, 3, -164.751, -400.857, 17.0797, 4.51183, 5000, 1863902),
-(@CGUID+122, 1, -176.776, -434.265, 17.1622, 0.279253, 30000, 1863901),
-(@CGUID+122, 2, -165.452, -432.216, 17.0783, 4.61994, 20000, 0),
-(@CGUID+122, 3, -157.677, -431.365, 17.0778, 4.61994, 20000, 0),
-(@CGUID+122, 4, -151.013, -429.674, 17.0777, 4.61994, 12000, 0),
-(@CGUID+122, 5, -151.013, -429.674, 17.0777, 4.61994, 5000, 1863903),
-(@CGUID+123, 1, -130.551, -443.696, 17.164, 3.14527, 60000, 1863901),
-(@CGUID+123, 2, -149.68, -443.899, 17.0779, 4.60428, 2000, 1863904),
+
+-- Cabal Spellbinder Murmur Hallway Movement
+-- stationary pack 1
+(@CGUID+112, 1, -139.912, -353.917, 17.1665, 5.75959, 2000, 5),
+(@CGUID+112, 2, -153.403, -352.024, 17.0838, 4.70338, 5000, 1863401),
+
+-- stationary pack 2
+(@CGUID+113, 1, -140.42, -369.956, 17.0815, 3.03687, 2000, 5),
+(@CGUID+113, 2, -153.032, -375.78, 17.0816, 4.6724, 5000, 1863401),
+
+-- stationary pack 3
+(@CGUID+115, 1, -143.33, -397.343, 17.0801, 2.37365, 2000, 5),
+(@CGUID+115, 2, -153.364, -417.684, 17.078, 4.65555, 5000, 1863401),
+
+-- runner #3 (fast respawn)
+(@CGUID+116, 1, -179.281, -350.271, 17.1665, 5.98648, 1000, 5),
+(@CGUID+116, 2, -164.621, -364.47, 17.0824, 4.77388, 10000, 0),
+(@CGUID+116, 3, -149.681, -366.439, 17.0824, 4.61994, 10000, 0),
+
+-- runner #4 (fast respawn)
+(@CGUID+122, 1, -176.776, -434.265, 17.1622, 0.279253, 1000, 5),
+(@CGUID+122, 2, -165.452, -432.216, 17.0783, 4.61994, 10000, 0),
+(@CGUID+122, 3, -157.677, -431.365, 17.0778, 4.61994, 10000, 0),
+(@CGUID+122, 4, -151.013, -429.674, 17.0777, 4.61994, 10000, 0),
+
+-- runner #5 (fast respawn)
+(@CGUID+123, 1, -130.551, -443.696, 17.164, 3.14527, 1000, 5),
+(@CGUID+123, 2, -149.68, -443.899, 17.0779, 4.60428, 10000, 0),
+-- ----------------------------------------------
+
 (@CGUID+124, 1, -51.2688, -78.5158, -1.0449, 2.49582, 7000, 1864002),
 (@CGUID+124, 2, -51.2688, -78.5158, -1.0449, 2.49582, 7000, 1864003),
 (@CGUID+124, 3, -51.2688, -78.5158, -1.0449, 2.49582, 7000, 1864004),
@@ -293,9 +318,9 @@ INSERT INTO `creature_movement` (`id`, `point`, `position_x`, `position_y`, `pos
 (@CGUID+133, 5, -65.6294, -68.134, -1.1296, 0, 0, 0),
 (@CGUID+133, 6, -64.7255, -75.9003, -1.1296, 0, 0, 0),
 (@CGUID+133, 7, -70.5239, -77.2716, -1.1296, 0, 0, 0),
-(@CGUID+137, 1, -343.154, -16.6486, 12.6888, 0, 2000, 1866701),
-(@CGUID+137, 2, -323.331, -36.0149, 12.6888, 0, 8000, 1866702),
-(@CGUID+137, 3, -333.81, -60.0253, 12.6888, 0, 2000, 1866703),
+(@CGUID+137, 1, -343.154, -16.6486, 12.6888, 0, 2000, 0),
+(@CGUID+137, 2, -323.331, -36.0149, 12.6888, 0, 8000, 0),
+(@CGUID+137, 3, -333.81, -60.0253, 12.6888, 0, 2000, 0),
 (@CGUID+140, 1, -253.06, -264.024, 17.0864, 3.15559, 13000, 1873201),
 (@CGUID+171, 1, -429.292, -151.568, 12.7285, 1.08457, 0, 0),
 (@CGUID+171, 2, -421.039, -139.61, 13.5211, 1.40737, 0, 0),
@@ -341,14 +366,14 @@ INSERT INTO `creature_movement` (`id`, `point`, `position_x`, `position_y`, `pos
 (@CGUID+174, 8, -140.107, -68.8754, 8.07168, 6.16325, 0, 0),
 (@CGUID+174, 9, -136.832, -68.4133, 8.07168, 0.693638, 0, 0),
 (@CGUID+236, 1, -271.362, -265.765, 12.7637, 0.11843, 18000, 1883001),
-(@CGUID+238, 1, -277.385, -264.977, 12.6801, 0.0211422, 18000, 1883002),
+(@CGUID+238, 1, -277.385, -264.977, 12.6801, 0.0211422, 18000, 1883001),
 (@CGUID+238, 2, -275.271, -270.603, 12.681, 5.49971, 0, 0),
 (@CGUID+238, 3, -264.933, -276.956, 12.681, 5.91872, 0, 0),
-(@CGUID+238, 4, -256.194, -279.953, 13.1726, 1.39639, 18000, 1883003),
+(@CGUID+238, 4, -256.194, -279.953, 13.1726, 1.39639, 18000, 1883001),
 (@CGUID+238, 5, -248.819, -280.789, 16.7317, 6.19124, 0, 0),
 (@CGUID+238, 7, -241.553, -278.927, 17.0864, 0.71466, 0, 0),
 (@CGUID+238, 8, -236.515, -274.199, 17.0864, 1.01547, 0, 0),
-(@CGUID+238, 9, -234.851, -261.641, 17.0864, 3.20202, 18000, 1883004),
+(@CGUID+238, 9, -234.851, -261.641, 17.0864, 3.20202, 18000, 1883001),
 (@CGUID+238, 10, -234.427, -255.882, 17.0864, 1.83228, 0, 0),
 (@CGUID+238, 11, -237.841, -251.432, 17.0864, 2.63339, 0, 0),
 (@CGUID+238, 12, -246.472, -248.127, 17.0864, 3.06379, 0, 0),
@@ -401,45 +426,56 @@ INSERT INTO `creature_movement` (`id`, `point`, `position_x`, `position_y`, `pos
 (@CGUID+242, 3, -258.559, -76.3208, 8.07381, 6.12874, 0, 0),
 (@CGUID+242, 4, -249.362, -80.1672, 8.07381, 4.85641, 0, 0),
 (@CGUID+242, 5, -249.869, -90.3513, 8.07381, 3.11597, 0, 0),
-(@CGUID+242, 6, -270.731, -85.5789, 8.07381, 2.95182, 0, 0);
+(@CGUID+242, 6, -270.731, -85.5789, 8.07381, 2.95182, 0, 0),
+(@CGUID+247, 1, -90.6977, -92.3565, -1.04497, 0.715585, 12000, 1863305),
+(@CGUID+249, 1, -35.078, -81.0337, -1.04491, 5.18363, 10000, 1863502),
+(@CGUID+266, 1, -158.7901, -97.85062, 8.076064, 100, 0, 0),
+(@CGUID+266, 2, -124.1491, -145.636, 3.745104, 100, 0, 0),
+(@CGUID+266, 3, -72.33717, -125.9064, 1.172768, 100, 0, 0),
+(@CGUID+266, 4, -58.553299, -101.500999, -1.214130, 100, 0, 0),
+(@CGUID+266, 5, -56.938900, -92.633904, -1.128320, 100, 0, 0),
+(@CGUID+266, 6, -60.185101, -97.755898, -1.128300, 100, 0, 0),
+(@CGUID+266, 7, -129.5516, -134.2706, 4.218479, 100, 0, 0);
 
-DELETE FROM creature_movement_template WHERE entry IN (18708,18731);
+DELETE FROM creature_movement_template WHERE entry IN (18731);
 INSERT INTO `creature_movement_template` (`entry`, `pathId`, `point`, `position_x`, `position_y`, `position_z`, `orientation`, `waittime`, `script_id`) VALUES
-(18708, 0, 1, -157.895, -497.322, 15.8651, 1.5708, 5000, 1870801),
-(18708, 0, 2, -157.895, -497.322, 15.8651, 1.5708, 5000, 1870802),
-(18731, 0, 1, -157.366, 2.177, 8.073, 0, 0, 0),
-(18731, 0, 2, -172.266, -18.28, 8.073, 0, 0, 0),
-(18731, 0, 3, -171.051, -38.748, 8.073, 0, 0, 0),
-(18731, 0, 4, -170.718, -59.436, 8.073, 0, 0, 0),
-(18731, 0, 5, -156.659, -72.118, 8.073, 0, 0, 0),
-(18731, 0, 6, -142.292, -59.423, 8.073, 0, 0, 0),
-(18731, 0, 7, -141.779, -38.972, 8.073, 0, 0, 0),
-(18731, 0, 8, -142.922, -18.95, 8.073, 0, 0, 0),
-(18731, 0, 9, -157.366, 2.177, 8.073, 0, 0, 0);
+-- Ambassador Hellmaw
+(18731, 0, 0, -156.6754, 4.982729, 8.156394, 4.677482, 2000, 1873101),
+(18731, 0, 1, -159.5139, -2.139098, 8.073091, 0, 0, 0),
+(18731, 0, 2, -163.4486, -7.553354, 8.073133, 0, 0, 0),
+(18731, 0, 3, -168.1755, -9.746803, 8.073169, 0, 0, 0),
+(18731, 0, 4, -171.3253, -13.19836, 8.073106, 0, 0, 0),
+(18731, 0, 5, -172.7835, -25.98619, 8.073088, 0, 0, 0),
+(18731, 0, 6, -173.6684, -54.10063, 8.073081, 0, 0, 0),
+(18731, 0, 7, -156.659, -72.118, 8.073, 0, 0, 0), -- nonsniff
+(18731, 0, 8, -142.292, -59.423, 8.073, 0, 0, 0),
+(18731, 0, 9, -141.779, -38.972, 8.073, 0, 0, 0),
+(18731, 0, 10, -142.922, -18.95, 8.073, 0, 0, 0),
+(18731, 0, 11, -157.366, 2.177, 8.073, 0, 0, 0);
 
 INSERT INTO `creature_addon` (`guid`, `mount`, `bytes1`, `b2_0_sheath`, `b2_1_flags`, `emote`, `moveflags`, `auras`) VALUES
-(@CGUID+37, 0, 1, 1, 16, 0, 0, '8876'), -- Cabal Cultist
-(@CGUID+38, 0, 0, 1, 16, 69, 0, '8876'), -- Cabal Cultist
-(@CGUID+39, 0, 8, 1, 16, 0, 0, '8876'), -- Cabal Cultist
-(@CGUID+40, 0, 0, 1, 16, 69, 0, '8876'), -- Cabal Cultist
-(@CGUID+41, 0, 0, 1, 16, 69, 0, '8876'), -- Cabal Cultist
-(@CGUID+54, 0, 1, 1, 16, 0, 0, NULL), -- Cabal Acolyte
-(@CGUID+55, 0, 8, 1, 16, 0, 0, NULL), -- Cabal Acolyte
-(@CGUID+56, 0, 0, 1, 16, 69, 0, NULL), -- Cabal Acolyte
-(@CGUID+57, 0, 0, 1, 16, 69, 0, NULL), -- Cabal Acolyte
-(@CGUID+58, 0, 1, 1, 16, 0, 0, NULL), -- Cabal Acolyte
-(@CGUID+59, 0, 8, 1, 16, 0, 0, NULL), -- Cabal Acolyte
-(@CGUID+60, 0, 0, 1, 16, 69, 0, NULL), -- Cabal Acolyte
-(@CGUID+61, 0, 1, 1, 16, 0, 0, NULL), -- Cabal Acolyte
-(@CGUID+62, 0, 0, 1, 16, 69, 0, NULL), -- Cabal Acolyte
-(@CGUID+63, 0, 0, 1, 16, 69, 0, NULL), -- Cabal Acolyte
-(@CGUID+64, 0, 8, 1, 16, 0, 0, NULL), -- Cabal Acolyte
-(@CGUID+66, 0, 8, 1, 16, 0, 0, NULL), -- Cabal Acolyte
-(@CGUID+88, 0, 0, 1, 16, 69, 0, NULL), -- Cabal Deathsworn
-(@CGUID+97, 0, 8, 1, 16, 0, 0, NULL), -- Cabal Deathsworn
+(@CGUID+37, 0, 1, 1, 16, 0, 0, ''), -- creature_spawn_entry
+(@CGUID+38, 0, 0, 1, 16, 69, 0, ''), -- creature_spawn_entry
+(@CGUID+39, 0, 8, 1, 16, 0, 0, ''), -- creature_spawn_entry
+(@CGUID+40, 0, 0, 1, 16, 69, 0, ''), -- creature_spawn_entry
+(@CGUID+41, 0, 0, 1, 16, 69, 0, ''), -- creature_spawn_entry
+(@CGUID+54, 0, 1, 1, 16, 0, 0, NULL), -- creature_spawn_entry
+(@CGUID+55, 0, 8, 1, 16, 0, 0, NULL), -- creature_spawn_entry
+(@CGUID+56, 0, 0, 1, 16, 69, 0, NULL), -- creature_spawn_entry
+(@CGUID+57, 0, 0, 1, 16, 69, 0, NULL), -- creature_spawn_entry
+(@CGUID+58, 0, 1, 1, 16, 0, 0, NULL), -- creature_spawn_entry
+(@CGUID+59, 0, 8, 1, 16, 0, 0, NULL), -- creature_spawn_entry
+(@CGUID+60, 0, 0, 1, 16, 69, 0, NULL), -- creature_spawn_entry
+(@CGUID+61, 0, 1, 1, 16, 0, 0, NULL), -- creature_spawn_entry
+(@CGUID+62, 0, 0, 1, 16, 69, 0, NULL), -- creature_spawn_entry
+(@CGUID+63, 0, 0, 1, 16, 69, 0, NULL), -- creature_spawn_entry
+(@CGUID+64, 0, 8, 1, 16, 0, 0, NULL), -- creature_spawn_entry
+(@CGUID+66, 0, 8, 1, 16, 0, 0, NULL), -- creature_spawn_entry
+(@CGUID+88, 0, 0, 1, 16, 69, 0, NULL), -- creature_spawn_entry
+(@CGUID+97, 0, 8, 1, 16, 0, 0, NULL), -- creature_spawn_entry
 (@CGUID+98, 0, 1, 1, 16, 0, 0, NULL), -- Cabal Deathsworn
 (@CGUID+99, 0, 8, 1, 16, 0, 0, NULL), -- Cabal Deathsworn
-(@CGUID+136, 0, 8, 1, 16, 0, 0, NULL), -- Fel Guardhound
+(@CGUID+136, 0, 8, 1, 16, 0, 0, NULL), -- creature_spawn_entry
 (@CGUID+150, 0, 0, 1, 16, 0, 0, '32958'), -- Cabal Ritualist
 (@CGUID+151, 0, 0, 1, 16, 0, 0, '32958'), -- Cabal Ritualist
 (@CGUID+152, 0, 0, 1, 16, 0, 0, '32958'), -- Cabal Ritualist
@@ -470,8 +506,7 @@ INSERT INTO `creature_addon` (`guid`, `mount`, `bytes1`, `b2_0_sheath`, `b2_1_fl
 (@CGUID+214, 0, 0, 1, 16, 0, 0, NULL), -- Tortured Skeleton
 (@CGUID+215, 0, 0, 1, 16, 0, 0, NULL), -- Tortured Skeleton
 (@CGUID+216, 0, 0, 1, 16, 0, 0, NULL), -- Tortured Skeleton
-(@CGUID+217, 0, 0, 1, 16, 0, 0, NULL), -- Tortured Skeleton
-(@CGUID+228, 0, 0, 1, 16, 0, 0, NULL); -- Tortured Skeleton
+(@CGUID+217, 0, 0, 1, 16, 0, 0, NULL); -- Tortured Skeleton
 
 REPLACE INTO `creature_template_addon` (`entry`, `mount`, `bytes1`, `b2_0_sheath`, `b2_1_flags`, `emote`, `moveflags`, `auras`) VALUES
 (18631, 0, 0, 1, 16, 0, 0, '8876'), -- Cabal Cultist
@@ -479,7 +514,7 @@ REPLACE INTO `creature_template_addon` (`entry`, `mount`, `bytes1`, `b2_0_sheath
 (18633, 0, 0, 1, 16, 0, 0, NULL), -- Cabal Acolyte
 (18634, 0, 0, 1, 16, 0, 0, NULL), -- Cabal Summoner
 (18635, 0, 0, 1, 16, 0, 0, NULL), -- Cabal Deathsworn
-(18636, 0, 0, 1, 16, 0, 0, '32199'), -- Cabal Assassin
+(18636, 0, 0, 1, 16, 0, 0, ''), -- Cabal Assassin
 (18637, 0, 0, 1, 16, 0, 0, '16592'), -- Cabal Shadow Priest
 (18638, 0, 0, 1, 16, 0, 0, NULL), -- Cabal Zealot
 (18639, 0, 0, 1, 16, 0, 0, NULL), -- Cabal Spellbinder
@@ -499,156 +534,284 @@ REPLACE INTO `creature_template_addon` (`entry`, `mount`, `bytes1`, `b2_0_sheath
 (21159, 0, 0, 1, 0, 0, 0, NULL); -- Containment Beam
 
 INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES
-(@CGUID+55, @CGUID+54, 1167), -- Cabal Acolyte -> Cabal Acolyte
-(@CGUID+86, @CGUID+54, 1167), -- Cabal Deathsworn -> Cabal Acolyte
-(@CGUID+88, @CGUID+60, 1167), -- Cabal Deathsworn -> Cabal Acolyte
-(@CGUID+66, @CGUID+89, 1167), -- Cabal Acolyte -> Cabal Deathsworn
-(@CGUID+61, @CGUID+89, 1167), -- Cabal Acolyte -> Cabal Deathsworn
-(@CGUID+64, @CGUID+65, 1167), -- Cabal Acolyte -> Cabal Acolyte
-(@CGUID+56, @CGUID+57, 1167), -- Cabal Acolyte -> Cabal Acolyte
-(@CGUID+62, @CGUID+57, 1167), -- Cabal Acolyte -> Cabal Acolyte
-(@CGUID+63, @CGUID+57, 1167), -- Cabal Acolyte -> Cabal Acolyte
-(@CGUID+58, @CGUID+87, 1167), -- Cabal Acolyte -> Cabal Deathsworn
-(@CGUID+59, @CGUID+87, 1167), -- Cabal Acolyte -> Cabal Deathsworn
-(@CGUID+128, @CGUID+124, 1167), -- Cabal Familiar -> Cabal Warlock
-(@CGUID+129, @CGUID+124, 1167), -- Cabal Familiar -> Cabal Warlock
-(@CGUID+130, @CGUID+124, 1167), -- Cabal Familiar -> Cabal Warlock
-(@CGUID+131, @CGUID+124, 1167), -- Cabal Familiar -> Cabal Warlock
-(@CGUID+132, @CGUID+124, 1167), -- Cabal Familiar -> Cabal Warlock
+(@CGUID+55, @CGUID+54, 1155), -- Cabal Acolyte -> Cabal Acolyte
+(@CGUID+86, @CGUID+54, 1155), -- Cabal Deathsworn -> Cabal Acolyte
+(@CGUID+88, @CGUID+60, 1155), -- Cabal Deathsworn -> Cabal Acolyte
+(@CGUID+66, @CGUID+89, 1155), -- Cabal Acolyte -> Cabal Deathsworn
+(@CGUID+61, @CGUID+89, 1155), -- Cabal Acolyte -> Cabal Deathsworn
+(@CGUID+64, @CGUID+65, 1155), -- Cabal Acolyte -> Cabal Acolyte
+(@CGUID+56, @CGUID+57, 1155), -- Cabal Acolyte -> Cabal Acolyte
+(@CGUID+62, @CGUID+57, 1155), -- Cabal Acolyte -> Cabal Acolyte
+(@CGUID+63, @CGUID+57, 1155), -- Cabal Acolyte -> Cabal Acolyte
+(@CGUID+59, @CGUID+58, 1155), -- Cabal Acolyte -> Cabal Deathsworn
+(@CGUID+87, @CGUID+58, 1155), -- Cabal Acolyte -> Cabal Deathsworn
+(@CGUID+249, @CGUID+58, 1155), -- Cabal Acolyte -> Cabal Deathsworn
+(@CGUID+250, @CGUID+249, 1155), -- Cabal Acolyte -> Cabal Deathsworn
+(@CGUID+128, @CGUID+124, 1155), -- Cabal Familiar -> Cabal Warlock
+(@CGUID+129, @CGUID+124, 1155), -- Cabal Familiar -> Cabal Warlock
+(@CGUID+130, @CGUID+124, 1155), -- Cabal Familiar -> Cabal Warlock
+(@CGUID+131, @CGUID+124, 1155), -- Cabal Familiar -> Cabal Warlock
+(@CGUID+132, @CGUID+124, 1155), -- Cabal Familiar -> Cabal Warlock
 (@CGUID+135, @CGUID+133, 1679), -- Fel Guardhound -> Cabal Familiar
-(@CGUID+125, @CGUID+133, 1167), -- Cabal Familiar -> Cabal Warlock
-(@CGUID+90, @CGUID+68, 1167), -- Cabal Deathsworn -> Cabal Acolyte
-(@CGUID+91, @CGUID+68, 1167), -- Cabal Deathsworn -> Cabal Acolyte
-(@CGUID+154, @CGUID+155, 1167), -- Cabal Ritualist -> Cabal Ritualist
-(@CGUID+156, @CGUID+155, 1167), -- Cabal Ritualist -> Cabal Ritualist
-(@CGUID+166, @CGUID+155, 1167), -- Cabal Ritualist -> Cabal Ritualist
-(@CGUID+159, @CGUID+158, 1167), -- Cabal Ritualist -> Cabal Ritualist
-(@CGUID+160, @CGUID+158, 1167), -- Cabal Ritualist -> Cabal Ritualist
-(@CGUID+165, @CGUID+158, 1167), -- Cabal Ritualist -> Cabal Ritualist
-(@CGUID+150, @CGUID+151, 1167), -- Cabal Ritualist -> Cabal Ritualist
-(@CGUID+152, @CGUID+151, 1167), -- Cabal Ritualist -> Cabal Ritualist
-(@CGUID+167, @CGUID+151, 1167), -- Cabal Ritualist -> Cabal Ritualist
-(@CGUID+148, @CGUID+147, 1167), -- Cabal Ritualist -> Cabal Ritualist
-(@CGUID+149, @CGUID+147, 1167), -- Cabal Ritualist -> Cabal Ritualist
-(@CGUID+168, @CGUID+147, 1167), -- Cabal Ritualist -> Cabal Ritualist
-(@CGUID+163, @CGUID+157, 1167), -- Cabal Ritualist -> Cabal Ritualist
-(@CGUID+164, @CGUID+157, 1167), -- Cabal Ritualist -> Cabal Ritualist
-(@CGUID+169, @CGUID+157, 1167), -- Cabal Ritualist -> Cabal Ritualist
-(@CGUID+161, @CGUID+153, 1167), -- Cabal Ritualist -> Cabal Ritualist
-(@CGUID+162, @CGUID+153, 1167), -- Cabal Ritualist -> Cabal Ritualist
-(@CGUID+170, @CGUID+153, 1167), -- Cabal Ritualist -> Cabal Ritualist
-(@CGUID+31, @CGUID+69, 1167), -- Cabal Cultist -> Cabal Acolyte
-(@CGUID+30, @CGUID+69, 1167), -- Cabal Cultist -> Cabal Acolyte
-(@CGUID+92, @CGUID+69, 1167), -- Cabal Deathsworn -> Cabal Acolyte
+(@CGUID+125, @CGUID+133, 1155), -- Cabal Familiar -> Cabal Warlock
+(@CGUID+68, @CGUID+90, 1155), -- Cabal Deathsworn -> Cabal Acolyte
+(@CGUID+91, @CGUID+90, 1155), -- Cabal Deathsworn -> Cabal Acolyte
+(@CGUID+247, @CGUID+90, 1155), -- Cabal Deathsworn -> Cabal Acolyte
+(@CGUID+248, @CGUID+247, 1155), -- Cabal Familiar -> Cabal Acolyte
+(@CGUID+154, @CGUID+155, 1155), -- Cabal Ritualist -> Cabal Ritualist
+(@CGUID+156, @CGUID+155, 1155), -- Cabal Ritualist -> Cabal Ritualist
+(@CGUID+166, @CGUID+155, 1155), -- Cabal Ritualist -> Cabal Ritualist
+(@CGUID+159, @CGUID+158, 1155), -- Cabal Ritualist -> Cabal Ritualist
+(@CGUID+160, @CGUID+158, 1155), -- Cabal Ritualist -> Cabal Ritualist
+(@CGUID+165, @CGUID+158, 1155), -- Cabal Ritualist -> Cabal Ritualist
+(@CGUID+150, @CGUID+151, 1155), -- Cabal Ritualist -> Cabal Ritualist
+(@CGUID+152, @CGUID+151, 1155), -- Cabal Ritualist -> Cabal Ritualist
+(@CGUID+167, @CGUID+151, 1155), -- Cabal Ritualist -> Cabal Ritualist
+(@CGUID+148, @CGUID+147, 1155), -- Cabal Ritualist -> Cabal Ritualist
+(@CGUID+149, @CGUID+147, 1155), -- Cabal Ritualist -> Cabal Ritualist
+(@CGUID+168, @CGUID+147, 1155), -- Cabal Ritualist -> Cabal Ritualist
+(@CGUID+163, @CGUID+157, 1155), -- Cabal Ritualist -> Cabal Ritualist
+(@CGUID+164, @CGUID+157, 1155), -- Cabal Ritualist -> Cabal Ritualist
+(@CGUID+169, @CGUID+157, 1155), -- Cabal Ritualist -> Cabal Ritualist
+(@CGUID+161, @CGUID+153, 1155), -- Cabal Ritualist -> Cabal Ritualist
+(@CGUID+162, @CGUID+153, 1155), -- Cabal Ritualist -> Cabal Ritualist
+(@CGUID+170, @CGUID+153, 1155), -- Cabal Ritualist -> Cabal Ritualist
+(@CGUID+31, @CGUID+69, 1155), -- Cabal Cultist -> Cabal Acolyte
+(@CGUID+30, @CGUID+69, 1155), -- Cabal Cultist -> Cabal Acolyte
+(@CGUID+92, @CGUID+69, 1155), -- Cabal Deathsworn -> Cabal Acolyte
 (@CGUID+69, @CGUID+137, 1), -- Cabal Acolyte -> Blackheart the Inciter
-(@CGUID+32, @CGUID+70, 1167), -- Cabal Cultist -> Cabal Acolyte
-(@CGUID+33, @CGUID+70, 1167), -- Cabal Cultist -> Cabal Acolyte
-(@CGUID+94, @CGUID+70, 1167), -- Cabal Deathsworn -> Cabal Acolyte
-(@CGUID+104, @CGUID+70, 1167), -- Cabal Shadow Priest -> Cabal Acolyte
+(@CGUID+32, @CGUID+70, 1155), -- Cabal Cultist -> Cabal Acolyte
+(@CGUID+33, @CGUID+70, 1155), -- Cabal Cultist -> Cabal Acolyte
+(@CGUID+94, @CGUID+70, 1155), -- Cabal Deathsworn -> Cabal Acolyte
+(@CGUID+104, @CGUID+70, 1155), -- Cabal Shadow Priest -> Cabal Acolyte
 (@CGUID+70, @CGUID+137, 1), -- Cabal Acolyte -> Blackheart the Inciter
-(@CGUID+34, @CGUID+102, 1167), -- Cabal Cultist -> Cabal Shadow Priest
-(@CGUID+71, @CGUID+102, 1167), -- Cabal Acolyte -> Cabal Shadow Priest
-(@CGUID+72, @CGUID+102, 1167), -- Cabal Acolyte -> Cabal Shadow Priest
-(@CGUID+95, @CGUID+102, 1167), -- Cabal Deathsworn -> Cabal Shadow Priest
+(@CGUID+34, @CGUID+102, 1155), -- Cabal Cultist -> Cabal Shadow Priest
+(@CGUID+71, @CGUID+102, 1155), -- Cabal Acolyte -> Cabal Shadow Priest
+(@CGUID+72, @CGUID+102, 1155), -- Cabal Acolyte -> Cabal Shadow Priest
+(@CGUID+95, @CGUID+102, 1155), -- Cabal Deathsworn -> Cabal Shadow Priest
 (@CGUID+102, @CGUID+137, 1), -- Cabal Shadow Priest -> Blackheart the Inciter
-(@CGUID+127, @CGUID+36, 1167), -- Cabal Warlock -> Cabal Cultist
-(@CGUID+136, @CGUID+36, 1167), -- Fel Guardhound -> Cabal Cultist
-(@CGUID+74, @CGUID+36, 1167), -- Cabal Acolyte -> Cabal Cultist
-(@CGUID+93, @CGUID+36, 1167), -- Cabal Deathsworn -> Cabal Cultist
-(@CGUID+103, @CGUID+36, 1167), -- Cabal Shadow Priest -> Cabal Cultist
+(@CGUID+127, @CGUID+36, 1155), -- Cabal Warlock -> Cabal Cultist
+(@CGUID+136, @CGUID+36, 1155), -- Fel Guardhound -> Cabal Cultist
+(@CGUID+74, @CGUID+36, 1155), -- Cabal Acolyte -> Cabal Cultist
+(@CGUID+93, @CGUID+36, 1155), -- Cabal Deathsworn -> Cabal Cultist
+(@CGUID+103, @CGUID+36, 1155), -- Cabal Shadow Priest -> Cabal Cultist
 (@CGUID+36, @CGUID+137, 1), -- Cabal Cultist -> Blackheart the Inciter
-(@CGUID+39, @CGUID+37, 1167), -- Cabal Cultist -> Cabal Cultist
+(@CGUID+39, @CGUID+37, 1155), -- Cabal Cultist -> Cabal Cultist
 (@CGUID+37, @CGUID+137, 1), -- Cabal Cultist -> Blackheart the Inciter
-(@CGUID+35, @CGUID+73, 1167), -- Cabal Cultist -> Cabal Acolyte
-(@CGUID+96, @CGUID+73, 1167), -- Cabal Deathsworn -> Cabal Acolyte
-(@CGUID+126, @CGUID+73, 1167), -- Cabal Warlock -> Cabal Acolyte
-(@CGUID+134, @CGUID+73, 1167), -- Cabal Familiar -> Cabal Acolyte
-(@CGUID+105, @CGUID+73, 1167), -- Cabal Shadow Priest -> Cabal Acolyte
+(@CGUID+35, @CGUID+73, 1155), -- Cabal Cultist -> Cabal Acolyte
+(@CGUID+96, @CGUID+73, 1155), -- Cabal Deathsworn -> Cabal Acolyte
+(@CGUID+126, @CGUID+73, 1155), -- Cabal Warlock -> Cabal Acolyte
+(@CGUID+134, @CGUID+73, 1155), -- Cabal Familiar -> Cabal Acolyte
+(@CGUID+105, @CGUID+73, 1155), -- Cabal Shadow Priest -> Cabal Acolyte
 (@CGUID+73, @CGUID+137, 1), -- Cabal Acolyte -> Blackheart the Inciter
-(@CGUID+97, @CGUID+38, 1167), -- Cabal Deathsworn -> Cabal Cultist
+(@CGUID+97, @CGUID+38, 1155), -- Cabal Deathsworn -> Cabal Cultist
 (@CGUID+38, @CGUID+137, 1), -- Cabal Cultist -> Blackheart the Inciter
 (@CGUID+240, @CGUID+137, 1), -- Malicious Instructor -> Blackheart the Inciter
 (@CGUID+241, @CGUID+137, 1), -- Malicious Instructor -> Blackheart the Inciter
 (@CGUID+242, @CGUID+137, 1), -- Malicious Instructor -> Blackheart the Inciter
-(@CGUID+41, @CGUID+40, 1167), -- Cabal Cultist -> Cabal Cultist
-(@CGUID+75, @CGUID+98, 1167), -- Cabal Acolyte -> Cabal Deathsworn
-(@CGUID+99, @CGUID+98, 1167), -- Cabal Deathsworn -> Cabal Deathsworn
+(@CGUID+41, @CGUID+40, 1155), -- Cabal Cultist -> Cabal Cultist
+(@CGUID+75, @CGUID+98, 1155), -- Cabal Acolyte -> Cabal Deathsworn
+(@CGUID+99, @CGUID+98, 1155), -- Cabal Deathsworn -> Cabal Deathsworn
 (@CGUID+106, @CGUID+29, 1679), -- Cabal Zealot -> Cabal Cultist
 (@CGUID+107, @CGUID+29, 1679), -- Cabal Zealot -> Cabal Cultist
 (@CGUID+234, @CGUID+29, 1679), -- Cabal Fanatic -> Cabal Cultis
 (@CGUID+42, @CGUID+108, 1679), -- Cabal Cultist -> Cabal Zealot
 (@CGUID+111, @CGUID+108, 1679), -- Cabal Zealot -> Cabal Zealot
 (@CGUID+235, @CGUID+108, 1679), -- Cabal Fanatic -> Cabal Zealot
-(@CGUID+109, @CGUID+236, 1167), -- Cabal Zealot -> Cabal Fanatic
-(@CGUID+110, @CGUID+236, 1167), -- Cabal Zealot -> Cabal Fanatic
-(@CGUID+237, @CGUID+236, 1167), -- Cabal Fanatic -> Cabal Fanatic
+(@CGUID+109, @CGUID+236, 1155), -- Cabal Zealot -> Cabal Fanatic
+(@CGUID+110, @CGUID+236, 1155), -- Cabal Zealot -> Cabal Fanatic
+(@CGUID+237, @CGUID+236, 1155), -- Cabal Fanatic -> Cabal Fanatic
 (@CGUID+43, @CGUID+238, 1679), -- Cabal Cultist -> Cabal Fanatic
 (@CGUID+44, @CGUID+238, 1679), -- Cabal Cultist -> Cabal Fanatic
 (@CGUID+233, @CGUID+238, 1679), -- Cabal Fanatic -> Cabal Fanatic
--- Murmur Hallway - WIP
+
+-- Sanctum of Shadows
+-- group 1
+(@CGUID+194, @CGUID+203, 3), -- Tortured Skeleton -> Tortured Skeleton
+(@CGUID+195, @CGUID+203, 3), -- Tortured Skeleton -> Tortured Skeleton
+(@CGUID+196, @CGUID+203, 3), -- Tortured Skeleton -> Tortured Skeleton
+(@CGUID+197, @CGUID+203, 3), -- Tortured Skeleton -> Tortured Skeleton
+(@CGUID+198, @CGUID+203, 3), -- Tortured Skeleton -> Tortured Skeleton
+(@CGUID+199, @CGUID+203, 3), -- Tortured Skeleton -> Tortured Skeleton
+(@CGUID+200, @CGUID+203, 3), -- Tortured Skeleton -> Tortured Skeleton
+(@CGUID+201, @CGUID+203, 3), -- Tortured Skeleton -> Tortured Skeleton
+(@CGUID+202, @CGUID+203, 3), -- Tortured Skeleton -> Tortured Skeleton
+-- group 2
+(@CGUID+186, @CGUID+187, 3), -- Tortured Skeleton -> Tortured Skeleton
+(@CGUID+188, @CGUID+187, 3), -- Tortured Skeleton -> Tortured Skeleton
+(@CGUID+189, @CGUID+187, 3), -- Tortured Skeleton -> Tortured Skeleton
+(@CGUID+190, @CGUID+187, 3), -- Tortured Skeleton -> Tortured Skeleton
+(@CGUID+191, @CGUID+187, 3), -- Tortured Skeleton -> Tortured Skeleton
+(@CGUID+192, @CGUID+187, 3), -- Tortured Skeleton -> Tortured Skeleton
+(@CGUID+193, @CGUID+187, 3), -- Tortured Skeleton -> Tortured Skeleton
+(@CGUID+205, @CGUID+187, 3), -- Tortured Skeleton -> Tortured Skeleton
+(@CGUID+206, @CGUID+187, 3), -- Tortured Skeleton -> Tortured Skeleton
+-- group 3
+(@CGUID+219, @CGUID+218, 3), -- Tortured Skeleton -> Tortured Skeleton
+(@CGUID+220, @CGUID+218, 3), -- Tortured Skeleton -> Tortured Skeleton
+(@CGUID+221, @CGUID+218, 3), -- Tortured Skeleton -> Tortured Skeleton
+(@CGUID+222, @CGUID+218, 3), -- Tortured Skeleton -> Tortured Skeleton
+(@CGUID+223, @CGUID+218, 3), -- Tortured Skeleton -> Tortured Skeleton
+(@CGUID+224, @CGUID+218, 3), -- Tortured Skeleton -> Tortured Skeleton
+(@CGUID+225, @CGUID+218, 3), -- Tortured Skeleton -> Tortured Skeleton
+(@CGUID+226, @CGUID+218, 3), -- Tortured Skeleton -> Tortured Skeleton
+(@CGUID+227, @CGUID+218, 3), -- Tortured Skeleton -> Tortured Skeleton
+-- group 4
+(@CGUID+208, @CGUID+216, 3), -- Tortured Skeleton -> Tortured Skeleton
+(@CGUID+209, @CGUID+216, 3), -- Tortured Skeleton -> Tortured Skeleton
+(@CGUID+210, @CGUID+216, 3), -- Tortured Skeleton -> Tortured Skeleton
+(@CGUID+211, @CGUID+216, 3), -- Tortured Skeleton -> Tortured Skeleton
+(@CGUID+212, @CGUID+216, 3), -- Tortured Skeleton -> Tortured Skeleton
+(@CGUID+213, @CGUID+216, 3), -- Tortured Skeleton -> Tortured Skeleton
+(@CGUID+214, @CGUID+216, 3), -- Tortured Skeleton -> Tortured Skeleton
+(@CGUID+215, @CGUID+216, 3), -- Tortured Skeleton -> Tortured Skeleton
+(@CGUID+217, @CGUID+216, 3), -- Tortured Skeleton -> Tortured Skeleton
+
+-- Murmur Hallway
+-- group 1
 (@CGUID+45, @CGUID+47, 3), -- Cabal Executioner -> Cabal Executioner
-(@CGUID+48, @CGUID+46, 1167), -- Cabal Executioner -> Cabal Executioner
-(@CGUID+78, @CGUID+46, 1167), -- Cabal Summoner -> Cabal Executioner
-(@CGUID+79, @CGUID+46, 1167), -- Cabal Summoner -> Cabal Executioner
-(@CGUID+112, @CGUID+46, 1167), -- Cabal Spellbinder -> Cabal Executioner
-(@CGUID+50, @CGUID+49, 1167), -- Cabal Executioner -> Cabal Executioner
-(@CGUID+80, @CGUID+49, 1167), -- Cabal Summoner -> Cabal Executioner
-(@CGUID+113, @CGUID+49, 1167), -- Cabal Spellbinder -> Cabal Executioner
-(@CGUID+52, @CGUID+51, 1167), -- Cabal Executioner -> Cabal Executioner
-(@CGUID+81, @CGUID+51, 1167), -- Cabal Summoner -> Cabal Executioner
-(@CGUID+115, @CGUID+51, 1167), -- Cabal Spellbinder -> Cabal Executioner
-(@CGUID+120, @CGUID+119, 1167), -- Cabal Spellbinder -> Cabal Spellbinder
-(@CGUID+121, @CGUID+119, 1167); -- Cabal Spellbinder -> Cabal Spellbinder
+
+-- group 2
+(@CGUID+48, @CGUID+46, 3), -- Cabal Executioner -> Cabal Executioner
+(@CGUID+78, @CGUID+46, 3), -- Cabal Summoner -> Cabal Executioner
+(@CGUID+112, @CGUID+46, 3), -- Cabal Spellbinder -> Cabal Executioner
+-- runner 1
+(@CGUID+79, @CGUID+46, 1024), -- Cabal Summoner/Spellbinder -> Cabal Executioner
+
+-- group 3
+(@CGUID+50, @CGUID+49, 3), -- Cabal Executioner -> Cabal Executioner
+(@CGUID+80, @CGUID+49, 3), -- Cabal Summoner -> Cabal Executioner
+(@CGUID+113, @CGUID+49, 3), -- Cabal Spellbinder -> Cabal Executioner
+-- runner 2
+(@CGUID+116, @CGUID+49, 1024), -- Cabal Summoner/Spellbinder -> Cabal Executioner
+
+-- group 4
+(@CGUID+52, @CGUID+51, 3), -- Cabal Executioner -> Cabal Executioner
+(@CGUID+81, @CGUID+51, 3), -- Cabal Summoner -> Cabal Executioner
+(@CGUID+115, @CGUID+51, 3), -- Cabal Spellbinder -> Cabal Executioner
+-- runner 3
+(@CGUID+82, @CGUID+51, 1024), -- Cabal Summoner/Spellbinder -> Cabal Executioner
+
+-- group 5
+(@CGUID+120, @CGUID+119, 3), -- Cabal Spellbinder -> Cabal Spellbinder
+(@CGUID+121, @CGUID+119, 3), -- Cabal Spellbinder -> Cabal Spellbinder
+-- runners 4 & 5
+(@CGUID+123, @CGUID+119, 1024), -- Cabal Summoner/Spellbinder -> Cabal Spellbinder
+(@CGUID+122, @CGUID+119, 1024); -- Cabal Summoner/Spellbinder -> Cabal Spellbinder
 
 REPLACE INTO `creature_linking_template` (`entry`, `map`, `master_entry`, `flag`, `search_range`) VALUES
 (19224, 555, 18732, 4112, 0), -- Void Portal -> Grandmaster Vorpil
 (19226, 555, 18732, 4112, 0); -- Void Traveler -> Grandmaster Vorpil
 
+INSERT INTO creature_spawn_entry (guid, entry) VALUES
+(@CGUID+29, 18830), (@CGUID+29, 18631), -- Cabal Fanatic, Cabal Cultist
+(@CGUID+30, 18631), (@CGUID+30, 18637), -- Cabal Cultist, Cabal Shadow Priest
+(@CGUID+31, 18631), (@CGUID+31, 18633), -- Cabal Cultist, Cabal Acolyte
+(@CGUID+32, 18631), (@CGUID+32, 18633), (@CGUID+32, 18637), -- Cabal Cultist, Cabal Acolyte, Cabal Shadow Priest
+(@CGUID+33, 18631), (@CGUID+33, 18633), -- Cabal Cultist, Cabal Acolyte
+(@CGUID+34, 18631), (@CGUID+34, 18637), -- Cabal Cultist, Cabal Shadow Priest
+(@CGUID+37, 18631), (@CGUID+37, 18635), -- Cabal Cultist, Cabal Deathsworn
+(@CGUID+38, 18631), (@CGUID+38, 18635), -- Cabal Cultist, Cabal Deathsworn
+(@CGUID+39, 18631), (@CGUID+39, 18633), (@CGUID+39, 18635), -- Cabal Cultist, Cabal Acolyte, Cabal Deathsworn
+(@CGUID+40, 18631), (@CGUID+40, 18633), -- Cabal Cultist, Cabal Acolyte
+(@CGUID+41, 18631), (@CGUID+41, 18633), (@CGUID+41, 18635), -- Cabal Cultist, Cabal Acolyte, Cabal Deathsworn
+(@CGUID+42, 18631), (@CGUID+42, 18638), -- Cabal Cultist, Cabal Zealot
+(@CGUID+43, 18631), (@CGUID+43, 18638), -- Cabal Cultist, Cabal Zealot
+(@CGUID+44, 18631), (@CGUID+44, 18638), -- Cabal Cultist, Cabal Zealot
+(@CGUID+53, 18633), (@CGUID+53, 18635), -- Cabal Acolyte, Cabal Deathsworn
+(@CGUID+54, 18633), (@CGUID+54, 18635), -- Cabal Acolyte, Cabal Deathsworn
+(@CGUID+55, 18633), (@CGUID+55, 18635), -- Cabal Acolyte, Cabal Deathsworn
+(@CGUID+56, 18633), (@CGUID+56, 18635), -- Cabal Acolyte, Cabal Deathsworn
+(@CGUID+57, 18633), (@CGUID+57, 18635), -- Cabal Acolyte, Cabal Deathsworn
+(@CGUID+58, 18633), (@CGUID+58, 18635), -- Cabal Acolyte, Cabal Deathsworn
+(@CGUID+59, 18633), (@CGUID+59, 18635), -- Cabal Acolyte, Cabal Deathsworn
+(@CGUID+60, 18633), (@CGUID+60, 18635), -- Cabal Acolyte, Cabal Deathsworn
+(@CGUID+61, 18633), (@CGUID+61, 18635), -- Cabal Acolyte, Cabal Deathsworn
+(@CGUID+62, 18633), (@CGUID+62, 18635), -- Cabal Acolyte, Cabal Deathsworn
+(@CGUID+63, 18633), (@CGUID+63, 18635), -- Cabal Acolyte, Cabal Deathsworn
+(@CGUID+64, 18633), (@CGUID+64, 18635), -- Cabal Acolyte, Cabal Deathsworn
+(@CGUID+65, 18633), (@CGUID+65, 18635), -- Cabal Acolyte, Cabal Deathsworn
+(@CGUID+66, 18633), (@CGUID+66, 18635), -- Cabal Acolyte, Cabal Deathsworn
+(@CGUID+67, 18633), (@CGUID+67, 18635), -- Cabal Acolyte, Cabal Deathsworn
+(@CGUID+68, 18633), (@CGUID+68, 18635), -- Cabal Acolyte, Cabal Deathsworn
+(@CGUID+69, 18633), (@CGUID+69, 18637), -- Cabal Acolyte, Cabal Shadow Priest
+(@CGUID+70, 18633), (@CGUID+70, 18637), -- Cabal Acolyte, Cabal Shadow Priest
+(@CGUID+71, 18633), (@CGUID+71, 18637), -- Cabal Acolyte, Cabal Shadow Priest
+(@CGUID+75, 18633), (@CGUID+75, 18635), -- Cabal Acolyte, Cabal Deathsworn
+(@CGUID+79, 18634), (@CGUID+79, 18639), -- Cabal Summoner, Cabal Spellbinder
+(@CGUID+82, 18634), (@CGUID+82, 18639), -- Cabal Summoner, Cabal Spellbinder
+(@CGUID+85, 18633), (@CGUID+85, 18635), -- Cabal Acolyte, Cabal Deathsworn
+(@CGUID+86, 18633), (@CGUID+86, 18635), -- Cabal Acolyte, Cabal Deathsworn
+(@CGUID+87, 18633), (@CGUID+87, 18635), -- Cabal Acolyte, Cabal Deathsworn
+(@CGUID+88, 18633), (@CGUID+88, 18635), -- Cabal Acolyte, Cabal Deathsworn
+(@CGUID+89, 18633), (@CGUID+89, 18635), -- Cabal Acolyte, Cabal Deathsworn
+(@CGUID+90, 18633), (@CGUID+90, 18635), -- Cabal Acolyte, Cabal Deathsworn
+(@CGUID+91, 18633), (@CGUID+91, 18635), -- Cabal Acolyte, Cabal Deathsworn
+(@CGUID+97, 18633), (@CGUID+97, 18635), -- Cabal Acolyte, Cabal Deathsworn
+(@CGUID+102, 18633), (@CGUID+102, 18637), -- Cabal Acolyte, Cabal Shadow Priest
+(@CGUID+106, 18830), (@CGUID+106, 18638), -- Cabal Fanatic, Cabal Zealot
+(@CGUID+107, 18631), (@CGUID+107, 18638), -- Cabal Cultist, Cabal Zealot
+(@CGUID+108, 18830), (@CGUID+108, 18638), -- Cabal Fanatic, Cabal Zealot
+(@CGUID+109, 18830), (@CGUID+109, 18638), -- Cabal Fanatic, Cabal Zealot
+(@CGUID+110, 18631), (@CGUID+110, 18638), -- Cabal Cultist, Cabal Zealot
+(@CGUID+111, 18830), (@CGUID+111, 18638), -- Cabal Fanatic, Cabal Zealot
+(@CGUID+116, 18634), (@CGUID+116, 18639), -- Cabal Summoner, Cabal Spellbinder
+(@CGUID+122, 18634), (@CGUID+122, 18639), -- Cabal Summoner, Cabal Spellbinder
+(@CGUID+123, 18634), (@CGUID+123, 18639), -- Cabal Summoner, Cabal Spellbinder
+(@CGUID+134, 18641), (@CGUID+134, 18642), (@CGUID+134, 18663), -- Cabal Familiar, Fel Guardhound, Maiden of Discipline
+(@CGUID+136, 18641), (@CGUID+136, 18642), (@CGUID+136, 18663), -- Cabal Familiar, Fel Guardhound, Maiden of Discipline
+(@CGUID+233, 18830), (@CGUID+233, 18631), -- Cabal Fanatic, Cabal Cultist
+(@CGUID+235, 18830), (@CGUID+235, 18631), -- Cabal Fanatic, Cabal Cultist
+(@CGUID+236, 18830), (@CGUID+236, 18631), -- Cabal Fanatic, Cabal Cultist
+(@CGUID+248, 18641), (@CGUID+248, 18642), (@CGUID+248, 18663), -- Cabal Familiar, Fel Guardhound, Maiden of Discipline
+(@CGUID+250, 18641), (@CGUID+250, 18642), (@CGUID+250, 18663); -- Cabal Familiar, Fel Guardhound, Maiden of Discipline
+
 INSERT INTO `creature` (`guid`, `id`, `map`, `spawnMask`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `spawndist`, `currentwaypoint`, `DeathState`, `MovementType`) VALUES
-(@CGUID+1, 14881, 555, 3, -20.8387, -7.04335, -1.12801, 6.15025, 7200, 7200, 5, 0, 0, 1), -- Spider
-(@CGUID+2, 14881, 555, 3, -26.5121, -28.8336, -1.12819, 4.66636, 7200, 7200, 5, 0, 0, 1), -- Spider
-(@CGUID+3, 14881, 555, 3, -94.6801, -7.57021, -1.13702, 1.11868, 7200, 7200, 5, 0, 0, 1), -- Spider
-(@CGUID+4, 14881, 555, 3, -28.2511, -3.24632, -1.12806, 0.177229, 7200, 7200, 5, 0, 0, 1), -- Spider
-(@CGUID+5, 14881, 555, 3, -27.9937, -67.1583, -1.12676, 0.956257, 7200, 7200, 5, 0, 0, 1), -- Spider
-(@CGUID+6, 14881, 555, 3, -121.312, -10.0431, 8.07306, 0.980132, 7200, 7200, 5, 0, 0, 1), -- Spider
-(@CGUID+7, 14881, 555, 3, -110.499, 53.3226, 3.44767, 6.17134, 7200, 7200, 5, 0, 0, 1), -- Spider
-(@CGUID+8, 14881, 555, 3, -123.006, -49.5395, 8.07307, 1.29421, 7200, 7200, 5, 0, 0, 1), -- Spider
-(@CGUID+9, 14881, 555, 3, -122.996, -70.0366, 8.07309, 4.90915, 7200, 7200, 5, 0, 0, 1), -- Spider
-(@CGUID+10, 14881, 555, 3, -60.4636, -111.992, -0.613587, 1.3907, 7200, 7200, 5, 0, 0, 1), -- Spider
-(@CGUID+11, 14881, 555, 3, -113.517, -128.532, 3.4484, 5.3098, 7200, 7200, 5, 0, 0, 1), -- Spider
-(@CGUID+12, 14881, 555, 3, -105.525, -130.573, 3.44826, 1.84181, 7200, 7200, 5, 0, 0, 1), -- Spider
-(@CGUID+13, 14881, 555, 3, -107.508, -148.042, 3.44814, 0.152013, 7200, 7200, 5, 0, 0, 1), -- Spider
-(@CGUID+14, 14881, 555, 3, -188.628, -31.899, 8.07303, 6.1875, 7200, 7200, 5, 0, 0, 1), -- Spider
-(@CGUID+15, 14881, 555, 3, -192.078, -68.7532, 8.06968, 6.10362, 7200, 7200, 5, 0, 0, 1), -- Spider
-(@CGUID+16, 14881, 555, 3, -71.5911, -65.7899, -1.12829, 4.32384, 7200, 7200, 5, 0, 0, 1), -- Spider
-(@CGUID+17, 14881, 555, 3, -191.763, -10.9753, 8.07311, 0.27052, 7200, 7200, 5, 0, 0, 1), -- Spider
-(@CGUID+18, 14881, 555, 3, -387.193, -45.3832, 12.6877, 2.93849, 7200, 7200, 5, 0, 0, 1), -- Spider
-(@CGUID+19, 14881, 555, 3, -423.669, -94.403, 12.6888, 4.4513, 7200, 7200, 5, 0, 0, 1), -- Spider
-(@CGUID+20, 14881, 555, 3, -388.155, -32.1794, 12.6875, 5.99876, 7200, 7200, 5, 0, 0, 1), -- Spider
-(@CGUID+21, 14881, 555, 3, -388.806, -270.687, 12.6871, 3.41939, 7200, 7200, 5, 0, 0, 1), -- Spider
-(@CGUID+22, 14881, 555, 3, -217.141, -270.72, 17.0863, 3.77055, 7200, 7200, 5, 0, 0, 1), -- Spider
-(@CGUID+23, 14881, 555, 3, -162.352, -307.69, 17.085, 4.52662, 7200, 7200, 5, 0, 0, 1), -- Spider
-(@CGUID+24, 14881, 555, 3, -149.242, -308.746, 17.0853, 4.14094, 7200, 7200, 5, 0, 0, 1), -- Spider
-(@CGUID+25, 14881, 555, 3, -149.354, -309.421, 17.1688, 2.96706, 7200, 7200, 5, 0, 0, 1), -- Spider
-(@CGUID+26, 14881, 555, 3, -162.248, -306.623, 17.1683, 5.25344, 7200, 7200, 5, 0, 0, 1), -- Spider
-(@CGUID+27, 14881, 555, 3, -107.903, -509.374, 21.4761, 1.04233, 7200, 7200, 5, 0, 0, 1), -- Spider
-(@CGUID+28, 14881, 555, 3, -200.733, -518.375, 21.4759, 1.61224, 7200, 7200, 5, 0, 0, 1), -- Spider
-(@CGUID+29, 18631, 555, 3, -367.898, -267.587, 12.6892, 0.0211422, 7200, 7200, 0, 0, 0, 2), -- Cabal Cultist
-(@CGUID+30, 18631, 555, 3, -254.365, -46.4247, 8.15618, 3.08923, 7200, 7200, 0, 0, 0, 2), -- Cabal Cultist
-(@CGUID+31, 18631, 555, 3, -246.87, -45.9737, 8.15617, 3.10669, 7200, 7200, 0, 0, 0, 2), -- Cabal Cultist
-(@CGUID+32, 18631, 555, 3, -255.435, -31.2176, 8.17054, 3.28122, 7200, 7200, 0, 0, 0, 2), -- Cabal Cultist
-(@CGUID+33, 18631, 555, 3, -263.761, -29.1943, 8.18301, 3.12414, 7200, 7200, 0, 0, 0, 2), -- Cabal Cultist
-(@CGUID+34, 18631, 555, 3, -271.784, -45.5444, 8.15619, 3.1765, 7200, 7200, 0, 0, 0, 2), -- Cabal Cultist
+(@CGUID+1, 14881, 555, 3, -20.8387, -7.04335, -1.12801, 6.15025, 900, 900, 5, 0, 0, 1), -- Spider
+(@CGUID+2, 14881, 555, 3, -26.5121, -28.8336, -1.12819, 4.66636, 900, 900, 5, 0, 0, 1), -- Spider
+(@CGUID+3, 14881, 555, 3, -94.6801, -7.57021, -1.13702, 1.11868, 900, 900, 5, 0, 0, 1), -- Spider
+(@CGUID+4, 14881, 555, 3, -28.2511, -3.24632, -1.12806, 0.177229, 900, 900, 5, 0, 0, 1), -- Spider
+(@CGUID+5, 14881, 555, 3, -27.9937, -67.1583, -1.12676, 0.956257, 900, 900, 5, 0, 0, 1), -- Spider
+(@CGUID+6, 14881, 555, 3, -121.312, -10.0431, 8.07306, 0.980132, 900, 900, 5, 0, 0, 1), -- Spider
+(@CGUID+7, 14881, 555, 3, -110.499, 53.3226, 3.44767, 6.17134, 900, 900, 5, 0, 0, 1), -- Spider
+(@CGUID+8, 14881, 555, 3, -123.006, -49.5395, 8.07307, 1.29421, 900, 900, 5, 0, 0, 1), -- Spider
+(@CGUID+9, 14881, 555, 3, -122.996, -70.0366, 8.07309, 4.90915, 900, 900, 5, 0, 0, 1), -- Spider
+(@CGUID+10, 14881, 555, 3, -60.4636, -111.992, -0.613587, 1.3907, 900, 900, 5, 0, 0, 1), -- Spider
+(@CGUID+11, 14881, 555, 3, -113.517, -128.532, 3.4484, 5.3098, 900, 900, 5, 0, 0, 1), -- Spider
+(@CGUID+12, 14881, 555, 3, -105.525, -130.573, 3.44826, 1.84181, 900, 900, 5, 0, 0, 1), -- Spider
+(@CGUID+13, 14881, 555, 3, -107.508, -148.042, 3.44814, 0.152013, 900, 900, 5, 0, 0, 1), -- Spider
+(@CGUID+14, 14881, 555, 3, -188.628, -31.899, 8.07303, 6.1875, 900, 900, 5, 0, 0, 1), -- Spider
+(@CGUID+15, 14881, 555, 3, -192.078, -68.7532, 8.06968, 6.10362, 900, 900, 5, 0, 0, 1), -- Spider
+(@CGUID+16, 14881, 555, 3, -71.5911, -65.7899, -1.12829, 4.32384, 900, 900, 5, 0, 0, 1), -- Spider
+(@CGUID+17, 14881, 555, 3, -191.763, -10.9753, 8.07311, 0.27052, 900, 900, 5, 0, 0, 1), -- Spider
+(@CGUID+18, 14881, 555, 3, -387.193, -45.3832, 12.6877, 2.93849, 900, 900, 5, 0, 0, 1), -- Spider
+(@CGUID+19, 14881, 555, 3, -423.669, -94.403, 12.6888, 4.4513, 900, 900, 5, 0, 0, 1), -- Spider
+(@CGUID+20, 14881, 555, 3, -388.155, -32.1794, 12.6875, 5.99876, 900, 900, 5, 0, 0, 1), -- Spider
+(@CGUID+21, 14881, 555, 3, -388.806, -270.687, 12.6871, 3.41939, 900, 900, 5, 0, 0, 1), -- Spider
+(@CGUID+22, 14881, 555, 3, -217.141, -270.72, 17.0863, 3.77055, 900, 900, 5, 0, 0, 1), -- Spider
+(@CGUID+23, 14881, 555, 3, -162.352, -307.69, 17.085, 4.52662, 900, 900, 5, 0, 0, 1), -- Spider
+(@CGUID+24, 14881, 555, 3, -149.242, -308.746, 17.0853, 4.14094, 900, 900, 5, 0, 0, 1), -- Spider
+(@CGUID+25, 14881, 555, 3, -149.354, -309.421, 17.1688, 2.96706, 900, 900, 5, 0, 0, 1), -- Spider
+(@CGUID+26, 14881, 555, 3, -162.248, -306.623, 17.1683, 5.25344, 900, 900, 5, 0, 0, 1), -- Spider
+(@CGUID+27, 14881, 555, 3, -107.903, -509.374, 21.4761, 1.04233, 900, 900, 5, 0, 0, 1), -- Spider
+(@CGUID+28, 14881, 555, 3, -200.733, -518.375, 21.4759, 1.61224, 900, 900, 5, 0, 0, 1), -- Spider
+(@CGUID+29, 0, 555, 3, -367.898, -267.587, 12.6892, 0.0211422, 7200, 7200, 0, 0, 0, 2), -- creature_spawn_entry
+(@CGUID+30, 0, 555, 3, -254.365, -46.4247, 8.15618, 3.08923, 7200, 7200, 0, 0, 0, 2), -- creature_spawn_entry
+(@CGUID+31, 0, 555, 3, -246.87, -45.9737, 8.15617, 3.10669, 7200, 7200, 0, 0, 0, 2), -- creature_spawn_entry
+(@CGUID+32, 0, 555, 3, -255.435, -31.2176, 8.17054, 3.28122, 7200, 7200, 0, 0, 0, 2), -- creature_spawn_entry
+(@CGUID+33, 0, 555, 3, -263.761, -29.1943, 8.18301, 3.12414, 7200, 7200, 0, 0, 0, 2), -- creature_spawn_entry
+(@CGUID+34, 0, 555, 3, -271.784, -45.5444, 8.15619, 3.1765, 7200, 7200, 0, 0, 0, 2), -- creature_spawn_entry
 (@CGUID+35, 18631, 555, 3, -275.089, -4.42197, 8.15625, 3.66519, 7200, 7200, 0, 0, 0, 2), -- Cabal Cultist
 (@CGUID+36, 18631, 555, 3, -273.674, -80.3384, 8.15627, 2.74017, 7200, 7200, 0, 0, 0, 2), -- Cabal Cultist
-(@CGUID+37, 18631, 555, 3, -287.804, -96.3896, 8.15635, 5.48033, 7200, 7200, 0, 0, 0, 2), -- Cabal Cultist
-(@CGUID+38, 18631, 555, 3, -276.704, 22.5176, 8.15633, 0.017453, 7200, 7200, 0, 0, 0, 2), -- Cabal Cultist
-(@CGUID+39, 18631, 555, 3, -286.707, -99.5, 8.15633, 1.32645, 7200, 7200, 0, 0, 0, 2), -- Cabal Cultist
-(@CGUID+40, 18631, 555, 3, -443.04, -193.835, 12.7725, 3.4383, 7200, 7200, 0, 0, 0, 0), -- Cabal Cultist
-(@CGUID+41, 18631, 555, 3, -446.493, -192.12, 12.7725, 4.72984, 7200, 7200, 0, 0, 0, 0), -- Cabal Cultist
-(@CGUID+42, 18631, 555, 3, -313.634, -259.705, 12.6837, 3.13859, 7200, 7200, 5, 0, 0, 1), -- Cabal Cultist
-(@CGUID+43, 18631, 555, 3, -276.84, -268.582, 12.6808, 0.0211422, 7200, 7200, 5, 0, 0, 1), -- Cabal Cultist
-(@CGUID+44, 18631, 555, 3, -277.14, -263.29, 12.6806, 0.0211422, 7200, 7200, 5, 0, 0, 1), -- Cabal Cultist
+(@CGUID+37, 0, 555, 3, -287.804, -96.3896, 8.15635, 5.48033, 7200, 7200, 0, 0, 0, 2), -- creature_spawn_entry
+(@CGUID+38, 0, 555, 3, -276.704, 22.5176, 8.15633, 0.017453, 7200, 7200, 0, 0, 0, 2), -- creature_spawn_entry
+(@CGUID+39, 0, 555, 3, -286.707, -99.5, 8.15633, 1.32645, 7200, 7200, 0, 0, 0, 2), -- creature_spawn_entry
+(@CGUID+40, 0, 555, 3, -443.04, -193.835, 12.7725, 3.4383, 7200, 7200, 0, 0, 0, 0), -- creature_spawn_entry
+(@CGUID+41, 0, 555, 3, -446.493, -192.12, 12.7725, 4.72984, 7200, 7200, 0, 0, 0, 0), -- creature_spawn_entry
+(@CGUID+42, 0, 555, 3, -313.634, -259.705, 12.6837, 3.13859, 7200, 7200, 0, 0, 0, 0), -- creature_spawn_entry
+(@CGUID+43, 0, 555, 3, -276.84, -268.582, 12.6808, 0.0211422, 7200, 7200, 0, 0, 0, 0), -- creature_spawn_entry
+(@CGUID+44, 0, 555, 3, -277.14, -263.29, 12.6806, 0.0211422, 7200, 7200, 0, 0, 0, 0), -- creature_spawn_entry
+
 (@CGUID+45, 18632, 555, 3, -172.173, -325.754, 17.1697, 5.53269, 7200, 7200, 0, 0, 0, 0), -- Cabal Executioner
 (@CGUID+46, 18632, 555, 3, -168.532, -352.302, 17.1662, 4.83456, 7200, 7200, 0, 0, 0, 0), -- Cabal Executioner
 (@CGUID+47, 18632, 555, 3, -135.771, -329.128, 17.1687, 3.50811, 7200, 7200, 0, 0, 0, 0), -- Cabal Executioner
@@ -657,77 +820,82 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `spawnMask`, `position_x`, `positio
 (@CGUID+50, 18632, 555, 3, -173.133, -366.97, 17.0828, 5.91667, 7200, 7200, 0, 0, 0, 0), -- Cabal Executioner
 (@CGUID+51, 18632, 555, 3, -142.203, -390.029, 17.0806, 4.4855, 7200, 7200, 0, 0, 0, 0), -- Cabal Executioner
 (@CGUID+52, 18632, 555, 3, -140.54, -410.52, 17.079, 1.44862, 7200, 7200, 0, 0, 0, 0), -- Cabal Executioner
-(@CGUID+53, 18633, 555, 3, -91.1616, -63.4688, -1.12825, 0.31254, 7200, 7200, 0, 0, 0, 2), -- Cabal Acolyte
-(@CGUID+54, 18633, 555, 3, -47.365, -33.8044, -1.04484, 0.331613, 7200, 7200, 0, 0, 0, 2), -- Cabal Acolyte
-(@CGUID+55, 18633, 555, 3, -41.8571, -33.4506, -1.04484, 2.87979, 7200, 7200, 0, 0, 0, 0), -- Cabal Acolyte
-(@CGUID+56, 18633, 555, 3, -80.3716, -39.766, -1.04492, 2.00713, 7200, 7200, 0, 0, 0, 0), -- Cabal Acolyte
-(@CGUID+57, 18633, 555, 3, -77.9535, -36.4069, -1.04492, 3.21141, 7200, 7200, 0, 0, 0, 0), -- Cabal Acolyte
-(@CGUID+58, 18633, 555, 3, -31.8829, -81.4594, -1.0449, 4.04916, 7200, 7200, 0, 0, 0, 0), -- Cabal Acolyte
-(@CGUID+59, 18633, 555, 3, -36.1315, -84.0624, -1.04494, 0.087266, 7200, 7200, 0, 0, 0, 0), -- Cabal Acolyte
-(@CGUID+60, 18633, 555, 3, -58.1065, -26.6713, -1.04482, 2.96706, 7200, 7200, 0, 0, 0, 0), -- Cabal Acolyte
-(@CGUID+61, 18633, 555, 3, -73.5278, -1.96912, -1.04486, 1.22173, 7200, 7200, 0, 0, 0, 2), -- Cabal Acolyte
-(@CGUID+62, 18633, 555, 3, -78.7167, -46.4269, -1.04494, 4.50295, 7200, 7200, 0, 0, 0, 0), -- Cabal Acolyte
-(@CGUID+63, 18633, 555, 3, -75.0824, -47.649, -1.04495, 3.75246, 7200, 7200, 0, 0, 0, 0), -- Cabal Acolyte
-(@CGUID+64, 18633, 555, 3, -86.7252, 8.73865, -1.04486, 2.37365, 7200, 7200, 0, 0, 0, 0), -- Cabal Acolyte
-(@CGUID+65, 18633, 555, 3, -85.9936, 11.2334, -1.04485, 3.56047, 7200, 7200, 0, 0, 0, 2), -- Cabal Acolyte
-(@CGUID+66, 18633, 555, 3, -73.8878, 1.75605, -1.04487, 5.23599, 7200, 7200, 0, 0, 0, 0), -- Cabal Acolyte
-(@CGUID+67, 18633, 555, 3, -48.3232, -89.7437, -1.12831, 2.56119, 7200, 7200, 0, 0, 0, 2), -- Cabal Acolyte
-(@CGUID+68, 18633, 555, 3, -90.6977, -92.3565, -1.04497, 0.715585, 7200, 7200, 0, 0, 0, 2), -- Cabal Acolyte
-(@CGUID+69, 18633, 555, 3, -247.273, -49.6712, 8.15618, 3.03687, 7200, 7200, 0, 0, 0, 2), -- Cabal Acolyte
-(@CGUID+70, 18633, 555, 3, -255.77, -27.5678, 8.18844, 3.24631, 7200, 7200, 0, 0, 0, 2), -- Cabal Acolyte
-(@CGUID+71, 18633, 555, 3, -263.805, -48.9857, 8.15618, 3.10669, 7200, 7200, 0, 0, 0, 2), -- Cabal Acolyte
+
+(@CGUID+53, 0, 555, 3, -91.1616, -63.4688, -1.12825, 0.31254, 7200, 7200, 0, 0, 0, 2), -- creature_spawn_entry
+(@CGUID+54, 0, 555, 3, -47.365, -33.8044, -1.04484, 0.331613, 7200, 7200, 0, 0, 0, 2), -- creature_spawn_entry
+(@CGUID+55, 0, 555, 3, -41.8571, -33.4506, -1.04484, 2.87979, 7200, 7200, 0, 0, 0, 0), -- creature_spawn_entry
+(@CGUID+56, 0, 555, 3, -80.3716, -39.766, -1.04492, 2.00713, 7200, 7200, 0, 0, 0, 0), -- creature_spawn_entry
+(@CGUID+57, 0, 555, 3, -77.9535, -36.4069, -1.04492, 3.21141, 7200, 7200, 0, 0, 0, 0), -- creature_spawn_entry
+(@CGUID+58, 0, 555, 3, -31.8829, -81.4594, -1.0449, 4.04916, 7200, 7200, 0, 0, 0, 0), -- creature_spawn_entry
+(@CGUID+59, 0, 555, 3, -36.1315, -84.0624, -1.04494, 0.087266, 7200, 7200, 0, 0, 0, 0), -- creature_spawn_entry
+(@CGUID+60, 0, 555, 3, -58.1065, -26.6713, -1.04482, 2.96706, 7200, 7200, 0, 0, 0, 0), -- creature_spawn_entry
+(@CGUID+61, 0, 555, 3, -73.5278, -1.96912, -1.04486, 1.22173, 7200, 7200, 0, 0, 0, 2), -- creature_spawn_entry
+(@CGUID+62, 0, 555, 3, -78.7167, -46.4269, -1.04494, 4.50295, 7200, 7200, 0, 0, 0, 0), -- creature_spawn_entry
+(@CGUID+63, 0, 555, 3, -75.0824, -47.649, -1.04495, 3.75246, 7200, 7200, 0, 0, 0, 0), -- creature_spawn_entry
+(@CGUID+64, 0, 555, 3, -86.7252, 8.73865, -1.04486, 2.37365, 7200, 7200, 0, 0, 0, 0), -- creature_spawn_entry
+(@CGUID+65, 0, 555, 3, -85.9936, 11.2334, -1.04485, 3.56047, 7200, 7200, 0, 0, 0, 2), -- creature_spawn_entry
+(@CGUID+66, 0, 555, 3, -73.8878, 1.75605, -1.04487, 5.23599, 7200, 7200, 0, 0, 0, 0), -- creature_spawn_entry
+(@CGUID+67, 0, 555, 3, -48.3232, -89.7437, -1.12831, 2.56119, 7200, 7200, 0, 0, 0, 2), -- creature_spawn_entry
+(@CGUID+68, 0, 555, 3, -90.69765, -92.35649, -1.044974, 0.715585, 7200, 7200, 0, 0, 0, 2), -- creature_spawn_entry
+(@CGUID+69, 0, 555, 3, -247.273, -49.6712, 8.15618, 3.03687, 7200, 7200, 0, 0, 0, 2), -- creature_spawn_entry
+(@CGUID+70, 0, 555, 3, -255.77, -27.5678, 8.18844, 3.24631, 7200, 7200, 0, 0, 0, 2), -- creature_spawn_entry
+(@CGUID+71, 0, 555, 3, -263.805, -48.9857, 8.15618, 3.10669, 7200, 7200, 0, 0, 0, 2), -- creature_spawn_entry
 (@CGUID+72, 18633, 555, 3, -271.978, -47.9963, 8.15619, 3.14159, 7200, 7200, 0, 0, 0, 2), -- Cabal Acolyte
 (@CGUID+73, 18633, 555, 3, -265.829, 0.056211, 8.15626, 3.68265, 7200, 7200, 0, 0, 0, 2), -- Cabal Acolyte
 (@CGUID+74, 18633, 555, 3, -272.845, -76.4279, 8.15625, 2.6529, 7200, 7200, 0, 0, 0, 2), -- Cabal Acolyte
-(@CGUID+75, 18633, 555, 3, -454.315, -183.092, 12.7725, 5.06145, 7200, 7200, 0, 0, 0, 2), -- Cabal Acolyte
+(@CGUID+75, 0, 555, 3, -454.315, -183.092, 12.7725, 5.06145, 7200, 7200, 0, 0, 0, 2), -- creature_spawn_entry
+
 (@CGUID+76, 18634, 555, 3, -175.894, -349.783, 17.166, 5.61996, 7200, 7200, 0, 0, 0, 0), -- Cabal Summoner
 (@CGUID+77, 18634, 555, 3, -156.498, -328.007, 17.1696, 3.14159, 7200, 7200, 0, 0, 0, 0), -- Cabal Summoner
 (@CGUID+78, 18634, 555, 3, -135.201, -360.271, 17.0819, 3.49066, 7200, 7200, 0, 0, 0, 0), -- Cabal Summoner
-(@CGUID+79, 18634, 555, 3, -136.037, -343.41, 17.1648, 3.1765, 7200, 7200, 0, 0, 0, 0), -- Cabal Summoner
+(@CGUID+79, 0, 555, 3, -136.037, -343.41, 17.1648, 3.1765, 5, 10, 0, 0, 0, 2), -- creature_spawn_entry
 (@CGUID+80, 18634, 555, 3, -141.612, -363.212, 17.0827, 4.2586, 7200, 7200, 0, 0, 0, 0), -- Cabal Summoner
 (@CGUID+81, 18634, 555, 3, -171.826, -401.41, 17.0799, 0.890118, 7200, 7200, 0, 0, 0, 0), -- Cabal Summoner
-(@CGUID+82, 18634, 555, 3, -134.274, -388.795, 17.1657, 3.14159, 7200, 7200, 0, 0, 0, 0), -- Cabal Summoner
-(@CGUID+83, 18634, 555, 3, -154.559, -394.581, 17.0796, 4.69674, 7200, 7200, 0, 0, 0, 0), -- Cabal Summoner					//RP Event?
-(@CGUID+84, 18634, 555, 3, -143.49, -443.834, 17.0779, 3.15222, 7200, 7200, 0, 0, 0, 0), -- Cabal Summoner
-(@CGUID+85, 18635, 555, 3, -91.7096, -19.436, -1.12819, 0.0386012, 7200, 7200, 0, 0, 0, 2), -- Cabal Deathsworn
-(@CGUID+86, 18635, 555, 3, -44.641, -34.6061, -1.04484, 1.44862, 7200, 7200, 0, 0, 0, 2), -- Cabal Deathsworn
-(@CGUID+87, 18635, 555, 3, -35.078, -81.0337, -1.04491, 5.18363, 7200, 7200, 0, 0, 0, 2), -- Cabal Deathsworn
-(@CGUID+88, 18635, 555, 3, -60.8069, -24.741, -1.04481, 5.44543, 7200, 7200, 0, 0, 0, 0), -- Cabal Deathsworn
-(@CGUID+89, 18635, 555, 3, -74.3842, -0.151916, -1.04487, 0.034907, 7200, 7200, 0, 0, 0, 2), -- Cabal Deathsworn
-(@CGUID+90, 18635, 555, 3, -91.919, -88.183, -1.04498, 6.00393, 7200, 7200, 0, 0, 0, 2), -- Cabal Deathsworn
+(@CGUID+82, 0, 555, 3, -134.274, -388.795, 17.1657, 3.14159, 5, 10, 0, 0, 0, 2), -- creature_spawn_entry
+-- REUSE @CGUID+83
+-- REUSE @CGUID+84
+
+(@CGUID+85, 0, 555, 3, -91.7096, -19.436, -1.12819, 0.0386012, 7200, 7200, 0, 0, 0, 2), -- creature_spawn_entry
+(@CGUID+86, 0, 555, 3, -44.641, -34.6061, -1.04484, 1.44862, 7200, 7200, 0, 0, 0, 2), -- creature_spawn_entry
+(@CGUID+87, 0, 555, 3, -35.078, -81.0337, -1.04491, 5.18363, 7200, 7200, 0, 0, 0, 2), -- creature_spawn_entry
+(@CGUID+88, 0, 555, 3, -60.8069, -24.741, -1.04481, 5.44543, 7200, 7200, 0, 0, 0, 0), -- creature_spawn_entry
+(@CGUID+89, 0, 555, 3, -74.3842, -0.151916, -1.04487, 0.034907, 7200, 7200, 0, 0, 0, 2), -- creature_spawn_entry
+(@CGUID+90, 0, 555, 3, -91.919, -88.183, -1.04498, 6.00393, 7200, 7200, 0, 0, 0, 2), -- creature_spawn_entry
 (@CGUID+91, 18635, 555, 3, -86.0825, -92.683, -1.04497, 1.95477, 7200, 7200, 0, 0, 0, 0), -- Cabal Deathsworn
 (@CGUID+92, 18635, 555, 3, -254.445, -49.5956, 8.15618, 3.01942, 7200, 7200, 0, 0, 0, 2), -- Cabal Deathsworn
 (@CGUID+93, 18635, 555, 3, -265.305, -82.2931, 8.15626, 2.84489, 7200, 7200, 0, 0, 0, 2), -- Cabal Deathsworn
 (@CGUID+94, 18635, 555, 3, -263.687, -31.7085, 8.17044, 3.33358, 7200, 7200, 0, 0, 0, 2), -- Cabal Deathsworn
 (@CGUID+95, 18635, 555, 3, -271.845, -50.1835, 8.15619, 3.1765, 7200, 7200, 0, 0, 0, 2), -- Cabal Deathsworn
 (@CGUID+96, 18635, 555, 3, -267.801, 3.11204, 8.15628, 3.76991, 7200, 7200, 0, 0, 0, 2), -- Cabal Deathsworn
-(@CGUID+97, 18635, 555, 3, -281.939, 20.0421, 8.15636, 5.68977, 7200, 7200, 0, 0, 0, 2), -- Cabal Deathsworn
+(@CGUID+97, 0, 555, 3, -281.939, 20.0421, 8.15636, 5.68977, 7200, 7200, 0, 0, 0, 2), -- creature_spawn_entry
 (@CGUID+98, 18635, 555, 3, -453.685, -186.804, 12.7725, 1.53589, 7200, 7200, 0, 0, 0, 2), -- Cabal Deathsworn
 (@CGUID+99, 18635, 555, 3, -454.978, -185.25, 12.7725, 0.05236, 7200, 7200, 0, 0, 0, 0), -- Cabal Deathsworn
 (@CGUID+100, 18636, 555, 3, -272.295, -140.066, 8.15626, 0.855211, 7200, 7200, 0, 0, 0, 2), -- Cabal Assassin
 (@CGUID+101, 18636, 555, 3, -281.339, 55.2473, 8.07299, 0.01178, 7200, 7200, 0, 0, 0, 2), -- Cabal Assassin
-(@CGUID+102, 18637, 555, 3, -263.226, -45.5273, 8.15618, 3.12414, 7200, 7200, 0, 0, 0, 2), -- Cabal Shadow Priest
+(@CGUID+102, 0, 555, 3, -263.226, -45.5273, 8.15618, 3.12414, 7200, 7200, 0, 0, 0, 2), -- creature_spawn_entry
 (@CGUID+103, 18637, 555, 3, -264.152, -79.2966, 8.15624, 2.87979, 7200, 7200, 0, 0, 0, 2), -- Cabal Shadow Priest
 (@CGUID+104, 18637, 555, 3, -263.794, -26.8056, 8.19487, 3.49066, 7200, 7200, 0, 0, 0, 2), -- Cabal Shadow Priest
 (@CGUID+105, 18637, 555, 3, -275.427, -0.559913, 8.15628, 3.56047, 7200, 7200, 0, 0, 0, 2), -- Cabal Shadow Priest
-(@CGUID+106, 18638, 555, 3, -367.967, -269.298, 12.6889, 0.0211422, 7200, 7200, 0, 0, 0, 0), -- Cabal Zealot
-(@CGUID+107, 18638, 555, 3, -368.106, -263.494, 12.6892, 0.0211422, 7200, 7200, 0, 0, 0, 0), -- Cabal Zealot
-(@CGUID+108, 18638, 555, 3, -313.295, -263.085, 12.6835, 3.02507, 7200, 7200, 0, 0, 0, 2), -- Cabal Zealot
-(@CGUID+109, 18638, 555, 3, -270.873, -268.766, 12.7638, 0.287388, 7200, 7200, 0, 0, 0, 0), -- Cabal Zealot
-(@CGUID+110, 18638, 555, 3, -270.18, -258.579, 12.7637, 5.98751, 7200, 7200, 0, 0, 0, 0), -- Cabal Zealot
-(@CGUID+111, 18638, 555, 3, -313.244, -268.244, 12.6837, 3.25697, 7200, 7200, 5, 0, 0, 1), -- Cabal Zealot
+(@CGUID+106, 0, 555, 3, -367.967, -269.298, 12.6889, 0.0211422, 7200, 7200, 0, 0, 0, 0), -- creature_spawn_entry
+(@CGUID+107, 0, 555, 3, -368.106, -263.494, 12.6892, 0.0211422, 7200, 7200, 0, 0, 0, 0), -- creature_spawn_entry
+(@CGUID+108, 0, 555, 3, -313.295, -263.085, 12.6835, 3.02507, 7200, 7200, 0, 0, 0, 2), -- creature_spawn_entry
+(@CGUID+109, 0, 555, 3, -270.873, -268.766, 12.7638, 0.287388, 7200, 7200, 0, 0, 0, 0), -- creature_spawn_entry
+(@CGUID+110, 0, 555, 3, -270.18, -258.579, 12.7637, 5.98751, 7200, 7200, 0, 0, 0, 0), -- creature_spawn_entry
+(@CGUID+111, 0, 555, 3, -313.244, -268.244, 12.6837, 3.25697, 7200, 7200, 0, 0, 0, 0), -- creature_spawn_entry
+
 (@CGUID+112, 18639, 555, 3, -139.912, -353.917, 17.1665, 5.75959, 7200, 7200, 0, 0, 0, 0), -- Cabal Spellbinder
 (@CGUID+113, 18639, 555, 3, -140.42, -369.956, 17.0815, 3.03687, 7200, 7200, 0, 0, 0, 0), -- Cabal Spellbinder
-(@CGUID+114, 18639, 555, 3, -136.037, -343.41, 17.1648, 3.1765, 7200, 7200, 0, 0, 0, 0), -- Cabal Spellbinder					//RP Event?
+-- REUSE @CGUID+114
 (@CGUID+115, 18639, 555, 3, -143.33, -397.343, 17.0801, 2.37365, 7200, 7200, 0, 0, 0, 0), -- Cabal Spellbinder
-(@CGUID+116, 18639, 555, 3, -179.281, -350.271, 17.1665, 5.98648, 7200, 7200, 0, 0, 0, 0), -- Cabal Spellbinder
-(@CGUID+117, 18639, 555, 3, -149.674, -394.487, 17.0796, 4.69282, 7200, 7200, 0, 0, 0, 0), -- Cabal Spellbinder					//RP Event?
-(@CGUID+118, 18639, 555, 3, -134.274, -388.795, 17.1657, 3.72706, 7200, 7200, 0, 0, 0, 0), -- Cabal Spellbinder
+(@CGUID+116, 0, 555, 3, -179.281, -350.271, 17.1665, 5.98648, 5, 10, 0, 0, 0, 2), -- creature_spawn_entry
+-- REUSE @CGUID+117
+-- REUSE @CGUID+118
 (@CGUID+119, 18639, 555, 3, -151.682, -461.163, 17.1606, 4.57276, 7200, 7200, 0, 0, 0, 0), -- Cabal Spellbinder
 (@CGUID+120, 18639, 555, 3, -156.284, -461.871, 17.1606, 4.69494, 7200, 7200, 0, 0, 0, 0), -- Cabal Spellbinder
 (@CGUID+121, 18639, 555, 3, -160.956, -461.858, 17.1606, 4.90438, 7200, 7200, 0, 0, 0, 0), -- Cabal Spellbinder
-(@CGUID+122, 18639, 555, 3, -176.776, -434.265, 17.1622, 0.279253, 7200, 7200, 0, 0, 0, 0), -- Cabal Spellbinder
-(@CGUID+123, 18639, 555, 3, -130.551, -443.696, 17.164, 3.14527, 7200, 7200, 0, 0, 0, 0), -- Cabal Spellbinder
+(@CGUID+122, 0, 555, 3, -176.776, -434.265, 17.1622, 0.279253, 5, 10, 0, 0, 0, 2), -- creature_spawn_entry
+(@CGUID+123, 0, 555, 3, -130.551, -443.696, 17.164, 3.14527, 5, 10, 0, 0, 0, 2), -- creature_spawn_entry
+
 (@CGUID+124, 18640, 555, 3, -51.2688, -78.5158, -1.0449, 2.49582, 7200, 7200, 0, 0, 0, 2), -- Cabal Warlock
 (@CGUID+125, 18640, 555, 3, -74.4987, -77.2237, -1.04497, 1.55334, 7200, 7200, 0, 0, 0, 2), -- Cabal Warlock
 (@CGUID+126, 18640, 555, 3, -259.324, 5.18744, 8.15627, 3.64774, 7200, 7200, 0, 0, 0, 2), -- Cabal Warlock
@@ -738,13 +906,13 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `spawnMask`, `position_x`, `positio
 (@CGUID+131, 18641, 555, 3, -60.7424, -78.9777, -1.12823, 0.138545, 7200, 7200, 0, 0, 0, 0), -- Cabal Familiar
 (@CGUID+132, 18641, 555, 3, -62.74, -79.0751, -1.12823, 6.27203, 7200, 7200, 0, 0, 0, 0), -- Cabal Familiar
 (@CGUID+133, 18641, 555, 3, -73.1844, -72.6355, -1.1283, 2.28426, 7200, 7200, 0, 0, 0, 2), -- Cabal Familiar
-(@CGUID+134, 18641, 555, 3, -257.898, 2.7362, 8.15626, 3.85718, 7200, 7200, 0, 0, 0, 0), -- Cabal Familiar
+(@CGUID+134, 0, 555, 3, -257.898, 2.7362, 8.15626, 3.85718, 7200, 7200, 0, 0, 0, 0), -- creature_spawn_entry
 (@CGUID+135, 18642, 555, 3, -67.4098, -77.1873, -1.12827, 5.10697, 7200, 7200, 0, 0, 0, 0), -- Fel Guardhound
-(@CGUID+136, 18642, 555, 3, -281.167, -74.066, 8.15624, 3.12414, 7200, 7200, 0, 0, 0, 0), -- Fel Guardhound
+(@CGUID+136, 0, 555, 3, -281.167, -74.066, 8.15624, 3.12414, 7200, 7200, 0, 0, 0, 0), -- creature_spawn_entry
 (@CGUID+137, 18667, 555, 3, -343.463, -16.4996, 12.6888, 5.09566, 86400, 86400, 0, 0, 0, 2), -- Blackheart the Inciter
-(@CGUID+138, 18708, 555, 3, -157.895, -497.322, 15.8651, 1.5708, 86400, 86400, 0, 0, 0, 0), -- Murmur
-(@CGUID+139, 18731, 555, 3, -156.764, 20.6869, 8.07311, 4.66216, 86400, 86400, 0, 0, 0, 0), -- Ambassador Hellmaw
-(@CGUID+140, 18732, 555, 3, -253.06, -264.024, 17.0864, 3.15559, 86400, 86400, 0, 0, 0, 2), -- Grandmaster Vorpil
+(@CGUID+138, 18708, 555, 3, -157.8953, -497.3225, 15.86508, 1.570796, 86400, 86400, 0, 0, 0, 0), -- Murmur
+(@CGUID+139, 18731, 555, 3, -156.6754, 4.982729, 8.156394, 4.677482, 86400, 86400, 0, 0, 0, 0), -- Ambassador Hellmaw
+(@CGUID+140, 18732, 555, 3, -253.5477, -263.6456, 17.16967, 3.054326, 86400, 86400, 0, 0, 0, 2), -- Grandmaster Vorpil
 (@CGUID+141, 18793, 555, 3, -157.117, -58.3139, 23.1893, 4.72984, 7200, 7200, 0, 0, 0, 0), -- Invisible Target
 (@CGUID+142, 18793, 555, 3, -138.636, -77.7277, 23.3095, 4.95674, 7200, 7200, 0, 0, 0, 0), -- Invisible Target
 (@CGUID+143, 18793, 555, 3, -157.114, -19.444, 23.257, 4.69494, 7200, 7200, 0, 0, 0, 0), -- Invisible Target
@@ -798,30 +966,30 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `spawnMask`, `position_x`, `positio
 (@CGUID+191, 18797, 555, 3, -332.884, -248.89, 15.0065, 0.610865, 7200, 7200, 0, 0, 0, 0), -- Tortured Skeleton
 (@CGUID+192, 18797, 555, 3, -339.561, -253.168, 13.9617, 2.93215, 7200, 7200, 0, 0, 0, 0), -- Tortured Skeleton
 (@CGUID+193, 18797, 555, 3, -332.873, -244.793, 14.6794, 0.942478, 7200, 7200, 0, 0, 0, 0), -- Tortured Skeleton
-(@CGUID+194, 18797, 555, 3, -332.04, -275.862, 14.534, 0.784749, 7200, 7200, 0, 0, 0, 0), -- Tortured Skeleton
-(@CGUID+195, 18797, 555, 3, -326.74, -279.742, 16.9801, 0.121764, 7200, 7200, 0, 0, 0, 0), -- Tortured Skeleton
-(@CGUID+196, 18797, 555, 3, -336.113, -280.532, 16.8695, 0.350175, 7200, 7200, 0, 0, 0, 0), -- Tortured Skeleton
-(@CGUID+197, 18797, 555, 3, -333.736, -280.805, 17.5652, 1.82887, 7200, 7200, 0, 0, 0, 0), -- Tortured Skeleton
-(@CGUID+198, 18797, 555, 3, -338.238, -283.498, 17.4151, 1.78773, 7200, 7200, 0, 0, 0, 0), -- Tortured Skeleton
-(@CGUID+199, 18797, 555, 3, -341.926, -281.805, 15.4127, 0.113161, 7200, 7200, 0, 0, 0, 0), -- Tortured Skeleton
-(@CGUID+200, 18797, 555, 3, -325.389, -284.21, 17.8851, 2.09487, 7200, 7200, 0, 0, 0, 0), -- Tortured Skeleton
-(@CGUID+201, 18797, 555, 3, -329.777, -286.69, 19.8975, 4.19558, 7200, 7200, 0, 0, 0, 0), -- Tortured Skeleton
-(@CGUID+202, 18797, 555, 3, -335.551, -290.153, 21.2138, 4.42428, 7200, 7200, 0, 0, 0, 0), -- Tortured Skeleton
-(@CGUID+203, 18797, 555, 3, -330.73, -290.891, 21.8424, 0.261224, 7200, 7200, 0, 0, 0, 0), -- Tortured Skeleton
+(@CGUID+194, 18797, 555, 3, -332.04, -275.862, 14.534, 0.784749, 7200, 7200, 2, 0, 0, 1), -- Tortured Skeleton
+(@CGUID+195, 18797, 555, 3, -326.74, -279.742, 16.9801, 0.121764, 7200, 7200, 2, 0, 0, 1), -- Tortured Skeleton
+(@CGUID+196, 18797, 555, 3, -336.113, -280.532, 16.8695, 0.350175, 7200, 7200, 2, 0, 0, 1), -- Tortured Skeleton
+(@CGUID+197, 18797, 555, 3, -333.736, -280.805, 17.5652, 1.82887, 7200, 7200, 2, 0, 0, 1), -- Tortured Skeleton
+(@CGUID+198, 18797, 555, 3, -338.238, -283.498, 17.4151, 1.78773, 7200, 7200, 2, 0, 0, 1), -- Tortured Skeleton
+(@CGUID+199, 18797, 555, 3, -341.926, -281.805, 15.4127, 0.113161, 7200, 7200, 2, 0, 0, 1), -- Tortured Skeleton
+(@CGUID+200, 18797, 555, 3, -325.389, -284.21, 17.8851, 2.09487, 7200, 7200, 2, 0, 0, 1), -- Tortured Skeleton
+(@CGUID+201, 18797, 555, 3, -329.777, -286.69, 19.8975, 4.19558, 7200, 7200, 2, 0, 0, 1), -- Tortured Skeleton
+(@CGUID+202, 18797, 555, 3, -335.551, -290.153, 21.2138, 4.42428, 7200, 7200, 2, 0, 0, 1), -- Tortured Skeleton
+(@CGUID+203, 18797, 555, 3, -330.73, -290.891, 21.8424, 0.261224, 7200, 7200, 2, 0, 0, 1), -- Tortured Skeleton
 (@CGUID+204, 18797, 555, 3, -333.08, -302.604, 25.1384, 2.93215, 7200, 7200, 0, 0, 0, 0), -- Tortured Skeleton
 (@CGUID+205, 18797, 555, 3, -331.946, -253.008, 14.1899, 5.044, 7200, 7200, 0, 0, 0, 0), -- Tortured Skeleton
 (@CGUID+206, 18797, 555, 3, -335.743, -255.684, 14.206, 0.418879, 7200, 7200, 0, 0, 0, 0), -- Tortured Skeleton
 (@CGUID+207, 18797, 555, 3, -293.067, -306.897, 26.5101, 2.07694, 7200, 7200, 0, 0, 0, 0), -- Tortured Skeleton
-(@CGUID+208, 18797, 555, 3, -294.457, -277.033, 15.3002, 4.39378, 7200, 7200, 5, 0, 0, 1), -- Tortured Skeleton
-(@CGUID+209, 18797, 555, 3, -297.823, -279.468, 16.0068, 2.01522, 7200, 7200, 5, 0, 0, 1), -- Tortured Skeleton
-(@CGUID+210, 18797, 555, 3, -287.382, -279.468, 15.496, 5.77641, 7200, 7200, 5, 0, 0, 1), -- Tortured Skeleton
-(@CGUID+211, 18797, 555, 3, -283.911, -283.157, 16.5927, 3.78736, 7200, 7200, 5, 0, 0, 1), -- Tortured Skeleton
-(@CGUID+212, 18797, 555, 3, -288.59, -284.263, 17.783, 1.73615, 7200, 7200, 5, 0, 0, 1), -- Tortured Skeleton
-(@CGUID+213, 18797, 555, 3, -292.635, -281.438, 17.5337, 1.07256, 7200, 7200, 5, 0, 0, 1), -- Tortured Skeleton
-(@CGUID+214, 18797, 555, 3, -299.156, -285.271, 17.8104, 2.90233, 7200, 7200, 5, 0, 0, 1), -- Tortured Skeleton
-(@CGUID+215, 18797, 555, 3, -295.999, -291.288, 21.2898, 3.18042, 7200, 7200, 5, 0, 0, 1), -- Tortured Skeleton
-(@CGUID+216, 18797, 555, 3, -290.663, -287.45, 21.3006, 5.044, 7200, 7200, 5, 0, 0, 1), -- Tortured Skeleton
-(@CGUID+217, 18797, 555, 3, -285.458, -289.044, 18.8886, 1.76928, 7200, 7200, 5, 0, 0, 1), -- Tortured Skeleton
+(@CGUID+208, 18797, 555, 3, -294.457, -277.033, 15.3002, 4.39378, 7200, 7200, 2, 0, 0, 1), -- Tortured Skeleton
+(@CGUID+209, 18797, 555, 3, -297.823, -279.468, 16.0068, 2.01522, 7200, 7200, 2, 0, 0, 1), -- Tortured Skeleton
+(@CGUID+210, 18797, 555, 3, -287.382, -279.468, 15.496, 5.77641, 7200, 7200, 2, 0, 0, 1), -- Tortured Skeleton
+(@CGUID+211, 18797, 555, 3, -283.911, -283.157, 16.5927, 3.78736, 7200, 7200, 2, 0, 0, 1), -- Tortured Skeleton
+(@CGUID+212, 18797, 555, 3, -288.59, -284.263, 17.783, 1.73615, 7200, 7200, 2, 0, 0, 1), -- Tortured Skeleton
+(@CGUID+213, 18797, 555, 3, -292.635, -281.438, 17.5337, 1.07256, 7200, 7200, 2, 0, 0, 1), -- Tortured Skeleton
+(@CGUID+214, 18797, 555, 3, -299.156, -285.271, 17.8104, 2.90233, 7200, 7200, 2, 0, 0, 1), -- Tortured Skeleton
+(@CGUID+215, 18797, 555, 3, -295.999, -291.288, 21.2898, 3.18042, 7200, 7200, 2, 0, 0, 1), -- Tortured Skeleton
+(@CGUID+216, 18797, 555, 3, -290.663, -287.45, 21.3006, 5.044, 7200, 7200, 2, 0, 0, 1), -- Tortured Skeleton
+(@CGUID+217, 18797, 555, 3, -285.458, -289.044, 18.8886, 1.76928, 7200, 7200, 2, 0, 0, 1), -- Tortured Skeleton
 (@CGUID+218, 18797, 555, 3, -292.796, -248.356, 15.6591, 5.75959, 7200, 7200, 0, 0, 0, 0), -- Tortured Skeleton
 (@CGUID+219, 18797, 555, 3, -290.878, -248.308, 15.654, 0.628319, 7200, 7200, 0, 0, 0, 0), -- Tortured Skeleton
 (@CGUID+220, 18797, 555, 3, -294.633, -248.559, 15.4587, 3.78736, 7200, 7200, 0, 0, 0, 0), -- Tortured Skeleton
@@ -837,10 +1005,10 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `spawnMask`, `position_x`, `positio
 (@CGUID+230, 18797, 555, 3, -415.485, -172.984, 12.7231, 2.30383, 7200, 7200, 0, 0, 0, 0), -- Tortured Skeleton
 (@CGUID+231, 18797, 555, 3, -435.36, -266.77, 12.771, 5.75959, 7200, 7200, 0, 0, 0, 0), -- Tortured Skeleton
 (@CGUID+232, 18797, 555, 3, -322.287, -241.187, 12.7673, 3.05433, 7200, 7200, 0, 0, 0, 0), -- Tortured Skeleton
-(@CGUID+233, 18830, 555, 3, -276.893, -266.896, 12.6807, 0.0211422, 7200, 7200, 0, 0, 0, 0), -- Cabal Fanatic
+(@CGUID+233, 0, 555, 3, -276.893, -266.896, 12.6807, 0.0211422, 7200, 7200, 0, 0, 0, 0), -- creature_spawn_entry
 (@CGUID+234, 18830, 555, 3, -367.925, -265.592, 12.6892, 0.0211422, 7200, 7200, 0, 0, 0, 0), -- Cabal Fanatic
-(@CGUID+235, 18830, 555, 3, -313.216, -265.828, 12.6837, 3.3179, 7200, 7200, 5, 0, 0, 1), -- Cabal Fanatic
-(@CGUID+236, 18830, 555, 3, -271.362, -265.765, 12.7637, 0.11843, 7200, 7200, 0, 0, 0, 2), -- Cabal Fanatic
+(@CGUID+235, 0, 555, 3, -313.216, -265.828, 12.6837, 3.3179, 7200, 7200, 5, 0, 0, 1), -- creature_spawn_entry
+(@CGUID+236, 0, 555, 3, -271.362, -265.765, 12.7637, 0.11843, 7200, 7200, 0, 0, 0, 2), -- creature_spawn_entry
 (@CGUID+237, 18830, 555, 3, -271.337, -261.466, 12.7637, 6.16129, 7200, 7200, 0, 0, 0, 0), -- Cabal Fanatic
 (@CGUID+238, 18830, 555, 3, -277.385, -264.977, 12.6801, 0.0211422, 7200, 7200, 0, 0, 0, 2), -- Cabal Fanatic
 (@CGUID+239, 18848, 555, 3, -429.269, -164.208, 12.8429, 1.46941, 7200, 7200, 0, 0, 0, 2), -- Malicious Instructor
@@ -850,99 +1018,134 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `spawnMask`, `position_x`, `positio
 (@CGUID+243, 18891, 555, 3, -61.349, 40.7063, 0.679355, 2.3911, 7200, 7200, 0, 0, 0, 0), -- Spy To'gun
 (@CGUID+244, 21159, 555, 3, -157.247, -19.3744, 19.939, 5.23599, 7200, 7200, 0, 0, 0, 0), -- Containment Beam
 (@CGUID+245, 21159, 555, 3, -138.52, 0.111671, 20.1447, 1.85005, 7200, 7200, 0, 0, 0, 0), -- Containment Beam
-(@CGUID+246, 21159, 555, 3, -174.652, 0.44945, 19.8231, 5.72468, 7200, 7200, 0, 0, 0, 0); -- Containment Beam
+(@CGUID+246, 21159, 555, 3, -174.652, 0.44945, 19.8231, 5.72468, 7200, 7200, 0, 0, 0, 0), -- Containment Beam
+(@CGUID+247, 18640, 555, 3, -90.69765, -92.35649, -1.044974, 0.715585, 7200, 7200, 0, 0, 0, 2), -- Cabal Warlock
+(@CGUID+248, 0, 555, 3, -90.93845, -90.86178, -1.044974, 0.3665192, 7200, 7200, 0, 0, 0, 0), -- creature_spawn_entry
+(@CGUID+249, 18640, 555, 3, -35.07804, -81.03367, -1.044909, 5.183628, 7200, 7200, 0, 0, 0, 0), -- Cabal Warlock
+(@CGUID+250, 0, 555, 3, -33.50152, -80.52749, -1.044897, 4.921828, 7200, 7200, 0, 0, 0, 0), -- creature_spawn_entry
+-- (@CGUID+251, PLEASE RE-USE
+(@CGUID+252, 14881, 555, 3, -122.0181, -8.897035, 8.156389, 2.569682, 900, 900, 2, 0, 0, 1), -- Spider
+(@CGUID+253, 14881, 555, 3, -29.05714, -46.55113, -1.128195, 5.245015, 900, 900, 0, 0, 0, 0), -- Spider
+(@CGUID+254, 14881, 555, 3, -96.70205, -8.718884, -1.1282, 1.507909, 900, 900, 2, 0, 0, 1), -- Spider
+(@CGUID+255, 14881, 555, 3, -55.76271, -99.50116, -1.081885, 1.56145, 900, 900, 2, 0, 0, 1), -- Spider
+(@CGUID+256, 14881, 555, 3, -123.8904, -48.54702, 8.073069, 5.824484, 900, 900, 2, 0, 0, 1), -- Spider
+(@CGUID+257, 14881, 555, 3, -97.39388, -69.08708, -1.044963, 4.069036, 900, 900, 2, 0, 0, 1), -- Spider
+(@CGUID+258, 14881, 555, 3, -190.2095, -9.458061, 8.073087, 3.783353, 900, 900, 2, 0, 0, 1), -- Spider
+(@CGUID+259, 14881, 555, 3, -123.2074, -70.0832, 8.072628, 5.130968, 900, 900, 2, 0, 0, 1), -- Spider
+(@CGUID+260, 14881, 555, 3, -106.0541, -130.5044, 3.448641, 0.4178922, 900, 900, 2, 0, 0, 1), -- Spider
+(@CGUID+261, 14881, 555, 3, -113.9532, -127.9917, 3.448135, 5.429851, 900, 900, 2, 0, 0, 1), -- Spider
+(@CGUID+262, 14881, 555, 3, -188.4704, -31.91954, 8.07305, 3.163261, 900, 900, 2, 0, 0, 1), -- Spider
+(@CGUID+263, 14881, 555, 3, -107.556, -148.2369, 3.448614, 2.195036, 900, 900, 2, 0, 0, 1), -- Spider
+(@CGUID+264, 14881, 555, 3, -215.0895, -269.2845, 17.08631, 0.9284935, 900, 900, 2, 0, 0, 1), -- Spider
+(@CGUID+265, 14881, 555, 3, -389.6317, -270.6472, 12.68794, 6.056214, 900, 900, 2, 0, 0, 1), -- Spider
+(@CGUID+266, 14881, 555, 3, -158.7901, -97.85062, 8.076064, 4.04621, 900, 900, 0, 0, 0, 2), -- Spider
+(@CGUID+267, 14881, 555, 3, -17.9049, 6.849266, -1.127929, 0.4424707, 900, 900, 2, 0, 0, 1), -- Spider
+(@CGUID+268, 14881, 555, 3, -53.39586, -58.26997, -1.128188, 2.701876, 900, 900, 2, 0, 0, 1), -- Spider
+(@CGUID+269, 14881, 555, 3, -85.20452, 3.749737, -1.129394, 4.064005, 900, 900, 2, 0, 0, 1), -- Spider
+(@CGUID+270, 18797, 555, 3, -427.0406, -88.95329, 12.77218, 0.9424778, 7200, 7200, 0, 0, 0, 0), -- Tortured Skeleton
+(@CGUID+271, 18797, 555, 3, -409.1664, -132.7278, 12.71839, 2.932153, 7200, 7200, 0, 0, 0, 0), -- Tortured Skeleton
+(@CGUID+272, 18797, 555, 3, -282.7459, -239.845, 12.76614, 4.852015, 7200, 7200, 0, 0, 0, 0), -- Tortured Skeleton
+(@CGUID+273, 18797, 555, 3, -363.1927, -286.6789, 12.7696, 3.717551, 7200, 7200, 0, 0, 0, 0), -- Tortured Skeleton
+(@CGUID+274, 18797, 555, 3, -398.1564, -258.1489, 12.76978, 5.044002, 7200, 7200, 0, 0, 0, 0), -- Tortured Skeleton
+(@CGUID+275, 18797, 555, 3, -152.6891, -259.3232, 17.16872, 3.682645, 7200, 7200, 0, 0, 0, 0), -- Tortured Skeleton
+(@CGUID+276, 18797, 555, 3, -437.7934, -80.17796, 12.7722, 2.932153, 7200, 7200, 0, 0, 0, 0), -- Tortured Skeleton
+(@CGUID+277, 18797, 555, 3, -406.8246, -104.6223, 12.77247, 1.361357, 7200, 7200, 0, 0, 0, 0), -- Tortured Skeleton
+(@CGUID+278, 18797, 555, 3, -349.0045, -250.1664, 12.76843, 0.5934119, 7200, 7200, 0, 0, 0, 0), -- Tortured Skeleton
+(@CGUID+279, 18797, 555, 3, -262.4395, -281.3174, 12.76459, 0.5934119, 7200, 7200, 0, 0, 0, 0); -- Tortured Skeleton
 
 -- ===========
 -- GAMEOBJECTS
 -- ===========
 
 INSERT INTO `gameobject` (`guid`, `id`, `map`, `spawnMask`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`) VALUES
-(@OGUID+1, 181278, 555, 3, -77.7761, -44.3547, -1.12827, 1.71042, 0, 0, 0, 0, 86400, 86400, 100, 1), -- Ancient Lichen
-(@OGUID+2, 181278, 555, 3, -169.086, 5.50827, 8.07305, 2.60054, 0, 0, 0, 0, 86400, 86400, 100, 1), -- Ancient Lichen
-(@OGUID+3, 181278, 555, 3, -267.485, -79.3793, 8.07292, -0.401426, 0, 0, 0, 0, 86400, 86400, 100, 1), -- Ancient Lichen
+(@OGUID+1, 181278, 555, 3, -77.7761, -44.3547, -1.128268, 1.710422, 0, 0, 0.7547092, 0.6560594, 86400, 86400, 100, 1), -- Ancient Lichen
+(@OGUID+2, 181278, 555, 3, -169.0859, 5.508266, 8.073052, 2.600535, 0, 0, 0.9636297, 0.267241, 86400, 86400, 100, 1), -- Ancient Lichen
+(@OGUID+3, 181278, 555, 3, -267.4847, -79.37926, 8.072919, 5.881761, 0, 0, -0.1993675, 0.9799248, 86400, 86400, 100, 1), -- Ancient Lichen
 (@OGUID+4, 181278, 555, 3, -411.7118, -203.0839, 12.76049, 2.268925, 0, 0, 0.9063072, 0.4226195, 86400, 86400, 100, 1), -- Ancient Lichen
-(@OGUID+5, 181278, 555, 3, -286.216, -240.003, 12.6827, 2.28638, 0, 0, 0, 0, 86400, 86400, 100, 1), -- Ancient Lichen
-(@OGUID+6, 181278, 555, 3, -174.217, -435.155, 17.0785, 2.28638, 0, 0, 0, 0, 86400, 86400, 100, 1), -- Ancient Lichen
+(@OGUID+5, 181278, 555, 3, -286.2155, -240.0027, 12.68271, 2.286379, 0, 0, 0.9099607, 0.4146944, 86400, 86400, 100, 1), -- Ancient Lichen
+(@OGUID+6, 181278, 555, 3, -174.2169, -435.1548, 17.07853, 2.286379, 0, 0, 0.9099607, 0.4146944, 86400, 86400, 100, 1), -- Ancient Lichen
 (@OGUID+7, 181556, 555, 3, -343.0129, -289.6252, 18.65376, 3.926996, 0, 0, -0.9238787, 0.3826855, 86400, 86400, 255, 1), -- Adamantite Deposit
-(@OGUID+8, 181556, 555, 3, -67.3891, 37.0473, 1.74518, -1.22173, 0, 0, 0, 0, 86400, 86400, 255, 1), -- Adamantite Deposit
-(@OGUID+9, 182196, 555, 3, -108.252, -510.302, 21.4761, 2.44346, 0, 0, 0, 0, 86400, 86400, 100, 1), -- Arcane Container
-(@OGUID+10, 182940, 555, 3, -293.138, -103.613, 8.07297, -2.18166, 0, 0, 0, 0, 43200, 43200, 100, 1), -- Soul Device
-(@OGUID+11, 182940, 555, 3, -287.754, -103.78, 8.07297, 1.74533, 0, 0, 0, 0, 43200, 43200, 100, 1), -- Soul Device
-(@OGUID+12, 182940, 555, 3, -294.316, 24.135, 8.07302, -0.349066, 0, 0, 0, 0, 43200, 43200, 100, 1), -- Soul Device
-(@OGUID+13, 182940, 555, 3, -292.121, 26.8454, 8.073, -1.11701, 0, 0, 0, 0, 43200, 43200, 100, 1), -- Soul Device
-(@OGUID+14, 182940, 555, 3, -455.799, -132.044, 12.8673, -2.75762, 0, 0, 0, 0, 43200, 43200, 100, 1), -- Soul Device
-(@OGUID+15, 182940, 555, 3, -334.225, -229.809, 17.0929, -1.64061, 0, 0, 0, 0, 43200, 43200, 100, 1), -- Soul Device
-(@OGUID+16, 182940, 555, 3, -457.049, -200.928, 12.6891, 1.29154, 0, 0, 0, 0, 43200, 43200, 100, 1), -- Soul Device
-(@OGUID+17, 182940, 555, 3, -415.633, -185.431, 12.7878, 1.72788, 0, 0, 0, 0, 43200, 43200, 100, 1), -- Soul Device
-(@OGUID+18, 182940, 555, 3, -459.847, -195.626, 12.6891, -0.139626, 0, 0, 0, 0, 43200, 43200, 100, 1), -- Soul Device
-(@OGUID+19, 182940, 555, 3, -293.961, -229.878, 17.0907, -1.6057, 0, 0, 0, 0, 43200, 43200, 100, 1), -- Soul Device
-(@OGUID+20, 182940, 555, 3, -262.225, -268.372, 12.6791, -0.994838, 0, 0, 0, 0, 43200, 43200, 100, 1), -- Soul Device
-(@OGUID+21, 182940, 555, 3, -262.291, -258.957, 12.6791, -2.21657, 0, 0, 0, 0, 43200, 43200, 100, 1), -- Soul Device
-(@OGUID+22, 182940, 555, 3, -176.746, -347.066, 17.0819, 1.58825, 0, 0, 0, 0, 43200, 43200, 100, 1), -- Soul Device
-(@OGUID+23, 182940, 555, 3, -181.608, -349.376, 17.0827, -0.366519, 0, 0, 0, 0, 43200, 43200, 100, 1), -- Soul Device
-(@OGUID+24, 182940, 555, 3, -135.64, -425.098, 17.0779, 3.01942, 0, 0, 0, 0, 43200, 43200, 100, 1), -- Soul Device
-(@OGUID+25, 182940, 555, 3, -135.182, -414.988, 17.0775, -1.74533, 0, 0, 0, 0, 43200, 43200, 100, 1), -- Soul Device
-(@OGUID+26, 182940, 555, 3, -177.72, -405.339, 17.0805, 0.802851, 0, 0, 0, 0, 43200, 43200, 100, 1), -- Soul Device
-(@OGUID+27, 182940, 555, 3, -130.946, -412.611, 17.0766, -0.279253, 0, 0, 0, 0, 43200, 43200, 100, 1), -- Soul Device
-(@OGUID+28, 182940, 555, 3, -172.104, -396.989, 17.0807, -0.279253, 0, 0, 0, 0, 43200, 43200, 100, 1), -- Soul Device
-(@OGUID+29, 182940, 555, 3, -177.772, -435.924, 17.0777, 0.331613, 0, 0, 0, 0, 43200, 43200, 100, 1), -- Soul Device
-(@OGUID+30, 182940, 555, 3, -180.076, -430.772, 17.0799, -0.471239, 0, 0, 0, 0, 43200, 43200, 100, 1), -- Soul Device
-(@OGUID+31, 182940, 555, 3, -131.677, -358.933, 17.0809, -2.77507, 0, 0, 0, 0, 43200, 43200, 100, 1), -- Soul Device
-(@OGUID+32, 182940, 555, 3, -176.454, -387.174, 17.0811, 0.05236, 0, 0, 0, 0, 43200, 43200, 100, 1), -- Soul Device
-(@OGUID+33, 182940, 555, 3, -133.939, -386.422, 17.0818, -2.1293, 0, 0, 0, 0, 43200, 43200, 100, 1), -- Soul Device
-(@OGUID+34, 182940, 555, 3, -140.082, -378.638, 17.0813, 2.75762, 0, 0, 0, 0, 43200, 43200, 100, 1), -- Soul Device
-(@OGUID+35, 182940, 555, 3, -132.905, -392.071, 17.0837, 3.10669, 0, 0, 0, 0, 43200, 43200, 100, 1), -- Soul Device
-(@OGUID+36, 182940, 555, 3, -175.799, -373.941, 17.0812, -1.90241, 0, 0, 0, 0, 43200, 43200, 100, 1), -- Soul Device
-(@OGUID+37, 182940, 555, 3, -135.84, -367.102, 17.081, -0.628319, 0, 0, 0, 0, 43200, 43200, 100, 1), -- Soul Device
-(@OGUID+38, 182940, 555, 3, -178.952, -369.672, 17.0811, -0.366519, 0, 0, 0, 0, 43200, 43200, 100, 1), -- Soul Device
-(@OGUID+39, 182940, 555, 3, -179.3, -358.532, 17.0835, 0.20944, 0, 0, 0, 0, 43200, 43200, 100, 1), -- Soul Device
-(@OGUID+40, 182942, 555, 3, -61.242, 40.5248, 0.276768, 0.785398, 0, 0, 0, 0, 43200, 43200, 100, 1), -- Cage
-(@OGUID+41, 182943, 555, 3, -61.2422, 40.5618, 0.244354, 2.37365, 0, 0, 0, 0, 43200, 43200, 100, 1), -- Cage Base
-(@OGUID+42, 182947, 555, 3, -267.122, -263.761, 14.1797, -2.93215, 0, 0, 0, 0, 43200, 43200, 100, 1), -- The Codex of Blood
-(@OGUID+43, 183036, 555, 3, -267.143, -263.502, 12.6797, -3.12414, 0, 0, 0, 0, 43200, 43200, 100, 1), -- Ground Rune
-(@OGUID+44, 183295, 555, 3, -156.503, -313.76, 17.0189, -1.5708, 0, 0, 0, 0, 43200, 43200, 100, 1), -- Screaming Hall Door
-(@OGUID+45, 183296, 555, 3, -381.266, -38.9899, 12.6214, 0, 0, 0, 0, 0, 43200, 43200, 100, 1), -- Refectory Door
-(@OGUID+46, 183516, 555, 3, -267.174, -263.543, 12.6797, -1.51844, 0, 0, 0, 0, 43200, 43200, 100, 1), -- Aura
-(@OGUID+47, 184195, 555, 3, 7.54602, -0.166749, -2.13578, 3.14159, 0, 0, 0, 0, 0, 0, 0, 0), -- Instance_Portal_Difficulty_1
-(@OGUID+48, 184196, 555, 3, 7.54602, -0.166749, -2.13578, 3.14159, 0, 0, 0, 0, 0, 0, 0, 0), -- Instance_Portal_Difficulty_0
--- RE-USE 49 - 51
-(@OGUID+52, 181278, 555, 3, -140.225, -407.707, 17.0782, 1.4538, 0, 0, 0, 1, 86400, 86400, 100, 1), -- Ancient Lichen
-(@OGUID+53, 181278, 555, 3, -457.128, -195.439, 12.6891, -1.32645, 0, 0, 0, 1, 86400, 86400, 100, 1), -- Ancient Lichen
+(@OGUID+8, 181556, 555, 3, -67.38911, 37.0473, 1.745184, 5.061456, 0, 0, -0.573576, 0.8191524, 86400, 86400, 255, 1), -- Adamantite Deposit
+(@OGUID+9, 182196, 555, 3, -108.2516, -510.3022, 21.47606, 2.44346, 0, 0, 0.9396925, 0.3420205, 86400, 86400, 100, 1), -- Arcane Container
+(@OGUID+10, 182940, 555, 3, -293.1381, -103.6126, 8.072974, 4.101525, 0, 0, -0.8870106, 0.4617491, 43200, 43200, 100, 1), -- Soul Device
+(@OGUID+11, 182940, 555, 3, -287.7539, -103.7798, 8.072969, 1.745327, 0, 0, 0.7660437, 0.6427886, 43200, 43200, 100, 1), -- Soul Device
+(@OGUID+12, 182940, 555, 3, -294.3156, 24.13501, 8.073021, 5.93412, 0, 0, -0.1736479, 0.9848078, 43200, 43200, 100, 1), -- Soul Device
+(@OGUID+13, 182940, 555, 3, -292.1213, 26.84543, 8.073004, 5.166176, 0, 0, -0.5299187, 0.8480484, 43200, 43200, 100, 1), -- Soul Device
+(@OGUID+14, 182940, 555, 3, -455.7994, -132.0439, 12.86734, 3.525572, 0, 0, -0.9816265, 0.1908124, 43200, 43200, 100, 1), -- Soul Device
+(@OGUID+15, 182940, 555, 3, -334.2245, -229.8093, 17.09286, 4.642576, 0, 0, -0.7313538, 0.6819983, 43200, 43200, 100, 1), -- Soul Device
+(@OGUID+16, 182940, 555, 3, -457.0487, -200.9277, 12.68913, 1.291542, 0, 0, 0.6018143, 0.7986361, 43200, 43200, 100, 1), -- Soul Device
+(@OGUID+17, 182940, 555, 3, -415.6325, -185.4312, 12.78781, 1.727875, 0, 0, 0.7604055, 0.6494485, 43200, 43200, 100, 1), -- Soul Device
+(@OGUID+18, 182940, 555, 3, -459.8465, -195.6257, 12.68913, 6.143561, 0, 0, -0.06975555, 0.9975641, 43200, 43200, 100, 1), -- Soul Device
+(@OGUID+19, 182940, 555, 3, -293.9607, -229.8783, 17.09071, 4.677484, 0, 0, -0.7193394, 0.6946588, 43200, 43200, 100, 1), -- Soul Device
+(@OGUID+20, 182940, 555, 3, -262.2247, -268.3723, 12.67906, 5.288348, 0, 0, -0.4771585, 0.8788173, 43200, 43200, 100, 1), -- Soul Device
+(@OGUID+21, 182940, 555, 3, -262.2914, -258.957, 12.67907, 4.06662, 0, 0, -0.8949337, 0.4461992, 43200, 43200, 100, 1), -- Soul Device
+(@OGUID+22, 182940, 555, 3, -176.7459, -347.0665, 17.08187, 1.588249, 0, 0, 0.7132502, 0.7009096, 43200, 43200, 100, 1), -- Soul Device
+(@OGUID+23, 182940, 555, 3, -181.6084, -349.3755, 17.08273, 5.916668, 0, 0, -0.1822348, 0.983255, 43200, 43200, 100, 1), -- Soul Device
+(@OGUID+24, 182940, 555, 3, -135.6405, -425.0984, 17.07793, 3.019413, 0, 0, 0.9981346, 0.06105176, 43200, 43200, 100, 1), -- Soul Device
+(@OGUID+25, 182940, 555, 3, -135.1817, -414.988, 17.07751, 4.537859, 0, 0, -0.7660437, 0.6427886, 43200, 43200, 100, 1), -- Soul Device
+(@OGUID+26, 182940, 555, 3, -177.7204, -405.3387, 17.08048, 0.802851, 0, 0, 0.3907309, 0.920505, 43200, 43200, 100, 1), -- Soul Device
+(@OGUID+27, 182940, 555, 3, -130.9464, -412.6106, 17.07656, 6.003934, 0, 0, -0.1391726, 0.9902682, 43200, 43200, 100, 1), -- Soul Device
+(@OGUID+28, 182940, 555, 3, -172.1043, -396.989, 17.08073, 6.003934, 0, 0, -0.1391726, 0.9902682, 43200, 43200, 100, 1), -- Soul Device
+(@OGUID+29, 182940, 555, 3, -177.7719, -435.9241, 17.07773, 0.3316107, 0, 0, 0.1650467, 0.9862857, 43200, 43200, 100, 1), -- Soul Device
+(@OGUID+30, 182940, 555, 3, -180.076, -430.7722, 17.07986, 5.811947, 0, 0, -0.2334452, 0.97237, 43200, 43200, 100, 1), -- Soul Device
+(@OGUID+31, 182940, 555, 3, -131.6766, -358.9327, 17.08085, 3.508117, 0, 0, -0.9832544, 0.182238, 43200, 43200, 100, 1), -- Soul Device
+(@OGUID+32, 182940, 555, 3, -176.4536, -387.1736, 17.08108, 0.05235888, 0, 0, 0.02617645, 0.9996573, 43200, 43200, 100, 1), -- Soul Device
+(@OGUID+33, 182940, 555, 3, -133.9389, -386.4222, 17.08179, 4.153885, 0, 0, -0.8746195, 0.4848101, 43200, 43200, 100, 1), -- Soul Device
+(@OGUID+34, 182940, 555, 3, -140.0816, -378.6383, 17.08126, 2.757613, 0, 0, 0.9816265, 0.1908124, 43200, 43200, 100, 1), -- Soul Device
+(@OGUID+35, 182940, 555, 3, -132.9046, -392.0708, 17.0837, 3.106652, 0, 0, 0.9998474, 0.01746928, 43200, 43200, 100, 1), -- Soul Device
+(@OGUID+36, 182940, 555, 3, -175.7993, -373.9409, 17.08122, 4.380776, 0, 0, -0.8141155, 0.580703, 43200, 43200, 100, 1), -- Soul Device
+(@OGUID+37, 182940, 555, 3, -135.84, -367.1017, 17.08103, 5.654869, 0, 0, -0.3090162, 0.9510568, 43200, 43200, 100, 1), -- Soul Device
+(@OGUID+38, 182940, 555, 3, -178.9521, -369.672, 17.08109, 5.916668, 0, 0, -0.1822348, 0.983255, 43200, 43200, 100, 1), -- Soul Device
+(@OGUID+39, 182940, 555, 3, -179.3004, -358.5316, 17.0835, 0.2094394, 0, 0, 0.1045284, 0.9945219, 43200, 43200, 100, 1), -- Soul Device
+(@OGUID+40, 182942, 555, 3, -61.24195, 40.5248, 0.276768, 0.7853968, 0, 0, 0.3826828, 0.9238798, 43200, 43200, 100, 1), -- Cage
+(@OGUID+41, 182943, 555, 3, -61.24215, 40.56184, 0.244354, 2.373644, 0, 0, 0.9271832, 0.3746083, 43200, 43200, 100, 1), -- Cage Base
+(@OGUID+42, 182947, 555, 3, -267.1221, -263.7614, 14.17966, 3.351047, 0, 0, -0.9945211, 0.1045355, 43200, 43200, 100, 1), -- The Codex of Blood
+(@OGUID+43, 183036, 555, 3, -267.1429, -263.5022, 12.67966, 3.159062, 0, 0, -0.9999619, 0.008734641, 43200, 43200, 100, 1), -- Ground Rune
+(@OGUID+44, 183295, 555, 3, -156.5031, -313.7602, 17.01888, 4.71239, 0, 0, -0.7071066, 0.7071069, 43200, 43200, 100, 1), -- Screaming Hall Door
+(@OGUID+45, 183296, 555, 3, -381.2658, -38.98992, 12.6214, 0, 0, 0, 0, 1, 43200, 43200, 100, 1), -- Refectory Door
+(@OGUID+46, 183516, 555, 3, -267.1736, -263.5431, 12.67967, 4.76475, 0, 0, -0.6883545, 0.7253745, 43200, 43200, 100, 1), -- Aura
+(@OGUID+47, 184195, 555, 3, 7.509288, -0.1719886, -1.127934, 3.136808, 0, 0, 0.9999971, 0.00239208, 0, 0, 0, 0), -- Instance_Portal_Difficulty_1
+(@OGUID+48, 184196, 555, 3, 7.509288, -0.1719886, -1.127934, 3.136808, 0, 0, 0.9999971, 0.00239208, 0, 0, 0, 0), -- Instance_Portal_Difficulty_0
+(@OGUID+49, 181278, 555, 3, -139.0127, -396.9848, 17.08004, 2.82743, 0, 0, 0.9876881, 0.1564362, 86400, 86400, 100, 1), -- Ancient Lichen
+(@OGUID+50, 181278, 555, 3, -170.2293, -386.9247, 17.08078, 5.148723, 0, 0, -0.5372992, 0.8433917, 86400, 86400, 100, 1), -- Ancient Lichen
+(@OGUID+51, 181278, 555, 3, -161.7103, -14.53944, 8.073097, 4.572764, 0, 0, -0.7547092, 0.6560594, 86400, 86400, 100, 1), -- Ancient Lichen
+(@OGUID+52, 181278, 555, 3, -137.3535, -406.7009, 17.08003, 3.68265, 0, 0, -0.9636297, 0.267241, 86400, 86400, 100, 1), -- Ancient Lichen
+(@OGUID+53, 181278, 555, 3, -457.1283, -195.4389, 12.68913, 4.956738, 0, 0, -0.6156607, 0.7880114, 86400, 86400, 100, 1), -- Ancient Lichen
 (@OGUID+54, 181278, 555, 3, -269.214, -0.495546, 8.07293, 2.35619, 0, 0, 0, 1, 86400, 86400, 100, 1), -- Ancient Lichen
-(@OGUID+55, 181278, 555, 3, -34.7484, -90.9532, -1.1283, -3.10665, 0, 0, 0, 1, 86400, 86400, 100, 1), -- Ancient Lichen
+(@OGUID+55, 181278, 555, 3, -34.74843, -90.95323, -1.128296, 3.176533, 0, 0, -0.9998474, 0.01746928, 86400, 86400, 100, 1), -- Ancient Lichen
 (@OGUID+56, 181278, 555, 3, -94.88352, 11.16683, -1.128188, 2.286379, 0, 0, 0.9099607, 0.4146944, 86400, 86400, 100, 1), -- Ancient Lichen
-(@OGUID+57, 181278, 555, 3, -87.3983, -82.5818, -1.131, 0.1514, 0, 0, 0, 0, 86400, 86400, 100, 1), -- Ancient Lichen
-(@OGUID+58, 181278, 555, 3, -143.178, -72.7388, 8.0642, 3.5404, 0, 0, 0, 0, 86400, 86400, 100, 1), -- Ancient Lichen
-(@OGUID+59, 181278, 555, 3, -169.567, -72.4537, 8.0642, 5.5667, 0, 0, 0, 0, 86400, 86400, 100, 1), -- Ancient Lichen
-(@OGUID+60, 181278, 555, 3, -152.307, -63.5299, 8.073, 4.4318, 0, 0, 0, 0, 86400, 86400, 100, 1), -- Ancient Lichen
-(@OGUID+61, 181278, 555, 3, -290.461, 27.8269, 8.0739, 5.2525, 0, 0, 0, 0, 86400, 86400, 100, 1), -- Ancient Lichen
-(@OGUID+62, 181278, 555, 3, -259.783, -45.3562, 8.0741, 0.0571, 0, 0, 0, 0, 86400, 86400, 100, 1), -- Ancient Lichen
+(@OGUID+57, 181278, 555, 3, -89.57913, -84.77909, -1.128304, 5.585054, 0, 0, -0.34202, 0.9396927, 86400, 86400, 100, 1), -- Ancient Lichen
+(@OGUID+58, 181278, 555, 3, -145.1436, -71.55974, 8.067849, 0.5061446, 0, 0, 0.2503796, 0.9681478, 86400, 86400, 100, 1), -- Ancient Lichen
+(@OGUID+59, 181278, 555, 3, -170.0121, -70.44926, 8.067846, 3.38594, 0, 0, -0.9925461, 0.12187, 86400, 86400, 100, 1), -- Ancient Lichen
+(@OGUID+60, 181278, 555, 3, -153.1728, -52.8355, 8.073054, 3.403396, 0, 0, -0.9914446, 0.1305283, 86400, 86400, 100, 1), -- Ancient Lichen
+(@OGUID+61, 181278, 555, 3, -292.6796, 19.55161, 8.073046, 0.01745246, 0, 0, 0.00872612, 0.9999619, 86400, 86400, 100, 1), -- Ancient Lichen
+(@OGUID+62, 181278, 555, 3, -257.3444, -48.36514, 8.072846, 0.1745321, 0, 0, 0.08715534, 0.9961947, 86400, 86400, 100, 1), -- Ancient Lichen
 (@OGUID+63, 181278, 555, 3, -284.1084, -102.0211, 8.072977, 5.462882, 0, 0, -0.3987484, 0.9170604, 86400, 86400, 100, 1), -- Ancient Lichen
-(@OGUID+64, 181278, 555, 3, -447.937, -121.53, 13.4209, 1.0427, 0, 0, 0, 0, 86400, 86400, 100, 1), -- Ancient Lichen
+(@OGUID+64, 181278, 555, 3, -442.7933, -123.5786, 13.25561, 4.450591, 0, 0, -0.7933531, 0.6087617, 86400, 86400, 100, 1), -- Ancient Lichen
 (@OGUID+65, 181278, 555, 3, -329.2698, -303.4661, 25.1034, 4.485497, 0, 0, -0.782608, 0.6225148, 86400, 86400, 100, 1), -- Ancient Lichen
-(@OGUID+66, 181278, 555, 3, -293.756, -308.858, 26.815, 1.5572, 0, 0, 0, 0, 86400, 86400, 100, 1), -- Ancient Lichen
+(@OGUID+66, 181278, 555, 3, -298.7819, -304.9739, 25.18303, 5.113817, 0, 0, -0.5519361, 0.8338864, 86400, 86400, 100, 1), -- Ancient Lichen
 (@OGUID+67, 181278, 555, 3, -170.7586, -350.1679, 17.08259, 4.642576, 0, 0, -0.7313538, 0.6819983, 86400, 86400, 100, 1), -- Ancient Lichen
 (@OGUID+68, 181278, 555, 3, -142.8076, 4.179103, 8.072974, 5.235988, 0, 0, -0.5, 0.8660254, 86400, 86400, 100, 1), -- Ancient Lichen
 (@OGUID+69, 181278, 555, 3, -139.3108, -360.4575, 17.08219, 0.5934101, 0, 0, 0.2923708, 0.956305, 86400, 86400, 100, 1), -- Ancient Lichen
 (@OGUID+70, 181278, 555, 3, -326.7353, -244.6204, 12.68455, 4.590216, 0, 0, -0.7489557, 0.6626201, 86400, 86400, 100, 1), -- Ancient Lichen
-(@OGUID+71, 181556, 555, 3, -234.062, -97.6057, 15.5083, 0.750491, 0, 0, 0, 0, 86400, 86400, 255, 1), -- Adamantite Deposit
+(@OGUID+71, 181556, 555, 3, -234.0617, -97.60569, 15.50827, 0.7504908, 0, 0, 0.3665009, 0.9304177, 86400, 86400, 255, 1), -- Adamantite Deposit
 (@OGUID+72, 181556, 555, 3, -461.4516, -168.9303, 21.16686, 3.612838, 0, 0, -0.9723692, 0.2334484, 86400, 86400, 255, 1), -- Adamantite Deposit
 (@OGUID+73, 181556, 555, 3, -235.5293, 17.45445, 14.62023, 3.019413, 0, 0, 0.9981346, 0.06105176, 86400, 86400, 255, 1), -- Adamantite Deposit
-(@OGUID+74, 181556, 555, 3, -349.2330, -61.3079, 17.2363, 3.8378, 0, 0, 0, 0, 86400, 86400, 255, 1), -- Adamantite Deposit
-(@OGUID+75, 181556, 555, 3, -363.9708, -23.1992, 17.5534, 2.9503, 0, 0, 0, 0, 86400, 86400, 255, 1), -- Adamantite Deposit
-(@OGUID+76, 181556, 555, 3, -444.5010, -135.3742, 9.3756, 4.6114, 0, 0, 0, 0, 86400, 86400, 255, 1), -- Adamantite Deposit
-(@OGUID+77, 181556, 555, 3, -413.6306, -150.9417, 12.3679, 1.7682, 0, 0, 0, 0, 86400, 86400, 255, 1), -- Adamantite Deposit
-(@OGUID+78, 181556, 555, 3, -277.0971, -288.3136, 14.8856, 2.3965, 0, 0, 0, 0, 86400, 86400, 255, 1), -- Adamantite Deposit
+(@OGUID+74, 181556, 555, 3, -352.1901, -60.70448, 17.71093, 5.759588, 0, 0, -0.2588186, 0.9659259, 86400, 86400, 255, 1), -- Adamantite Deposit
+(@OGUID+75, 181556, 555, 3, -362.0406, -24.65191, 16.78804, 1.832595, 0, 0, 0.7933531, 0.6087617, 86400, 86400, 255, 1), -- Adamantite Deposit
+(@OGUID+76, 181556, 555, 3, -444.7061, -134.0397, 9.709791, 2.879789, 0, 0, 0.9914446, 0.1305283, 86400, 86400, 255, 1), -- Adamantite Deposit
+(@OGUID+77, 181556, 555, 3, -413.9675, -148.7516, 12.09024, 1.710422, 0, 0, 0.7547092, 0.6560594, 86400, 86400, 255, 1), -- Adamantite Deposit
+(@OGUID+78, 181556, 555, 3, -280.1735, -288.2048, 15.71019, 1.518436, 0, 0, 0.6883545, 0.7253745, 86400, 86400, 255, 1), -- Adamantite Deposit
 (@OGUID+79, 181569, 555, 3, -343.0129, -289.6252, 18.65376, -2.35619, 0, 0, -0.9238787, 0.3826855, 86400, 86400, 255, 1), -- Rich Adamantite Deposit
 (@OGUID+80, 181569, 555, 3, -461.4516, -168.9303, 21.16686, 3.612838, 0, 0, -0.9723692, 0.2334484, 86400, 86400, 255, 1), -- Rich Adamantite Deposit
-(@OGUID+81, 181569, 555, 3, -67.3891, 37.0473, 1.74518, -1.22173, 0, 0, 0, 0, 86400, 86400, 255, 1), -- Rich Adamantite Deposit
-(@OGUID+82, 181569, 555, 3, -349.2330, -61.3079, 17.2363, 3.8378, 0, 0, 0, 0, 86400, 86400, 255, 1), -- Rich Adamantite Deposit
-(@OGUID+83, 181569, 555, 3, -363.9708, -23.1992, 17.5534, 2.9503, 0, 0, 0, 0, 86400, 86400, 255, 1), -- Rich Adamantite Deposit
-(@OGUID+84, 181569, 555, 3, -444.5010, -135.3742, 9.3756, 4.6114, 0, 0, 0, 0, 86400, 86400, 255, 1), -- Rich Adamantite Deposit
-(@OGUID+85, 181569, 555, 3, -413.6306, -150.9417, 12.3679, 1.7682, 0, 0, 0, 0, 86400, 86400, 255, 1), -- Rich Adamantite Deposit
+(@OGUID+81, 181569, 555, 3, -67.38911, 37.0473, 1.745184, 5.061456, 0, 0, -0.573576, 0.8191524, 86400, 86400, 255, 1), -- Rich Adamantite Deposit
+(@OGUID+82, 181569, 555, 3, -352.1901, -60.70448, 17.71093, 5.759588, 0, 0, -0.2588186, 0.9659259, 86400, 86400, 255, 1), -- Rich Adamantite Deposit
+(@OGUID+83, 181569, 555, 3, -362.0406, -24.65191, 16.78804, 1.832595, 0, 0, 0.7933531, 0.6087617, 86400, 86400, 255, 1), -- Rich Adamantite Deposit
+(@OGUID+84, 181569, 555, 3, -444.7061, -134.0397, 9.709791, 2.879789, 0, 0, 0.9914446, 0.1305283, 86400, 86400, 255, 1), -- Rich Adamantite Deposit
+(@OGUID+85, 181569, 555, 3, -413.9675, -148.7516, 12.09024, 1.710422, 0, 0, 0.7547092, 0.6560594, 86400, 86400, 255, 1), -- Rich Adamantite Deposit
 (@OGUID+86, 181557, 555, 3, -343.0129, -289.6252, 18.65376, 3.926996, 0, 0, -0.9238787, 0.3826855, 86400, 86400, 255, 1), -- Khorium
-(@OGUID+87, 181557, 555, 3, -349.2330, -61.3079, 17.2363, 3.8378, 0, 0, 0, 0, 86400, 86400, 255, 1), -- Khorium
-(@OGUID+88, 181557, 555, 3, -413.6306, -150.9417, 12.3679, 1.7682, 0, 0, 0, 0, 86400, 86400, 255, 1), -- Khorium
+(@OGUID+87, 181557, 555, 3, -352.1901, -60.70448, 17.71093, 5.759588, 0, 0, -0.2588186, 0.9659259, 86400, 86400, 255, 1), -- Khorium
+(@OGUID+88, 181557, 555, 3, -413.9675, -148.7516, 12.09024, 1.710422, 0, 0, 0.7547092, 0.6560594, 86400, 86400, 255, 1), -- Khorium
 (@OGUID+89, 184940, 555, 3, -290.183, -91.233, 8.07305, 0.349066, 0, 0, 0, 0, 86400, 86400, 100, 1), -- Bound Adamantite Chest
 (@OGUID+90, 184941, 555, 3, -290.183, -91.233, 8.07305, 0.349066, 0, 0, 0, 0, 86400, 86400, 100, 1), -- Solid Adamantite Chest
 (@OGUID+91, 184940, 555, 3, -455.751, -197.417, 12.6891, 0.523599, 0, 0, 0.2588186, 0.9659259, 86400, 86400, 100, 1), -- Bound Adamantite Chest
@@ -956,7 +1159,8 @@ INSERT INTO `gameobject` (`guid`, `id`, `map`, `spawnMask`, `position_x`, `posit
 (@OGUID+99, 184940, 555, 3, -287.9515, 21.96442, 8.073029, -0.8028509, 0, 0, 0, 0, 86400, 86400, 100, 1), -- Bound Adamantite Chest
 (@OGUID+100, 184941, 555, 3, -287.9515, 21.96442, 8.073029, -0.8028509, 0, 0, 0, 0, 86400, 86400, 100, 1), -- Solid Adamantite Chest
 (@OGUID+101, 184940, 555, 3, -326.1286, -240.5086, 12.68316, -1.797689, 0, 0, 0, 0, 86400, 86400, 100, 1), -- Bound Adamantite Chest
-(@OGUID+102, 184941, 555, 3, -326.1286, -240.5086, 12.68316, -1.797689, 0, 0, 0, 0, 86400, 86400, 100, 1); -- Solid Adamantite Chest
+(@OGUID+102, 184941, 555, 3, -326.1286, -240.5086, 12.68316, -1.797689, 0, 0, 0, 0, 86400, 86400, 100, 1), -- Solid Adamantite Chest
+(@OGUID+103, 181569, 555, 3, -234.0617, -97.60569, 15.50827, 0.7504908, 0, 0, 0.3665009, 0.9304177, 86400, 86400, 255, 1); -- Adamantite Deposit
 
 -- ======
 -- EVENTS
@@ -989,7 +1193,10 @@ INSERT INTO `pool_pool` (`pool_id`, `mother_pool`, `chance`, `description`) VALU
 (@PGUID+37, @PGUID+21, 0, 'Shadow Labyrinth - Bound / Solid Adamantite Chest - Pool 7');
 
 INSERT INTO `pool_template` (`entry`, `max_limit`, `description`) VALUES
-(@PGUID+1, 1, 'Shadow Labyrinth - Malicious Instructor / Fel Overseer'),
+(@PGUID+1, 1, 'Shadow Labyrinth - Malicious Instructor / Fel Overseer - #1'),
+(@PGUID+2, 1, 'Shadow Labyrinth - Cabal Acolyte/Deathsworn / Cabal Warlock - #1'),
+(@PGUID+3, 1, 'Shadow Labyrinth - Cabal Acolyte/Deathsworn / Cabal Warlock - #2'),
+(@PGUID+10, 8, 'Shadow Labyrinth - Tortured Skeleton (Single Pulls)'),
 (@PGUID+21, 2, 'Shadow Labyrinth - Master Chest Pool'), -- gameobject
 (@PGUID+22, 4, 'Shadow Labyrinth - Master Ancient Lichen (181278) Pool'),
 (@PGUID+23, 3, 'Shadow Labyrinth - Master Mineral Pool'),
@@ -1006,11 +1213,35 @@ INSERT INTO `pool_template` (`entry`, `max_limit`, `description`) VALUES
 (@PGUID+34, 1, 'Shadow Labyrinth - Bound / Solid Adamantite Chest - Pool 4'),
 (@PGUID+35, 1, 'Shadow Labyrinth - Bound / Solid Adamantite Chest - Pool 5'),
 (@PGUID+36, 1, 'Shadow Labyrinth - Bound / Solid Adamantite Chest - Pool 6'),
-(@PGUID+37, 1, 'Shadow Labyrinth - Bound / Solid Adamantite Chest - Pool 7');
+(@PGUID+37, 1, 'Shadow Labyrinth - Bound / Solid Adamantite Chest - Pool 7'),
+(@PGUID+38, 1, 'Shadow Labyrinth - Adamantite Deposit / Rich Adamantite Deposit - Pool 8');
 
 INSERT INTO `pool_creature` (`guid`, `pool_entry`, `chance`, `description`) VALUES
-(@CGUID+171, @PGUID+1, 0, 'Shadow Labyrinth - Fel Overseer'),
-(@CGUID+239, @PGUID+1, 0, 'Shadow Labyrinth - Malicious Instructor');
+(@CGUID+171, @PGUID+1, 0, 'Shadow Labyrinth - Fel Overseer - #1'),
+(@CGUID+239, @PGUID+1, 0, 'Shadow Labyrinth - Malicious Instructor - #1'),
+(@CGUID+68, @PGUID+2, 0, 'Shadow Labyrinth - Cabal Acolyte/Deathsworn - #1'),
+(@CGUID+247, @PGUID+2, 0, 'Shadow Labyrinth - Cabal Warlock - #1'),
+(@CGUID+87, @PGUID+3, 0, 'Shadow Labyrinth - Cabal Acolyte/Deathsworn - #2'),
+(@CGUID+249, @PGUID+3, 0, 'Shadow Labyrinth - Cabal Warlock - #2'),
+(@CGUID+175, @PGUID+10, 0, 'Shadow Labyrinth - Tortured Skeleton - #1'),
+(@CGUID+180, @PGUID+10, 0, 'Shadow Labyrinth - Tortured Skeleton - #2'),
+(@CGUID+185, @PGUID+10, 0, 'Shadow Labyrinth - Tortured Skeleton - #3'),
+(@CGUID+204, @PGUID+10, 0, 'Shadow Labyrinth - Tortured Skeleton - #4'),
+(@CGUID+207, @PGUID+10, 0, 'Shadow Labyrinth - Tortured Skeleton - #5'),
+(@CGUID+229, @PGUID+10, 0, 'Shadow Labyrinth - Tortured Skeleton - #6'),
+(@CGUID+230, @PGUID+10, 0, 'Shadow Labyrinth - Tortured Skeleton - #7'),
+(@CGUID+231, @PGUID+10, 0, 'Shadow Labyrinth - Tortured Skeleton - #8'),
+(@CGUID+232, @PGUID+10, 0, 'Shadow Labyrinth - Tortured Skeleton - #9'),
+(@CGUID+270, @PGUID+10, 0, 'Shadow Labyrinth - Tortured Skeleton - #10'),
+(@CGUID+271, @PGUID+10, 0, 'Shadow Labyrinth - Tortured Skeleton - #11'),
+(@CGUID+272, @PGUID+10, 0, 'Shadow Labyrinth - Tortured Skeleton - #12'),
+(@CGUID+273, @PGUID+10, 0, 'Shadow Labyrinth - Tortured Skeleton - #13'),
+(@CGUID+274, @PGUID+10, 0, 'Shadow Labyrinth - Tortured Skeleton - #14'),
+(@CGUID+275, @PGUID+10, 0, 'Shadow Labyrinth - Tortured Skeleton - #15'),
+(@CGUID+276, @PGUID+10, 0, 'Shadow Labyrinth - Tortured Skeleton - #16'),
+(@CGUID+277, @PGUID+10, 0, 'Shadow Labyrinth - Tortured Skeleton - #17'),
+(@CGUID+278, @PGUID+10, 0, 'Shadow Labyrinth - Tortured Skeleton - #18'),
+(@CGUID+279, @PGUID+10, 0, 'Shadow Labyrinth - Tortured Skeleton - #19');
 
 -- INSERT INTO `pool_creature_template` (`id`, `pool_entry`, `chance`, `description`) VALUES
 
@@ -1023,6 +1254,9 @@ INSERT INTO `pool_gameobject` (`guid`, `pool_entry`, `chance`, `description`) VA
 (@OGUID+6, @PGUID+22, 0, 'Shadow Labyrinth - Ancient Lichen (181278)'),
 (@OGUID+7, @PGUID+24, 0, 'Shadow Labyrinth - Adamantite Deposit (181556) - Pool 1'),
 (@OGUID+8, @PGUID+25, 0, 'Shadow Labyrinth - Adamantite Deposit (181556) - Pool 2'),
+(@OGUID+49, @PGUID+22, 0, 'Shadow Labyrinth - Ancient Lichen (181278)'),
+(@OGUID+50, @PGUID+22, 0, 'Shadow Labyrinth - Ancient Lichen (181278)'),
+(@OGUID+51, @PGUID+22, 0, 'Shadow Labyrinth - Ancient Lichen (181278)'),
 (@OGUID+52, @PGUID+22, 0, 'Shadow Labyrinth - Ancient Lichen (181278)'),
 (@OGUID+53, @PGUID+22, 0, 'Shadow Labyrinth - Ancient Lichen (181278)'),
 (@OGUID+54, @PGUID+22, 0, 'Shadow Labyrinth - Ancient Lichen (181278)'),
@@ -1042,7 +1276,7 @@ INSERT INTO `pool_gameobject` (`guid`, `pool_entry`, `chance`, `description`) VA
 (@OGUID+68, @PGUID+22, 0, 'Shadow Labyrinth - Ancient Lichen (181278)'),
 (@OGUID+69, @PGUID+22, 0, 'Shadow Labyrinth - Ancient Lichen (181278)'),
 (@OGUID+70, @PGUID+22, 0, 'Shadow Labyrinth - Ancient Lichen (181278)'),
-(@OGUID+71, @PGUID+23, 0, 'Shadow Labyrinth - Adamantite Deposit (181556)'),
+(@OGUID+71, @PGUID+38, 0, 'Shadow Labyrinth - Adamantite Deposit (181556) - #8'),
 (@OGUID+72, @PGUID+26, 0, 'Shadow Labyrinth - Adamantite Deposit (181556) - Pool 3'),
 (@OGUID+73, @PGUID+23, 0, 'Shadow Labyrinth - Adamantite Deposit (181556)'),
 (@OGUID+74, @PGUID+27, 0, 'Shadow Labyrinth - Adamantite Deposit (181556) - Pool 4'),
@@ -1073,7 +1307,8 @@ INSERT INTO `pool_gameobject` (`guid`, `pool_entry`, `chance`, `description`) VA
 (@OGUID+99, @PGUID+36, 0, 'Shadow Labyrinth - Bound Adamantite Chest (184940)'),
 (@OGUID+100, @PGUID+36, 0, 'Shadow Labyrinth - Solid Adamantite Chest (184941)'),
 (@OGUID+101, @PGUID+37, 0, 'Shadow Labyrinth - Bound Adamantite Chest (184940)'),
-(@OGUID+102, @PGUID+37, 0, 'Shadow Labyrinth - Solid Adamantite Chest (184941)');
+(@OGUID+102, @PGUID+37, 0, 'Shadow Labyrinth - Solid Adamantite Chest (184941)'),
+(@OGUID+103, @PGUID+38, 0, 'Shadow Labyrinth - Rich Adamantite Deposit (181569) - #8');
 
 -- INSERT INTO `pool_gameobject_template` (`id`, `pool_entry`, `chance`, `description`) VALUES
 
@@ -1081,199 +1316,123 @@ INSERT INTO `pool_gameobject` (`guid`, `pool_entry`, `chance`, `description`) VA
 -- DBSCRIPTS
 -- =========
 
-DELETE FROM dbscripts_on_creature_movement WHERE id IN (1863101,1863102,1863103,1863201,1863202,1863301,1863302,1863303,1863304,1863305,1863306,1863401,1863402,1863403,1863501,1863502,1863503,1863701,1863801,1863901,1863902,1863903,1863904,1864001,1864002,1864003,1864004,1864005,1864006,1864101,1866701,1866702,1866703,1870801,1870802,1873201,1883001,1883002,1883003,1883004);
+DELETE FROM dbscripts_on_creature_movement WHERE id IN (1863101,1863102,1863103,1863201,1863301,1863302,1863303,1863304,1863305,1863306,1863401,1863402,
+1863501,1863502,1863503,1863701,1863801,1864001,1864002,1864003,1864004,1864005,1864006,1864101,1873101,1873201,1883001,1883002,1883003,1883004);
 INSERT INTO `dbscripts_on_creature_movement` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
-(1863101, 1, 1, 1, 0, 0, 0, 0, 0, 5, 273, 11, 0, 0, 0, 0, 0, ''),
-(1863102, 1, 1, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ''),
-(1863102, 7, 1, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ''),
-(1863102, 13, 1, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ''),
-(1863102, 20, 1, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ''),
-(1863103, 5, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.0211422, ''),
-(1863103, 5, 3, 0, 0, 0, 18638, @CGUID+106, 23, 0, 0, 0, 0, 0, 0, 0, 0.0211422, ''),
-(1863103, 5, 3, 0, 0, 0, 18830, @CGUID+234, 23, 0, 0, 0, 0, 0, 0, 0, 0.0211422, ''),
-(1863103, 5, 3, 0, 0, 0, 18638, @CGUID+107, 23, 0, 0, 0, 0, 0, 0, 0, 0.0211422, ''),
-(1863103, 6, 28, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'STATE_KNEEL'),
-(1863103, 6, 28, 8, 0, 0, 18638, @CGUID+106, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'STATE_KNEEL'),
-(1863103, 6, 28, 8, 0, 0, 18830, @CGUID+234, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'STATE_KNEEL'),
-(1863103, 6, 28, 8, 0, 0, 18638, @CGUID+107, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'STATE_KNEEL'),
-(1863103, 15, 28, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'STATE_STAND'),
-(1863103, 15, 28, 0, 0, 0, 18638, @CGUID+106, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'STATE_STAND'),
-(1863103, 15, 28, 0, 0, 0, 18830, @CGUID+234, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'STATE_STAND'),
-(1863103, 15, 28, 0, 0, 0, 18638, @CGUID+107, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'STATE_STAND'),
-(1863201, 1, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'RUN ON'),
-(1863202, 1, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'movement changed to 0:idle'),
-(1863202, 1, 1, 376, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ''),
-(1863301, 2, 1, 69, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ''),
-(1863301, 57, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ''),
-(1863302, 3, 1, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ''),
-(1863302, 7, 1, 274, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ''),
-(1863303, 1, 32, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'wp pause'),
-(1863303, 2, 15, 6606, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ''),
-(1863304, 2, 28, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'STATE_KNEEL'),
-(1863304, 28, 28, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'STATE_STAND'),
-(1863305, 2, 1, 273, 0, 0, 0, 0, 0, 1, 5, 0, 0, 0, 0, 0, 0, ''),
-(1863306, 1, 1, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ''),
-(1863306, 7, 1, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ''),
-(1863306, 13, 1, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ''),
-(1863306, 20, 1, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ''),
-(1863401, 1, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'RUN ON'),
-(1863402, 1, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'movement changed to 0:idle'),
-(1863403, 1, 15, 33331, 1, 0, 18708, @CGUID+138, 19, 0, 0, 0, 0, 0, 0, 0, 0, 'force buddy to cast 33329'),
-(1863501, 2, 28, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'STATE_KNEEL'),
-(1863501, 4, 1, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ''),
-(1863501, 8, 28, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'STATE_STAND'),
-(1863502, 1, 1, 1, 0, 0, 0, 0, 0, 5, 273, 0, 0, 0, 0, 0, 0, ''),
-(1863503, 1, 1, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ''),
-(1863503, 7, 1, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ''),
-(1863503, 13, 1, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ''),
-(1863503, 20, 1, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ''),
-(1863701, 1, 1, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ''),
-(1863701, 7, 1, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ''),
-(1863701, 13, 1, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ''),
-(1863701, 20, 1, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ''),
-(1863801, 5, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.0211422, ''),
-(1863801, 5, 3, 0, 0, 0, 18631, @CGUID+42, 23, 0, 0, 0, 0, 0, 0, 0, 0.0211422, ''),
-(1863801, 5, 3, 0, 0, 0, 18830, @CGUID+235, 23, 0, 0, 0, 0, 0, 0, 0, 0.0211422, ''),
-(1863801, 5, 3, 0, 0, 0, 18638, @CGUID+111, 23, 0, 0, 0, 0, 0, 0, 0, 0.0211422, ''),
-(1863801, 6, 28, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'STATE_KNEEL'),
-(1863801, 6, 28, 8, 0, 0, 18631, @CGUID+42, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'STATE_KNEEL'),
-(1863801, 6, 28, 8, 0, 0, 18830, @CGUID+235, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'STATE_KNEEL'),
-(1863801, 6, 28, 8, 0, 0, 18638, @CGUID+111, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'STATE_KNEEL'),
-(1863801, 15, 28, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'STATE_STAND'),
-(1863801, 15, 28, 0, 0, 0, 18631, @CGUID+42, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'STATE_STAND'),
-(1863801, 15, 28, 0, 0, 0, 18830, @CGUID+235, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'STATE_STAND'),
-(1863801, 15, 28, 0, 0, 0, 18638, @CGUID+111, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'STATE_STAND'),
-(1863901, 1, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'RUN ON'),
-(1863902, 1, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'movement changed to 0:idle'),
-(1863902, 1, 1, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ''),
-(1863903, 1, 15, 33331, 1, 0, 18708, @CGUID+138, 19, 0, 0, 0, 0, 0, 0, 0, 0, 'force buddy to cast 33329'),
-(1863904, 4, 15, 33331, 1, 0, 18708, @CGUID+138, 19, 0, 0, 0, 0, 0, 0, 0, 0, 'force buddy to cast 33329'),
-(1864001, 1, 1, 11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ''),
-(1864002, 1, 1, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ''),
-(1864002, 2, 3, 0, 0, 0, 18641, @CGUID+129, 23, 0, 0, 0, 0, -53.6404, -76.4585, -1.12736, 0.0800861, ''),
-(1864002, 2, 3, 0, 0, 0, 18641, @CGUID+130, 23, 0, 0, 0, 0, -56.2526, -76.2223, -1.12736, 6.2376, ''),
-(1864002, 2, 3, 0, 0, 0, 18641, @CGUID+131, 23, 0, 0, 0, 0, -53.2162, -81.0359, -1.12736, 0.424172, ''),
-(1864002, 2, 3, 0, 0, 0, 18641, @CGUID+132, 23, 0, 0, 0, 0, -55.6699, -80.9882, -1.12736, 0.185325, ''),
-(1864003, 1, 1, 15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ''),
-(1864003, 2, 28, 7, 0, 0, 18641, @CGUID+128, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'STATE_DEAD'),
-(1864003, 2, 28, 7, 0, 0, 18641, @CGUID+129, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'STATE_DEAD'),
-(1864003, 2, 28, 7, 0, 0, 18641, @CGUID+130, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'STATE_DEAD'),
-(1864003, 2, 28, 7, 0, 0, 18641, @CGUID+131, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'STATE_DEAD'),
-(1864003, 2, 28, 7, 0, 0, 18641, @CGUID+132, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'STATE_DEAD'),
-(1864003, 6, 28, 0, 0, 0, 18641, @CGUID+128, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'STATE_STAND'),
-(1864003, 6, 28, 0, 0, 0, 18641, @CGUID+129, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'STATE_STAND'),
-(1864003, 6, 28, 0, 0, 0, 18641, @CGUID+130, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'STATE_STAND'),
-(1864003, 6, 28, 0, 0, 0, 18641, @CGUID+131, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'STATE_STAND'),
-(1864003, 6, 28, 0, 0, 0, 18641, @CGUID+132, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'STATE_STAND'),
-(1864004, 1, 1, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ''),
-(1864004, 2, 3, 0, 0, 0, 18641, @CGUID+128, 23, 0, 0, 0, 0, -49.399, -72.3794, -1.13478, 4.47965, ''),
-(1864004, 2, 3, 0, 0, 0, 18641, @CGUID+129, 23, 0, 0, 0, 0, -52.038, -71.5567, -1.12901, 5.20887, ''),
-(1864004, 2, 3, 0, 0, 0, 18641, @CGUID+130, 23, 0, 0, 0, 0, -54.4324, -73.9512, -1.12769, 6.26131, ''),
-(1864004, 2, 3, 0, 0, 0, 18641, @CGUID+131, 23, 0, 0, 0, 0, -56.4157, -77.1166, -1.12821, 6.26131, ''),
-(1864004, 2, 3, 0, 0, 0, 18641, @CGUID+132, 23, 0, 0, 0, 0, -56.4429, -80.5976, -1.12824, 0.135202, ''),
-(1864005, 1, 1, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ''),
-(1864005, 2, 3, 0, 0, 0, 18641, @CGUID+128, 23, 0, 0, 0, 0, -54.7495, -78.6855, -1.12821, 0.048723, ''),
-(1864005, 2, 3, 0, 0, 0, 18641, @CGUID+129, 23, 0, 0, 0, 0, -56.7471, -78.7829, -1.12821, 6.15284, ''),
-(1864005, 2, 3, 0, 0, 0, 18641, @CGUID+130, 23, 0, 0, 0, 0, -58.7448, -78.8803, -1.12822, 6.20498, ''),
-(1864005, 2, 3, 0, 0, 0, 18641, @CGUID+131, 23, 0, 0, 0, 0, -60.7424, -78.9777, -1.12823, 0.138545, ''),
-(1864005, 2, 3, 0, 0, 0, 18641, @CGUID+132, 23, 0, 0, 0, 0, -62.74, -79.0751, -1.12823, 6.27203, ''),
-(1864006, 1, 1, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ''),
-(1864006, 7, 1, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ''),
-(1864006, 13, 1, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ''),
-(1864006, 20, 1, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ''),
-(1864101, 1, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'RUN ON'),
-(1866701, 1, 0, 0, 0, 0, 0, 0, 0, 2000005220, 2000005235, 0, 0, 0, 0, 0, 0, ''),
-(1866702, 1, 0, 0, 0, 0, 0, 0, 0, 2000005043, 2000005230, 2000005236, 0, 0, 0, 0, 0, ''),
-(1866703, 1, 0, 0, 0, 0, 0, 0, 0, 2000005044, 2000005231, 0, 0, 0, 0, 0, 0, ''),
-(1870801, 1, 35, 5, 500, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'THROW_AI_EVENT'),
-(1870801, 4, 15, 33332, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Cast Suppression Blast 33332'),
-(1870802, 1, 35, 5, 500, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'THROW_AI_EVENT'),
-(1873201, 1, 1, 15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ''),
-(1873201, 5, 1, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ''),
-(1873201, 9, 1, 274, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ''),
-(1883001, 6, 28, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'STATE_KNEEL'),
-(1883001, 6, 28, 8, 0, 0, 18638, @CGUID+110, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'STATE_KNEEL'),
-(1883001, 6, 28, 8, 0, 0, 18638, @CGUID+109, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'STATE_KNEEL'),
-(1883001, 6, 28, 8, 0, 0, 18830, @CGUID+237, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'STATE_KNEEL'),
-(1883001, 15, 28, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'STATE_STAND'),
-(1883001, 15, 28, 0, 0, 0, 18638, @CGUID+110, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'STATE_STAND'),
-(1883001, 15, 28, 0, 0, 0, 18638, @CGUID+109, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'STATE_STAND'),
-(1883001, 15, 28, 0, 0, 0, 18830, @CGUID+237, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'STATE_STAND'),
-(1883002, 2, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.0211422, ''),
-(1883002, 2, 3, 0, 0, 0, 18830, @CGUID+233, 23, 0, 0, 0, 0, 0, 0, 0, 0.0211422, ''),
-(1883002, 2, 3, 0, 0, 0, 18631, @CGUID+44, 23, 0, 0, 0, 0, 0, 0, 0, 0.0211422, ''),
-(1883002, 2, 3, 0, 0, 0, 18631, @CGUID+43, 23, 0, 0, 0, 0, 0, 0, 0, 0.0211422, ''),
-(1883002, 6, 28, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'STATE_KNEEL'),
-(1883002, 6, 28, 8, 0, 0, 18830, @CGUID+233, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'STATE_KNEEL'),
-(1883002, 6, 28, 8, 0, 0, 18631, @CGUID+44, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'STATE_KNEEL'),
-(1883002, 6, 28, 8, 0, 0, 18631, @CGUID+43, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'STATE_KNEEL'),
-(1883002, 15, 28, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'STATE_STAND'),
-(1883002, 15, 28, 0, 0, 0, 18830, @CGUID+233, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'STATE_STAND'),
-(1883002, 15, 28, 0, 0, 0, 18631, @CGUID+44, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'STATE_STAND'),
-(1883002, 15, 28, 0, 0, 0, 18631, @CGUID+43, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'STATE_STAND'),
-(1883003, 2, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1.39639, ''),
-(1883003, 2, 3, 0, 0, 0, 18830, @CGUID+233, 23, 0, 0, 0, 0, 0, 0, 0, 1.25343, ''),
-(1883003, 2, 3, 0, 0, 0, 18631, @CGUID+44, 23, 0, 0, 0, 0, 0, 0, 0, 1.45449, ''),
-(1883003, 2, 3, 0, 0, 0, 18631, @CGUID+43, 23, 0, 0, 0, 0, 0, 0, 0, 1.51104, ''),
-(1883003, 6, 28, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'STATE_KNEEL'),
-(1883003, 6, 28, 8, 0, 0, 18830, @CGUID+233, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'STATE_KNEEL'),
-(1883003, 6, 28, 8, 0, 0, 18631, @CGUID+44, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'STATE_KNEEL'),
-(1883003, 6, 28, 8, 0, 0, 18631, @CGUID+43, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'STATE_KNEEL'),
-(1883003, 15, 28, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'STATE_STAND'),
-(1883003, 15, 28, 0, 0, 0, 18830, @CGUID+233, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'STATE_STAND'),
-(1883003, 15, 28, 0, 0, 0, 18631, @CGUID+44, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'STATE_STAND'),
-(1883003, 15, 28, 0, 0, 0, 18631, @CGUID+43, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'STATE_STAND'),
-(1883004, 2, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3.20202, ''),
-(1883004, 2, 3, 0, 0, 0, 18830, @CGUID+233, 23, 0, 0, 0, 0, 0, 0, 0, 3.43762, ''),
-(1883004, 2, 3, 0, 0, 0, 18631, @CGUID+44, 23, 0, 0, 0, 0, 0, 0, 0, 3.09518, ''),
-(1883004, 2, 3, 0, 0, 0, 18631, @CGUID+43, 23, 0, 0, 0, 0, 0, 0, 0, 3.15173, ''),
-(1883004, 6, 28, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'STATE_KNEEL'),
-(1883004, 6, 28, 8, 0, 0, 18830, @CGUID+233, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'STATE_KNEEL'),
-(1883004, 6, 28, 8, 0, 0, 18631, @CGUID+44, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'STATE_KNEEL'),
-(1883004, 6, 28, 8, 0, 0, 18631, @CGUID+43, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'STATE_KNEEL'),
-(1883004, 15, 28, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'STATE_STAND'),
-(1883004, 15, 28, 0, 0, 0, 18830, @CGUID+233, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'STATE_STAND'),
-(1883004, 15, 28, 0, 0, 0, 18631, @CGUID+44, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'STATE_STAND'),
-(1883004, 15, 28, 0, 0, 0, 18631, @CGUID+43, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'STATE_STAND');
+(1863101, 1000, 1, 1, 0, 0, 0, 0, 0, 5, 273, 11, 0, 0, 0, 0, 0, ''),
+(1863102, 1000, 1, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ''),
+(1863102, 7000, 1, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ''),
+(1863102, 13000, 1, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ''),
+(1863102, 20000, 1, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ''),
+(1863103, 6000, 35, 5, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Send EVENT A'),
+(1863103, 15000, 35, 6, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Send EVENT B'),
+
+-- Murmur room event
+(1863201, 0, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Cabal Executioner - movement changed to 0:idle'),
+(1863201, 1000, 1, 376, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Cabal Exeuctioner - emote'),
+
+(1863301, 2000, 1, 69, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ''),
+(1863301, 57000, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ''),
+(1863302, 3000, 1, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ''),
+(1863302, 7000, 1, 274, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ''),
+(1863303, 1000, 32, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'wp pause'),
+(1863303, 2000, 15, 6606, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ''),
+(1863304, 2000, 28, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'STATE_KNEEL'),
+(1863304, 28000, 28, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'STATE_STAND'),
+(1863305, 2000, 1, 273, 0, 0, 0, 0, 0, 1, 5, 0, 0, 0, 0, 0, 0, ''),
+(1863306, 1000, 1, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ''),
+(1863306, 7000, 1, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ''),
+(1863306, 13000, 1, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ''),
+(1863306, 20000, 1, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ''),
+
+-- Murmur room event
+(1863401, 0, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Cabal Summoner/Spellbinder - movement changed to 0:idle'),
+(1863401, 1000, 1, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Cabal Summoner/Spellbinder - emote'),
+(1863402, 0, 15, 33331, 1, 0, 18708, @CGUID+138, 19, 0, 0, 0, 0, 0, 0, 0, 0, 'Cabal Summoner - force Murmur to cast 33329'),
+
+(1863501, 2000, 28, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'STATE_KNEEL'),
+(1863501, 4000, 1, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ''),
+(1863501, 8000, 28, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'STATE_STAND'),
+(1863502, 1000, 1, 1, 0, 0, 0, 0, 0, 5, 273, 0, 0, 0, 0, 0, 0, ''),
+(1863503, 1000, 1, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ''),
+(1863503, 7000, 1, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ''),
+(1863503, 13000, 1, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ''),
+(1863503, 20000, 1, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ''),
+(1863701, 1000, 1, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ''),
+(1863701, 7000, 1, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ''),
+(1863701, 13000, 1, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ''),
+(1863701, 20000, 1, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ''),
+(1863801, 6000, 35, 5, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Send EVENT A'),
+(1863801, 15000, 35, 6, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Send EVENT B'),
+(1864001, 1000, 1, 11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ''),
+(1864002, 1000, 1, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ''),
+(1864002, 2000, 3, 0, 0, 0, 18641, @CGUID+129, 23, 0, 0, 0, 0, -53.6404, -76.4585, -1.12736, 0.0800861, ''),
+(1864002, 2000, 3, 0, 0, 0, 18641, @CGUID+130, 23, 0, 0, 0, 0, -56.2526, -76.2223, -1.12736, 6.2376, ''),
+(1864002, 2000, 3, 0, 0, 0, 18641, @CGUID+131, 23, 0, 0, 0, 0, -53.2162, -81.0359, -1.12736, 0.424172, ''),
+(1864002, 2000, 3, 0, 0, 0, 18641, @CGUID+132, 23, 0, 0, 0, 0, -55.6699, -80.9882, -1.12736, 0.185325, ''),
+(1864003, 1000, 1, 15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ''),
+(1864003, 2000, 28, 7, 0, 0, 18641, @CGUID+128, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'STATE_DEAD'),
+(1864003, 2000, 28, 7, 0, 0, 18641, @CGUID+129, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'STATE_DEAD'),
+(1864003, 2000, 28, 7, 0, 0, 18641, @CGUID+130, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'STATE_DEAD'),
+(1864003, 2000, 28, 7, 0, 0, 18641, @CGUID+131, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'STATE_DEAD'),
+(1864003, 2000, 28, 7, 0, 0, 18641, @CGUID+132, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'STATE_DEAD'),
+(1864003, 6000, 28, 0, 0, 0, 18641, @CGUID+128, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'STATE_STAND'),
+(1864003, 6000, 28, 0, 0, 0, 18641, @CGUID+129, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'STATE_STAND'),
+(1864003, 6000, 28, 0, 0, 0, 18641, @CGUID+130, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'STATE_STAND'),
+(1864003, 6000, 28, 0, 0, 0, 18641, @CGUID+131, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'STATE_STAND'),
+(1864003, 6000, 28, 0, 0, 0, 18641, @CGUID+132, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'STATE_STAND'),
+(1864004, 1000, 1, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ''),
+(1864004, 2000, 3, 0, 0, 0, 18641, @CGUID+128, 23, 0, 0, 0, 0, -49.399, -72.3794, -1.13478, 4.47965, ''),
+(1864004, 2000, 3, 0, 0, 0, 18641, @CGUID+129, 23, 0, 0, 0, 0, -52.038, -71.5567, -1.12901, 5.20887, ''),
+(1864004, 2000, 3, 0, 0, 0, 18641, @CGUID+130, 23, 0, 0, 0, 0, -54.4324, -73.9512, -1.12769, 6.26131, ''),
+(1864004, 2000, 3, 0, 0, 0, 18641, @CGUID+131, 23, 0, 0, 0, 0, -56.4157, -77.1166, -1.12821, 6.26131, ''),
+(1864004, 2000, 3, 0, 0, 0, 18641, @CGUID+132, 23, 0, 0, 0, 0, -56.4429, -80.5976, -1.12824, 0.135202, ''),
+(1864005, 1000, 1, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ''),
+(1864005, 2000, 3, 0, 0, 0, 18641, @CGUID+128, 23, 0, 0, 0, 0, -54.7495, -78.6855, -1.12821, 0.048723, ''),
+(1864005, 2000, 3, 0, 0, 0, 18641, @CGUID+129, 23, 0, 0, 0, 0, -56.7471, -78.7829, -1.12821, 6.15284, ''),
+(1864005, 2000, 3, 0, 0, 0, 18641, @CGUID+130, 23, 0, 0, 0, 0, -58.7448, -78.8803, -1.12822, 6.20498, ''),
+(1864005, 2000, 3, 0, 0, 0, 18641, @CGUID+131, 23, 0, 0, 0, 0, -60.7424, -78.9777, -1.12823, 0.138545, ''),
+(1864005, 2000, 3, 0, 0, 0, 18641, @CGUID+132, 23, 0, 0, 0, 0, -62.74, -79.0751, -1.12823, 6.27203, ''),
+(1864006, 1000, 1, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ''),
+(1864006, 7000, 1, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ''),
+(1864006, 13000, 1, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ''),
+(1864006, 20000, 1, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ''),
+(1864101, 1000, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'RUN ON'),
+(1873101, 0, 1, 15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Ambassador Hellmaw - OneShotRoar'),
+(1873101, 0, 16, 9349, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Ambassador Hellmaw - SMSG_PLAY_SOUND'),
+(1873201, 1000, 1, 15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ''),
+(1873201, 5000, 1, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ''),
+(1873201, 9000, 1, 274, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ''),
+(1883001, 6000, 35, 5, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Send EVENT A'),
+(1883001, 15000,35, 6, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Send EVENT B');
 
 DELETE FROM dbscripts_on_go_template_use WHERE id IN (182942,183295);
 INSERT INTO `dbscripts_on_go_template_use` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
-(182942, 1, 3, 0, 0, 0, 18891, @CGUID+243, 23, 0, 0, 0, 0, -63.5416, 42.9283, 0.206252, 2.42972, ''),
-(183295, 8, 20, 2, 0, 0, 18708, @CGUID+138, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'Murmur - Change MovementType to Waypoint Movement'),
-(183295, 1, 20, 2, 0, 0, 18634, @CGUID+76, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'Cabal Summoner - Change MovementType to Waypoint Movement'),
-(183295, 1, 20, 2, 0, 0, 18634, @CGUID+78, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'Cabal Summoner - Change MovementType to Waypoint Movement'),
-(183295, 1, 20, 2, 0, 0, 18632, @CGUID+45, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'Cabal Executioner - Change MovementType to Waypoint Movement'),
-(183295, 1, 20, 2, 0, 0, 18639, @CGUID+113, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'Cabal Spellbinder - Change MovementType to Waypoint Movement'),
-(183295, 1, 20, 2, 0, 0, 18632, @CGUID+47, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'Cabal Executioner - Change MovementType to Waypoint Movement'),
-(183295, 1, 20, 2, 0, 0, 18634, @CGUID+77, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'Cabal Summoner - Change MovementType to Waypoint Movement'),
-(183295, 1, 20, 2, 0, 0, 18639, @CGUID+112, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'Cabal Summoner - Change MovementType to Waypoint Movement'),
-(183295, 1, 20, 2, 0, 0, 18632, @CGUID+46, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'Cabal Executioner - Change MovementType to Waypoint Movement'),
-(183295, 1, 20, 2, 0, 0, 18639, @CGUID+115, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'Cabal Summoner - Change MovementType to Waypoint Movement'),
-(183295, 2, 20, 2, 0, 0, 18632, @CGUID+48, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'Cabal Executioner - Change MovementType to Waypoint Movement'),
-(183295, 2, 20, 2, 0, 0, 18639, @CGUID+118, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'Cabal Summoner - Change MovementType to Waypoint Movement'),
-(183295, 2, 20, 2, 0, 0, 18632, @CGUID+50, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'Cabal Executioner - Change MovementType to Waypoint Movement'),
-(183295, 2, 20, 2, 0, 0, 18639, @CGUID+123, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'Cabal Summoner - Change MovementType to Waypoint Movement'),
-(183295, 2, 20, 2, 0, 0, 18634, @CGUID+80, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'Cabal Summoner - Change MovementType to Waypoint Movement'),
-(183295, 2, 20, 2, 0, 0, 18639, @CGUID+116, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'Cabal Spellbinder - Change MovementType to Waypoint Movement'),
-(183295, 2, 20, 2, 0, 0, 18632, @CGUID+49, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'Cabal Executioner - Change MovementType to Waypoint Movement'),
-(183295, 2, 20, 2, 0, 0, 18639, @CGUID+122, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'Cabal Spellbinder - Change MovementType to Waypoint Movement'),
-(183295, 2, 20, 2, 0, 0, 18634, @CGUID+79, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'Cabal Summoner - Change MovementType to Waypoint Movement'),
-(183295, 2, 20, 2, 0, 0, 18634, @CGUID+81, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'Cabal Summoner - Change MovementType to Waypoint Movement'),
-(183295, 3, 20, 2, 0, 0, 18634, @CGUID+84, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'Cabal Summoner - Change MovementType to Waypoint Movement'),
-(183295, 3, 20, 2, 0, 0, 18632, @CGUID+52, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'Cabal Executioner - Change MovementType to Waypoint Movement'),
-(183295, 3, 20, 2, 0, 0, 18634, @CGUID+82, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'Cabal Summoner - Change MovementType to Waypoint Movement'),
-(183295, 3, 20, 2, 0, 0, 18632, @CGUID+51, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'Cabal Executioner - Change MovementType to Waypoint Movement');
+(182942, 1000, 3, 0, 0, 0, 18891, @CGUID+243, 23, 0, 0, 0, 0, -63.5416, 42.9283, 0.206252, 2.42972, ''),
+-- Murmur room event
+(183295, 1000, 20, 2, 0, 0, 18634, @CGUID+76, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'Cabal Summoner - Change MovementType to Waypoint Movement'),
+(183295, 1000, 20, 2, 0, 0, 18634, @CGUID+78, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'Cabal Summoner - Change MovementType to Waypoint Movement'),
+(183295, 1000, 20, 2, 0, 0, 18632, @CGUID+45, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'Cabal Executioner - Change MovementType to Waypoint Movement'),
+(183295, 1000, 20, 2, 0, 0, 18639, @CGUID+113, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'Cabal Spellbinder - Change MovementType to Waypoint Movement'),
+(183295, 1000, 20, 2, 0, 0, 18632, @CGUID+47, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'Cabal Executioner - Change MovementType to Waypoint Movement'),
+(183295, 1000, 20, 2, 0, 0, 18634, @CGUID+77, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'Cabal Summoner - Change MovementType to Waypoint Movement'),
+(183295, 1000, 20, 2, 0, 0, 18639, @CGUID+112, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'Cabal Summoner - Change MovementType to Waypoint Movement'),
+(183295, 1000, 20, 2, 0, 0, 18632, @CGUID+46, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'Cabal Executioner - Change MovementType to Waypoint Movement'),
+(183295, 1000, 20, 2, 0, 0, 18639, @CGUID+115, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'Cabal Summoner - Change MovementType to Waypoint Movement'),
+(183295, 2000, 20, 2, 0, 0, 18632, @CGUID+48, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'Cabal Executioner - Change MovementType to Waypoint Movement'),
+(183295, 2000, 20, 2, 0, 0, 18632, @CGUID+50, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'Cabal Executioner - Change MovementType to Waypoint Movement'),
+-- (183295, 2000, 20, 2, 0, 0, 18639, @CGUID+123, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'Cabal Summoner - Change MovementType to Waypoint Movement'),
+(183295, 2000, 20, 2, 0, 0, 18634, @CGUID+80, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'Cabal Summoner - Change MovementType to Waypoint Movement'),
+-- (183295, 2000, 20, 2, 0, 0, 18639, @CGUID+116, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'Cabal Spellbinder - Change MovementType to Waypoint Movement'),
+(183295, 2000, 20, 2, 0, 0, 18632, @CGUID+49, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'Cabal Executioner - Change MovementType to Waypoint Movement'),
+-- (183295, 2000, 20, 2, 0, 0, 18639, @CGUID+122, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'Cabal Spellbinder - Change MovementType to Waypoint Movement'),
+-- (183295, 2000, 20, 2, 0, 0, 18634, @CGUID+79, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'Cabal Summoner - Change MovementType to Waypoint Movement'),
+(183295, 2000, 20, 2, 0, 0, 18634, @CGUID+81, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'Cabal Summoner - Change MovementType to Waypoint Movement'),
+(183295, 3000, 20, 2, 0, 0, 18632, @CGUID+52, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'Cabal Executioner - Change MovementType to Waypoint Movement'),
+-- (183295, 3000, 20, 2, 0, 0, 18634, @CGUID+82, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'Cabal Summoner - Change MovementType to Waypoint Movement'),
+(183295, 3000, 20, 2, 0, 0, 18632, @CGUID+51, 23, 0, 0, 0, 0, 0, 0, 0, 0, 'Cabal Executioner - Change MovementType to Waypoint Movement');
 
-DELETE FROM dbscript_string WHERE entry IN (2000005043,2000005044,2000005220,2000005230,2000005231,2000005235,2000005236);
-INSERT INTO `dbscript_string` (`entry`, `content_default`, `sound`, `type`, `language`, `emote`, `comment`) VALUES
-(2000005043, 'I WILL DESTROY ALL', 0, 0, 0, 0, ''),
-(2000005044, 'US ALREADY ALL ANYMORE AND ANYMORE', 0, 0, 0, 0, ''),
-(2000005220, 'YOU PRAY SERVANTS MY', 0, 0, 0, 0, ''),
-(2000005230, 'I WICKED OGR', 0, 0, 0, 0, ''),
-(2000005231, 'I FEEL DEATH ALONGSIDE', 0, 0, 0, 0, ''),
-(2000005235, 'NOBODY WILL GET THROUGH ME', 0, 0, 0, 0, ''),
-(2000005236, 'I FEEL DEATH ALONGSIDE', 0, 0, 0, 0, '');
-
+-- INSERT INTO `dbscript_string` (`entry`, `content_default`, `sound`, `type`, `language`, `emote`, `broadcast_text_id`, `comment`) VALUES
 -- INSERT INTO `dbscripts_on_creature_death` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
 -- INSERT INTO `dbscripts_on_go_use` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
 -- INSERT INTO `dbscripts_on_relay` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES

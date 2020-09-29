@@ -5,7 +5,6 @@ DB%Complete: 80
 DBComment:
 * probably movement missing e.g @CGUID+6, @CGUID+9, @CGUID+23, @CGUID+24, @CGUID+54, @CGUID+64, @CGUID+70, @CGUID+108
 * movement missing for entry 5720 + 5721 + 8580 in circle clockwise
-* go 148838 wrong scale and position
 * Hazzas (Leader) & Morphaz should fly nearly synchronized, so i guess they should share path and/or should be linked. Or Spawnpositions & Waypointorder or Speeds needs adjustments
 EndDBScriptData */
 
@@ -50,7 +49,7 @@ INSERT INTO `creature_movement_template` (`entry`, `pathId`, `point`, `position_
 -- INSERT INTO `creature_addon` (`guid`, `mount`, `bytes1`, `b2_0_sheath`, `b2_1_flags`, `emote`, `moveflags`, `auras`) VALUES
 
 REPLACE INTO `creature_template_addon` (`entry`, `mount`, `bytes1`, `b2_0_sheath`, `b2_1_flags`, `emote`, `moveflags`, `auras`) VALUES
-(5226, 0, 0, 1, 16, 0, 0, NULL), -- Murk Worm
+(5226, 0, 0, 1, 16, 0, 0, '8601'), -- Murk Worm
 (5228, 0, 0, 1, 16, 0, 0, NULL), -- Saturated Ooze
 (5256, 0, 0, 1, 16, 0, 0, NULL), -- Atal'ai Warrior
 (5259, 0, 0, 1, 16, 0, 0, NULL), -- Atal'ai Witch Doctor
@@ -60,7 +59,7 @@ REPLACE INTO `creature_template_addon` (`entry`, `mount`, `bytes1`, `b2_0_sheath
 (5270, 0, 0, 1, 16, 0, 0, NULL), -- Atal'ai Corpse Eater
 (5271, 0, 0, 1, 16, 0, 0, NULL), -- Atal'ai Deathwalker
 (5273, 0, 0, 1, 16, 0, 0, NULL), -- Atal'ai High Priest
-(5277, 0, 0, 1, 16, 0, 0, NULL), -- Nightmare Scalebane
+(5277, 0, 0, 1, 16, 0, 0, '12099'), -- Nightmare Scalebane
 (5280, 0, 0, 1, 16, 0, 0, NULL), -- Nightmare Wyrmkin
 (5283, 0, 0, 1, 16, 0, 0, NULL), -- Nightmare Wanderer
 (5291, 0, 0, 1, 16, 0, 0, NULL), -- Hakkari Frostwing
@@ -585,7 +584,7 @@ INSERT INTO `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `posi
 (@OGUID+10, 148834, 109, -443.855, 136.101, -148.74, 2.53073, 0, 0, 0.953717, 0.300706, 180, 180, 100, 1), -- Atal'ai Statue
 (@OGUID+11, 148835, 109, -443.417, 53.8312, -148.74, 0.471239, 0, 0, 0.233445, 0.97237, 180, 180, 100, 1), -- Atal'ai Statue
 (@OGUID+12, 148836, 109, -420.848, 94.7487, -174.196, 3.14159, 0, 0, 1, 0, 120, 120, 0, 1), -- Altar of Hakkar
-(@OGUID+13, 148838, 109, -497.789, 95.1423, -189.73, 0.306738, 0, 0, 0, 0, -43200, -43200, 0, 1), -- Idol of Hakkar
+(@OGUID+13, 148838, 109, -476.2693, 94.41199, -189.7297, 1.588249, 0, 0, 0, 0, -43200, -43200, 0, 1), -- Idol of Hakkar
 (@OGUID+14, 148883, 109, -515.68, 95.1875, -148.74, -0.139624, 0, 0, 0, 1, -43200, -43200, 255, 1), -- Atal'ai Light SMALL (DND)
 (@OGUID+15, 148883, 109, -419.627, 94.2566, -148.74, 2.04204, 0, 0, 0, 1, -43200, -43200, 255, 1), -- Atal'ai Light SMALL (DND)
 (@OGUID+16, 148883, 109, -491.417, 136.021, -148.74, 0.872664, 0, 0, 0, 1, -43200, -43200, 255, 1), -- Atal'ai Light SMALL (DND)
@@ -609,13 +608,25 @@ INSERT INTO `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `posi
 (@OGUID+34, 149431, 109, -518.154, -85.2353, -74.488, 3.14159, 0, 0, 1, 0, 180, 180, 255, 1), -- forcefield
 (@OGUID+35, 149432, 109, -518.381, 276.621, -90.8977, 3.14159, 0, 0, 1, 0, 180, 180, 255, 0), -- DOOR1
 (@OGUID+36, 149433, 109, -415.713, 276.621, -90.8977, 3.14159, 0, 0, 1, 0, 180, 180, 255, 0), -- DOOR2
-(@OGUID+37, 177484, 109, -490.969, 135.714, -148.74, 0.226892, 0, 0, 0, 1, 180, 180, 255, 1), -- Atal'ai Statue
-(@OGUID+38, 177484, 109, -420.155, 94.3731, -148.74, -2.32129, 0, 0, 0, 1, 180, 180, 255, 1), -- Atal'ai Statue
-(@OGUID+39, 177484, 109, -515.046, 95.1471, -148.74, 2.74016, 0, 0, 0, 1, 180, 180, 255, 1), -- Atal'ai Statue
-(@OGUID+40, 177484, 109, -491.396, 53.5787, -148.74, -0.471238, 0, 0, 0, 1, 180, 180, 255, 1), -- Atal'ai Statue
-(@OGUID+41, 177485, 109, -443.55, 53.9243, -148.74, 0.90757, 0, 0, 0, 1, 180, 180, 255, 1), -- Atal'ai Statue
-(@OGUID+42, 177485, 109, -444.448, 136.106, -148.74, 0.331611, 0, 0, 0, 1, 180, 180, 255, 1), -- Atal'ai Statue
-(@OGUID+43, 148422, 109, -467.09, 276.58, -90.47, 0, 0, 0, 0, 0, 180, 180, 0, 1); -- Evil God Spell Focus (DND)
+(@OGUID+37, 177484, 109, -515.0457, 95.14713, -148.74, 2.740162, 0, 0, 0, 0, 180, 180, 255, 1), -- Atal'ai Statue
+(@OGUID+38, 177484, 109, -420.1555, 94.37312, -148.7402, -2.321287, 0, 0, 0, 0, 180, 180, 255, 1), -- Atal'ai Statue
+(@OGUID+39, 177484, 109, -490.9691, 135.7142, -148.74, 0.2268925, 0, 0, 0, 0, 180, 180, 255, 1), -- Atal'ai Statue
+(@OGUID+40, 177484, 109, -491.3964, 53.57865, -148.7404, -0.4712385, 0, 0, 0, 0, 180, 180, 255, 1), -- Atal'ai Statue
+(@OGUID+41, 177484, 109, -444.4482, 136.1064, -148.7402, 0.3316107, 0, 0, 0, 0, 180, 180, 255, 1), -- Atal'ai Statue
+(@OGUID+42, 177484, 109, -443.55, 53.9243, -148.7402, 0.9075702, 0, 0, 0, 0, 180, 180, 255, 1), -- Atal'ai Statue
+(@OGUID+43, 177485, 109, -515.0457, 95.14713, -148.74, 2.740162, 0, 0, 0, 0, 180, 180, 255, 1), -- Atal'ai Statue
+(@OGUID+44, 177485, 109, -420.1555, 94.37312, -148.7402, -2.321287, 0, 0, 0, 0, 180, 180, 255, 1), -- Atal'ai Statue
+(@OGUID+45, 177485, 109, -490.9691, 135.7142, -148.74, 0.2268925, 0, 0, 0, 0, 180, 180, 255, 1), -- Atal'ai Statue
+(@OGUID+46, 177485, 109, -491.3964, 53.57865, -148.7404, -0.4712385, 0, 0, 0, 0, 180, 180, 255, 1), -- Atal'ai Statue
+(@OGUID+47, 177485, 109, -444.4482, 136.1064, -148.7402, 0.3316107, 0, 0, 0, 0, 180, 180, 255, 1), -- Atal'ai Statue
+(@OGUID+48, 177485, 109, -443.55, 53.9243, -148.7402, 0.9075702, 0, 0, 0, 0, 180, 180, 255, 1), -- Atal'ai Statue
+(@OGUID+49, 148422, 109, -467.09, 276.58, -90.47, 0, 0, 0, 0, 0, 180, 180, 0, 1), -- Evil God Spell Focus (DND)
+(@OGUID+50, 148837, 109, -490.969, 135.714, -148.74, 0.226892, 0, 0, 0, 1, 180, 180, 255, 1), -- Atal'ai Statue
+(@OGUID+51, 148837, 109, -420.155, 94.3731, -148.74, -2.32129, 0, 0, 0, 1, 180, 180, 255, 1), -- Atal'ai Statue
+(@OGUID+52, 148837, 109, -515.046, 95.1471, -148.74, 2.74016, 0, 0, 0, 1, 180, 180, 255, 1), -- Atal'ai Statue
+(@OGUID+53, 148837, 109, -491.396, 53.5787, -148.74, -0.471238, 0, 0, 0, 1, 180, 180, 255, 1), -- Atal'ai Statue
+(@OGUID+54, 148837, 109, -443.55, 53.9243, -148.74, 0.90757, 0, 0, 0, 1, 180, 180, 255, 1), -- Atal'ai Statue
+(@OGUID+55, 148837, 109, -444.448, 136.106, -148.74, 0.331611, 0, 0, 0, 1, 180, 180, 255, 1); -- Atal'ai Statue
 
 -- ======
 -- EVENTS
@@ -632,10 +643,38 @@ INSERT INTO `game_event_creature` (`guid`, `event`) VALUES
 -- =======
 
 -- INSERT INTO `pool_pool` (`pool_id`, `mother_pool`, `chance`, `description`) VALUES
--- INSERT INTO `pool_template` (`entry`, `max_limit`, `description`) VALUES
+
+INSERT INTO `pool_template` (`entry`, `max_limit`, `description`) VALUES
+(@PGUID+0, 1, 'Atal\'ai Statue (Group 1)'),
+(@PGUID+1, 1, 'Atal\'ai Statue (Group 2)'),
+(@PGUID+2, 1, 'Atal\'ai Statue (Group 3)'),
+(@PGUID+3, 1, 'Atal\'ai Statue (Group 4)'),
+(@PGUID+4, 1, 'Atal\'ai Statue (Group 5)'),
+(@PGUID+5, 1, 'Atal\'ai Statue (Group 6)');
+
 -- INSERT INTO `pool_creature` (`guid`, `pool_entry`, `chance`, `description`) VALUES
 -- INSERT INTO `pool_creature_template` (`id`, `pool_entry`, `chance`, `description`) VALUES
--- INSERT INTO `pool_gameobject` (`guid`, `pool_entry`, `chance`, `description`) VALUES
+
+INSERT INTO `pool_gameobject` (`guid`, `pool_entry`, `chance`, `description`) VALUES
+(@OGUID+37, @PGUID+0, 0, 'Atal\'ai Statue (Group 1)'),
+(@OGUID+43, @PGUID+0, 0, 'Atal\'ai Statue (Group 1)'),
+(@OGUID+52, @PGUID+0, 0, 'Atal\'ai Statue (Group 1)'),
+(@OGUID+38, @PGUID+1, 0, 'Atal\'ai Statue (Group 2)'),
+(@OGUID+44, @PGUID+1, 0, 'Atal\'ai Statue (Group 2)'),
+(@OGUID+51, @PGUID+1, 0, 'Atal\'ai Statue (Group 2)'),
+(@OGUID+39, @PGUID+2, 0, 'Atal\'ai Statue (Group 3)'),
+(@OGUID+45, @PGUID+2, 0, 'Atal\'ai Statue (Group 3)'),
+(@OGUID+50, @PGUID+2, 0, 'Atal\'ai Statue (Group 3)'),
+(@OGUID+40, @PGUID+3, 0, 'Atal\'ai Statue (Group 4)'),
+(@OGUID+46, @PGUID+3, 0, 'Atal\'ai Statue (Group 4)'),
+(@OGUID+53, @PGUID+3, 0, 'Atal\'ai Statue (Group 4)'),
+(@OGUID+41, @PGUID+4, 0, 'Atal\'ai Statue (Group 5)'),
+(@OGUID+47, @PGUID+4, 0, 'Atal\'ai Statue (Group 5)'),
+(@OGUID+55, @PGUID+4, 0, 'Atal\'ai Statue (Group 5)'),
+(@OGUID+42, @PGUID+5, 0, 'Atal\'ai Statue (Group 6)'),
+(@OGUID+48, @PGUID+5, 0, 'Atal\'ai Statue (Group 6)'),
+(@OGUID+54, @PGUID+5, 0, 'Atal\'ai Statue (Group 6)');
+
 -- INSERT INTO `pool_gameobject_template` (`id`, `pool_entry`, `chance`, `description`) VALUES
 
 -- =========
@@ -652,12 +691,12 @@ INSERT INTO `game_event_creature` (`guid`, `event`) VALUES
 
 DELETE FROM dbscripts_on_gossip WHERE id=1288;
 INSERT INTO `dbscripts_on_gossip` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
-(1288, 1, 9, @OGUID+14, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'AtalarionStatues S - rough script, details missing'),
-(1288, 11, 9, @OGUID+15, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'AtalarionStatues N'),
-(1288, 22, 9, @OGUID+16, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'AtalarionStatues SW'),
-(1288, 33, 9, @OGUID+17, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'AtalarionStatues SE'),
-(1288, 44, 9, @OGUID+18, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'AtalarionStatues NW'),
-(1288, 55, 9, @OGUID+19, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'AtalarionStatues NE');
+(1288, 1000, 9, @OGUID+14, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'AtalarionStatues S - rough script, details missing'),
+(1288, 11000, 9, @OGUID+15, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'AtalarionStatues N'),
+(1288, 22000, 9, @OGUID+16, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'AtalarionStatues SW'),
+(1288, 33000, 9, @OGUID+17, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'AtalarionStatues SE'),
+(1288, 44000, 9, @OGUID+18, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'AtalarionStatues NW'),
+(1288, 55000, 9, @OGUID+19, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'AtalarionStatues NE');
 
 -- INSERT INTO `dbscripts_on_quest_start` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
 -- INSERT INTO `dbscripts_on_quest_end` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES

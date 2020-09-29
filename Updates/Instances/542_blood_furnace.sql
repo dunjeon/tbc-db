@@ -4,8 +4,8 @@ DBScriptName: instance_blood_furnace
 DB%Complete: 80
 DBComment:
 * ai second boss adds aggro drop ability, spell scripting for second boss aoe ability (scaling)
-* Core Issue: Pooling overwrites spawnmask making it possible to have heroic chest in normal, chests need some sort of chanced solution where the maxchance of a pool might be below 100%
 * Sniff shows different id for @CGUID+35 = 17395, +44 = 17414, +86 = 17395, +46 = 17414
+* Second Boss Trash Adds do 15 (OneShotRoar), 22 (OneShotShot), 53 (OneShotBattleRoar) in specific groups it seems
 EndDBScriptData */
 
 SET @CGUID := 5420000; -- creatures
@@ -218,73 +218,73 @@ REPLACE INTO `creature_template_addon` (`entry`, `mount`, `bytes1`, `b2_0_sheath
 (21174, 0, 0, 1, 16, 0, 0, '30205'); -- Magtheridon
 
 INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES
-(@CGUID+12, @CGUID+9, 1167), -- Laughing Skull Enforcer -> Laughing Skull Enforcer
-(@CGUID+52, @CGUID+166, 1167), -- Shadowmoon Adept -> Hellfire Imp
-(@CGUID+48, @CGUID+166, 1167), -- Shadowmoon Adept -> Hellfire Imp
-(@CGUID+47, @CGUID+167, 1167), -- Shadowmoon Adept -> Hellfire Imp
-(@CGUID+50, @CGUID+167, 1167), -- Shadowmoon Adept -> Hellfire Imp
-(@CGUID+51, @CGUID+165, 1167), -- Shadowmoon Adept -> Hellfire Imp
-(@CGUID+53, @CGUID+165, 1167), -- Shadowmoon Adept -> Hellfire Imp
-(@CGUID+7, @CGUID+10, 1167), -- Laughing Skull Enforcer -> Laughing Skull Enforcer
-(@CGUID+11, @CGUID+6, 1167), -- Laughing Skull Enforcer -> Laughing Skull Enforcer
-(@CGUID+49, @CGUID+169, 1167), -- Shadowmoon Adept -> Hellfire Imp
-(@CGUID+54, @CGUID+169, 1167), -- Shadowmoon Adept -> Hellfire Imp
-(@CGUID+55, @CGUID+168, 1167), -- Shadowmoon Adept -> Hellfire Imp
-(@CGUID+56, @CGUID+168, 1167), -- Shadowmoon Adept -> Hellfire Imp
-(@CGUID+57, @CGUID+170, 1167), -- Shadowmoon Adept -> Hellfire Imp
-(@CGUID+58, @CGUID+170, 1167), -- Shadowmoon Adept -> Hellfire Imp
-(@CGUID+8, @CGUID+183, 1167), -- Laughing Skull Enforcer -> Laughing Skull Legionnaire
-(@CGUID+13, @CGUID+184, 1167), -- Laughing Skull Enforcer -> Laughing Skull Legionnaire
-(@CGUID+59, @CGUID+40, 1167), -- Shadowmoon Adept -> Shadowmoon Summoner
-(@CGUID+60, @CGUID+40, 1167), -- Shadowmoon Adept -> Shadowmoon Summoner
-(@CGUID+42, @CGUID+41, 1167), -- Shadowmoon Summoner -> Shadowmoon Summoner
-(@CGUID+61, @CGUID+41, 1167), -- Shadowmoon Adept -> Shadowmoon Summoner
-(@CGUID+14, @CGUID+15, 1167), -- Laughing Skull Enforcer -> Laughing Skull Enforcer
+(@CGUID+12, @CGUID+9, 1155), -- Laughing Skull Enforcer -> Laughing Skull Enforcer
+(@CGUID+52, @CGUID+166, 1155), -- Shadowmoon Adept -> Hellfire Imp
+(@CGUID+48, @CGUID+166, 1155), -- Shadowmoon Adept -> Hellfire Imp
+(@CGUID+47, @CGUID+167, 1155), -- Shadowmoon Adept -> Hellfire Imp
+(@CGUID+50, @CGUID+167, 1155), -- Shadowmoon Adept -> Hellfire Imp
+(@CGUID+51, @CGUID+165, 1155), -- Shadowmoon Adept -> Hellfire Imp
+(@CGUID+53, @CGUID+165, 1155), -- Shadowmoon Adept -> Hellfire Imp
+(@CGUID+7, @CGUID+10, 1155), -- Laughing Skull Enforcer -> Laughing Skull Enforcer
+(@CGUID+11, @CGUID+6, 1155), -- Laughing Skull Enforcer -> Laughing Skull Enforcer
+(@CGUID+49, @CGUID+169, 1155), -- Shadowmoon Adept -> Hellfire Imp
+(@CGUID+54, @CGUID+169, 1155), -- Shadowmoon Adept -> Hellfire Imp
+(@CGUID+55, @CGUID+168, 1155), -- Shadowmoon Adept -> Hellfire Imp
+(@CGUID+56, @CGUID+168, 1155), -- Shadowmoon Adept -> Hellfire Imp
+(@CGUID+57, @CGUID+170, 1155), -- Shadowmoon Adept -> Hellfire Imp
+(@CGUID+58, @CGUID+170, 1155), -- Shadowmoon Adept -> Hellfire Imp
+(@CGUID+8, @CGUID+183, 1155), -- Laughing Skull Enforcer -> Laughing Skull Legionnaire
+(@CGUID+13, @CGUID+184, 1155), -- Laughing Skull Enforcer -> Laughing Skull Legionnaire
+(@CGUID+59, @CGUID+40, 1155), -- Shadowmoon Adept -> Shadowmoon Summoner
+(@CGUID+60, @CGUID+40, 1155), -- Shadowmoon Adept -> Shadowmoon Summoner
+(@CGUID+42, @CGUID+41, 1155), -- Shadowmoon Summoner -> Shadowmoon Summoner
+(@CGUID+61, @CGUID+41, 1155), -- Shadowmoon Adept -> Shadowmoon Summoner
+(@CGUID+14, @CGUID+15, 1155), -- Laughing Skull Enforcer -> Laughing Skull Enforcer
 (@CGUID+188, @CGUID+181, 1679), -- Laughing Skull Legionnaire -> Laughing Skull Warden
 (@CGUID+187, @CGUID+20, 1679), -- Laughing Skull Legionnaire -> Shadowmoon Warlock
-(@CGUID+96, @CGUID+46, 1167), -- Shadowmoon Technician -> Shadowmoon Summoner
-(@CGUID+83, @CGUID+39, 1167), -- Shadowmoon Technician -> Shadowmoon Summoner
-(@CGUID+84, @CGUID+82, 1167), -- Shadowmoon Technician -> Shadowmoon Technician
+(@CGUID+96, @CGUID+46, 1155), -- Shadowmoon Technician -> Shadowmoon Summoner
+(@CGUID+83, @CGUID+39, 1155), -- Shadowmoon Technician -> Shadowmoon Summoner
+(@CGUID+84, @CGUID+82, 1155), -- Shadowmoon Technician -> Shadowmoon Technician
 (@CGUID+16, @CGUID+17, 1679), -- Laughing Skull Enforcer -> Laughing Skull Enforcer
-(@CGUID+65, @CGUID+85, 1167), -- Nascent Fel Orc -> Shadowmoon Technician
-(@CGUID+88, @CGUID+85, 1167), -- Shadowmoon Technician -> Shadowmoon Technician
-(@CGUID+67, @CGUID+92, 1167), -- Nascent Fel Orc -> Shadowmoon Technician
-(@CGUID+90, @CGUID+92, 1167), -- Shadowmoon Technician -> Shadowmoon Technician
-(@CGUID+32, @CGUID+68, 1167), -- Shadowmoon Warlock -> Nascent Fel Orc
-(@CGUID+45, @CGUID+68, 1167), -- Shadowmoon Summoner -> Nascent Fel Orc
-(@CGUID+33, @CGUID+75, 1167), -- Shadowmoon Warlock -> Nascent Fel Orc
-(@CGUID+34, @CGUID+75, 1167), -- Shadowmoon Warlock -> Nascent Fel Orc
+(@CGUID+65, @CGUID+85, 1155), -- Nascent Fel Orc -> Shadowmoon Technician
+(@CGUID+88, @CGUID+85, 1155), -- Shadowmoon Technician -> Shadowmoon Technician
+(@CGUID+67, @CGUID+92, 1155), -- Nascent Fel Orc -> Shadowmoon Technician
+(@CGUID+90, @CGUID+92, 1155), -- Shadowmoon Technician -> Shadowmoon Technician
+(@CGUID+32, @CGUID+68, 1155), -- Shadowmoon Warlock -> Nascent Fel Orc
+(@CGUID+45, @CGUID+68, 1155), -- Shadowmoon Summoner -> Nascent Fel Orc
+(@CGUID+33, @CGUID+75, 1155), -- Shadowmoon Warlock -> Nascent Fel Orc
+(@CGUID+34, @CGUID+75, 1155), -- Shadowmoon Warlock -> Nascent Fel Orc
 (@CGUID+18, @CGUID+19, 1679), -- Laughing Skull Enforcer -> Laughing Skull Enforcer
-(@CGUID+73, @CGUID+94, 1167), -- Nascent Fel Orc -> Shadowmoon Technician
-(@CGUID+95, @CGUID+94, 1167), -- Shadowmoon Technician -> Shadowmoon Technician
+(@CGUID+73, @CGUID+94, 1155), -- Nascent Fel Orc -> Shadowmoon Technician
+(@CGUID+95, @CGUID+94, 1155), -- Shadowmoon Technician -> Shadowmoon Technician
 (@CGUID+185, @CGUID+182, 1679), -- Laughing Skull Legionnaire -> Laughing Skull Warden
 (@CGUID+186, @CGUID+182, 1679), -- Laughing Skull Legionnaire -> Laughing Skull Warden
-(@CGUID+44, @CGUID+35, 1167), -- Shadowmoon Summoner -> Shadowmoon Warlock
-(@CGUID+86, @CGUID+35, 1167), -- Shadowmoon Technician -> Shadowmoon Warlock
-(@CGUID+89, @CGUID+91, 1167), -- Shadowmoon Technician -> Shadowmoon Technician
-(@CGUID+93, @CGUID+91, 1167), -- Shadowmoon Technician -> Shadowmoon Technician
-(@CGUID+31, @CGUID+66, 1167), -- Shadowmoon Warlock -> Nascent Fel Orc
-(@CGUID+87, @CGUID+66, 1167), -- Shadowmoon Technician -> Nascent Fel Orc
-(@CGUID+26, @CGUID+144, 1167), -- Shadowmoon Warlock -> Fel Orc Neophyte
-(@CGUID+43, @CGUID+144, 1167), -- Shadowmoon Summoner -> Fel Orc Neophyte
+(@CGUID+44, @CGUID+35, 1155), -- Shadowmoon Summoner -> Shadowmoon Warlock
+(@CGUID+86, @CGUID+35, 1155), -- Shadowmoon Technician -> Shadowmoon Warlock
+(@CGUID+89, @CGUID+91, 1155), -- Shadowmoon Technician -> Shadowmoon Technician
+(@CGUID+93, @CGUID+91, 1155), -- Shadowmoon Technician -> Shadowmoon Technician
+(@CGUID+31, @CGUID+66, 1155), -- Shadowmoon Warlock -> Nascent Fel Orc
+(@CGUID+87, @CGUID+66, 1155), -- Shadowmoon Technician -> Nascent Fel Orc
+(@CGUID+26, @CGUID+144, 1155), -- Shadowmoon Warlock -> Fel Orc Neophyte
+(@CGUID+43, @CGUID+144, 1155), -- Shadowmoon Summoner -> Fel Orc Neophyte
 (@CGUID+28, @CGUID+30, 1679), -- Shadowmoon Warlock -> Shadowmoon Warlock
 (@CGUID+204, @CGUID+30, 1679), -- Hellfire Familiar -> Shadowmoon Warlock
 (@CGUID+205, @CGUID+30, 1679), -- Hellfire Familiar -> Shadowmoon Warlock
 (@CGUID+206, @CGUID+30, 1679), -- Hellfire Familiar -> Shadowmoon Warlock
 (@CGUID+27, @CGUID+197, 1679), -- Shadowmoon Warlock -> Felguard Brute
 (@CGUID+29, @CGUID+196, 1679), -- Shadowmoon Warlock -> Felguard Brute
-(@CGUID+195, @CGUID+194, 1167), -- Felguard Brute -> Felguard Brute
-(@CGUID+198, @CGUID+23, 1167), -- Hellfire Familiar -> Shadowmoon Warlock
-(@CGUID+199, @CGUID+23, 1167), -- Hellfire Familiar -> Shadowmoon Warlock
-(@CGUID+200, @CGUID+23, 1167), -- Hellfire Familiar -> Shadowmoon Warlock
-(@CGUID+201, @CGUID+23, 1167), -- Hellfire Familiar -> Shadowmoon Warlock
-(@CGUID+202, @CGUID+23, 1167), -- Hellfire Familiar -> Shadowmoon Warlock
-(@CGUID+203, @CGUID+23, 1167), -- Hellfire Familiar -> Shadowmoon Warlock
-(@CGUID+81, @CGUID+79, 1167), -- Felguard Annihilator -> Felguard Annihilator
-(@CGUID+77, @CGUID+25, 1167), -- Felguard Annihilator -> Shadowmoon Warlock
-(@CGUID+80, @CGUID+25, 1167), -- Felguard Annihilator -> Shadowmoon Warlock
-(@CGUID+76, @CGUID+24, 1167), -- Felguard Annihilator -> Shadowmoon Warlock
-(@CGUID+78, @CGUID+24, 1167); -- Felguard Annihilator -> Shadowmoon Warlock
+(@CGUID+195, @CGUID+194, 1155), -- Felguard Brute -> Felguard Brute
+(@CGUID+198, @CGUID+23, 1155), -- Hellfire Familiar -> Shadowmoon Warlock
+(@CGUID+199, @CGUID+23, 1155), -- Hellfire Familiar -> Shadowmoon Warlock
+(@CGUID+200, @CGUID+23, 1155), -- Hellfire Familiar -> Shadowmoon Warlock
+(@CGUID+201, @CGUID+23, 1155), -- Hellfire Familiar -> Shadowmoon Warlock
+(@CGUID+202, @CGUID+23, 1155), -- Hellfire Familiar -> Shadowmoon Warlock
+(@CGUID+203, @CGUID+23, 1155), -- Hellfire Familiar -> Shadowmoon Warlock
+(@CGUID+81, @CGUID+79, 1155), -- Felguard Annihilator -> Felguard Annihilator
+(@CGUID+77, @CGUID+25, 1155), -- Felguard Annihilator -> Shadowmoon Warlock
+(@CGUID+80, @CGUID+25, 1155), -- Felguard Annihilator -> Shadowmoon Warlock
+(@CGUID+76, @CGUID+24, 1155), -- Felguard Annihilator -> Shadowmoon Warlock
+(@CGUID+78, @CGUID+24, 1155); -- Felguard Annihilator -> Shadowmoon Warlock
 
 -- INSERT INTO `creature_linking_template` (`entry`, `map`, `master_entry`, `flag`, `search_range`) VALUES
 
@@ -522,21 +522,28 @@ INSERT INTO `gameobject` (`guid`, `id`, `map`, `spawnMask`, `position_x`, `posit
 (@OGUID+17, 181821, 542, 3, 417.9668, 114.6736, 11.17082, 0, 0, 0, 0, 1, 181, 181, 100, 1), -- Prison Cell Door
 (@OGUID+18, 181822, 542, 3, 455.7529, 149.7262, 24.37494, 0, 0, 0, 0, 1, 181, 181, 100, 0), -- Doodad_Hellfire_DW_PrisonEntry05
 (@OGUID+19, 181823, 542, 3, 260.408, -125.8124, -10.3249, 3.141593, 0, 0, -1, 0, 181, 181, 100, 1), -- Doodad_Hellfire_DW_SummonDoor01
-(@OGUID+20, 181921, 542, 3, 371.7221, -47.63724, -25.85084, 3.752462, 0, 0, -0.9537163, 0.3007079, 181, 181, 53, 1), -- Doodad_Hellfire_DW_LargeFloor_Crack02onoff
-(@OGUID+21, 181922, 542, 3, 260.1674, -46.26492, -25.85084, 2.705255, 0, 0, 0.9762955, 0.2164421, 181, 181, 53, 1), -- Doodad_Hellfire_DW_LargeFloor_Crack03
-(@OGUID+22, 181923, 542, 3, 386.2387, -138.3052, -25.71114, 5.410522, 0, 0, -0.4226179, 0.9063079, 181, 181, 53, 1), -- Doodad_Hellfire_DW_LargeFloor_Crack04onoff
-(@OGUID+23, 181924, 542, 3, 292.173, -143.1631, -25.48676, 4.625124, 0, 0, -0.737277, 0.6755905, 181, 181, 100, 1), -- Doodad_Hellfire_DW_SmallFloor_Crack03onoff
-(@OGUID+24, 181925, 542, 3, 266.4524, -104.9193, -25.31384, 3.752462, 0, 0, -0.9537163, 0.3007079, 181, 181, 100, 1), -- Doodad_Hellfire_DW_SmallFloor_Crack04onoff
-(@OGUID+25, 181926, 542, 3, 324.0711, -23.28722, -25.56554, 3.752462, 0, 0, -0.9537163, 0.3007079, 181, 181, 100, 1), -- Doodad_Hellfire_DW_SmallFloor_Crack05onoff
-(@OGUID+26, 181927, 542, 3, 386.6885, -101.6648, -25.27194, 2.530723, 0, 0, 0.9537163, 0.3007079, 181, 181, 100, 1), -- Doodad_Hellfire_DW_SmallFloor_Crack06onoff
+(@OGUID+20, 181921, 542, 3, 371.7221, -47.63724, -25.85084, 3.752462, 0, 0, -0.9537163, 0.3007079, 181, 181, 0, 0), -- Doodad_Hellfire_DW_LargeFloor_Crack02onoff
+(@OGUID+21, 181922, 542, 3, 260.1674, -46.26492, -25.85084, 2.705255, 0, 0, 0.9762955, 0.2164421, 181, 181, 0, 0), -- Doodad_Hellfire_DW_LargeFloor_Crack03
+(@OGUID+22, 181923, 542, 3, 386.2387, -138.3052, -25.71114, 5.410522, 0, 0, -0.4226179, 0.9063079, 181, 181, 0, 0), -- Doodad_Hellfire_DW_LargeFloor_Crack04onoff
+(@OGUID+23, 181924, 542, 3, 292.173, -143.1631, -25.48676, 4.625124, 0, 0, -0.737277, 0.6755905, 181, 181, 0, 0), -- Doodad_Hellfire_DW_SmallFloor_Crack03onoff
+(@OGUID+24, 181925, 542, 3, 266.4524, -104.9193, -25.31384, 3.752462, 0, 0, -0.9537163, 0.3007079, 181, 181, 0, 0), -- Doodad_Hellfire_DW_SmallFloor_Crack04onoff
+(@OGUID+25, 181926, 542, 3, 324.0711, -23.28722, -25.56554, 3.752462, 0, 0, -0.9537163, 0.3007079, 181, 181, 0, 0), -- Doodad_Hellfire_DW_SmallFloor_Crack05onoff
+(@OGUID+26, 181927, 542, 3, 386.6885, -101.6648, -25.27194, 2.530723, 0, 0, 0.9537163, 0.3007079, 181, 181, 0, 0), -- Doodad_Hellfire_DW_SmallFloor_Crack06onoff
 (@OGUID+27, 181982, 542, 3, 456.0855, 60.34892, 9.47833, 3.141593, 0, 0, -1, 0, 600, 600, 100, 1), -- Cell Door Lever
 (@OGUID+28, 184175, 542, 1, -0.556658, 25.56831, -44.79747, 4.324618, 0, 0, -0.8300982, 0.5576173, 0, 0, 0, 0), -- Doodad_InstancePortal_PurpleDifficulty01
 (@OGUID+29, 184176, 542, 2, -0.556658, 25.56831, -44.79747, 4.324618, 0, 0, -0.8300982, 0.5576173, 0, 0, 0, 0), -- Doodad_InstancePortal_PurpleDifficultyIcon01
 (@OGUID+30, 184932, 542, 1, 494.2115, 10.87523, 9.544005, 3.141593, 0, 0, 0, 0, 86400, 86400, 100, 1), -- Bound Fel Iron Chest
 (@OGUID+31, 184933, 542, 1, 494.2115, 10.87523, 9.544005, 3.141593, 0, 0, 0, 0, 86400, 86400, 100, 1), -- Solid Fel Iron Chest
-(@OGUID+32, 184932, 542, 1, 328.7021, -197.7191, -25.50888, 2.984499, 0, 0, 0, 0, 86400, 86400, 100, 1), -- Bound Fel Iron Chest
-(@OGUID+33, 184933, 542, 1, 328.7021, -197.7191, -25.50888, 2.984499, 0, 0, 0, 0, 86400, 86400, 100, 1), -- Solid Fel Iron Chest
-(@OGUID+34, 184937, 542, 2, 498.092, 3.54075, 9.5534, 3.24531, 0, 0, 0, 0, 86400, 86400, 100, 1); -- Solid Adamantite Chest
+(@OGUID+32, 184936, 542, 2, 494.2115, 10.87523, 9.544005, 3.141593, 0, 0, 0, 0, 86400, 86400, 100, 1), -- Bound Adamantite Chest
+(@OGUID+33, 184937, 542, 2, 494.2115, 10.87523, 9.544005, 3.141593, 0, 0, 0, 0, 86400, 86400, 100, 1), -- Solid Adamantite Chest
+(@OGUID+34, 184932, 542, 1, 328.7021, -197.7191, -25.50888, 2.984499, 0, 0, 0, 0, 86400, 86400, 100, 1), -- Bound Fel Iron Chest
+(@OGUID+35, 184933, 542, 1, 328.7021, -197.7191, -25.50888, 2.984499, 0, 0, 0, 0, 86400, 86400, 100, 1), -- Solid Fel Iron Chest
+(@OGUID+36, 184936, 542, 2, 328.7021, -197.7191, -25.50888, 2.984499, 0, 0, 0, 0, 86400, 86400, 100, 1), -- Bound Adamantite Chest
+(@OGUID+37, 184937, 542, 2, 328.7021, -197.7191, -25.50888, 2.984499, 0, 0, 0, 0, 86400, 86400, 100, 1), -- Solid Adamantite Chest
+(@OGUID+38, 184932, 542, 1, 498.092, 3.54075, 9.5534, 3.24531, 0, 0, 0, 0, 86400, 86400, 100, 1), -- Bound Fel Iron Chest
+(@OGUID+39, 184933, 542, 1, 498.092, 3.54075, 9.5534, 3.24531, 0, 0, 0, 0, 86400, 86400, 100, 1), -- Solid Fel Iron Chest
+(@OGUID+40, 184936, 542, 2, 498.092, 3.54075, 9.5534, 3.24531, 0, 0, 0, 0, 86400, 86400, 100, 1), -- Bound Adamantite Chest
+(@OGUID+41, 184937, 542, 2, 498.092, 3.54075, 9.5534, 3.24531, 0, 0, 0, 0, 86400, 86400, 100, 1); -- Solid Adamantite Chest
 
 -- ======
 -- EVENTS
@@ -551,15 +558,16 @@ INSERT INTO `gameobject` (`guid`, `id`, `map`, `spawnMask`, `position_x`, `posit
 -- =======
 
 INSERT INTO `pool_pool` (`pool_id`, `mother_pool`, `chance`, `description`) VALUES
-(@PGUID+31, @PGUID+30, 0, 'Bound/Solid Fel Iron Chest - Pool 1'),
-(@PGUID+32, @PGUID+30, 0, 'Bound/Solid Fel Iron Chest - Pool 2');
+(@PGUID+91, @PGUID+90, 0, 'Blood Furnace - Chest - #1'),
+(@PGUID+92, @PGUID+90, 0, 'Blood Furnace - Chest - #2'),
+(@PGUID+93, @PGUID+90, 0, 'Blood Furnace - Chest - #3');
 
 INSERT INTO `pool_template` (`entry`, `max_limit`, `description`) VALUES
 (@PGUID+1, 4, 'Blood Furnace - Laughing Skull Rogues'),
-(@PGUID+30, 1, 'Blood Furnace (Normal) - Master Chest Pool'),
-(@PGUID+31, 1, 'Blood Furnace (Normal) - Bound/Solid Fel Iron Chest - Pool 1'),
-(@PGUID+32, 1, 'Blood Furnace (Normal) - Bound/Solid Fel Iron Chest - Pool 2');
--- (@PGUID+40, 1, 'Blood Furnace (Heroic) - Master Chest Pool');
+(@PGUID+90, 1, 'Blood Furnace - Master Chest Pool'),
+(@PGUID+91, 1, 'Blood Furnace - Chest - #1'),
+(@PGUID+92, 1, 'Blood Furnace - Chest - #2'),
+(@PGUID+93, 1, 'Blood Furnace - Chest - #3');
 
 INSERT INTO `pool_creature` (`guid`, `pool_entry`, `chance`, `description`) VALUES
 (@CGUID+171, @PGUID+1, 0, 'Blood Furnace - Laughing Skull Rogues - Pathing on Front Stairs'),
@@ -573,11 +581,18 @@ INSERT INTO `pool_creature` (`guid`, `pool_entry`, `chance`, `description`) VALU
 -- INSERT INTO `pool_creature_template` (`id`, `pool_entry`, `chance`, `description`) VALUES
 
 INSERT INTO `pool_gameobject` (`guid`, `pool_entry`, `chance`, `description`) VALUES
-(@OGUID+30, @PGUID+31, 0, 'Blood Furnace - Bound Fel Iron Chest (184932)'),
-(@OGUID+31, @PGUID+31, 0, 'Blood Furnace - Solid Fel Iron Chest (184933)'),
-(@OGUID+32, @PGUID+32, 0, 'Blood Furnace - Bound Fel Iron Chest (184932)'),
-(@OGUID+33, @PGUID+32, 0, 'Blood Furnace - Solid Fel Iron Chest (184933)'),
-(@OGUID+34, @PGUID+30, 0, 'Blood Furnace - Solid Adamantite Chest (184937)'); -- @PGUID+40
+(@OGUID+30, @PGUID+91, 0, 'Blood Furnace - Bound Fel Iron Chest (184932)'),
+(@OGUID+31, @PGUID+91, 0, 'Blood Furnace - Solid Fel Iron Chest (184933)'),
+(@OGUID+32, @PGUID+91, 0, 'Blood Furnace - Bound Adamantite Chest (184936)'),
+(@OGUID+33, @PGUID+91, 0, 'Blood Furnace - Solid Adamantite Chest (184937)'),
+(@OGUID+34, @PGUID+92, 0, 'Blood Furnace - Bound Fel Iron Chest (184932)'),
+(@OGUID+35, @PGUID+92, 0, 'Blood Furnace - Solid Fel Iron Chest (184933)'),
+(@OGUID+36, @PGUID+92, 0, 'Blood Furnace - Bound Adamantite Chest (184936)'),
+(@OGUID+37, @PGUID+92, 0, 'Blood Furnace - Solid Adamantite Chest (184937)'),
+(@OGUID+38, @PGUID+93, 0, 'Blood Furnace - Bound Fel Iron Chest (184932)'),
+(@OGUID+39, @PGUID+93, 0, 'Blood Furnace - Solid Fel Iron Chest (184933)'),
+(@OGUID+40, @PGUID+93, 0, 'Blood Furnace - Bound Adamantite Chest (184936)'),
+(@OGUID+41, @PGUID+93, 0, 'Blood Furnace - Solid Adamantite Chest (184937)');
 
 -- INSERT INTO `pool_gameobject_template` (`id`, `pool_entry`, `chance`, `description`) VALUES
 
@@ -587,8 +602,8 @@ INSERT INTO `pool_gameobject` (`guid`, `pool_entry`, `chance`, `description`) VA
 
 DELETE FROM dbscripts_on_creature_movement WHERE id IN (1737101,1889401);
 INSERT INTO `dbscripts_on_creature_movement` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
-(1737101, 2, 15, 33111, 0, 0, 17400, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Shadowmoon Warlock Casts Fel Power on Felguard Annhilator'),
-(1889401, 2, 15, 33111, 0, 0, 17371, 8, 3, 0, 0, 0, 0, 0, 0, 0, 0, 'Shadowmoon Warlock Casts Fel Power on Felguard Brute');
+(1737101, 2000, 15, 33111, 0, 0, 17400, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Shadowmoon Warlock Casts Fel Power on Felguard Annhilator'),
+(1889401, 2000, 15, 33111, 0, 0, 17371, 8, 3, 0, 0, 0, 0, 0, 0, 0, 0, 'Shadowmoon Warlock Casts Fel Power on Felguard Brute');
 
 -- INSERT INTO `dbscripts_on_creature_death` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
 -- INSERT INTO `dbscripts_on_go_use` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES

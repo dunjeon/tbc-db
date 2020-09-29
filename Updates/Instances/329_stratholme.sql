@@ -575,7 +575,30 @@ INSERT INTO `creature_movement` (`id`, `point`, `position_x`, `position_y`, `pos
 (@CGUID+466, 9, 3437.46, -3075.46, 136.539, 100, 0, 0),
 (@CGUID+466, 10, 3433.51, -3070.11, 136.533, 100, 0, 0);
 
--- INSERT INTO `creature_movement_template` (`entry`, `pathId`, `point`, `position_x`, `position_y`, `position_z`, `orientation`, `waittime`, `script_id`) VALUES
+DELETE FROM `creature_movement_template` WHERE `entry` IN (10808);
+INSERT INTO `creature_movement_template` (`entry`, `pathId`, `point`, `position_x`, `position_y`, `position_z`, `orientation`, `waittime`, `script_id`) VALUES
+-- Timmy the Cruel 10808
+(10808, 0, 1, 3622.562, -3187.691, 130.639, 100, 0, 0),
+(10808, 0, 2, 3637.907, -3196.123, 128.7287, 100, 0, 0),
+(10808, 0, 3, 3653.786, -3202.95, 127.5057, 100, 0, 0),
+(10808, 0, 4, 3674.535, -3204.597, 126.5483, 100, 0, 0),
+(10808, 0, 5, 3689.455, -3191.138, 127.1003, 100, 0, 0),
+(10808, 0, 6, 3657.534, -3188.617, 126.6715, 100, 0, 0),
+(10808, 0, 7, 3655.75, -3177.174, 126.7521, 100, 0, 0),
+(10808, 0, 8, 3672.97, -3171.484, 126.4423, 100, 0, 0),
+(10808, 0, 9, 3680.462, -3162.152, 126.6528, 100, 0, 0),
+(10808, 0, 10, 3689.455, -3191.138, 127.1003, 100, 0, 0),
+(10808, 0, 11, 3674.535, -3204.597, 126.5483, 100, 0, 0),
+(10808, 0, 12, 3673.839, -3194.009, 126.247, 100, 0, 0),
+(10808, 0, 13, 3668.109, -3185.754, 126.2237, 100, 0, 0),
+(10808, 0, 14, 3651.175, -3196.815, 127.2799, 100, 0, 0),
+(10808, 0, 15, 3658.591, -3188.917, 126.64, 100, 0, 0),
+(10808, 0, 16, 3668.109, -3185.754, 126.2237, 100, 0, 0),
+(10808, 0, 17, 3678.239, -3171.009, 126.4606, 100, 0, 0),
+(10808, 0, 18, 3653.57, -3174.702, 127.1246, 100, 0, 0),
+(10808, 0, 19, 3645.68, -3185.681, 127.5613, 100, 0, 0),
+(10808, 0, 20, 3634.091, -3178.539, 128.8624, 100, 0, 0),
+(10808, 0, 21, 3623.951, -3180.231, 130.4562, 100, 0, 0);
 
 INSERT INTO `creature_addon` (`guid`, `mount`, `bytes1`, `b2_0_sheath`, `b2_1_flags`, `emote`, `moveflags`, `auras`) VALUES
 (@CGUID+96, 0, 0, 1, 16, 0, 0, '13787'), -- Skeletal Guardian
@@ -648,7 +671,7 @@ REPLACE INTO `creature_template_addon` (`entry`, `mount`, `bytes1`, `b2_0_sheath
 (10398, 0, 8, 1, 16, 0, 0, NULL), -- Thuzadin Shadowcaster
 (10399, 0, 0, 1, 16, 0, 0, NULL), -- Thuzadin Acolyte
 (10400, 0, 8, 1, 16, 0, 0, '12380'), -- Thuzadin Necromancer
-(10405, 0, 0, 1, 16, 0, 0, '18950'), -- Plague Ghoul
+(10405, 0, 0, 1, 16, 0, 0, '15088 15097 18950'), -- Plague Ghoul
 (10406, 0, 0, 1, 16, 0, 0, '18950'), -- Ghoul Ravener
 (10407, 0, 0, 1, 16, 0, 0, '8876 18950'), -- Fleshflayer Ghoul
 (10408, 0, 0, 1, 16, 0, 0, NULL), -- Rockwing Gargoyle
@@ -1182,8 +1205,7 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `position_x`, `position_y`, `positi
 -- ===========
 
 INSERT INTO `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`) VALUES
-(@OGUID+1, 153464, 329, 3555.39, -3424.3, 136.745, 2.3911, 0, 0, 0.930418, 0.366501, 7200, 7200, 100, 1), -- Large Solid Chest
-(@OGUID+2, 153469, 329, 4080.21, -3533.44, 124.622, -3.00197, 0, 0, 0.997564, -0.069756, 86400, 86400, 100, 1), -- Large Mithril Bound Chest
+-- 1 - 2
 (@OGUID+3, 175350, 329, 3621.54, -3335.55, 123.501, 3.14159, 0, 0, 1, 0, 180, 180, 100, 0), -- Doodad_SmallPortcullis04
 (@OGUID+4, 175351, 329, 3603.04, -3335.24, 125.354, 3.14159, 0, 0, 1, 0, 180, 180, 100, 0), -- Doodad_SmallPortcullis03
 (@OGUID+5, 175352, 329, 3571.57, -3451.68, 136.357, 2.31256, 0, 0, 0.915311, 0.402747, 180, 180, 100, 1), -- King's Square Gate
@@ -1243,7 +1265,21 @@ INSERT INTO `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `posi
 (@OGUID+59, 175481, 329, 3830.23, -3704.26, 153.273, -0.261799, 0, 0, -0.130526, 0.991445, 180, 180, 100, 1), -- Cash & Sons - Pawn Brokers
 (@OGUID+60, 175483, 329, 3477.52, -3359.29, 151.06, -1.5708, 0, 0, -0.707107, 0.707107, 180, 180, 100, 1), -- The Orphanage
 (@OGUID+61, 175484, 329, 3473.01, -3294.13, 147.507, -1.13446, 0, 0, -0.5373, 0.843391, 180, 180, 100, 1), -- Fras Siabi's Premium Tobacco
--- 62-301
+(@OGUID+62, 153464, 329, 3555.388, -3424.295, 136.7455, 2.391098, 0, 0, 0.9304171, 0.3665025, 86400, 86400, 255, 1), -- Large Solid Chest
+(@OGUID+63, 153469, 329, 3555.388, -3424.295, 136.7455, 2.391098, 0, 0, 0.9304171, 0.3665025, 86400, 86400, 255, 1), -- Large Mithril Bound Chest
+(@OGUID+64, 153464, 329, 3471.283, -3311.513, 132.5644, 0.6981315, 0, 0, 0.34202, 0.9396927, 86400, 86400, 255, 1), -- Large Solid Chest
+(@OGUID+65, 153469, 329, 3471.283, -3311.513, 132.5644, 0.6981315, 0, 0, 0.34202, 0.9396927, 86400, 86400, 255, 1), -- Large Mithril Bound Chest
+(@OGUID+66, 153464, 329, 3607.98, -3519.02, 138.1113, 1.151916, 0, 0, 0.5446386, 0.8386708, 86400, 86400, 255, 1), -- Large Solid Chest
+(@OGUID+67, 153469, 329, 3607.98, -3519.02, 138.1113, 1.151916, 0, 0, 0.5446386, 0.8386708, 86400, 86400, 255, 1), -- Large Mithril Bound Chest
+(@OGUID+68, 153464, 329, 3736.932, -3273.183, 130.0494, 1.97222, 0, 0, 0, 0, 86400, 86400, 255, 1), -- Large Solid Chest
+(@OGUID+69, 153469, 329, 3736.932, -3273.183, 130.0494, 1.97222, 0, 0, 0, 0, 86400, 86400, 255, 1), -- Large Mithril Bound Chest
+(@OGUID+70, 153464, 329, 3816.499, -3715.445, 143.0882, 1.239183, 0, 0, 0.5807028, 0.8141156, 86400, 86400, 255, 1), -- Large Solid Chest
+(@OGUID+71, 153469, 329, 3816.499, -3715.445, 143.0882, 1.239183, 0, 0, 0.5807028, 0.8141156, 86400, 86400, 255, 1), -- Large Mithril Bound Chest
+(@OGUID+72, 153464, 329, 4022.236, -3610.676, 131.6547, -2.35619, 0, 0, -0.9238787, 0.3826855, 86400, 86400, 255, 1), -- Large Solid Chest
+(@OGUID+73, 153469, 329, 4022.236, -3610.676, 131.6547, -2.35619, 0, 0, -0.9238787, 0.3826855, 86400, 86400, 255, 1), -- Large Mithril Bound Chest
+(@OGUID+74, 153464, 329, 4080.211, -3533.44, 124.6223, -3.001947, 0, 0, 0.997564, -0.069756, 86400, 86400, 255, 1), -- Large Solid Chest
+(@OGUID+75, 153469, 329, 4080.211, -3533.44, 124.6223, -3.001947, 0, 0, 0.997564, -0.069756, 86400, 86400, 255, 1), -- Large Mithril Bound Chest
+-- 76-301
 (@OGUID+302, 175737, 329, 3614.39, -3125.01, 137.009, 2.35619, 0, 0, 0.92388, 0.382683, 180, 180, 100, 1), -- The Seven Kingdoms
 (@OGUID+303, 175741, 329, 3615.47, -3125.96, 137.01, -0.523599, 0, 0, 0.258819, -0.965926, 180, 180, 100, 1), -- Kil'jaeden and the Shadow Pact
 (@OGUID+304, 175748, 329, 3479.83, -3089.39, 137.671, 2.98451, 0, 0, 0.996917, 0.078459, 180, 180, 100, 1), -- The Birth of the Lich King
@@ -1647,7 +1683,14 @@ INSERT INTO `game_event_gameobject` (`guid`, `event`) VALUES
 -- POOLING
 -- =======
 
--- INSERT INTO `pool_pool` (`pool_id`, `mother_pool`, `chance`, `description`) VALUES
+INSERT INTO `pool_pool` (`pool_id`, `mother_pool`, `chance`, `description`) VALUES
+(@PGUID+91, @PGUID+90, 0, 'Stratholme - Large Solid Chest / Large Mithril Bound Chest - #1'),
+(@PGUID+92, @PGUID+90, 0, 'Stratholme - Large Solid Chest / Large Mithril Bound Chest - #2'),
+(@PGUID+93, @PGUID+90, 0, 'Stratholme - Large Solid Chest / Large Mithril Bound Chest - #3'),
+(@PGUID+94, @PGUID+90, 0, 'Stratholme - Large Solid Chest / Large Mithril Bound Chest - #4'),
+(@PGUID+95, @PGUID+90, 0, 'Stratholme - Large Solid Chest / Large Mithril Bound Chest - #5'),
+(@PGUID+96, @PGUID+90, 0, 'Stratholme - Large Solid Chest / Large Mithril Bound Chest - #6'),
+(@PGUID+97, @PGUID+90, 0, 'Stratholme - Large Solid Chest / Large Mithril Bound Chest - #7');
 
 INSERT INTO `pool_template` (`entry`, `max_limit`, `description`) VALUES
 (@PGUID+1, 2, 'Enchanted Scarlet Thread (175966) - Stratholme'),
@@ -1724,7 +1767,14 @@ INSERT INTO `pool_template` (`entry`, `max_limit`, `description`) VALUES
 (@PGUID+72, 1, 'Stratholme Supply Crate'),
 (@PGUID+73, 1, 'Stratholme Supply Crate'),
 (@PGUID+74, 1, 'Stratholme Supply Crate'),
-(@PGUID+99, 1, 'Stratholme - Master Chest Pool');
+(@PGUID+90, 3, 'Stratholme - Master Chest Pool'),
+(@PGUID+91, 1, 'Stratholme - Large Solid Chest (153464) / Large Mithril Bound Chest (153469) - #1'),
+(@PGUID+92, 1, 'Stratholme - Large Solid Chest (153464) / Large Mithril Bound Chest (153469) - #2'),
+(@PGUID+93, 1, 'Stratholme - Large Solid Chest (153464) / Large Mithril Bound Chest (153469) - #3'),
+(@PGUID+94, 1, 'Stratholme - Large Solid Chest (153464) / Large Mithril Bound Chest (153469) - #4'),
+(@PGUID+95, 1, 'Stratholme - Large Solid Chest (153464) / Large Mithril Bound Chest (153469) - #5'),
+(@PGUID+96, 1, 'Stratholme - Large Solid Chest (153464) / Large Mithril Bound Chest (153469) - #6'),
+(@PGUID+97, 1, 'Stratholme - Large Solid Chest (153464) / Large Mithril Bound Chest (153469) - #7');
 
 INSERT INTO `pool_creature` (`guid`, `pool_entry`, `chance`, `description`) VALUES
 (@CGUID+196, @PGUID+2, 10, 'Stratholme - Plague Ghoul / Skul'),
@@ -2060,8 +2110,20 @@ INSERT INTO `pool_gameobject` (`guid`, `pool_entry`, `chance`, `description`) VA
 (@OGUID+517, @PGUID+74, 0, 'Stratholme Supply Crate'),
 (@OGUID+577, @PGUID+74, 0, 'Stratholme Supply Crate'),
 (@OGUID+637, @PGUID+74, 0, 'Stratholme Supply Crate'),
-(@OGUID+1, @PGUID+99, 0, 'Stratholme - Large Solid Chest (153464)'),
-(@OGUID+2, @PGUID+99, 0, 'Stratholme - Large Mithril Bound Chest (153469)');
+(@OGUID+62, @PGUID+91, 0, 'Stratholme - Large Solid Chest (153464)'),
+(@OGUID+63, @PGUID+91, 0, 'Stratholme - Large Mithril Bound Chest (153469)'),
+(@OGUID+64, @PGUID+92, 0, 'Stratholme - Large Solid Chest (153464)'),
+(@OGUID+65, @PGUID+92, 0, 'Stratholme - Large Mithril Bound Chest (153469)'),
+(@OGUID+66, @PGUID+93, 0, 'Stratholme - Large Solid Chest (153464)'),
+(@OGUID+67, @PGUID+93, 0, 'Stratholme - Large Mithril Bound Chest (153469)'),
+(@OGUID+68, @PGUID+94, 0, 'Stratholme - Large Solid Chest (153464)'),
+(@OGUID+69, @PGUID+94, 0, 'Stratholme - Large Mithril Bound Chest (153469)'),
+(@OGUID+70, @PGUID+95, 0, 'Stratholme - Large Solid Chest (153464)'),
+(@OGUID+71, @PGUID+95, 0, 'Stratholme - Large Mithril Bound Chest (153469)'),
+(@OGUID+72, @PGUID+96, 0, 'Stratholme - Large Solid Chest (153464)'),
+(@OGUID+73, @PGUID+96, 0, 'Stratholme - Large Mithril Bound Chest (153469)'),
+(@OGUID+74, @PGUID+97, 0, 'Stratholme - Large Solid Chest (153464)'),
+(@OGUID+75, @PGUID+97, 0, 'Stratholme - Large Mithril Bound Chest (153469)');
 
 INSERT INTO `pool_gameobject_template` (`id`, `pool_entry`, `chance`, `description`) VALUES
 (175966, @PGUID+1, 0, 'Enchanted Scarlet Thread (175966)'),
@@ -2074,32 +2136,32 @@ INSERT INTO `pool_gameobject_template` (`id`, `pool_entry`, `chance`, `descripti
 DELETE FROM dbscripts_on_creature_movement WHERE id IN (5405201,5405601,5407901,5407601);
 INSERT INTO `dbscripts_on_creature_movement` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
 (5405201, 0, 10, 10390, 600000, 0, 0, 0, 0, 0, 0, 0, 0, 3613.03, -3176.76, 132.107, 0, 'Scarlet Bastion attack - Spawn Skeletal Guardian'),
-(5405201, 1, 26, 0, 0, 0, 10390, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Scarlet Bastion attack'),
-(5405201, 21, 10, 10391, 600000, 0, 0, 0, 0, 0, 0, 0, 0, 3645.58, -3209.03, 129.124, 0, 'Scarlet Bastion attack - Spawn Skeletal Berserker'),
-(5405201, 23, 26, 0, 0, 0, 10391, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Scarlet Bastion attack'),
-(5405201, 60, 10, 10391, 600000, 0, 0, 0, 0, 0, 0, 0, 0, 3613.03, -3176.76, 132.107, 0, 'Scarlet Bastion attack - Spawn Skeletal Berserker'),
-(5405201, 61, 26, 0, 0, 0, 10391, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Scarlet Bastion attack'),
-(5405601, 6, 10, 10391, 600000, 0, 0, 0, 0, 0, 0, 0, 0, 3705.17, -3168.02, 127.74, 0, 'Scarlet Bastion attack - Spawn Skeletal Berserker'),
-(5405601, 7, 26, 0, 0, 0, 10391, 55, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Scarlet Bastion attack'),
-(5405601, 66, 10, 10391, 600000, 0, 0, 0, 0, 0, 0, 0, 0, 3705.17, -3168.02, 127.74, 0, 'Scarlet Bastion attack - Spawn Skeletal Berserker'),
-(5405601, 67, 26, 0, 0, 0, 10391, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Scarlet Bastion attack'),
-(5407601, 2, 10, 10391, 600000, 0, 0, 0, 0, 0, 0, 0, 0, 3645.58, -3209.03, 129.124, 0, 'Scarlet Bastion attack - Spawn Skeletal Berserker'),
-(5407601, 3, 26, 0, 0, 0, 10391, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Scarlet Bastion attack'),
-(5407901, 4, 10, 10390, 600000, 0, 0, 0, 0, 0, 0, 0, 0, 3698.47, -3179.32, 127.9, 0, 'Scarlet Bastion attack - Spawn Skeletal Guardian'),
-(5407901, 5, 26, 0, 0, 0, 10390, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Scarlet Bastion attack'),
-(5407901, 25, 10, 10391, 600000, 0, 0, 0, 0, 0, 0, 0, 0, 3698.47, -3179.32, 127.9, 0, 'Scarlet Bastion attack - Spawn Skeletal Berserker'),
-(5407901, 26, 26, 0, 0, 0, 10391, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Scarlet Bastion attack');
+(5405201, 1000, 26, 0, 0, 0, 10390, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Scarlet Bastion attack'),
+(5405201, 21000, 10, 10391, 600000, 0, 0, 0, 0, 0, 0, 0, 0, 3645.58, -3209.03, 129.124, 0, 'Scarlet Bastion attack - Spawn Skeletal Berserker'),
+(5405201, 23000, 26, 0, 0, 0, 10391, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Scarlet Bastion attack'),
+(5405201, 60000, 10, 10391, 600000, 0, 0, 0, 0, 0, 0, 0, 0, 3613.03, -3176.76, 132.107, 0, 'Scarlet Bastion attack - Spawn Skeletal Berserker'),
+(5405201, 61000, 26, 0, 0, 0, 10391, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Scarlet Bastion attack'),
+(5405601, 6000, 10, 10391, 600000, 0, 0, 0, 0, 0, 0, 0, 0, 3705.17, -3168.02, 127.74, 0, 'Scarlet Bastion attack - Spawn Skeletal Berserker'),
+(5405601, 7000, 26, 0, 0, 0, 10391, 55, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Scarlet Bastion attack'),
+(5405601, 66000, 10, 10391, 600000, 0, 0, 0, 0, 0, 0, 0, 0, 3705.17, -3168.02, 127.74, 0, 'Scarlet Bastion attack - Spawn Skeletal Berserker'),
+(5405601, 67000, 26, 0, 0, 0, 10391, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Scarlet Bastion attack'),
+(5407601, 2000, 10, 10391, 600000, 0, 0, 0, 0, 0, 0, 0, 0, 3645.58, -3209.03, 129.124, 0, 'Scarlet Bastion attack - Spawn Skeletal Berserker'),
+(5407601, 3000, 26, 0, 0, 0, 10391, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Scarlet Bastion attack'),
+(5407901, 4000, 10, 10390, 600000, 0, 0, 0, 0, 0, 0, 0, 0, 3698.47, -3179.32, 127.9, 0, 'Scarlet Bastion attack - Spawn Skeletal Guardian'),
+(5407901, 5000, 26, 0, 0, 0, 10390, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Scarlet Bastion attack'),
+(5407901, 25000, 10, 10391, 600000, 0, 0, 0, 0, 0, 0, 0, 0, 3698.47, -3179.32, 127.9, 0, 'Scarlet Bastion attack - Spawn Skeletal Berserker'),
+(5407901, 26000, 26, 0, 0, 0, 10391, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Scarlet Bastion attack');
 
 -- INSERT INTO `dbscripts_on_creature_death` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
 
 INSERT INTO `dbscripts_on_go_use` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
-(@OGUID+311, 2, 10, 11142, 900000, 0, 0, 0, 0, 0, 0, 0, 0, 3656.82, -3160.63, 129.03, 4.84, ''),
-(@OGUID+311, 2, 10, 11142, 900000, 0, 0, 0, 0, 0, 0, 0, 0, 3644.62, -3168.25, 128.52, 5.93, ''),
-(@OGUID+311, 2, 10, 11142, 900000, 0, 0, 0, 0, 0, 0, 0, 0, 3664.55, -3176.47, 126.42, 2.2, '');
+(@OGUID+311, 2000, 10, 11142, 900000, 0, 0, 0, 0, 0, 0, 0, 0, 3656.82, -3160.63, 129.03, 4.84, ''),
+(@OGUID+311, 2000, 10, 11142, 900000, 0, 0, 0, 0, 0, 0, 0, 0, 3644.62, -3168.25, 128.52, 5.93, ''),
+(@OGUID+311, 2000, 10, 11142, 900000, 0, 0, 0, 0, 0, 0, 0, 0, 3664.55, -3176.47, 126.42, 2.2, '');
 
 INSERT INTO `dbscripts_on_go_template_use` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
-(176216, 1, 13, 0, 0, 0, 176211, 50, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Activate Cannonball trap'),
-(176217, 1, 13, 0, 0, 0, 176211, 50, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Activate Cannonball trap'),
+(176216, 1000, 13, 0, 0, 0, 176211, 50, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Activate Cannonball trap'),
+(176217, 1000, 13, 0, 0, 0, 176211, 50, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Activate Cannonball trap'),
 (176346, 0, 9, 23615, 3600, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'respawn Postbox Parcel'),
 (176349, 0, 9, 23616, 3600, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'respawn Postbox Parcel'),
 (176350, 0, 9, 23617, 3600, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'respawn Postbox Parcel'),
@@ -2109,34 +2171,41 @@ INSERT INTO `dbscripts_on_go_template_use` (`id`, `delay`, `command`, `datalong`
 
 -- INSERT INTO `dbscripts_on_relay` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
 
-DELETE FROM dbscripts_on_event WHERE id IN (5258,11206);
+DELETE FROM `dbscripts_on_event` WHERE `id` IN (5300, 5301, 5258, 11206);
 INSERT INTO `dbscripts_on_event` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
-(5258, 1, 9, @OGUID+397, 30, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'respawn gobject'),
+-- q.5305 Sweet Serenity
+(5300, 0, 10, 11120, 900000, 0, 0, 0, 0, 0, 0, 0, 0, 3571.19, -3003.701, 125.0014, 0.4708226, 'Summon Crimson Hammersmith'),
+-- q.5307 Corruption
+(5301, 0, 10, 11121, 900000, 0, 0, 0, 0, 0, 0, 0, 0, 3820.68, -3706.187, 143.5117, 1.523680, 'Summon Black Guard Swordsmith'), -- position guessed
+
+(5258, 1000, 9, @OGUID+397, 30, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'respawn gobject'),
+
+-- TBC+ only (Paladin quest)
 -- q.9737 True Masters of the Light
 (11206, 0, 10, 17913, 3000000, 0, 0, 0, 0, 0, 0, 0, 0, 3668.67, -3615.04, 137.77, 4.54, 'quest 9737'),
-(11206, 2, 10, 17911, 3000000, 0, 0, 0, 0, 0, 0, 0, 0, 3664.94, -3614.78, 137.49, 5.08, 'quest 9737'),
-(11206, 4, 10, 17910, 3000000, 0, 0, 0, 0, 0, 0, 0, 0, 3661.42, -3616.55, 137.46, 5.35, 'quest 9737'),
-(11206, 6, 10, 17914, 3000000, 0, 0, 0, 0, 0, 0, 0, 0, 3657.86, -3618.3, 137.4, 5.7, 'quest 9737'),
-(11206, 8, 10, 17912, 3000000, 0, 0, 0, 0, 0, 0, 0, 0, 3657.63, -3621.24, 137.74, 5.97, 'quest 9737'),
-(11206, 1, 9, @OGUID+801, 1200, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'quest 9737'),
-(11206, 1, 9, @OGUID+802, 1200, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'quest 9737'),
-(11206, 1, 9, @OGUID+803, 1200, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'quest 9737'),
-(11206, 1, 9, @OGUID+804, 1200, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'quest 9737'),
-(11206, 1, 9, @OGUID+805, 1200, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'quest 9737'),
-(11206, 1, 9, @OGUID+806, 1200, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'quest 9737'),
-(11206, 1, 9, @OGUID+807, 1200, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'quest 9737'),
-(11206, 1, 9, @OGUID+808, 1200, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'quest 9737'),
-(11206, 1, 9, @OGUID+809, 1200, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'quest 9737'),
-(11206, 1, 9, @OGUID+810, 1200, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'quest 9737'),
-(11206, 1, 9, @OGUID+811, 1200, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'quest 9737'),
-(11206, 1, 9, @OGUID+812, 1200, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'quest 9737'),
-(11206, 1, 9, @OGUID+813, 1200, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'quest 9737'),
-(11206, 1, 9, @OGUID+814, 1200, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'quest 9737'),
-(11206, 1, 9, @OGUID+815, 900, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'quest 9737'),
-(11206, 1, 9, @OGUID+816, 900, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'quest 9737'),
-(11206, 1, 9, @OGUID+817, 900, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'quest 9737'),
-(11206, 1, 22, 14, 1, 0, 10917, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'quest 9737'),
-(11206, 1, 26, 0, 0, 0, 10917, 10, 3, 0, 0, 0, 0, 0, 0, 0, 0, 'quest 9737');
+(11206, 2000, 10, 17911, 3000000, 0, 0, 0, 0, 0, 0, 0, 0, 3664.94, -3614.78, 137.49, 5.08, 'quest 9737'),
+(11206, 4000, 10, 17910, 3000000, 0, 0, 0, 0, 0, 0, 0, 0, 3661.42, -3616.55, 137.46, 5.35, 'quest 9737'),
+(11206, 6000, 10, 17914, 3000000, 0, 0, 0, 0, 0, 0, 0, 0, 3657.86, -3618.3, 137.4, 5.7, 'quest 9737'),
+(11206, 8000, 10, 17912, 3000000, 0, 0, 0, 0, 0, 0, 0, 0, 3657.63, -3621.24, 137.74, 5.97, 'quest 9737'),
+(11206, 1000, 9, @OGUID+801, 1200, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'quest 9737'),
+(11206, 1000, 9, @OGUID+802, 1200, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'quest 9737'),
+(11206, 1000, 9, @OGUID+803, 1200, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'quest 9737'),
+(11206, 1000, 9, @OGUID+804, 1200, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'quest 9737'),
+(11206, 1000, 9, @OGUID+805, 1200, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'quest 9737'),
+(11206, 1000, 9, @OGUID+806, 1200, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'quest 9737'),
+(11206, 1000, 9, @OGUID+807, 1200, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'quest 9737'),
+(11206, 1000, 9, @OGUID+808, 1200, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'quest 9737'),
+(11206, 1000, 9, @OGUID+809, 1200, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'quest 9737'),
+(11206, 1000, 9, @OGUID+810, 1200, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'quest 9737'),
+(11206, 1000, 9, @OGUID+811, 1200, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'quest 9737'),
+(11206, 1000, 9, @OGUID+812, 1200, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'quest 9737'),
+(11206, 1000, 9, @OGUID+813, 1200, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'quest 9737'),
+(11206, 1000, 9, @OGUID+814, 1200, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'quest 9737'),
+(11206, 1000, 9, @OGUID+815, 900, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'quest 9737'),
+(11206, 1000, 9, @OGUID+816, 900, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'quest 9737'),
+(11206, 1000, 9, @OGUID+817, 900, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'quest 9737'),
+(11206, 1000, 22, 14, 1, 0, 10917, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'quest 9737'),
+(11206, 1000, 26, 0, 0, 0, 10917, 10, 3, 0, 0, 0, 0, 0, 0, 0, 0, 'quest 9737');
 
 -- INSERT INTO `dbscripts_on_spell` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
 -- INSERT INTO `dbscripts_on_gossip` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES

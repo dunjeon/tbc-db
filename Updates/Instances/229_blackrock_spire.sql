@@ -3,7 +3,6 @@ DBName: Blackrock Spire
 DBScriptName: instance_blackrock_spire
 DB%Complete: 75
 DBComment:
-* @CGUID+165 (old 40154) seems to be leftover of older revision
 EndDBScriptData */
 
 SET @CGUID := 2290000; -- creatures
@@ -476,7 +475,7 @@ INSERT INTO `creature_movement` (`id`, `point`, `position_x`, `position_y`, `pos
 (@CGUID+568, 20, -133.624, -520.864, 11.3495, 100, 0, 0),
 (@CGUID+568, 21, -127.177, -520.906, 11.7612, 100, 0, 0);
 
-DELETE FROM creature_movement_template WHERE entry IN (9219,9736,10317,10430,10509,10799,10899);
+DELETE FROM creature_movement_template WHERE entry IN (9219,9736,10258,10317,10430,10509,10683,10799,10899);
 INSERT INTO `creature_movement_template` (`entry`, `pathId`, `point`, `position_x`, `position_y`, `position_z`, `orientation`, `waittime`, `script_id`) VALUES
 (9219, 0, 1, -37.05, -387.07, 31.8, 4.65, 0, 0),
 (9219, 0, 2, -36.5, -478.69, 29.99, 1.6, 0, 0),
@@ -487,6 +486,11 @@ INSERT INTO `creature_movement_template` (`entry`, `pathId`, `point`, `position_
 (9736, 0, 5, -199.716, -463.531, 87.3902, 2.20547, 0, 0),
 (9736, 0, 6, -202.282, -460.122, 87.3902, 2.50706, 20000, 973601),
 (9736, 0, 7, -191.052, -475.636, 87.3902, 5.44113, 15000, 0),
+(10258, 0, 1, 65.74288, -271.0012, 92.99815, 100, 0, 0),
+(10258, 0, 2, 70.5515, -274.2301, 92.34054, 100, 0, 0),
+(10258, 0, 3, 74.05502, -276.7673, 91.84272, 100, 0, 0),
+(10258, 0, 4, 78.63022, -279.6054, 91.47189, 100, 0, 0),
+(10258, 0, 5, 78.62106, -327.869, 91.45872, 100, 1, 1026404),
 (10317, 0, 1, 98.09, -563.45, 109.86, 2.37, 0, 5),
 (10317, 0, 2, 98.09, -563.45, 109.86, 2.37, 0, 1031705),
 (10317, 0, 3, 72.95, -541.25, 110.93, 2.48, 0, 1031706),
@@ -529,6 +533,11 @@ INSERT INTO `creature_movement_template` (`entry`, `pathId`, `point`, `position_
 (10509, 0, 18, 153.333, -254.239, 110.841, 100, 0, 0),
 (10509, 0, 19, 147.933, -256.874, 110.85, 100, 0, 0),
 (10509, 0, 20, 144.41, -258.089, 110.852, 100, 0, 0),
+(10683, 0, 1, 65.74288, -271.0012, 92.99815, 100, 0, 0),
+(10683, 0, 2, 70.5515, -274.2301, 92.34054, 100, 0, 0),
+(10683, 0, 3, 74.05502, -276.7673, 91.84272, 100, 0, 0),
+(10683, 0, 4, 78.63022, -279.6054, 91.47189, 100, 0, 0),
+(10683, 0, 5, 78.62106, -327.869, 91.45872, 100, 1, 1026404),
 (10799, 0, 1, 49.903, -402.132, 48.8059, 100, 0, 0),
 (10799, 0, 2, 58.416, -418.709, 45.0265, 100, 0, 0),
 (10799, 0, 3, 71.5898, -436.815, 41.4104, 100, 0, 0),
@@ -702,7 +711,7 @@ REPLACE INTO `creature_template_addon` (`entry`, `mount`, `bytes1`, `b2_0_sheath
 (9596, 0, 0, 1, 16, 0, 0, NULL), -- Bannok Grimaxe
 (9692, 0, 0, 1, 16, 0, 0, NULL), -- Bloodaxe Raider
 (9693, 0, 0, 1, 16, 0, 0, NULL), -- Bloodaxe Evoker
-(9696, 0, 1536, 1, 40, 0, 0, NULL), -- Bloodaxe Worg
+(9696, 0, 0, 1, 0, 0, 0, NULL), -- Bloodaxe Worg
 (9701, 0, 0, 1, 16, 0, 0, NULL), -- Spire Scorpid
 (9716, 0, 0, 1, 16, 0, 0, NULL), -- Bloodaxe Warmonger
 (9717, 0, 0, 1, 16, 0, 0, NULL), -- Bloodaxe Summoner
@@ -749,6 +758,8 @@ INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES
 (@CGUID+269, @CGUID+185, 515), -- Smolderthorn Shadow Hunter -> Smolderthorn Headhunter
 (@CGUID+290, @CGUID+185, 515), -- Smolderthorn Berserker -> Smolderthorn Headhunter
 (@CGUID+293, @CGUID+194, 515), -- Smolderthorn Berserker -> Smolderthorn Headhunter
+(@CGUID+315, @CGUID+209, 3), -- Scarshield Worg -> Scarshield Raider
+(@CGUID+316, @CGUID+209, 3), -- Scarshield Worg -> Scarshield Raider
 (@CGUID+351, @CGUID+338, 515), -- Bloodaxe Worg -> Bloodaxe Raider
 (@CGUID+354, @CGUID+335, 515), -- Bloodaxe Worg -> Bloodaxe Raider
 (@CGUID+355, @CGUID+338, 515), -- Bloodaxe Worg -> Bloodaxe Raider
@@ -762,6 +773,8 @@ INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES
 (@CGUID+567, @CGUID+556, 515); -- Rage Talon Fire Tongue -> Rage Talon Captain
 
 REPLACE INTO `creature_linking_template` (`entry`, `map`, `master_entry`, `flag`, `search_range`) VALUES
+(10258, 229, 10264, 3, 0), -- Rookery Guardian -> Solakar Flamewreath
+(10683, 229, 10264, 3, 0), -- Rookery Hatcher -> Solakar Flamewreath
 (10316, 229, 10316, 3, 0), -- Blackhand Incarcerator -> Blackhand Incarcerator
 (10814, 229, 10363, 7, 0); -- Chromatic Elite Guard -> General Drakkisath
 
@@ -930,7 +943,7 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `position_x`, `position_y`, `positi
 (@CGUID+162, 9239, 229, -108.768, -475.778, 24.2549, 1.60891, 7200, 7200, 0, 0, 0, 0), -- Smolderthorn Mystic
 (@CGUID+163, 9239, 229, -39.0271, -547.342, 16.1255, 4.97512, 7200, 7200, 0, 0, 0, 2), -- Smolderthorn Mystic
 (@CGUID+164, 9239, 229, -38.25, -514.12, -18.63, 4.72, 10800, 10800, 5, 0, 0, 1), -- Smolderthorn Mystic
-(@CGUID+165, 9240, 229, -47.73, -460.24, 16.58, 6, 10800, 10800, 0, 0, 0, 2), -- Smolderthorn Shadow Priest
+-- (@CGUID+165
 (@CGUID+166, 9240, 229, 0.02, -461.27, 16.28, 3.03, 10800, 10800, 0, 0, 0, 2), -- Smolderthorn Shadow Priest
 (@CGUID+167, 9240, 229, -33.19, -450.39, 16.67, 3.75, 10800, 10800, 0, 0, 0, 0), -- Smolderthorn Shadow Priest
 (@CGUID+168, 9240, 229, -53.5, -454.29, 16.54, 2.25, 10800, 10800, 0, 0, 0, 0), -- Smolderthorn Shadow Priest
@@ -1311,7 +1324,7 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `position_x`, `position_y`, `positi
 (@CGUID+543, 10319, 229, 33.2388, -451.331, 110.947, 1.64, 10800, 10800, 0, 0, 0, 2), -- Blackhand Iron Guard
 (@CGUID+544, 10319, 229, 37.0285, -381.152, 110.768, 4.29351, 10800, 10800, 0, 0, 0, 0), -- Blackhand Iron Guard
 (@CGUID+545, 10319, 229, 137.876, -449.432, 121.975, 1.64, 10800, 10800, 0, 0, 0, 2), -- Blackhand Iron Guard
-(@CGUID+546, 10363, 229, 34.76, -285.31, 111.13, 3.21, 1000000, 1000000, 0, 0, 0, 0), -- General Drakkisath
+(@CGUID+546, 10363, 229, 36.45086, -285.9936, 111.0362, 3.141593, 86400, 86400, 0, 0, 0, 0), -- General Drakkisath
 (@CGUID+547, 10366, 229, 93.01, -492.67, 117.02, 1.5, 10800, 10800, 0, 0, 0, 0), -- Rage Talon Dragon Guard
 (@CGUID+548, 10366, 229, 165.226, -475.206, 116.841, 3.14108, 10800, 10800, 0, 0, 0, 2), -- Rage Talon Dragon Guard
 (@CGUID+549, 10366, 229, 27.66, -429.07, 111.11, 1.63, 10800, 10800, 0, 0, 0, 0), -- Rage Talon Dragon Guard
@@ -1360,8 +1373,8 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `position_x`, `position_y`, `positi
 (@CGUID+592, 10762, 229, 71.6325, -421.346, 110.795, 2.68781, 10800, 10800, 0, 0, 0, 0), -- Blackhand Thug
 (@CGUID+593, 10762, 229, 71.7459, -419.106, 111.144, 3.75246, 10800, 10800, 0, 0, 0, 0), -- Blackhand Thug
 (@CGUID+594, 10799, 229, 44.4994, -372.649, 48.7903, 4.89366, 7200, 7200, 0, 0, 0, 2), -- Warosh
-(@CGUID+595, 10814, 229, 31.706, -293.848, 110.947, 3.18881, 7200, 7200, 0, 0, 0, 0), -- Chromatic Elite Guard
-(@CGUID+596, 10814, 229, 30.8434, -278.412, 110.945, 3.18881, 7200, 7200, 0, 0, 0, 0), -- Chromatic Elite Guard
+(@CGUID+595, 10814, 229, 36.87827, -296.5741, 111.0368, 3.089233, 7200, 7200, 0, 0, 0, 0), -- Chromatic Elite Guard
+(@CGUID+596, 10814, 229, 37.30009, -275.5574, 111.0374, 3.193953, 7200, 7200, 0, 0, 0, 0), -- Chromatic Elite Guard
 (@CGUID+597, 10899, 229, 140.98, -249.36, 110.95, 0.02, 1000000, 1000000, 0, 0, 0, 2), -- Goraluk Anvilcrack
 (@CGUID+598, 15560, 229, 31.5467, -401.319, 48.6986, 1.68414, 25, 25, 0, 0, 0, 0), -- Elder Stonefort
 (@CGUID+599, 16044, 229, -15.9034, -455.282, -18.6442, 3.15971, 450, 450, 0, 0, 0, 0), -- Mor Grayhoof Trigger
@@ -1412,12 +1425,7 @@ INSERT INTO `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `posi
 (@OGUID+38, 136964, 229, 82.5879, -364.586, 116.859, 2.72271, 0, 0, 0, 0, 120, 120, 0, 1), -- Bonfire
 (@OGUID+39, 136965, 229, 215.773, -341.663, 76.8612, 1.92859, 0, 0, 0.821647, 0.569997, 120, 120, 0, 1), -- Bonfire
 (@OGUID+40, 136966, 229, 229.028, -307.81, 76.9668, 2.72271, 0, 0, 0.978148, 0.207912, 120, 120, 0, 1), -- Bonfire
-(@OGUID+41, 153464, 229, -36.1176, -583.828, -18.8201, 1.97222, 0, 0, 0, 0, 86400, 86400, 0, 1), -- Large Solid Chest
-(@OGUID+42, 153464, 229, 183.647, -369.15, 117.143, 2.44346, 0, 0, 0.939692, 0.342021, 86400, 86400, 255, 1), -- Large Solid Chest
-(@OGUID+43, 153469, 229, -73.9985, -453.335, -18.935, -3.08918, 0, 0, 0, 0, 86400, 86400, 0, 1), -- Large Mithril Bound Chest
-(@OGUID+44, 153469, 229, -84.2677, -350.104, 70.9524, 1.91986, 0, 0, 0, 0, 86400, 86400, 0, 1), -- Large Mithril Bound Chest
-(@OGUID+45, 153469, 229, 86.8551, -587.501, 30.6085, 2.63544, 0, 0, 0, 0, 86400, 86400, 0, 1), -- Large Mithril Bound Chest
-(@OGUID+46, 153469, 229, -20.2914, -361.811, 50.6356, -1.64061, 0, 0, -0.731354, 0.681998, 86400, 86400, 255, 1), -- Large Mithril Bound Chest
+-- 41 - 46
 (@OGUID+47, 164725, 229, 126.879, -319.109, 70.935, 3.14159, 0, 0, 1, 0, 180, 180, 100, 1), -- Dragonspine Door
 (@OGUID+48, 164726, 229, 108.036, -420.331, 110.954, 3.14159, 0, 0, 1, 0, 180, 180, 100, 0), -- Doodad_PortcullisActive01
 (@OGUID+49, 175124, 229, 208.798, -433.633, 110.888, -2.82743, 0, 0, 0, 1, 300, 300, 255, 1), -- Rookery Egg
@@ -1771,7 +1779,27 @@ INSERT INTO `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `posi
 (@OGUID+397, 181046, 229, -23.97, -451.98, -18.64, 0, 0, 0, 0, 0, 180, 180, 0, 1), -- Mor Grayhoof Brazier Spell Focus
 (@OGUID+398, 181050, 229, 25.92, -537.7, 110.93, 0, 0, 0, 0, 0, 180, 180, 0, 1), -- Lord Valthalak Brazier Spell Focus
 (@OGUID+399, 181096, 229, -23.97, -451.98, -18.64, 0, 0, 0, 0, 0, 180, 180, 0, 1), -- Brazier of Invocation Spell Focus 20 yd
-(@OGUID+400, 181096, 229, 25.92, -537.7, 110.93, 0, 0, 0, 0, 0, 180, 180, 0, 1); -- Brazier of Invocation Spell Focus 20 yd
+(@OGUID+400, 181096, 229, 25.92, -537.7, 110.93, 0, 0, 0, 0, 0, 180, 180, 0, 1), -- Brazier of Invocation Spell Focus 20 yd
+(@OGUID+401, 153464, 229, -36.1176, -583.828, -18.8201, 1.97222, 0, 0, 0, 0, 86400, 86400, 255, 1), -- Large Solid Chest
+(@OGUID+402, 153469, 229, -36.1176, -583.828, -18.8201, 1.97222, 0, 0, 0, 0, 86400, 86400, 255, 1), -- Large Mithril Bound Chest
+(@OGUID+403, 153464, 229, -39.64638, -472.5804, -18.76505, -1.466076, 0, 0, -0.6691303, 0.743145, 86400, 86400, 255, 1), -- Large Solid Chest
+(@OGUID+404, 153469, 229, -39.64638, -472.5804, -18.76505, -1.466076, 0, 0, -0.6691303, 0.743145, 86400, 86400, 255, 1), -- Large Mithril Bound Chest
+(@OGUID+405, 153464, 229, -73.9985, -453.335, -18.935, -3.08918, 0, 0, 0, 0, 86400, 86400, 255, 1), -- Large Solid Chest
+(@OGUID+406, 153469, 229, -73.9985, -453.335, -18.935, -3.08918, 0, 0, 0, 0, 86400, 86400, 255, 1), -- Large Mithril Bound Chest
+(@OGUID+407, 153464, 229, -110.6121, -423.6278, -18.935, -2.879789, 0, 0, -0.9914446, 0.1305283, 86400, 86400, 255, 1), -- Large Solid Chest
+(@OGUID+408, 153469, 229, -110.6121, -423.6278, -18.935, -2.879789, 0, 0, -0.9914446, 0.1305283, 86400, 86400, 255, 1), -- Large Mithril Bound Chest
+(@OGUID+409, 153464, 229, -64.86904, -586.8962, 29.19087, 0.8901166, 0, 0, 0.4305105, 0.9025856, 86400, 86400, 255, 1), -- Large Solid Chest
+(@OGUID+410, 153469, 229, -64.86904, -586.8962, 29.19087, 0.8901166, 0, 0, 0.4305105, 0.9025856, 86400, 86400, 255, 1), -- Large Mithril Bound Chest
+(@OGUID+411, 153464, 229, 86.8551, -587.501, 30.6085, 2.63544, 0, 0, 0, 0, 86400, 86400, 255, 1), -- Large Solid Chest
+(@OGUID+412, 153469, 229, 86.8551, -587.501, 30.6085, 2.63544, 0, 0, 0, 0, 86400, 86400, 255, 1), -- Large Mithril Bound Chest
+(@OGUID+413, 153464, 229, -20.29138, -361.8112, 50.63561, -1.64061, 0, 0, -0.7313538, 0.6819983, 86400, 86400, 255, 1), -- Large Solid Chest
+(@OGUID+414, 153469, 229, -20.29138, -361.8112, 50.63561, -1.64061, 0, 0, -0.7313538, 0.6819983, 86400, 86400, 255, 1), -- Large Mithril Bound Chest
+(@OGUID+415, 153464, 229, -84.2677, -350.104, 70.9524, 1.91986, 0, 0, 0, 0, 86400, 86400, 255, 1), -- Large Solid Chest
+(@OGUID+416, 153469, 229, -84.2677, -350.104, 70.9524, 1.91986, 0, 0, 0, 0, 86400, 86400, 255, 1), -- Large Mithril Bound Chest
+(@OGUID+417, 153464, 229, 171.163, -290.7762, 110.9421, 3.089183, 0, 0, 0.9996567, 0.02620165, 86400, 86400, 255, 1), -- Large Solid Chest
+(@OGUID+418, 153469, 229, 171.163, -290.7762, 110.9421, 3.089183, 0, 0, 0.9996567, 0.02620165, 86400, 86400, 255, 1), -- Large Mithril Bound Chest
+(@OGUID+419, 153464, 229, 183.6473, -369.1504, 117.1433, 2.44346, 0, 0, 0.9396925, 0.3420205, 86400, 86400, 255, 1), -- Large Solid Chest
+(@OGUID+420, 153469, 229, 183.6473, -369.1504, 117.1433, 2.44346, 0, 0, 0.9396925, 0.3420205, 86400, 86400, 255, 1); -- Large Mithril Bound Chest
 
 -- ======
 -- EVENTS
@@ -1792,7 +1820,17 @@ INSERT INTO `game_event_gameobject` (`guid`, `event`) VALUES
 -- POOLING
 -- =======
 
--- INSERT INTO `pool_pool` (`pool_id`, `mother_pool`, `chance`, `description`) VALUES
+INSERT INTO `pool_pool` (`pool_id`, `mother_pool`, `chance`, `description`) VALUES
+(@PGUID+81, @PGUID+80, 0, 'Blackrock Spire - Large Solid Chest / Large Mithril Bound Chest - #1'),
+(@PGUID+82, @PGUID+80, 0, 'Blackrock Spire - Large Solid Chest / Large Mithril Bound Chest - #2'),
+(@PGUID+83, @PGUID+80, 0, 'Blackrock Spire - Large Solid Chest / Large Mithril Bound Chest - #3'),
+(@PGUID+84, @PGUID+80, 0, 'Blackrock Spire - Large Solid Chest / Large Mithril Bound Chest - #4'),
+(@PGUID+85, @PGUID+80, 0, 'Blackrock Spire - Large Solid Chest / Large Mithril Bound Chest - #5'),
+(@PGUID+86, @PGUID+80, 0, 'Blackrock Spire - Large Solid Chest / Large Mithril Bound Chest - #6'),
+(@PGUID+87, @PGUID+80, 0, 'Blackrock Spire - Large Solid Chest / Large Mithril Bound Chest - #7'),
+(@PGUID+88, @PGUID+80, 0, 'Blackrock Spire - Large Solid Chest / Large Mithril Bound Chest - #8'),
+(@PGUID+89, @PGUID+80, 0, 'Blackrock Spire - Large Solid Chest / Large Mithril Bound Chest - #9'),
+(@PGUID+90, @PGUID+80, 0, 'Blackrock Spire - Large Solid Chest / Large Mithril Bound Chest - #10');
 
 INSERT INTO `pool_template` (`entry`, `max_limit`, `description`) VALUES
 (@PGUID+1, 1, 'Jed Runewatcher (10509) Blackrock Spire'),
@@ -1806,8 +1844,17 @@ INSERT INTO `pool_template` (`entry`, `max_limit`, `description`) VALUES
 (@PGUID+9, 1, 'Lower Blackrock Spire - Tazz Alaor patrol'),
 (@PGUID+10, 1, 'Lower Blackrock Spire - Tazz Alaor patrol'),
 (@PGUID+11, 1, 'LBRS - Bannok Grimaxe'),
-(@PGUID+98, 1, 'LBRS - Master Chest Pool'),
-(@PGUID+99, 2, 'UBRS - Master Chest Pool');
+(@PGUID+80, 3, 'Blackrock Spire - Master Chest Pool'),
+(@PGUID+81, 1, 'Blackrock Spire - Large Solid Chest (153464) / Large Mithril Bound Chest (153469) - #1'),
+(@PGUID+82, 1, 'Blackrock Spire - Large Solid Chest (153464) / Large Mithril Bound Chest (153469) - #2'),
+(@PGUID+83, 1, 'Blackrock Spire - Large Solid Chest (153464) / Large Mithril Bound Chest (153469) - #3'),
+(@PGUID+84, 1, 'Blackrock Spire - Large Solid Chest (153464) / Large Mithril Bound Chest (153469) - #4'),
+(@PGUID+85, 1, 'Blackrock Spire - Large Solid Chest (153464) / Large Mithril Bound Chest (153469) - #5'),
+(@PGUID+86, 1, 'Blackrock Spire - Large Solid Chest (153464) / Large Mithril Bound Chest (153469) - #6'),
+(@PGUID+87, 1, 'Blackrock Spire - Large Solid Chest (153464) / Large Mithril Bound Chest (153469) - #7'),
+(@PGUID+88, 1, 'Blackrock Spire - Large Solid Chest (153464) / Large Mithril Bound Chest (153469) - #8'),
+(@PGUID+89, 1, 'Blackrock Spire - Large Solid Chest (153464) / Large Mithril Bound Chest (153469) - #9'),
+(@PGUID+90, 1, 'Blackrock Spire - Large Solid Chest (153464) / Large Mithril Bound Chest (153469) - #10');
 
 INSERT INTO `pool_creature` (`guid`, `pool_entry`, `chance`, `description`) VALUES
 (@CGUID+395, @PGUID+1, 70, 'Alternate creature to Jed Runewatcher (10509) Blackrock Spire'),
@@ -1835,12 +1882,26 @@ INSERT INTO `pool_creature` (`guid`, `pool_entry`, `chance`, `description`) VALU
 -- INSERT INTO `pool_creature_template` (`id`, `pool_entry`, `chance`, `description`) VALUES
 
 INSERT INTO `pool_gameobject` (`guid`, `pool_entry`, `chance`, `description`) VALUES
-(@OGUID+41, @PGUID+98, 0, 'LBRS - Large Solid Chest (153464)'),
-(@OGUID+42, @PGUID+98, 0, 'LBRS - Large Solid Chest (153464)'),
-(@OGUID+43, @PGUID+99, 0, 'UBRS - Large Mithril Bound Chest (153469)'),
-(@OGUID+44, @PGUID+99, 0, 'UBRS - Large Mithril Bound Chest (153469)'),
-(@OGUID+45, @PGUID+99, 0, 'UBRS - Large Mithril Bound Chest (153469)'),
-(@OGUID+46, @PGUID+99, 0, 'UBRS - Large Mithril Bound Chest (153469)');
+(@OGUID+401, @PGUID+81, 0, 'Blackrock Spire - Large Solid Chest (153464)'),
+(@OGUID+402, @PGUID+81, 0, 'Blackrock Spire - Large Mithril Bound Chest (153469)'),
+(@OGUID+403, @PGUID+82, 0, 'Blackrock Spire - Large Solid Chest (153464)'),
+(@OGUID+404, @PGUID+82, 0, 'Blackrock Spire - Large Mithril Bound Chest (153469)'),
+(@OGUID+405, @PGUID+83, 0, 'Blackrock Spire - Large Solid Chest (153464)'),
+(@OGUID+406, @PGUID+83, 0, 'Blackrock Spire - Large Mithril Bound Chest (153469)'),
+(@OGUID+407, @PGUID+84, 0, 'Blackrock Spire - Large Solid Chest (153464)'),
+(@OGUID+408, @PGUID+84, 0, 'Blackrock Spire - Large Mithril Bound Chest (153469)'),
+(@OGUID+409, @PGUID+85, 0, 'Blackrock Spire - Large Solid Chest (153464)'),
+(@OGUID+410, @PGUID+85, 0, 'Blackrock Spire - Large Mithril Bound Chest (153469)'),
+(@OGUID+411, @PGUID+86, 0, 'Blackrock Spire - Large Solid Chest (153464)'),
+(@OGUID+412, @PGUID+86, 0, 'Blackrock Spire - Large Mithril Bound Chest (153469)'),
+(@OGUID+413, @PGUID+87, 0, 'Blackrock Spire - Large Solid Chest (153464)'),
+(@OGUID+414, @PGUID+87, 0, 'Blackrock Spire - Large Mithril Bound Chest (153469)'),
+(@OGUID+415, @PGUID+88, 0, 'Blackrock Spire - Large Solid Chest (153464)'),
+(@OGUID+416, @PGUID+88, 0, 'Blackrock Spire - Large Mithril Bound Chest (153469)'),
+(@OGUID+417, @PGUID+89, 0, 'Blackrock Spire - Large Solid Chest (153464)'),
+(@OGUID+418, @PGUID+89, 0, 'Blackrock Spire - Large Mithril Bound Chest (153469)'),
+(@OGUID+419, @PGUID+90, 0, 'Blackrock Spire - Large Solid Chest (153464)'),
+(@OGUID+420, @PGUID+90, 0, 'Blackrock Spire - Large Mithril Bound Chest (153469)');
 
 INSERT INTO `pool_gameobject_template` (`id`, `pool_entry`, `chance`, `description`) VALUES
 (175334, @PGUID+3, 0, 'Bijous Belongings'),
@@ -1854,83 +1915,83 @@ DELETE FROM dbscripts_on_creature_movement WHERE id IN (1031701,1031702);
 DELETE FROM dbscripts_on_creature_movement WHERE id IN (909701,909702,909703,909704,909705,909706,909707,924101,924102,925901,926001,926101,926701,958301,971601,971602,973601,1031705,1031706,1043001);
 INSERT INTO `dbscripts_on_creature_movement` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
 (909701, 0, 32, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'pause WP movement'),
-(909701, 6, 1, 1, 0, 0, 0, 0, 0, 11, 21, 6, 0, 0, 0, 0, 0, 'Scarshield Legionnaire random emote'),
-(909701, 15, 1, 1, 0, 0, 9257, 15, 0, 11, 1, 1, 274, 0, 0, 0, 0, 'Scarshield Warlock random emote'),
-(909701, 21, 1, 1, 0, 0, 9098, 15, 0, 11, 1, 1, 274, 0, 0, 0, 0, 'Scarshield Spellbinder random emote'),
-(909701, 33, 1, 1, 0, 0, 9097, 15, 0, 11, 1, 1, 274, 0, 0, 0, 0, 'Scarshield Legionnaire random emote'),
-(909701, 50, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'unpause WP movement'),
+(909701, 6000, 1, 1, 0, 0, 0, 0, 0, 11, 21, 6, 0, 0, 0, 0, 0, 'Scarshield Legionnaire random emote'),
+(909701, 15000, 1, 1, 0, 0, 9257, 15, 0, 11, 1, 1, 274, 0, 0, 0, 0, 'Scarshield Warlock random emote'),
+(909701, 21000, 1, 1, 0, 0, 9098, 15, 0, 11, 1, 1, 274, 0, 0, 0, 0, 'Scarshield Spellbinder random emote'),
+(909701, 33000, 1, 1, 0, 0, 9097, 15, 0, 11, 1, 1, 274, 0, 0, 0, 0, 'Scarshield Legionnaire random emote'),
+(909701, 50000, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'unpause WP movement'),
 (909702, 0, 32, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'pause WP movement'),
-(909702, 6, 1, 1, 0, 0, 0, 0, 0, 11, 1, 1, 274, 0, 0, 0, 0, 'Scarshield Legionnaire random emote'),
-(909702, 21, 1, 1, 0, 0, 9045, 15, 0, 11, 1, 1, 274, 0, 0, 0, 0, 'Scarshield Acolyte random emote'),
-(909702, 33, 1, 1, 0, 0, 9098, 15, 0, 11, 1, 1, 274, 0, 0, 0, 0, 'Scarshield Spellbinder random emote'),
-(909702, 50, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'unpause WP movement'),
+(909702, 6000, 1, 1, 0, 0, 0, 0, 0, 11, 1, 1, 274, 0, 0, 0, 0, 'Scarshield Legionnaire random emote'),
+(909702, 21000, 1, 1, 0, 0, 9045, 15, 0, 11, 1, 1, 274, 0, 0, 0, 0, 'Scarshield Acolyte random emote'),
+(909702, 33000, 1, 1, 0, 0, 9098, 15, 0, 11, 1, 1, 274, 0, 0, 0, 0, 'Scarshield Spellbinder random emote'),
+(909702, 50000, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'unpause WP movement'),
 (909703, 0, 32, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'pause WP movement'),
-(909703, 6, 1, 1, 0, 0, 0, 0, 0, 11, 1, 1, 274, 0, 0, 0, 0, 'Scarshield Legionnaire random emote'),
-(909703, 21, 1, 1, 0, 0, 9045, 15, 0, 11, 1, 1, 274, 0, 0, 0, 0, 'Scarshield Acolyte random emote'),
-(909703, 33, 1, 1, 0, 0, 9257, 15, 0, 11, 1, 1, 274, 0, 0, 0, 0, 'Scarshield Warlock random emote'),
-(909703, 50, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'unpause WP movement'),
+(909703, 6000, 1, 1, 0, 0, 0, 0, 0, 11, 1, 1, 274, 0, 0, 0, 0, 'Scarshield Legionnaire random emote'),
+(909703, 21000, 1, 1, 0, 0, 9045, 15, 0, 11, 1, 1, 274, 0, 0, 0, 0, 'Scarshield Acolyte random emote'),
+(909703, 33000, 1, 1, 0, 0, 9257, 15, 0, 11, 1, 1, 274, 0, 0, 0, 0, 'Scarshield Warlock random emote'),
+(909703, 50000, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'unpause WP movement'),
 (909704, 0, 32, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'pause WP movement'),
-(909704, 6, 1, 1, 0, 0, 0, 0, 0, 11, 1, 1, 274, 0, 0, 0, 0, 'Scarshield Legionnaire random emote'),
-(909704, 21, 1, 1, 0, 0, 9257, 15, 0, 11, 1, 1, 274, 0, 0, 0, 0, 'Scarshield Warlock random emote'),
-(909704, 33, 1, 1, 0, 0, 9098, 15, 0, 11, 1, 1, 274, 0, 0, 0, 0, 'Scarshield Spellbinder random emote'),
-(909704, 50, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'unpause WP movement'),
+(909704, 6000, 1, 1, 0, 0, 0, 0, 0, 11, 1, 1, 274, 0, 0, 0, 0, 'Scarshield Legionnaire random emote'),
+(909704, 21000, 1, 1, 0, 0, 9257, 15, 0, 11, 1, 1, 274, 0, 0, 0, 0, 'Scarshield Warlock random emote'),
+(909704, 33000, 1, 1, 0, 0, 9098, 15, 0, 11, 1, 1, 274, 0, 0, 0, 0, 'Scarshield Spellbinder random emote'),
+(909704, 50000, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'unpause WP movement'),
 (909705, 0, 32, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'pause WP movement'),
-(909705, 2, 1, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'eat/drink emote'),
-(909705, 19, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'unpause WP movement'),
+(909705, 2000, 1, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'eat/drink emote'),
+(909705, 19000, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'unpause WP movement'),
 (909706, 0, 32, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'pause WP movement'),
-(909706, 9, 1, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'eat/drink emote'),
-(909706, 20, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'unpause WP movement'),
+(909706, 9000, 1, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'eat/drink emote'),
+(909706, 20000, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'unpause WP movement'),
 (909707, 0, 32, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'pause WP movement'),
-(909707, 18, 1, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'eat/drink emote'),
-(909707, 21, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'unpause WP movement'),
+(909707, 18000, 1, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'eat/drink emote'),
+(909707, 21000, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'unpause WP movement'),
 (924101, 0, 32, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'pause WP movement'),
-(924101, 6, 1, 1, 0, 0, 0, 0, 0, 11, 21, 6, 0, 0, 0, 0, 0, 'Smolderthorn Headhunter random emote'),
-(924101, 15, 1, 1, 0, 0, 9269, 15, 0, 11, 1, 1, 274, 0, 0, 0, 0, 'Smolderthorn Seer random emote'),
-(924101, 21, 1, 1, 0, 0, 9241, 15, 0, 11, 1, 1, 274, 0, 0, 0, 0, 'Smolderthorn Headhunter random emote'),
-(924101, 33, 1, 1, 0, 0, 9266, 15, 0, 11, 1, 1, 274, 0, 0, 0, 0, 'Smolderthorn Witch Doctor random emote'),
-(924101, 50, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'unpause WP movement'),
+(924101, 6000, 1, 1, 0, 0, 0, 0, 0, 11, 21, 6, 0, 0, 0, 0, 0, 'Smolderthorn Headhunter random emote'),
+(924101, 15000, 1, 1, 0, 0, 9269, 15, 0, 11, 1, 1, 274, 0, 0, 0, 0, 'Smolderthorn Seer random emote'),
+(924101, 21000, 1, 1, 0, 0, 9241, 15, 0, 11, 1, 1, 274, 0, 0, 0, 0, 'Smolderthorn Headhunter random emote'),
+(924101, 33000, 1, 1, 0, 0, 9266, 15, 0, 11, 1, 1, 274, 0, 0, 0, 0, 'Smolderthorn Witch Doctor random emote'),
+(924101, 50000, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'unpause WP movement'),
 (924102, 0, 32, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'pause WP movement'),
-(924102, 6, 1, 1, 0, 0, 0, 0, 0, 11, 1, 1, 274, 0, 0, 0, 0, 'Smolderthorn Headhunter random emote'),
-(924102, 21, 1, 1, 0, 0, 9269, 15, 0, 11, 1, 1, 274, 0, 0, 0, 0, 'Smolderthorn Seer random emote'),
-(924102, 33, 1, 1, 0, 0, 9240, 15, 0, 11, 1, 1, 274, 0, 0, 0, 0, 'Smolderthorn Shadow Priest random emote'),
-(924102, 50, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'unpause WP movement'),
+(924102, 6000, 1, 1, 0, 0, 0, 0, 0, 11, 1, 1, 274, 0, 0, 0, 0, 'Smolderthorn Headhunter random emote'),
+(924102, 21000, 1, 1, 0, 0, 9269, 15, 0, 11, 1, 1, 274, 0, 0, 0, 0, 'Smolderthorn Seer random emote'),
+(924102, 33000, 1, 1, 0, 0, 9240, 15, 0, 11, 1, 1, 274, 0, 0, 0, 0, 'Smolderthorn Shadow Priest random emote'),
+(924102, 50000, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'unpause WP movement'),
 (925901, 0, 32, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'pause WP movement'),
-(925901, 6, 1, 1, 0, 0, 0, 0, 0, 11, 1, 1, 274, 0, 0, 0, 0, 'Firebrand Grunt random emote'),
-(925901, 21, 1, 1, 0, 0, 9261, 15, 0, 11, 1, 1, 274, 0, 0, 0, 0, 'Firebrand Darkweaver random emote'),
-(925901, 33, 1, 1, 0, 0, 9262, 15, 0, 11, 1, 1, 274, 0, 0, 0, 0, 'Firebrand Evoker random emote'),
-(925901, 50, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'unpause WP movement'),
+(925901, 6000, 1, 1, 0, 0, 0, 0, 0, 11, 1, 1, 274, 0, 0, 0, 0, 'Firebrand Grunt random emote'),
+(925901, 21000, 1, 1, 0, 0, 9261, 15, 0, 11, 1, 1, 274, 0, 0, 0, 0, 'Firebrand Darkweaver random emote'),
+(925901, 33000, 1, 1, 0, 0, 9262, 15, 0, 11, 1, 1, 274, 0, 0, 0, 0, 'Firebrand Evoker random emote'),
+(925901, 50000, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'unpause WP movement'),
 (926001, 0, 32, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'pause WP movement'),
-(926001, 6, 1, 1, 0, 0, 0, 0, 0, 11, 1, 1, 274, 0, 0, 0, 0, 'Firebrand Legionnaire random emote'),
-(926001, 21, 1, 1, 0, 0, 9263, 15, 0, 11, 1, 1, 274, 0, 0, 0, 0, 'Firebrand Dreadweaver random emote'),
-(926001, 33, 1, 1, 0, 0, 9264, 15, 0, 11, 1, 1, 274, 0, 0, 0, 0, 'Firebrand Pyromancer random emote'),
-(926001, 50, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'unpause WP movement'),
+(926001, 6000, 1, 1, 0, 0, 0, 0, 0, 11, 1, 1, 274, 0, 0, 0, 0, 'Firebrand Legionnaire random emote'),
+(926001, 21000, 1, 1, 0, 0, 9263, 15, 0, 11, 1, 1, 274, 0, 0, 0, 0, 'Firebrand Dreadweaver random emote'),
+(926001, 33000, 1, 1, 0, 0, 9264, 15, 0, 11, 1, 1, 274, 0, 0, 0, 0, 'Firebrand Pyromancer random emote'),
+(926001, 50000, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'unpause WP movement'),
 (926101, 0, 32, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'pause WP movement'),
-(926101, 6, 1, 1, 0, 0, 0, 0, 0, 11, 1, 1, 274, 0, 0, 0, 0, 'Firebrand Darkweaver random emote'),
-(926101, 21, 1, 1, 0, 0, 9259, 15, 0, 11, 1, 1, 274, 0, 0, 0, 0, 'Firebrand Grunt random emote'),
-(926101, 50, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'unpause WP movement'),
+(926101, 6000, 1, 1, 0, 0, 0, 0, 0, 11, 1, 1, 274, 0, 0, 0, 0, 'Firebrand Darkweaver random emote'),
+(926101, 21000, 1, 1, 0, 0, 9259, 15, 0, 11, 1, 1, 274, 0, 0, 0, 0, 'Firebrand Grunt random emote'),
+(926101, 50000, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'unpause WP movement'),
 (926701, 0, 32, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'pause WP movement'),
-(926701, 6, 1, 1, 0, 0, 0, 0, 0, 11, 1, 1, 274, 0, 0, 0, 0, 'Smolderthorn Axe Thrower random emote'),
-(926701, 21, 1, 1, 0, 0, 9267, 15, 0, 11, 1, 1, 274, 0, 0, 0, 0, 'Smolderthorn Axe Thrower random emote'),
-(926701, 33, 1, 1, 0, 0, 9240, 15, 0, 11, 1, 1, 274, 0, 0, 0, 0, 'Smolderthorn Shadow Priest random emote'),
-(926701, 50, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'unpause WP movement'),
+(926701, 6000, 1, 1, 0, 0, 0, 0, 0, 11, 1, 1, 274, 0, 0, 0, 0, 'Smolderthorn Axe Thrower random emote'),
+(926701, 21000, 1, 1, 0, 0, 9267, 15, 0, 11, 1, 1, 274, 0, 0, 0, 0, 'Smolderthorn Axe Thrower random emote'),
+(926701, 33000, 1, 1, 0, 0, 9240, 15, 0, 11, 1, 1, 274, 0, 0, 0, 0, 'Smolderthorn Shadow Priest random emote'),
+(926701, 50000, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'unpause WP movement'),
 (958301, 0, 32, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'pause WP movement'),
-(958301, 6, 1, 1, 0, 0, 0, 0, 0, 11, 1, 1, 274, 0, 0, 0, 0, 'Bloodaxe Veteran random emote'),
-(958301, 33, 1, 1, 0, 0, 9693, 15, 0, 11, 1, 1, 274, 0, 0, 0, 0, 'Bloodaxe Evoker random emote'),
-(958301, 50, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'unpause WP movement'),
+(958301, 6000, 1, 1, 0, 0, 0, 0, 0, 11, 1, 1, 274, 0, 0, 0, 0, 'Bloodaxe Veteran random emote'),
+(958301, 33000, 1, 1, 0, 0, 9693, 15, 0, 11, 1, 1, 274, 0, 0, 0, 0, 'Bloodaxe Evoker random emote'),
+(958301, 50000, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'unpause WP movement'),
 (971601, 0, 32, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'pause WP movement'),
-(971601, 6, 1, 1, 0, 0, 0, 0, 0, 11, 1, 1, 274, 0, 0, 0, 0, 'Bloodaxe Warmonger random emote'),
-(971601, 21, 1, 1, 0, 0, 9716, 15, 0, 11, 1, 1, 274, 0, 0, 0, 0, 'Bloodaxe Warmonger random emote'),
-(971601, 33, 1, 1, 0, 0, 9693, 15, 0, 11, 1, 1, 274, 0, 0, 0, 0, 'Bloodaxe Evoker random emote'),
-(971601, 50, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'unpause WP movement'),
+(971601, 6000, 1, 1, 0, 0, 0, 0, 0, 11, 1, 1, 274, 0, 0, 0, 0, 'Bloodaxe Warmonger random emote'),
+(971601, 21000, 1, 1, 0, 0, 9716, 15, 0, 11, 1, 1, 274, 0, 0, 0, 0, 'Bloodaxe Warmonger random emote'),
+(971601, 33000, 1, 1, 0, 0, 9693, 15, 0, 11, 1, 1, 274, 0, 0, 0, 0, 'Bloodaxe Evoker random emote'),
+(971601, 50000, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'unpause WP movement'),
 (971602, 0, 32, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'pause WP movement'),
-(971602, 6, 1, 1, 0, 0, 0, 0, 0, 11, 1, 1, 274, 0, 0, 0, 0, 'Bloodaxe Warmonger random emote'),
-(971602, 21, 1, 1, 0, 0, 9716, 15, 0, 11, 1, 1, 274, 0, 0, 0, 0, 'Bloodaxe Warmonger random emote'),
-(971602, 33, 1, 1, 0, 0, 9717, 15, 0, 11, 1, 1, 274, 0, 0, 0, 0, 'Bloodaxe Summoner random emote'),
-(971602, 50, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'unpause WP movement'),
-(973601, 1, 1, 1, 0, 0, 0, 0, 0, 273, 5, 274, 1, 0, 0, 0, 0, ''),
-(973601, 7, 1, 1, 0, 0, 0, 0, 0, 273, 5, 274, 1, 0, 0, 0, 0, ''),
-(973601, 16, 1, 1, 0, 0, 0, 0, 0, 273, 5, 274, 1, 0, 0, 0, 0, ''),
-(1031705, 0, 0, 0, 0, 0, 0, 0, 0, 2000000060, 0, 0, 0, 0, 0, 0, 0, 'Blackhand Elite yell'),
+(971602, 6000, 1, 1, 0, 0, 0, 0, 0, 11, 1, 1, 274, 0, 0, 0, 0, 'Bloodaxe Warmonger random emote'),
+(971602, 21000, 1, 1, 0, 0, 9716, 15, 0, 11, 1, 1, 274, 0, 0, 0, 0, 'Bloodaxe Warmonger random emote'),
+(971602, 33000, 1, 1, 0, 0, 9717, 15, 0, 11, 1, 1, 274, 0, 0, 0, 0, 'Bloodaxe Summoner random emote'),
+(971602, 50000, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'unpause WP movement'),
+(973601, 1000, 1, 1, 0, 0, 0, 0, 0, 273, 5, 274, 1, 0, 0, 0, 0, ''),
+(973601, 7000, 1, 1, 0, 0, 0, 0, 0, 273, 5, 274, 1, 0, 0, 0, 0, ''),
+(973601, 16000, 1, 1, 0, 0, 0, 0, 0, 273, 5, 274, 1, 0, 0, 0, 0, ''),
+(1031705, 0, 0, 0, 0, 0, 0, 0, 0, 2000010060, 0, 0, 0, 0, 0, 0, 0, 'Blackhand Elite yell'),
 (1031706, 0, 15, 8329, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Blackhand Elite - suicide'),
 (1043001, 0, 20, 1, 20, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 'Switch to random movement around the current position');
 
@@ -1944,30 +2005,30 @@ INSERT INTO `dbscripts_on_event` (`id`, `delay`, `command`, `datalong`, `datalon
 ('4845', '0', '9', @OGUID+295, '65', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'respawn gobject'),
 ('4845', '0', '9', @OGUID+296, '65', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'respawn gobject'),
 ('4845', '0', '9', @OGUID+301, '7200', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'respawn gobject'),
-('4845', '1', '9', @OGUID+298, '65', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'respawn gobject'),
-('4845', '1', '9', @OGUID+299, '65', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'respawn gobject'),
-('4845', '1', '9', @OGUID+300, '65', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'respawn gobject'),
-('4845', '1', '9', @OGUID+297, '65', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'respawn gobject'),
-('4845', '5', '10', '10602', '432000', '0', '0', '0', '0', '1', '0', '0', '0', '-33.04', '-385.57', '48.6', '5.98', 'summon MAGUS'),
-('4845', '5', '10', '10601', '432000', '0', '0', '0', '0', '1', '0', '0', '0', '-16.12', '-376.99', '49.2', '4.89', 'summon ENFORCER'),
-('4845', '5', '10', '10601', '432000', '0', '0', '0', '0', '1', '0', '0', '0', '-25.13', '-376.6', '48.94', '5.17', 'summon ENFORCER'),
-('4845', '13', '10', '10602', '432000', '0', '0', '0', '0', '1', '0', '0', '0', '-14.93', '-381.99', '49.04', '4.7', 'summon MAGUS'),
-('4845', '28', '10', '10602', '432000', '0', '0', '0', '0', '1', '0', '0', '0', '-35.47', '-371.36', '50.22', '4.79', 'summon MAGUS'),
-('4845', '28', '10', '10601', '432000', '0', '0', '0', '0', '1', '0', '0', '0', '-47.54', '-368.11', '51.67', '5.7', 'summon ENFORCER'),
-('4845', '42', '10', '10602', '432000', '0', '0', '0', '0', '1', '0', '0', '0', '-33.04', '-385.57', '48.6', '5.98', 'summon MAGUS'),
-('4845', '42', '10', '10602', '432000', '0', '0', '0', '0', '1', '0', '0', '0', '-14.58', '-375.16', '49.31', '4.73', 'summon MAGUS'),
-('4845', '42', '10', '10601', '432000', '0', '0', '0', '0', '1', '0', '0', '0', '-24.91', '-376.41', '48.95', '4.67', 'summon ENFORCER'),
-('4845', '58', '10', '10602', '432000', '0', '0', '0', '0', '1', '0', '0', '0', '-47.54', '-368.11', '51.67', '5.7', 'summon MAGUS'),
-('4845', '66', '10', '10584', '432000', '0', '0', '0', '0', '1', '0', '0', '0', '-23.97', '-391.89', '48.58', '1.68', 'summon Urok');
+('4845', '1000', '9', @OGUID+298, '65', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'respawn gobject'),
+('4845', '1000', '9', @OGUID+299, '65', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'respawn gobject'),
+('4845', '1000', '9', @OGUID+300, '65', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'respawn gobject'),
+('4845', '1000', '9', @OGUID+297, '65', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'respawn gobject'),
+('4845', '5000', '10', '10602', '432000', '0', '0', '0', '0', '1', '0', '0', '0', '-33.04', '-385.57', '48.6', '5.98', 'summon MAGUS'),
+('4845', '5000', '10', '10601', '432000', '0', '0', '0', '0', '1', '0', '0', '0', '-16.12', '-376.99', '49.2', '4.89', 'summon ENFORCER'),
+('4845', '5000', '10', '10601', '432000', '0', '0', '0', '0', '1', '0', '0', '0', '-25.13', '-376.6', '48.94', '5.17', 'summon ENFORCER'),
+('4845', '13000', '10', '10602', '432000', '0', '0', '0', '0', '1', '0', '0', '0', '-14.93', '-381.99', '49.04', '4.7', 'summon MAGUS'),
+('4845', '28000', '10', '10602', '432000', '0', '0', '0', '0', '1', '0', '0', '0', '-35.47', '-371.36', '50.22', '4.79', 'summon MAGUS'),
+('4845', '28000', '10', '10601', '432000', '0', '0', '0', '0', '1', '0', '0', '0', '-47.54', '-368.11', '51.67', '5.7', 'summon ENFORCER'),
+('4845', '42000', '10', '10602', '432000', '0', '0', '0', '0', '1', '0', '0', '0', '-33.04', '-385.57', '48.6', '5.98', 'summon MAGUS'),
+('4845', '42000', '10', '10602', '432000', '0', '0', '0', '0', '1', '0', '0', '0', '-14.58', '-375.16', '49.31', '4.73', 'summon MAGUS'),
+('4845', '42000', '10', '10601', '432000', '0', '0', '0', '0', '1', '0', '0', '0', '-24.91', '-376.41', '48.95', '4.67', 'summon ENFORCER'),
+('4845', '58000', '10', '10602', '432000', '0', '0', '0', '0', '1', '0', '0', '0', '-47.54', '-368.11', '51.67', '5.7', 'summon MAGUS'),
+('4845', '66000', '10', '10584', '432000', '0', '0', '0', '0', '1', '0', '0', '0', '-23.97', '-391.89', '48.58', '1.68', 'summon Urok');
 
 -- INSERT INTO `dbscripts_on_spell` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
 -- INSERT INTO `dbscripts_on_gossip` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
 -- INSERT INTO `dbscripts_on_quest_start` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
 -- INSERT INTO `dbscripts_on_quest_end` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
 
-DELETE FROM dbscript_string WHERE entry=2000000060;
-INSERT INTO `dbscript_string` (`entry`, `content_default`, `sound`, `type`, `language`, `emote`, `comment`) VALUES
-('2000000060', 'We''re doomed!', '0', '1', '0', '0', NULL);
+DELETE FROM `dbscript_string` WHERE entry=2000010060;
+INSERT INTO `dbscript_string` (`entry`, `content_default`, `sound`, `type`, `language`, `emote`, `broadcast_text_id`, `comment`) VALUES
+('2000010060', 'We''re doomed!', '0', '1', '0', '0', 5622, NULL); -- classic-db 2000000060
 
 -- INSERT INTO `dbscript_random_templates` (`id`, `type`, `target_id`, `chance`, `comments`) VALUES
 

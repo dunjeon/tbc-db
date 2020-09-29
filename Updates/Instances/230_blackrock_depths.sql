@@ -14,6 +14,18 @@ SET @PGUID := 46300; -- pools
 -- =========
 
 INSERT INTO `creature_movement` (`id`, `point`, `position_x`, `position_y`, `position_z`, `orientation`, `waittime`, `script_id`) VALUES
+(@CGUID+18, 1, 522.15550, -116.08752, -62.538906, 100, 0, 0),
+(@CGUID+18, 2, 505.31152, -124.58116, -62.091160, 100, 0, 0),
+(@CGUID+18, 3, 485.49722, -128.80054, -62.704540, 100, 0, 0),
+(@CGUID+18, 4, 472.80920, -115.44169, -62.756344, 100, 0, 0),
+(@CGUID+18, 5, 471.18213, -99.799904, -62.649403, 100, 0, 0),
+(@CGUID+18, 6, 467.47467, -85.965450, -62.763010, 100, 0, 0),
+(@CGUID+18, 7, 467.74796, -78.381775, -63.507520, 100, 0, 0),
+(@CGUID+18, 8, 484.17980, -70.550450, -61.930748, 100, 0, 0),
+(@CGUID+18, 9, 498.36487, -71.331535, -63.021206, 100, 0, 0),
+(@CGUID+18, 10, 516.93050, -73.921974, -61.997795, 100, 0, 0),
+(@CGUID+18, 11, 524.97200, -84.525460, -62.334217, 100, 0, 0),
+(@CGUID+18, 12, 533.14166, -100.23292, -62.887054, 100, 0, 0),
 (@CGUID+360, 1, 803.859, 12.9567, -53.6615, 0, 0, 0),
 (@CGUID+360, 2, 803.332, 36.0541, -53.6688, 0, 0, 0),
 (@CGUID+360, 3, 788.064, 46.9496, -53.7332, 0, 0, 0),
@@ -428,6 +440,40 @@ INSERT INTO `creature_movement` (`id`, `point`, `position_x`, `position_y`, `pos
 (@CGUID+883, 17, 791.093, -26.4291, -53.7006, 0, 0, 0),
 (@CGUID+883, 18, 795.717, -22.4336, -53.6528, 0, 0, 0),
 (@CGUID+883, 19, 812.793, -25.571, -53.6914, 0, 45000, 0),
+(@CGUID+891, 1, 502.45430, -73.061230, -63.078880, 100, 0, 0),
+(@CGUID+891, 2, 498.90630, -95.006805, -62.422752, 100, 0, 0),
+(@CGUID+891, 3, 507.24405, -103.94957, -62.505080, 100, 0, 0),
+(@CGUID+891, 4, 518.65470, -117.62196, -62.808950, 100, 0, 0),
+(@CGUID+891, 5, 521.28160, -127.59422, -63.682610, 100, 0, 0),
+(@CGUID+891, 6, 518.65470, -117.62196, -62.808950, 100, 0, 0),
+(@CGUID+891, 7, 507.24405, -103.94957, -62.505080, 100, 0, 0),
+(@CGUID+891, 8, 498.90630, -95.006805, -62.422752, 100, 0, 0),
+(@CGUID+891, 9, 502.45430, -73.061230, -63.078880, 100, 0, 0),
+(@CGUID+891, 10, 508.43326, -51.482870, -63.961403, 100, 0, 0),
+(@CGUID+894, 1, 484.46674, -122.68058, -62.535038, 100, 0, 0),
+(@CGUID+894, 2, 479.10086, -110.29395, -63.070683, 100, 0, 0),
+(@CGUID+894, 3, 485.73404, -104.56856, -62.574050, 100, 0, 0),
+(@CGUID+894, 4, 497.48060, -97.394140, -62.317060, 100, 0, 0),
+(@CGUID+894, 5, 515.06805, -95.993980, -63.009995, 100, 0, 0),
+(@CGUID+894, 6, 531.05945, -91.618450, -63.729683, 100, 0, 0),
+(@CGUID+894, 7, 515.06805, -95.993980, -63.009995, 100, 0, 0),
+(@CGUID+894, 8, 497.48060, -97.394140, -62.317060, 100, 0, 0),
+(@CGUID+894, 9, 485.84094, -104.50327, -62.634518, 100, 0, 0),
+(@CGUID+894, 10, 479.10086, -110.29395, -63.070683, 100, 0, 0),
+(@CGUID+894, 11, 484.46674, -122.68058, -62.535038, 100, 0, 0),
+(@CGUID+894, 12, 485.28564, -142.13850, -63.717728, 100, 0, 0),
+(@CGUID+923, 1, 524.35930, -73.162930, -62.162580, 100, 0, 0),
+(@CGUID+923, 2, 513.76990, -61.843716, -62.390373, 100, 0, 0),
+(@CGUID+923, 3, 503.46353, -59.338650, -63.372600, 100, 0, 0),
+(@CGUID+923, 4, 493.32874, -64.301400, -62.460186, 100, 0, 0),
+(@CGUID+923, 5, 481.00256, -66.295440, -61.872223, 100, 0, 0),
+(@CGUID+923, 6, 465.62982, -77.735730, -63.517704, 100, 0, 0),
+(@CGUID+923, 7, 481.00256, -66.295440, -61.872223, 100, 0, 0),
+(@CGUID+923, 8, 493.32874, -64.301400, -62.460186, 100, 0, 0),
+(@CGUID+923, 9, 503.46353, -59.338650, -63.372600, 100, 0, 0),
+(@CGUID+923, 10, 513.76990, -61.843716, -62.390373, 100, 0, 0),
+(@CGUID+923, 11, 524.35930, -73.162930, -62.162580, 100, 0, 0),
+(@CGUID+923, 12, 534.71625, -88.631386, -63.486240, 100, 0, 0),
 (@CGUID+976, 1, 378.292, -128.049, -64.949, 1.88894, 0, 0),
 (@CGUID+976, 2, 372.574, -113.477, -64.949, 1.84967, 0, 0),
 (@CGUID+976, 3, 380.902, -139.412, -64.949, 5.18761, 0, 0),
@@ -513,26 +559,26 @@ INSERT INTO `creature_movement_template` (`entry`, `pathId`, `point`, `position_
 (9056, 0, 9, 923.409, -403.986, -51.104, 100, 0, 0),
 (9056, 0, 10, 914.499, -394.179, -49.4412, 100, 3000, 0),
 (9056, 0, 11, 905.604, -403.547, -48.7295, 100, 0, 0),
-(9056, 0, 12, 905.604, -403.547, -48.7295, 4.39823, 15000, 4763101),
+(9056, 0, 12, 905.604, -403.547, -48.7295, 4.39823, 15000, 905601),
 (9056, 0, 13, 912.664, -392.947, -49.2744, 100, 0, 0),
 (9056, 0, 14, 918.441, -398, -49.6367, 100, 0, 0),
 (9056, 0, 15, 926.414, -407.296, -52.6216, 100, 0, 0),
 (9056, 0, 16, 930.038, -418.35, -55.3877, 100, 0, 0),
 (9056, 0, 17, 930.151, -424.848, -55.8645, 100, 0, 0),
 (9056, 0, 18, 927.594, -433.715, -56.5236, 100, 0, 0),
-(9056, 0, 19, 927.594, -433.715, -56.5236, 4.04916, 15000, 4763102),
+(9056, 0, 19, 927.594, -433.715, -56.5236, 4.04916, 15000, 905602),
 (9056, 0, 20, 936.123, -427.94, -56.1072, 100, 0, 0),
 (9056, 0, 21, 939.641, -426.605, -55.7614, 100, 0, 0),
 (9056, 0, 22, 944.406, -426.659, -54.9984, 100, 0, 0),
 (9056, 0, 23, 946.326, -428.053, -54.6023, 100, 0, 0),
-(9056, 0, 24, 946.326, -428.053, -54.6023, 0.15708, 3000, 4763103),
+(9056, 0, 24, 946.326, -428.053, -54.6023, 0.15708, 3000, 905603),
 (9056, 0, 25, 943.776, -418.105, -54.9468, 100, 0, 0),
 (9056, 0, 26, 947.044, -410.439, -55.9664, 100, 0, 0),
 (9056, 0, 27, 955.107, -403.439, -59.5107, 100, 0, 0),
 (9056, 0, 28, 961.657, -396.63, -60.8377, 100, 0, 0),
 (9056, 0, 29, 968.284, -389.058, -60.8377, 100, 0, 0),
 (9056, 0, 30, 978.015, -379.612, -64.6384, 100, 0, 0),
-(9056, 0, 31, 986.547, -370.816, -66.5624, 100, 90000, 4763104),
+(9056, 0, 31, 986.547, -370.816, -66.5624, 100, 90000, 905604),
 (9056, 0, 32, 974.031, -355.625, -69.1521, 100, 0, 0),
 (9056, 0, 33, 967.597, -349.477, -71.3905, 100, 0, 0),
 (9056, 0, 34, 963.267, -343.735, -71.7394, 100, 210000, 0),
@@ -791,7 +837,7 @@ REPLACE INTO `creature_template_addon` (`entry`, `mount`, `bytes1`, `b2_0_sheath
 (9681, 0, 0, 1, 16, 0, 0, NULL), -- Jaz
 (9938, 0, 0, 1, 16, 0, 0, NULL), -- Magmus
 (9956, 0, 0, 1, 16, 0, 0, NULL), -- Shadowforge Flame Keeper
-(10043, 0, 0, 1, 16, 0, 0, NULL), -- Ribbly's Crony
+(10043, 0, 0, 1, 16, 0, 0, '13299'), -- Ribbly's Crony
 (10116, 0, 0, 1, 16, 0, 0, NULL), -- Slave
 (10117, 0, 7, 1, 16, 0, 0, NULL), -- Tortured Slave
 (12944, 0, 0, 1, 16, 0, 0, NULL), -- Lokhtos Darkbargainer
@@ -1019,7 +1065,15 @@ INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES
 (@CGUID+605, @CGUID+598, 3), -- Anvilrage Reservist -> Anvilrage Reservist
 (@CGUID+606, @CGUID+598, 3), -- Anvilrage Reservist -> Anvilrage Reservist
 (@CGUID+607, @CGUID+598, 3), -- Anvilrage Reservist -> Anvilrage Reservist
-(@CGUID+678, @CGUID+994, 1); -- Ragereaver Golem -> Golem Lord Argelmach
+(@CGUID+678, @CGUID+994, 1), -- Ragereaver Golem -> Golem Lord Argelmach
+(@CGUID+892, @CGUID+891, 512), -- Bloodhound --> Bloodhound
+(@CGUID+893, @CGUID+891, 512), -- Bloodhound --> Bloodhound
+(@CGUID+895, @CGUID+894, 512), -- Bloodhound --> Bloodhound
+(@CGUID+896, @CGUID+894, 512), -- Bloodhound --> Bloodhound
+(@CGUID+921, @CGUID+18, 512), -- Bloodhound --> Anvilrage Warden
+(@CGUID+922, @CGUID+18, 512), -- Bloodhound --> Anvilrage Warden
+(@CGUID+924, @CGUID+923, 512), -- Bloodhound --> Bloodhound
+(@CGUID+925, @CGUID+923, 512); -- Bloodhound --> Bloodhound
 
 REPLACE INTO `creature_linking_template` (`entry`, `map`, `master_entry`, `flag`, `search_range`) VALUES
 (8900, 230, 8983, 1, 100), -- Doomforge Arcanasmith -> Golem Lord Argelmach
@@ -1048,7 +1102,7 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `position_x`, `position_y`, `positi
 (@CGUID+15, 8890, 230, 295.44, -115.542, -69.9608, 4.15388, 7200, 7200, 0, 0, 0, 0), -- Anvilrage Warden
 (@CGUID+16, 8890, 230, 337.164, -196.97, -78.1487, 2.25148, 7200, 7200, 0, 0, 0, 0), -- Anvilrage Warden
 (@CGUID+17, 8890, 230, 493.624, -60.0595, -62.3808, 0.750492, 7200, 7200, 0, 0, 0, 0), -- Anvilrage Warden
-(@CGUID+18, 8890, 230, 504.334, -124.74, -62.2873, 3.3539, 7200, 7200, 5, 0, 0, 1), -- Anvilrage Warden
+(@CGUID+18, 8890, 230, 530.73956, -99.72479, -62.775, 2.67, 7200, 7200, 0, 0, 0, 2), -- Anvilrage Warden
 (@CGUID+19, 8890, 230, 510.965, -123.116, -62.5922, 1.90241, 7200, 7200, 0, 0, 0, 0), -- Anvilrage Warden
 (@CGUID+20, 8890, 230, 291.353, -117.947, -69.8506, 0.558505, 7200, 7200, 0, 0, 0, 0), -- Anvilrage Warden
 (@CGUID+21, 8890, 230, 393.839, -143.637, -64.8657, 4.62512, 7200, 7200, 0, 0, 0, 0), -- Anvilrage Warden
@@ -1921,12 +1975,12 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `position_x`, `position_y`, `positi
 (@CGUID+888, 8921, 230, 513.468, -180.707, -59.7321, 5.01773, 7200, 7200, 0, 0, 0, 0), -- Bloodhound
 (@CGUID+889, 8921, 230, 592.544, -134.631, -69.2601, 3.64774, 7200, 7200, 0, 0, 0, 0), -- Bloodhound
 (@CGUID+890, 8921, 230, 596.864, -136.173, -69.502, 1.55334, 7200, 7200, 0, 0, 0, 0), -- Bloodhound
-(@CGUID+891, 8921, 230, 501.974, -76.0336, -63.0212, 4.5521, 7200, 7200, 5, 0, 0, 1), -- Bloodhound
-(@CGUID+892, 8921, 230, 504.562, -74.7311, -62.7859, 4.42372, 7200, 7200, 5, 0, 0, 1), -- Bloodhound
-(@CGUID+893, 8921, 230, 503.076, -72.1034, -63.0386, 4.40181, 7200, 7200, 5, 0, 0, 1), -- Bloodhound
-(@CGUID+894, 8921, 230, 481, -108.655, -62.9098, 0.712075, 7200, 7200, 5, 0, 0, 1), -- Bloodhound
-(@CGUID+895, 8921, 230, 480.396, -113.96, -62.7327, 1.59768, 7200, 7200, 5, 0, 0, 1), -- Bloodhound
-(@CGUID+896, 8921, 230, 480.469, -111.473, -62.9548, 1.34979, 7200, 7200, 5, 0, 0, 1), -- Bloodhound
+(@CGUID+891, 8921, 230, 508.71408, -54.984196, -63.601387, 1.15, 7200, 7200, 0, 0, 0, 2), -- Bloodhound
+(@CGUID+892, 8921, 230, 509.71408, -53.984196, -63.601387, 1.15, 7200, 7200, 0, 0, 0, 0), -- Bloodhound
+(@CGUID+893, 8921, 230, 510.71408, -52.984196, -63.601387, 1.15, 7200, 7200, 0, 0, 0, 0), -- Bloodhound
+(@CGUID+894, 8921, 230, 486.64145, -142.5594, -63.84844, 3.19, 7200, 7200, 0, 0, 0, 2), -- Bloodhound
+(@CGUID+895, 8921, 230, 488.64145, -140.5594, -63.84844, 3.19, 7200, 7200, 0, 0, 0, 0), -- Bloodhound
+(@CGUID+896, 8921, 230, 487.64145, -141.5594, -63.84844, 3.19, 7200, 7200, 0, 0, 0, 0), -- Bloodhound
 (@CGUID+897, 8921, 230, 613.94, -197.911, -84.4086, 0.261799, 7200, 7200, 0, 0, 0, 0), -- Bloodhound
 (@CGUID+898, 8921, 230, 614.706, -184.568, -84.4061, 3.52556, 7200, 7200, 0, 0, 0, 0), -- Bloodhound
 (@CGUID+899, 8921, 230, 612.43, -173.572, -84.4067, 0.191986, 7200, 7200, 0, 0, 0, 0), -- Bloodhound
@@ -1951,11 +2005,11 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `position_x`, `position_y`, `positi
 (@CGUID+918, 8921, 230, 376.838, -76.3056, -64.6609, 1.36136, 7200, 7200, 3, 0, 0, 1), -- Bloodhound
 (@CGUID+919, 8921, 230, 407.217, -51.017, -63.8686, 0.628253, 7200, 7200, 3, 0, 0, 1), -- Bloodhound
 (@CGUID+920, 8921, 230, 365.441, -214.539, -73.1542, 4.50295, 7200, 7200, 0, 0, 0, 0), -- Bloodhound
-(@CGUID+921, 8921, 230, 506.21, -126.368, -61.9919, 3.60864, 7200, 7200, 0, 0, 0, 0), -- Bloodhound
-(@CGUID+922, 8921, 230, 507.096, -123.682, -61.9944, 3.60864, 7200, 7200, 0, 0, 0, 0), -- Bloodhound
-(@CGUID+923, 8921, 230, 519.55, -68.0224, -62.0111, 2.3229, 7200, 7200, 5, 0, 0, 1), -- Bloodhound
-(@CGUID+924, 8921, 230, 520.168, -71.6099, -62.0318, 2.20067, 7200, 7200, 0, 0, 0, 0), -- Bloodhound
-(@CGUID+925, 8921, 230, 522.995, -71.7041, -62.1196, 2.16334, 7200, 7200, 0, 0, 0, 0), -- Bloodhound
+(@CGUID+921, 8921, 230, 534.18130, -99.56810, -62.9034, 2.67, 7200, 7200, 0, 0, 0, 0), -- Bloodhound
+(@CGUID+922, 8921, 230, 531.51860, -102.5340, -62.4346, 2.67, 7200, 7200, 0, 0, 0, 0), -- Bloodhound
+(@CGUID+923, 8921, 230, 533.55, -86.8869, -63.4610, 2.1608, 7200, 7200, 0, 0, 0, 2), -- Bloodhound
+(@CGUID+924, 8921, 230, 534.66, -87.8591, -63.4117, 2.1608, 7200, 7200, 0, 0, 0, 0), -- Bloodhound
+(@CGUID+925, 8921, 230, 532.66, -88.1867, -63.8359, 2.1608, 7200, 7200, 0, 0, 0, 0), -- Bloodhound
 (@CGUID+926, 8921, 230, 605.192, 44.4749, -74.0454, 2.07537, 7200, 7200, 5, 0, 0, 1), -- Bloodhound
 (@CGUID+927, 8921, 230, 638.745, -50.3329, -73.8678, 2.76303, 7200, 7200, 5, 0, 0, 1), -- Bloodhound
 (@CGUID+928, 8921, 230, 743.215, -60.3527, -71.9954, 2.42601, 7200, 7200, 0, 0, 0, 0), -- Bloodhound
@@ -2829,8 +2883,8 @@ INSERT INTO `pool_creature_template` (`id`, `pool_entry`, `chance`, `description
 INSERT INTO `dbscripts_on_go_use` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
 (@OGUID+93, 0, 11, @OGUID+95, 7200, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ''),
 (@OGUID+93, 0, 11, @OGUID+94, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ''),
-(@OGUID+93, 20, 12, @OGUID+33, 7200, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ''),
-(@OGUID+93, 20, 11, @OGUID+97, 7200, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '');
+(@OGUID+93, 20000, 12, @OGUID+33, 7200, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ''),
+(@OGUID+93, 20000, 11, @OGUID+97, 7200, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '');
 
 INSERT INTO `dbscripts_on_go_template_use` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
 (161456, 0, 10, 9437, 10800000, 0, 0, 0, 0, 0, 0, 0, 0, 815.276, -168.652, -49.6699, 6.23083, 'Spawn Dark Keeper Vorfalk and his guards'),
@@ -2853,14 +2907,14 @@ INSERT INTO `dbscripts_on_go_template_use` (`id`, `delay`, `command`, `datalong`
 (164819, 0, 10, 9443, 10800000, 0, 0, 0, 0, 0, 0, 0, 0, 802.755, -245.25, -43.2198, 2.93215, 'Spawn Dark Keeper Pelver and his guards'),
 (164819, 0, 10, 9445, 10800000, 0, 0, 0, 0, 0, 0, 0, 0, 805.289, -243.172, -43.2198, 3.42085, 'Spawn Dark Keeper Pelver and his guards'),
 (164819, 0, 10, 9445, 10800000, 0, 0, 0, 0, 0, 0, 0, 0, 801.935, -248.841, -43.2198, 1.95477, 'Spawn Dark Keeper Pelver and his guards'),
-(170562, 1, 0, 0, 0, 0, 9023, 20, 3, 2000005099, 0, 0, 0, 0, 0, 0, 0, 'Windsor - say on Dughal door open'),
-(170567, 1, 0, 0, 0, 0, 9680, 20, 3, 2000005101, 0, 0, 0, 0, 0, 0, 0, 'Crest - say on Crest door open'),
-(170567, 1, 22, 54, 5, 0, 9680, 20, 3, 2000005101, 0, 0, 0, 0, 0, 0, 0, 'Crest - change faction to hostile'),
-(170568, 1, 0, 0, 0, 0, 9677, 20, 3, 2000005102, 0, 0, 0, 0, 0, 0, 0, 'Ograbisi - say on Jaz door open'),
-(170568, 2, 22, 54, 5, 0, 9681, 20, 3, 2000005102, 0, 0, 0, 0, 0, 0, 0, 'Jaz - change faction to hostile'),
-(170568, 2, 22, 54, 5, 0, 9677, 20, 3, 2000005102, 0, 0, 0, 0, 0, 0, 0, 'Ograbisi - change faction to hostile'),
-(170569, 1, 0, 0, 0, 0, 9678, 20, 3, 2000005100, 0, 0, 0, 0, 0, 0, 0, 'Shill - say on Shill door open'),
-(170569, 1, 22, 54, 5, 0, 9678, 20, 3, 2000005100, 0, 0, 0, 0, 0, 0, 0, 'Shill - change faction to hostile'),
+(170562, 1000, 0, 0, 0, 0, 9023, 20, 3, 2000005099, 0, 0, 0, 0, 0, 0, 0, 'Windsor - say on Dughal door open'),
+(170567, 1000, 0, 0, 0, 0, 9680, 20, 3, 2000005101, 0, 0, 0, 0, 0, 0, 0, 'Crest - say on Crest door open'),
+(170567, 1000, 22, 54, 5, 0, 9680, 20, 3, 0, 0, 0, 0, 0, 0, 0, 0, 'Crest - change faction to hostile'),
+(170568, 1000, 0, 0, 0, 0, 9677, 20, 3, 2000005102, 0, 0, 0, 0, 0, 0, 0, 'Ograbisi - say on Jaz door open'),
+(170568, 2000, 22, 54, 5, 0, 9681, 20, 3, 0, 0, 0, 0, 0, 0, 0, 0, 'Jaz - change faction to hostile'),
+(170568, 2000, 22, 54, 5, 0, 9677, 20, 3, 0, 0, 0, 0, 0, 0, 0, 0, 'Ograbisi - change faction to hostile'),
+(170569, 1000, 0, 0, 0, 0, 9678, 20, 3, 2000005100, 0, 0, 0, 0, 0, 0, 0, 'Shill - say on Shill door open'),
+(170569, 1000, 22, 54, 5, 0, 9678, 20, 3, 0, 0, 0, 0, 0, 0, 0, 0, 'Shill - change faction to hostile'),
 (174554, 0, 27, 8, 0, 0, 160836, @OGUID+78, 16, 0, 0, 0, 0, 0, 0, 0, 0, 'Relic Coffer Door - Access: Relic Coffer'),
 (174555, 0, 27, 8, 0, 0, 160836, @OGUID+87, 16, 0, 0, 0, 0, 0, 0, 0, 0, 'Relic Coffer Door - Access: Relic Coffer'),
 (174556, 0, 27, 8, 0, 0, 160836, @OGUID+85, 16, 0, 0, 0, 0, 0, 0, 0, 0, 'Relic Coffer Door - Access: Relic Coffer'),
@@ -2874,35 +2928,37 @@ INSERT INTO `dbscripts_on_go_template_use` (`id`, `delay`, `command`, `datalong`
 (174564, 0, 27, 8, 0, 0, 160836, @OGUID+77, 16, 0, 0, 0, 0, 0, 0, 0, 0, 'Relic Coffer Door - Access: Relic Coffer'),
 (174565, 0, 27, 8, 0, 0, 160845, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, '');
 
-DELETE FROM dbscripts_on_creature_movement WHERE id IN (889101,902201,950001,950002,967901,4729401,4763101,4763102,4763103,4763104,9839501);
+DELETE FROM dbscripts_on_creature_movement WHERE id IN (889101,902201,950001,950002,967901,4729401,905601,905602,905603,905604,9839501);
 INSERT INTO `dbscripts_on_creature_movement` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
 (889101, 0, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'RUN OFF'),
-(889101, 1, 25, 0, 0, 0, 8891, 40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'RUN OFF'),
-(889101, 2, 20, 1, 5, 0, 8891, 40, 8, 0, 0, 0, 0, 0, 0, 0, 0, ''),
-(889101, 3, 20, 1, 5, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, ''),
+(889101, 1000, 25, 0, 0, 0, 8891, 40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'RUN OFF'),
+(889101, 2000, 20, 1, 5, 0, 8891, 40, 8, 0, 0, 0, 0, 0, 0, 0, 0, ''),
+(889101, 3000, 20, 1, 5, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, ''),
 (902201, 0, 18, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Despawn Dughal on last waypoint'),
-(950001, 0, 0, 0, 0, 0, 9545, 20, 0, 2000000261, 2000000262, 2000000263, 2000000264, 0, 0, 0, 0, 'Grim Patron - Say 1, 2, 3 or 4'),
-(950001, 0, 36, 0, 0, 0, 9545, 20, 3, 0, 0, 0, 0, 0, 0, 0, 0, 'Grim Patron - Face Nagmara'),
-(950001, 1, 36, 0, 0, 0, 9545, 20, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Mistress Nagmara - Face Grim Patron'),
-(950001, 2, 0, 0, 0, 0, 0, 0, 0, 2000000265, 2000000266, 2000000267, 0, 0, 0, 0, 0, 'Mistress Nagmara - Say 1, 2 or 3'),
-(950001, 4, 36, 1, 0, 0, 9545, 20, 3, 0, 0, 0, 0, 0, 0, 0, 0, 'Grim Patron - restore orientation'),
-(950001, 5, 36, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Mistress Nagmara - restore orientation'),
-(950002, 0, 0, 0, 0, 0, 9547, 20, 0, 2000000261, 2000000262, 2000000263, 2000000264, 0, 0, 0, 0, 'Grim Patron - Say 1, 2, 3 or 4'),
-(950002, 0, 36, 0, 0, 0, 9547, 20, 3, 0, 0, 0, 0, 0, 0, 0, 0, 'Guzzling Patron - Face Nagmara'),
-(950002, 1, 36, 0, 0, 0, 9547, 20, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Mistress Nagmara - Face Guzzling Patron'),
-(950002, 2, 0, 0, 0, 0, 0, 0, 0, 2000000265, 2000000266, 2000000267, 0, 0, 0, 0, 0, 'Mistress Nagmara - Say 1, 2 or 3'),
-(950002, 4, 36, 1, 0, 0, 9547, 20, 3, 0, 0, 0, 0, 0, 0, 0, 0, 'Guzzling Patron - restore orientation'),
-(950002, 5, 36, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Mistress Nagmara - restore orientation'),
+(950001, 0, 31, 9545, 100, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'search for 9545'),
+(950001, 1000, 0, 0, 0, 0, 9545, 20, 0, 2000000261, 2000000262, 2000000263, 2000000264, 0, 0, 0, 0, 'Grim Patron - Say 1, 2, 3 or 4'),
+(950001, 1000, 36, 0, 0, 0, 9545, 20, 3, 0, 0, 0, 0, 0, 0, 0, 0, 'Grim Patron - Face Nagmara'),
+(950001, 2000, 36, 0, 0, 0, 9545, 20, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Mistress Nagmara - Face Grim Patron'),
+(950001, 3000, 0, 0, 0, 0, 0, 0, 0, 2000000265, 2000000266, 2000000267, 0, 0, 0, 0, 0, 'Mistress Nagmara - Say 1, 2 or 3'),
+(950001, 5000, 36, 1, 0, 0, 9545, 20, 3, 0, 0, 0, 0, 0, 0, 0, 0, 'Grim Patron - restore orientation'),
+(950001, 6000, 36, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Mistress Nagmara - restore orientation'),
+(950002, 0, 31, 9547, 100, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'search for 9547'),
+(950002, 1000, 0, 0, 0, 0, 9547, 20, 0, 2000000261, 2000000262, 2000000263, 2000000264, 0, 0, 0, 0, 'Grim Patron - Say 1, 2, 3 or 4'),
+(950002, 1000, 36, 0, 0, 0, 9547, 20, 3, 0, 0, 0, 0, 0, 0, 0, 0, 'Guzzling Patron - Face Nagmara'),
+(950002, 2000, 36, 0, 0, 0, 9547, 20, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Mistress Nagmara - Face Guzzling Patron'),
+(950002, 3000, 0, 0, 0, 0, 0, 0, 0, 2000000265, 2000000266, 2000000267, 0, 0, 0, 0, 0, 'Mistress Nagmara - Say 1, 2 or 3'),
+(950002, 5000, 36, 1, 0, 0, 9547, 20, 3, 0, 0, 0, 0, 0, 0, 0, 0, 'Guzzling Patron - restore orientation'),
+(950002, 6000, 36, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Mistress Nagmara - restore orientation'),
 (967901, 0, 18, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Despawn Tobias on last waypoint'),
 (4729401, 0, 1, 69, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Weapon Technician - state_usestanding'),
-(4729401, 5, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Weapon Technician - oneshot_none'),
-(4763101, 3, 1, 133, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Fineous Darkvire - state_usestanding_nosheathe'),
-(4763101, 13, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Fineous Darkvire - oneshot_none'),
-(4763102, 3, 1, 173, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Fineous Darkvire - state_work'),
-(4763102, 13, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Fineous Darkvire - oneshot_none'),
-(4763103, 1, 1, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Fineous Darkvire - oneshot_kneel'),
-(4763104, 0, 20, 1, 3, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 'Fineous Darkvire - movementtype_random'),
-(4763104, 90, 20, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Fineous Darkvire - movementtype_waypoint'),
+(4729401, 5000, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Weapon Technician - oneshot_none'),
+(905601, 3000, 1, 133, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Fineous Darkvire - state_usestanding_nosheathe'),
+(905601, 13000, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Fineous Darkvire - oneshot_none'),
+(905602, 3000, 1, 173, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Fineous Darkvire - state_work'),
+(905602, 13000, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Fineous Darkvire - oneshot_none'),
+(905603, 1000, 1, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Fineous Darkvire - oneshot_kneel'),
+(905604, 0, 20, 1, 3, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 'Fineous Darkvire - movementtype_random'),
+(905604, 90000, 20, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Fineous Darkvire - movementtype_waypoint'),
 
 -- TBC+ only
 (9839501, 0, 18, 744000, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '[DND] L70ETC Drums - Grim Guzzler Despawn Drums on Drummer Spawn');
@@ -2914,32 +2970,32 @@ INSERT INTO `dbscripts_on_creature_movement` (`id`, `delay`, `command`, `datalon
 
 DELETE FROM dbscripts_on_gossip WHERE id IN (194502,197001);
 INSERT INTO `dbscripts_on_gossip` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
-(194502, 1, 9, @OGUID+112, 300, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'spawn Spectral Chalice'),
+(194502, 1000, 9, @OGUID+112, 300, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'spawn Spectral Chalice'),
 
 (197001, 0, 22, 21, 0, 0, 10043, @CGUID+1109, 16, 0, 0, 0, 0, 0, 0, 0, 0, 'Ribbly Crony - update faction'),
 (197001, 0, 22, 21, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Ribbly - update faction'),
 (197001, 0, 22, 21, 0, 0, 10043, @CGUID+1110, 16, 0, 0, 0, 0, 0, 0, 0, 0, 'Ribbly Crony - update faction'),
 (197001, 0, 22, 21, 0, 0, 10043, @CGUID+1111, 16, 0, 0, 0, 0, 0, 0, 0, 0, 'Ribbly Crony - update faction'),
-(197001, 3, 0, 0, 0, 0, 0, 0, 0, 2000005626, 0, 0, 0, 0, 0, 0, 0, ''),
-(197001, 5, 26, 0, 0, 0, 0, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Ribbly  - attack player');
+(197001, 3000, 0, 0, 0, 0, 0, 0, 0, 2000005626, 0, 0, 0, 0, 0, 0, 0, ''),
+(197001, 5000, 26, 0, 0, 0, 0, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Ribbly  - attack player');
 
 -- INSERT INTO `dbscripts_on_quest_start` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
 -- INSERT INTO `dbscripts_on_quest_end` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
 
 DELETE FROM dbscript_string WHERE entry IN (2000000261,2000000262,2000000263,2000000264,2000000265,2000000266,2000000267,2000005099,2000005100,2000005101,2000005102,2000005626);
-INSERT INTO `dbscript_string` (`entry`, `content_default`, `sound`, `type`, `language`, `emote`, `comment`) VALUES
-(2000000261, 'Hey Nagmara! How about a mug of Dark Iron Ale?', 0, 0, 0, 1, NULL),
-(2000000262, 'Nagmara! Have any mutton left?', 0, 0, 0, 0, NULL),
-(2000000263, 'Mistress, you tell Plugger that I want more of his ale. I can''t get enough!', 0, 0, 0, 1, NULL),
-(2000000264, 'Hey Nag, how about you slice me off a piece of that...', 0, 0, 0, 1, NULL),
-(2000000265, 'You got it!', 0, 0, 0, 1, NULL),
-(2000000266, 'Coming right up!', 0, 0, 0, 1, NULL),
-(2000000267, 'I''ll bring it right over, baby...', 0, 0, 0, 1, NULL),
-(2000005099, 'Get him out of there!', 0, 0, 0, 0, NULL),
-(2000005100, 'Perhaps Ograbisi will use your head as a tiny little hat when I''m through with you.', 0, 0, 0, 0, NULL),
-(2000005101, 'Where I come from, you get shanked for opening another inmate''s cell door!', 0, 0, 0, 0, NULL),
-(2000005102, 'Ograbisi needs new hat.', 0, 0, 0, 0, NULL),
-(2000005626, 'No! Get away from me! Help!!', 0, 0, 0, 0, '');
+INSERT INTO `dbscript_string` (`entry`, `content_default`, `sound`, `type`, `language`, `emote`, `broadcast_text_id`, `comment`) VALUES
+(2000000261, 'Hey Nagmara!  How about a mug of Dark Iron Ale?', 0, 0, 0, 1, 4984, NULL),
+(2000000262, 'Nagmara!  Have any mutton left?', 0, 0, 0, 0, 4985, NULL),
+(2000000263, 'Mistress, you tell Plugger that I want more of his ale.  I can''t get enough!', 0, 0, 0, 1, 4986, NULL),
+(2000000264, 'Hey Nag, how about you slice me off a piece of that...', 0, 0, 0, 1, 4987, NULL),
+(2000000265, 'You got it!', 0, 0, 0, 1, 4979, NULL),
+(2000000266, 'Coming right up!', 0, 0, 0, 1, 4980, NULL),
+(2000000267, 'I''ll bring it right over, baby...', 0, 0, 0, 1, 4981, NULL),
+(2000005099, 'Get him out of there!', 0, 0, 0, 0, 5230, NULL),
+(2000005100, 'Perhaps Ograbisi will use your head as a tiny little hat when I''m through with you.', 0, 0, 0, 0, 5203, NULL),
+(2000005101, 'Where I come from, you get shanked for opening another inmate''s cell door!', 0, 0, 0, 0, 5258, NULL),
+(2000005102, 'Ograbisi needs new hat!', 0, 0, 0, 0, 5199, NULL),
+(2000005626, 'No!  Get away from me!  Help!!', 0, 0, 0, 0, 4973, '');
 
 -- INSERT INTO `dbscript_random_templates` (`id`, `type`, `target_id`, `chance`, `comments`) VALUES
 
